@@ -98,7 +98,7 @@ Shader "Compose/Waveform"
 				float pos = i.uv.y;
 				
 				float edge = abs(i.uv.y - 0.5f)/s;
-				return lerp(_Color, _Background, clamp(0, 1, pow(edge*2, 4)));
+				return lerp(_Background, _Color, clamp(0, 1, pow(edge*2, 4)));
 			}
 			ENDCG
 		}
