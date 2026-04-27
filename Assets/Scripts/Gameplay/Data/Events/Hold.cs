@@ -14,6 +14,7 @@ namespace ArcCreate.Gameplay.Data
         private bool tapJudgementRequestSent = false;
         private bool holdHighlightRequestSent = false;
         private int longParticleUntil = int.MinValue;
+        private int lastHitTime = int.MinValue;
         private int numHoldJudgementRequestsSent = 0;
         private bool spawnedParticleThisFrame = false;
         private Texture texture;
@@ -72,7 +73,7 @@ namespace ArcCreate.Gameplay.Data
             if (count <= 1)
             {
                 TotalCombo = 1;
-                FirstJudgeTime = Timing + (duration / 2);
+                FirstJudgeTime = Timing;
             }
             else
             {
@@ -187,8 +188,8 @@ namespace ArcCreate.Gameplay.Data
                 {
                     if (groupProperties.FadingHolds)
                     {
-                        int lastHit = Mathf.Max(longParticleUntil, Timing);
-                        float t = (float)(currentTiming - lastHit - Values.FadingHoldsFadeDelay) / Values.FadingHoldsFadeDuration;
+                        int lastHit = Mathf.Max(lastHitTime + Values.HoldParticlePersistDuration, Timing);
+                        float t = (float)(currentTiming - Values.FadingHoldsFadeDelay - lastHit) / Values.FadingHoldsFadeDuration;
                         alpha = Mathf.Lerp(1, Values.MissedHoldAlphaScalar, t);
                     }
                     else
@@ -233,6 +234,7 @@ namespace ArcCreate.Gameplay.Data
             tapJudgementRequestSent = false;
 
             longParticleUntil = currentTiming + Values.HoldParticlePersistDuration;
+            lastHitTime = currentTiming;
             highlight = true;
             Services.InputFeedback.LaneFeedback(Mathf.RoundToInt(Lane));
             Services.Particle.PlayHoldParticle(this, new Vector3(ArcFormula.LaneToWorldX(Lane), 0, 0) + props.CurrentJudgementOffset);
@@ -273,6 +275,7 @@ namespace ArcCreate.Gameplay.Data
             }
             else
             {
+                lastHitTime = currentTiming;
                 longParticleUntil = currentTiming + Values.HoldParticlePersistDuration;
                 highlight = true;
                 JudgementResult result = props.MapJudgementResult(JudgementResult.Max);
