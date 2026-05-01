@@ -296,7 +296,7 @@ namespace ArcCreate.Gameplay.Data
         {
             Services.Judgement.Request(new LaneTapJudgementRequest()
             {
-                ExpireAtTiming = EndTiming,
+                ExpireAtTiming = EndTiming + Values.GoodJudgeWindow,
                 AutoAtTiming = Timing,
                 Lane = Lane,
                 Receiver = this,

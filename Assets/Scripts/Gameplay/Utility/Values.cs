@@ -9,7 +9,7 @@ namespace ArcCreate.Gameplay
         public const float TrackLengthBackward = 53.5f;
         public const float MinInputLaneZ = TrackLengthForward / 20f;
         public const float LaneWidth = 4.25f;
-        public const float NoteFadeOutLength = 10;
+        public const float NoteFadeOutLength = 20;
         public const float ArcY0 = 1f;
         public const float ArcY1 = 5.5f;
 

@@ -186,7 +186,12 @@ namespace ArcCreate.Gameplay.Data
             }
 
             Color color = groupProperties.Color;
-            color.a *= Mathf.Min(alpha, arcGroupAlpha);
+            float baseAlpha = Mathf.Min(alpha, arcGroupAlpha);
+            color.a = baseAlpha;
+            if (!IsTrace)
+            {
+                color.a *= ArcFormula.CalculateFadeOutAlpha(z-5);
+            }
 
             int clipToTiming;
             double clipToFloorPosition;
@@ -250,9 +255,11 @@ namespace ArcCreate.Gameplay.Data
                 }
                 else
                 {
-                    Services.Render.DrawArcSegment(Color, highlight, matrix * bodyMatrix, color, IsSelected, redArcValue, basePos.y + segment.EndPosition.y, depth);
+                    Color colorNew = color;
+                    colorNew.a = baseAlpha * ArcFormula.CalculateFadeOutAlpha(endZPos-5);
+                    Services.Render.DrawArcSegment(Color, highlight, matrix * bodyMatrix, colorNew, IsSelected, redArcValue, basePos.y + segment.EndPosition.y, depth);
                     if (!groupProperties.NoShadow)
-                    {
+                    {   
                         Services.Render.DrawArcShadow(matrix * shadowMatrix, color, cornerOffset);
                     }
                 }
@@ -261,7 +268,7 @@ namespace ArcCreate.Gameplay.Data
             if (!groupProperties.NoHeightIndicator && (clipToTiming <= Timing || groupProperties.NoClip) && ShouldDrawHeightIndicator)
             {
                 Matrix4x4 heightIndicatorMatrix = Matrix4x4.Scale(new Vector3(1, pos.y - (Values.TraceMeshOffset / 2), 1));
-                Services.Render.DrawHeightIndicator(matrix * heightIndicatorMatrix, heightIndicatorColor * groupProperties.Color);
+                Services.Render.DrawHeightIndicator(matrix * heightIndicatorMatrix, heightIndicatorColor * groupProperties.Color * color.a);
             }
 
             if (!groupProperties.NoHead && (clipToTiming <= Timing || groupProperties.NoClip) && IsFirstArcOfGroup)

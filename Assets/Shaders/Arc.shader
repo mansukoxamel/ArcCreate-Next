@@ -74,7 +74,7 @@
 			{
 				UNITY_SETUP_INSTANCE_ID(i);
 
-			    if(i.worldpos.z > 50 || i.worldpos.z < -100) return 0;
+			    if(i.worldpos.z > 50 || i.worldpos.z < -90) return 0;
 
 				float highlight = UNITY_ACCESS_INSTANCED_PROP(Props, _Properties).y;
 				i.uv.x = (i.uv.x + highlight) / 2;

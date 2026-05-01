@@ -35,6 +35,7 @@
 			{
 				float4 vertex : SV_POSITION;
 				float2 uv : TEXCOORD0;
+				float3 worldpos : TEXCOORD1;
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
 
@@ -59,6 +60,7 @@
 				UNITY_SETUP_INSTANCE_ID(v);
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 
+				o.worldpos = mul(unity_ObjectToWorld, v.vertex);
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				return o;
@@ -67,6 +69,8 @@
 			half4 frag (v2f i) : SV_Target
 			{
 				UNITY_SETUP_INSTANCE_ID(i);
+
+			    if(i.worldpos.z < -90) return 0;
 
 				half4 c = half4(tex2D(_MainTex,i.uv).rgb, 1);
 				if(UNITY_ACCESS_INSTANCED_PROP(Props, _Properties).x >= 0.5) 

@@ -76,7 +76,7 @@
 			{
 				UNITY_SETUP_INSTANCE_ID(i);
 
-			    if(i.worldpos.z > 50 || i.worldpos.z < -100) return 0;
+			    if(i.worldpos.z > 50 || i.worldpos.z < -90) return 0;
 				half4 c = tex2D(_MainTex,i.uv); 
 				half4 traceColor = _TraceColor;
 				
