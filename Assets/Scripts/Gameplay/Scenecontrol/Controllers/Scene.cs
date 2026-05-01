@@ -907,7 +907,7 @@ namespace ArcCreate.Gameplay.Scenecontrol
                 {
                     Debug.LogError(e);
                     throw new IOException(I18n.S(
-                        "Gameplay.Exception.ScenecontrolCantLoadSprite",
+                        "Gameplay.Exception.ScenecontrolSprite",
                         new Dictionary<string, object>()
                             {
                                 { "Path", definition.Uri },
