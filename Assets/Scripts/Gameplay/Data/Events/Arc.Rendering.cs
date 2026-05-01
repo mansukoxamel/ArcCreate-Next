@@ -186,8 +186,8 @@ namespace ArcCreate.Gameplay.Data
             }
 
             Color color = groupProperties.Color;
-            float baseAlpha = Mathf.Min(alpha, arcGroupAlpha);
-            color.a *= baseAlpha;
+            color.a *= Mathf.Min(alpha, arcGroupAlpha);
+            float baseAlpha = color.a;
             if (!IsTrace)
             {
                 color.a *= ArcFormula.CalculateFadeOutAlpha(z-5);
