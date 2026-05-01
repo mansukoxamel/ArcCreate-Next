@@ -187,7 +187,7 @@ namespace ArcCreate.Gameplay.Data
 
             Color color = groupProperties.Color;
             float baseAlpha = Mathf.Min(alpha, arcGroupAlpha);
-            color.a = baseAlpha;
+            color.a *= baseAlpha;
             if (!IsTrace)
             {
                 color.a *= ArcFormula.CalculateFadeOutAlpha(z-5);
@@ -268,7 +268,9 @@ namespace ArcCreate.Gameplay.Data
             if (!groupProperties.NoHeightIndicator && (clipToTiming <= Timing || groupProperties.NoClip) && ShouldDrawHeightIndicator)
             {
                 Matrix4x4 heightIndicatorMatrix = Matrix4x4.Scale(new Vector3(1, pos.y - (Values.TraceMeshOffset / 2), 1));
-                Services.Render.DrawHeightIndicator(matrix * heightIndicatorMatrix, heightIndicatorColor * groupProperties.Color * color.a);
+                Color hiColor = heightIndicatorColor * groupProperties.Color;
+                hiColor.a *= color.a;
+                Services.Render.DrawHeightIndicator(matrix * heightIndicatorMatrix, hiColor);
             }
 
             if (!groupProperties.NoHead && (clipToTiming <= Timing || groupProperties.NoClip) && IsFirstArcOfGroup)
