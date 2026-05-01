@@ -85,6 +85,7 @@ namespace ArcCreate.Gameplay
         public const string BeatlinePoolName = "beatline";
         public const string TapParticlePoolName = "tapparticle";
         public const string ArcParticlePoolName = "arcparticle";
+        public const string OldArcParticlePoolName = "oldarcparticle";
         public const string HoldParticlePoolName = "holdparticle";
 
         // I sure hope no charter will make use of lane -2147483648

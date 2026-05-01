@@ -26,6 +26,7 @@ namespace ArcCreate.Compose.Components
         [SerializeField] private SettingsDropdown indicatorPositionDropdown;
         [SerializeField] private SettingsToggle maxIndicatorToggle;
         [SerializeField] private SettingsToggle colorblindModeToggle;
+        [SerializeField] private SettingsToggle classicArcParticleToggle;
         [SerializeField] private SettingsDropdown scoreDisplayDropdown;
 
         [Header("Judgement")]
@@ -124,6 +125,7 @@ namespace ArcCreate.Compose.Components
             snapFloorNoteWithGrid.Setup(Settings.SnapFloorNoteWithGrid);
             blockCreatingOverlappedNotesToggle.Setup(Settings.BlockOverlapNoteCreation);
             colorblindModeToggle.Setup(Settings.EnableColorblind);
+            classicArcParticleToggle.Setup(Settings.ClassicArcParticle);
             scoreDisplayDropdown.Setup(Settings.ScoreDisplayMode, typeof(ScoreDisplayMode), "Gameplay.Selection.Settings.ScoreDisplay");
             lateEarlyPositionDropdown.Setup(Settings.LateEarlyTextPosition, typeof(EarlyLateTextPosition), "Gameplay.Selection.Settings.EarlyLateTextPosition");
             showMsDifferenceToggle.Setup(Settings.DisplayMsDifference);

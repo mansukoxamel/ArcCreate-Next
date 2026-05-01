@@ -805,6 +805,7 @@ Compose:
           Indicator: Indicator
           MaxIndicator: Enable max indicator
           Colorblind: Use colorblind arc colors
+          ClassicArcParticle: Classic arc particle
           ScoreDisplay: Score display
         Judgement:
           Name: Judgement
@@ -1108,6 +1109,8 @@ Gameplay:
         Name: Visual
         Colorblind: Colorblind mode
         ColorblindDetail: Use alternate arc colors.
+        ClassicArcParticle: Classic arc particle
+        ClassicArcParticleDetail: Use uncolored particle variant.
         FrPmDisplay: FC/AP display
         FrPmDisplayDetail: Adjust FC/AP indicator position.
         MaxDisplay: Max indicator display

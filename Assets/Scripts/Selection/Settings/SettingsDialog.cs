@@ -41,6 +41,7 @@ namespace ArcCreate.Selection.Interface
 
         [Header("Visual")]
         [SerializeField] private SettingsToggle colorblindModeSetting;
+        [SerializeField] private SettingsToggle classicArcColorSetting;
         [SerializeField] private SettingsEnum frPmDisplayPositionSetting;
         [SerializeField] private SettingsEnum lateEarlyPositionSetting;
         [SerializeField] private SettingsToggle maxIndicatorSetting;
@@ -91,6 +92,7 @@ namespace ArcCreate.Selection.Interface
             pauseModeSetting.Setup(Settings.PauseButtonMode, typeof(PauseButtonMode), "Gameplay.Selection.Settings.PauseMode");
             earlyLatePerfectSetting.Setup(Settings.ShowEarlyLatePerfect);
             colorblindModeSetting.Setup(Settings.EnableColorblind);
+            classicArcColorSetting.Setup(Settings.ClassicArcParticle);
             disableAdvancedGraphicsSetting.Setup(Settings.DisableAdvancedGraphics);
             frPmDisplayPositionSetting.Setup(Settings.FrPmIndicatorPosition, typeof(FrPmPosition), "Gameplay.Selection.Settings.FrPmPosition");
             earlyLatePerfectSetting.Setup(Settings.ShowEarlyLatePerfect);

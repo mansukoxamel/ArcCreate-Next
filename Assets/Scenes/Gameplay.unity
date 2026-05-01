@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37312585, g: 0.3807451, b: 0.358728, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3677,6 +3676,8 @@ MonoBehaviour:
   tapSfxParticlePrefab: {fileID: 1660056931339614116, guid: 4a45bc74e806609cc8cb8649f55598d5,
     type: 3}
   arcNoteParticlePrefab: {fileID: 1799711940945094, guid: f383748865dc4d34b976d677479f8b0c,
+    type: 3}
+  classicArcNoteParticlePrefab: {fileID: 8182895525809098792, guid: 2f963591732f779fcad7481d09db1d8e,
     type: 3}
   holdNoteParticlePrefab: {fileID: 8182895525809098792, guid: 648fe7c891b865463806714d06bed943,
     type: 3}
