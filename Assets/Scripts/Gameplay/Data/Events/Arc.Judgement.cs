@@ -54,17 +54,17 @@ namespace ArcCreate.Gameplay.Data
             bpm = System.Math.Abs(bpm);
             TimeIncrement = (bpm >= 255 ? 60_000 : 30_000) / bpm / Values.TimingPointDensity;
 
-            int count = (int)(duration / TimeIncrement);
-            int whatTheFuckDoesThisMean = (IsFirstArcOfGroup ? 0 : 1) ^ 1;
-            if (count <= whatTheFuckDoesThisMean)
+            int totalCombo = (int)(duration / TimeIncrement);
+            int comboModifier = (IsFirstArcOfGroup ? 0 : 1) ^ 1;
+            if (totalCombo <= comboModifier)
             {
                 TotalCombo = 1;
                 FirstJudgeTime = Timing + (duration / 2);
             }
             else
             {
-                TotalCombo = count - whatTheFuckDoesThisMean;
-                FirstJudgeTime = Timing + (whatTheFuckDoesThisMean * TimeIncrement);
+                TotalCombo = totalCombo - comboModifier;
+                FirstJudgeTime = Timing + (comboModifier * TimeIncrement);
             }
         }
 
@@ -114,6 +114,10 @@ namespace ArcCreate.Gameplay.Data
             }
             else if (currentTiming <= EndTiming + Values.HoldMissLateJudgeWindow)
             {
+                if (!props.SloppyJudgement && currentTiming - Time.unscaledDeltaTime * 1000 > EndTiming)
+                {
+                    return;
+                }
                 SetGroupHighlight(true, currentTiming + Values.HoldParticlePersistDuration);
                 if (!hasBeenHitOnce)
                 {
@@ -144,7 +148,7 @@ namespace ArcCreate.Gameplay.Data
                 int lateTiming = (int)System.Math.Round(FirstJudgeTime + ((t+4) * TimeIncrement));
                 Services.Judgement.Request(new ArcJudgementRequest()
                 {
-                    StartAtTiming = timing - Values.GoodJudgeWindow,
+                    StartAtTiming = timing,
                     ExpireAtTiming = lateTiming,
                     AutoAtTiming = timing,
                     Arc = this,

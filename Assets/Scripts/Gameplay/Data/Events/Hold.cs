@@ -225,7 +225,7 @@ namespace ArcCreate.Gameplay.Data
         public void ProcessLaneTapJudgement(int offset, GroupProperties props)
         {
             int currentTiming = Services.Audio.ChartTiming;
-            if (currentTiming > EndTiming)
+            if (!props.SloppyJudgement && currentTiming - Time.unscaledDeltaTime * 1000 > EndTiming)
             {
                 return;
             }

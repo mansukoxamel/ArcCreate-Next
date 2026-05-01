@@ -61,6 +61,7 @@ namespace ArcCreate.ChartFormat
         public float JudgementOffsetY { get; set; } = 0;
 
         public float JudgementOffsetZ { get; set; } = 0;
+        public bool SloppyJudgement { get; set; } = false;
 
         public SideOverride Side { get; set; } = SideOverride.None;
 
@@ -213,6 +214,9 @@ namespace ArcCreate.ChartFormat
                         case "ignoremirror":
                             tg.IgnoreMirror = true;
                             break;
+                        case "sloppyjudge":
+                            tg.SloppyJudgement = true;
+                            break;
                         case "autoplay":
                             tg.Autoplay = true;
                             break;
@@ -319,6 +323,11 @@ namespace ArcCreate.ChartFormat
             if (IgnoreMirror)
             {
                 opts.Add("ignoremirror");
+            }
+
+            if (SloppyJudgement)
+            {
+                opts.Add("sloppyjudge");
             }
 
             if (Autoplay)
