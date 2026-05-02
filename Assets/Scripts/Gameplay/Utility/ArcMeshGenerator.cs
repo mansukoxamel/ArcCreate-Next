@@ -169,7 +169,7 @@ namespace ArcCreate.Gameplay.Utility
                 {
                     new Vector3(0, offsetHalf, 0),
                     new Vector3(offset, -offsetHalf, 0),
-                    new Vector3(0, -offsetHalf, offsetHalf),
+                    new Vector3(0, -offsetHalf, offset),
                     new Vector3(-offset, -offsetHalf, 0),
                 },
                 uv = new Vector2[]
