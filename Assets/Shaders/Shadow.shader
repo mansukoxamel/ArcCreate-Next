@@ -4,7 +4,7 @@
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_ShadowColor ("ShadowColor", Color) = (1,1,1,1)
-		_Color ("Color", Color) = (1, 1, 1, 1)
+//		_Color ("Color", Color) = (1, 1, 1, 1)
 	}
 	SubShader
 	{
@@ -47,7 +47,7 @@
                 UNITY_DEFINE_INSTANCED_PROP(float4, _Properties)
             UNITY_INSTANCING_BUFFER_END(Props)
 			 
-			float4 _ShadowColor;
+			half4 _ShadowColor;
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
 
@@ -75,7 +75,7 @@
 
 			    if (i.worldpos.z > 50 || i.worldpos.z < -90) return 0;
 				float4 c = _ShadowColor;
-				c *= UNITY_ACCESS_INSTANCED_PROP(Props, _Color);
+				c.a *= UNITY_ACCESS_INSTANCED_PROP(Props, _Color).a;
 				c.a *= 0.7;
 				return c;
 			}
