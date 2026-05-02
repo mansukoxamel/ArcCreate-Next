@@ -405,6 +405,7 @@ namespace ArcCreate.Gameplay.Particle
             missTextParticle.ApplyMaterial(missMaterial);
             
             arcNoteParticlePrefab = Instantiate(arcNoteParticlePrefab, transform);
+            classicArcNoteParticlePrefab = Instantiate(classicArcNoteParticlePrefab, transform);
             holdNoteParticlePrefab = Instantiate(holdNoteParticlePrefab, transform);
 
             arcParticlePool = Pools.New<Particle>(
