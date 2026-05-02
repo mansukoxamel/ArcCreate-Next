@@ -53,6 +53,50 @@ jobs:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
 
+  buildForAndroidPlatformAPK:
+    name: Build For Android Platform APK
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jlumbroso/free-disk-space@v1.2.0
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Decrypt & extract secrets
+        run: ./decrypt_secret.sh
+        env:
+          SECRET_PASSPHRASE: ${{ secrets.ENCRYPTED_FILE_SECRET_PASSPHRASE }}
+
+      - uses: actions/cache@v3
+        with:
+          path: Library
+          key:
+            Library-Android-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-Android-
+            Library-
+
+      - uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: Android
+          androidExportType: androidPackage
+          androidKeystoreName: arccreate
+          androidKeystoreBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
+          androidKeyaliasName: ${{ secrets.ANDROID_KEYALIAS_NAME }}
+          androidKeyaliasPass: ${{ secrets.ANDROID_KEYALIAS_PASS }}
+          androidTargetSdkVersion: AndroidApiLevel34
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build-AndroidAPK
+          path: build/Android
+
   buildForAndroidPlatform:
     name: Build For Android Platform
     runs-on: ubuntu-latest
