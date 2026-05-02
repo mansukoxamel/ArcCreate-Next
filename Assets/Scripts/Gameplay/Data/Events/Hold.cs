@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using ArcCreate.Gameplay.Judgement;
 using ArcCreate.Utility;
@@ -305,11 +306,12 @@ namespace ArcCreate.Gameplay.Data
             for (int t = numHoldJudgementRequestsSent; t < TotalCombo; t++)
             {
                 int timing = (int)System.Math.Round(FirstJudgeTime + (t * TimeIncrement));
+                int expireAt = Mathf.Min((int)(4 * TimeIncrement), Values.LongNoteMaxJudgeWindow);
 
                 Services.Judgement.Request(new LaneHoldJudgementRequest()
                 {
                     StartAtTiming = timing,
-                    ExpireAtTiming = timing + (int)(4*TimeIncrement),
+                    ExpireAtTiming = timing + expireAt,
                     AutoAtTiming = timing,
                     Lane = Lane,
                     IsJudgement = true,

@@ -25,6 +25,7 @@ namespace ArcCreate.Gameplay
         public const int PerfectJudgeWindow = 50;
         public const int MaxJudgeWindow = 25;
         public const int HoldMissLateJudgeWindow = 240;
+        public const int LongNoteMaxJudgeWindow = 2000;
 
         // Visual
         public const int HoldFlashCycle = 4;

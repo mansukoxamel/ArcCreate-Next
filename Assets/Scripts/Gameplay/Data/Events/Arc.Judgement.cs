@@ -141,7 +141,8 @@ namespace ArcCreate.Gameplay.Data
             for (int t = numJudgementRequestsSent; t < TotalCombo; t++)
             {
                 int timing = (int)System.Math.Round(Timing + (t * TimeIncrement));
-                int lateTiming = (int)System.Math.Round(FirstJudgeTime + ((t+4) * TimeIncrement));
+                int expireAt = Mathf.Min((int)(4 * TimeIncrement), Values.LongNoteMaxJudgeWindow);
+                int lateTiming = (int)System.Math.Round(FirstJudgeTime + t * expireAt);
                 Services.Judgement.Request(new ArcJudgementRequest()
                 {
                     StartAtTiming = timing,
