@@ -70,6 +70,8 @@ namespace ArcCreate.Gameplay.Data
         public bool IsFirstArcOfGroup => PreviousArc == null;
 
         public bool IsFirstArcOfBranch => PreviousArc == null || PreviousArc.NextArc != this;
+        
+        public bool IsLastArcOfGroup => NextArc == null;
 
         public float CurrentDepth { get; private set; }
 
@@ -558,10 +560,10 @@ namespace ArcCreate.Gameplay.Data
                 {
                     float approach = Mathf.Clamp(1 - (Mathf.Abs(z) / Values.TrackLengthForward), 0, 1);
                     float size = Values.ArcCapSize + (Values.ArcCapSizeAdditionMax * (1 - approach));
-
+                    
                     Vector3 capPos = -(fallDirection * z);
                     Vector3 scale = new Vector3(size, size, 1);
-                    Vector4 color = new Color(1, 1, 1, IsTrace ? 0 : approach);
+                    Vector4 color = new Color(1, 1, 1, IsTrace ? 0 : (approach * Values.ArcCapAlpha));
 
                     return (true, Matrix4x4.TRS(capPos, Quaternion.identity, scale), color);
                 }
@@ -569,6 +571,23 @@ namespace ArcCreate.Gameplay.Data
                 {
                     return (false, default, default);
                 }
+            }
+            
+            bool isValidLength = EndTiming - Timing > 1;
+            if (IsLastArcOfGroup && isValidLength && !isControllerMode)
+            {
+                float distance = Mathf.Abs(EndZPos(currentFloorPosition));
+                float approach = Mathf.Clamp(1 - (distance * Values.ArcCapFadeoutFactor / Values.TrackLengthBackward), 0, 1);
+                float size = IsTrace ? Values.TraceCapSize : Values.ArcCapSize;
+                
+                Vector3 arcStartPos = new Vector3(WorldXAt(Timing), WorldYAt(Timing), 0);
+                Vector3 arcEndPos = new Vector3(WorldXAt(EndTiming), WorldYAt(EndTiming), 0);
+
+                Vector3 capPos = (arcEndPos - arcStartPos) - (fallDirection * z);
+                Vector3 scale = new Vector3(size, size, 1);
+                Vector4 color = new Color(1, 1, 1, approach * (IsTrace ? Values.TraceCapAlpha : Values.ArcCapAlpha));
+
+                return (true, Matrix4x4.TRS(capPos, Quaternion.identity, scale), color);
             }
 
             return (false, default, default);
