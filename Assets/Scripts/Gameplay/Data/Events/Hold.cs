@@ -306,12 +306,12 @@ namespace ArcCreate.Gameplay.Data
             for (int t = numHoldJudgementRequestsSent; t < TotalCombo; t++)
             {
                 int timing = (int)System.Math.Round(FirstJudgeTime + (t * TimeIncrement));
-                int expireAt = Mathf.Min((int)(4 * TimeIncrement), Values.LongNoteMaxJudgeWindow);
+                float timeIncrement = Mathf.Min((float)TimeIncrement, (float)Values.LongNoteMaxJudgeWindow);
 
                 Services.Judgement.Request(new LaneHoldJudgementRequest()
                 {
                     StartAtTiming = timing,
-                    ExpireAtTiming = timing + expireAt,
+                    ExpireAtTiming = timing + (int)(4 * timeIncrement),
                     AutoAtTiming = timing,
                     Lane = Lane,
                     IsJudgement = true,
