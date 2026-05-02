@@ -24,7 +24,7 @@ namespace ArcCreate.Gameplay.Chart
 
         public override void UpdateJudgement(int timing, double floorPosition, GroupProperties groupProperties)
         {
-            if (Notes.Count == 0)
+            if (Notes.Count == 0 || groupProperties.NoInput)
             {
                 return;
             }

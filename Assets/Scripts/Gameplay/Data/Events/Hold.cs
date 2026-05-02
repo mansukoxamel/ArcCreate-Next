@@ -120,8 +120,6 @@ namespace ArcCreate.Gameplay.Data
 
         public void UpdateJudgement(int currentTiming, GroupProperties groupProperties)
         {
-            if (groupProperties.NoInput) return; // no judgement nor highlight should be performed for noinput notes
-
             if (currentTiming >= Timing - Values.MissJudgeWindow && locked && !tapJudgementRequestSent)
             {
                 RequestTapJudgement(groupProperties);
@@ -249,8 +247,6 @@ namespace ArcCreate.Gameplay.Data
 
         public void ProcessLaneHoldJudgement(bool isExpired, bool isJudgement, GroupProperties props)
         {
-            if (props.NoInput) return; // noinput notes don't respond to any input
-            
             int currentTiming = Services.Audio.ChartTiming;
             if (!isJudgement)
             {

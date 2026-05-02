@@ -275,7 +275,7 @@ namespace ArcCreate.Gameplay.Judgement.Input
                         Vector3 worldPosition = new Vector3(req.Arc.WorldXAt(currentTiming), req.Arc.WorldYAt(currentTiming), 0);
                         Vector3 screenPosition = Services.Camera.GameplayCamera.WorldToScreenPoint(worldPosition);
                         float distance = (screenPosition - input.ScreenPos).sqrMagnitude;
-                        colorLogic.FingerHit(input.Id, distance, (float)req.Arc.TimeIncrement, req.IsJudgement);
+                        colorLogic.FingerHit(input.Id, distance, (float)req.Arc.TimeIncrement);
                     }
                     else
                     {

@@ -171,8 +171,7 @@ namespace ArcCreate.Gameplay
         /// <param name="fingerId">The finger id.</param>
         /// <param name="distance">The distance between the finger and an arc of this color.</param>
         /// <param name="arcJudgeInterval">The judgement interval of an arc of this color.</param>
-        /// <param name="isJudgement">Relayed from <see cref="ArcJudgementRequest.IsJudgement"/>.</param>
-        public void FingerHit(int fingerId, float distance, float arcJudgeInterval, bool isJudgement)
+        public void FingerHit(int fingerId, float distance, float arcJudgeInterval)
         {
             if (IsFingerAssigned)
             {
@@ -200,10 +199,7 @@ namespace ArcCreate.Gameplay
 
             if (!IsFingerAssigned || isAssigningThisFrame)
             {
-                if (!IsGraceActive
-                    && IsFingerAssignedToAnotherColor(fingerId)
-                    && isJudgement // avoid constant red arc before the grace period of a normal arc and a noinput arc  
-                   )
+                if (!IsGraceActive && IsFingerAssignedToAnotherColor(fingerId))
                 {
                     ConstantRedArc();
                 }
