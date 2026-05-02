@@ -34,19 +34,7 @@ namespace ArcCreate.ChartFormat
 
         public float ArcResolution { get; set; } = 1;
 
-        private float dropRate = 0;
-
-        /// <summary>
-        /// Gets or sets the drop rate for notes within the timing group.
-        /// If a serialized drop rate is explicitly set and non-zero, it takes precedence over the default drop rate.
-        /// </summary>
-        public float DropRate
-        {
-            get => DropRateSerialized != 0 ? DropRateSerialized : dropRate;
-            set => dropRate = value;
-        }
-
-        public float DropRateSerialized { get; set; } = 0;
+        public float DropRate { get; set; } = float.NaN;
 
         public float AngleX { get; set; } = 0;
 
@@ -135,7 +123,7 @@ namespace ArcCreate.ChartFormat
                             break;
                         case "droprate":
                             valid = Evaluator.TryFloat(value, out val);
-                            tg.DropRateSerialized = valid ? val : 0;
+                            tg.DropRate = valid ? val : 0;
                             break;
                         case "max":
                             AddRemapRules(tg, value, JudgementMap.Max);
@@ -414,9 +402,9 @@ namespace ArcCreate.ChartFormat
                 opts.Add($"arcresolution={ArcResolution:f1}");
             }
 
-            if (DropRateSerialized != 0)
+            if (!float.IsNaN(DropRate))
             {
-                opts.Add($"droprate={DropRateSerialized:f1}");
+                opts.Add($"droprate={DropRate:f1}");
             }
 
             if (JudgementOffsetX != 0)

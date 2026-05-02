@@ -113,6 +113,7 @@ namespace ArcCreate.Gameplay.Scenecontrol
     public interface INoteGroupController : IController
     {
         bool EnableNoteGroupModule { get; set; }
+        bool EnableDropRateModule { get; set; }
 
         ValueChannel AngleX { get; set; }
 
@@ -142,7 +143,8 @@ namespace ArcCreate.Gameplay.Scenecontrol
 
         ValueChannel DropRate { get; set; }
 
-        void UpdateNoteGroup(Quaternion rotation, Vector3 scale, Vector2 angle, Vector2 judgesize, Vector3 judgeoffset, float dropRate);
+        void UpdateNoteGroup(Quaternion rotation, Vector3 scale, Vector2 angle, Vector2 judgesize, Vector3 judgeoffset);
+        void UpdateDropRate(float dropRate);
     }
 
     public interface ICameraController : IController

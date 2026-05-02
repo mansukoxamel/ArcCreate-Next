@@ -36,6 +36,7 @@ namespace ArcCreate.Gameplay.Data
             SloppyJudgement = raw.SloppyJudgement;
             ArcResolution = raw.ArcResolution;
             DropRate = raw.DropRate;
+            DropRateSC = raw.DropRate;
             Editable = raw.Editable;
             Autoplay = raw.Autoplay;
             foreach (var pair in raw.JudgementMaps)
@@ -96,7 +97,21 @@ namespace ArcCreate.Gameplay.Data
 
         public float ArcResolution { get; set; } = 1;
 
-        public float DropRate { get; set; } = 0;
+        public float DropRate { get; set; } = float.NaN;
+
+        public float DropRateSC
+        {
+            get
+            {
+                if (!float.IsNaN(DropRate)) // DropRate is set in timinggroup flag
+                {
+                    return DropRate;
+                }
+                return dropRateSC; // fallback to scenecontrol DropRate
+            }
+            set  => dropRateSC = value;
+        }
+        private float dropRateSC = float.NaN; // backing field for DropRateSC
 
         public float SCAngleX { get; set; } = 0;
 
@@ -156,7 +171,6 @@ namespace ArcCreate.Gameplay.Data
                 NoArcCap = NoArcCap,
                 NoConnection = NoConnection,
                 DropRate = DropRate,
-                DropRateSerialized = 0,
                 AngleX = AngleX,
                 AngleY = AngleY,
                 JudgementOffsetX = JudgementOffsetX,

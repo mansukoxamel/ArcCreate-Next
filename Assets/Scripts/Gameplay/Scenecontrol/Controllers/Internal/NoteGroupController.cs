@@ -268,7 +268,7 @@ namespace ArcCreate.Gameplay.Scenecontrol
             set
             {
                 dropRate = value;
-                EnableNoteGroupModule = true;
+                EnableDropRateModule = true;
             }
         }
 
@@ -356,6 +356,8 @@ namespace ArcCreate.Gameplay.Scenecontrol
 
         public bool EnableColorModule { get; set; }
 
+        public bool EnableDropRateModule { get; set; }
+
         [MoonSharpHidden]
         public void UpdateColor(Color color)
         {
@@ -368,8 +370,7 @@ namespace ArcCreate.Gameplay.Scenecontrol
             Vector3 scale,
             Vector2 angle,
             Vector2 judgesize,
-            Vector3 judgeoffset,
-            float dropRate
+            Vector3 judgeoffset
         )
         {
             TimingGroup.GroupProperties.SCAngleX = angle.x;
@@ -381,13 +382,13 @@ namespace ArcCreate.Gameplay.Scenecontrol
             TimingGroup.GroupProperties.SCJudgementOffsetZ = judgeoffset.z;
             TimingGroup.GroupProperties.RotationIndividual = rotation;
             TimingGroup.GroupProperties.ScaleIndividual = scale;
-            UpdateDropRate(dropRate);
         }
 
         [MoonSharpHidden]
-        public void UpdateDropRate(float dropRate)
+        public void UpdateDropRate(float dropRateValue)
         {
-            TimingGroup.GroupProperties.DropRate = dropRate;
+            if (!EnableDropRateModule) return;
+            TimingGroup.GroupProperties.DropRateSC = dropRateValue;
         }
 
         [MoonSharpHidden]
