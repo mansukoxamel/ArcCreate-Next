@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DynamicPanels;
+using Google.MaterialDesign.Icons;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ namespace ArcCreate.Compose.Components
     public class PanelLayoutManager : MonoBehaviour, IItemNameDialogConsumer
     {
         private const string PlayerPrefKey = "Compose.CustomPanelLayout";
+        private const string PlayerPrefLayoutLockKey = "Compose.PanelLayoutLock";
 
         [SerializeField] private Button togglePickerButton;
         [SerializeField] private GameObject picker;
@@ -20,6 +22,8 @@ namespace ArcCreate.Compose.Components
         [SerializeField] private SaveItemNameDialog saveLayoutDialog;
         [SerializeField] private GameObject customLayoutRowPrefab;
         [SerializeField] private Transform customLayoutRowsParent;
+        [SerializeField] private Toggle layoutLockToggle;
+        [SerializeField] private MaterialIcon layoutLockIcon;
         private readonly List<PanelLayoutRow> rows = new List<PanelLayoutRow>();
         private Dictionary<string, byte[]> customLayouts = new Dictionary<string, byte[]>();
         private byte[] defaultLayoutData;
@@ -89,6 +93,11 @@ namespace ArcCreate.Compose.Components
                 rows.Add(newRow);
                 newRow.SetData(this, pair.Value, pair.Key);
             }
+            
+            Application.quitting += SaveLayoutLockState;
+            layoutLockToggle.onValueChanged.AddListener(ToggleLock);
+            layoutLockToggle.isOn = LoadLayoutLockState();
+            PanelNotificationCenter.OnStartedDraggingTab += OnTabDragStarted;
         }
 
         private void OnDestroy()
@@ -99,6 +108,26 @@ namespace ArcCreate.Compose.Components
             Application.quitting -= SaveLayoutForNextSession;
             SaveLayoutForNextSession();
             SaveCustomLayouts(customLayouts);
+            
+            layoutLockToggle.onValueChanged.RemoveListener(ToggleLock);
+            PanelNotificationCenter.OnStartedDraggingTab -= OnTabDragStarted;
+            Application.quitting -= SaveLayoutLockState;
+            SaveLayoutLockState();
+        }
+
+        private void ToggleLock(bool isOn)
+        {
+            layoutLockIcon.iconUnicode = isOn ? "e899" : "e898";
+            layoutLockIcon.color = isOn ? Color.white : new Color(0.75f, 0.75f, 0.75f, 1f);
+        }
+
+        private void OnTabDragStarted(PanelTab tab)
+        {
+            if (tab == null || tab.Panel == null) return;
+            if (layoutLockToggle.isOn)
+            {
+                PanelManager.Instance.CancelDraggingPanel();
+            }
         }
 
         private void TogglePicker()
@@ -161,6 +190,13 @@ namespace ArcCreate.Compose.Components
 
             var serialized = JsonConvert.SerializeObject(stringConverted);
             PlayerPrefs.SetString(PlayerPrefKey, serialized);
+        }
+        
+        private bool LoadLayoutLockState() => Convert.ToBoolean(PlayerPrefs.GetInt(PlayerPrefLayoutLockKey));
+
+        private void SaveLayoutLockState()
+        {
+            PlayerPrefs.SetInt(PlayerPrefLayoutLockKey, layoutLockToggle.isOn ? 1 : 0);
         }
     }
 }
