@@ -70,6 +70,7 @@ namespace ArcCreate.Gameplay.Data
                             YEnd = raw.YEnd,
                             YStart = raw.YStart,
                             Sfx = raw.Sfx,
+                            ArcResolutionMultiplier = raw.ArcResolutionMultiplier,
                         };
 
                         if (raw.ArcTaps != null)

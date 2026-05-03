@@ -21,6 +21,7 @@ namespace ArcCreate.ChartFormat
         public bool IsTrace { get; set; }
 
         public string Sfx { get; set; }
+        public float ArcResolutionMultiplier { get; set; } = 1.0f;
 
         public List<RawArcTap> ArcTaps { get; set; }
     }

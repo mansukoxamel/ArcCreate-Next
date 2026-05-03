@@ -1,4 +1,7 @@
-﻿namespace ArcCreate.Utility.Parser
+﻿using System;
+using UnityEngine;
+
+namespace ArcCreate.Utility.Parser
 {
     public class StringParser
     {
@@ -84,6 +87,15 @@
             var result = new TextSpan<string>(s, pos, s.Length);
             pos = end + 1;
             return result;
+        }
+
+        /*
+         * The terminator exists in remaining parsing line
+         */
+        public bool PeekTerminator(string terminator)
+        {
+            int index = str.IndexOf(terminator, pos, StringComparison.InvariantCulture);
+            return index != -1;
         }
     }
 }

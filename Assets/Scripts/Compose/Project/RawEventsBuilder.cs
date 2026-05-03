@@ -114,6 +114,7 @@ namespace ArcCreate.Compose.Project
                                     YEnd = arc.YEnd,
                                     YStart = arc.YStart,
                                     Sfx = arc.Sfx,
+                                    ArcResolutionMultiplier = arc.ArcResolutionMultiplier,
                                     ArcTaps = ats.ToList(),
                                 };
                             case CameraEvent cam:

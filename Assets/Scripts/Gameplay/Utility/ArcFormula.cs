@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ArcCreate.Gameplay.Chart;
 using ArcCreate.Gameplay.Data;
 using UnityEngine;
 
@@ -66,6 +67,9 @@ namespace ArcCreate.Gameplay
 
         public static float FloorPositionToZ(double fp, int timingGroup) =>
             FloorPositionToZ(fp, Services.Chart.GetTimingGroup(timingGroup).GroupProperties);
+
+        public static float FloorPositionToZ(double fp, TimingGroup timingGroup) =>
+            FloorPositionToZ(fp, timingGroup.GroupProperties);
 
         public static float FloorPositionToZ(double fp, GroupProperties groupProperties) => FloorPositionToZ(fp,
             float.IsNaN(groupProperties.DropRateSC) ? Settings.DropRate.Value : groupProperties.DropRateSC);
@@ -216,6 +220,7 @@ namespace ArcCreate.Gameplay
 
         public static float CalculateArcSegmentLength(int duration, float arcResolution)
         {
+            if(arcResolution==0) return duration;
             float length = Values.ArcSegmentLength / arcResolution;
             return duration < 1000 ? length : length * 2;
         }

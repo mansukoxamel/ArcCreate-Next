@@ -39,6 +39,17 @@ namespace ArcCreate.Gameplay.Data
 
         public string Sfx { get; set; }
 
+        public float ArcResolutionMultiplier
+        {
+            get => arcRes;
+            set
+            {
+                if (value < 0) value = 1;
+                arcRes = value;
+            }
+        }
+        private float arcRes = 1.0f;
+
         public ArcLineType LineType { get; set; }
 
         public Arc NextArc { get; set; }
@@ -61,7 +72,7 @@ namespace ArcCreate.Gameplay.Data
         }
 
         public float SegmentLength
-            => ArcFormula.CalculateArcSegmentLength(EndTiming - Timing, TimingGroupInstance.GroupProperties.ArcResolution);
+            => ArcFormula.CalculateArcSegmentLength(EndTiming - Timing, TimingGroupInstance.GroupProperties.ArcResolution * ArcResolutionMultiplier);
 
         public bool ShouldDrawHeightIndicator => !IsTrace && (YStart != YEnd || IsFirstArcOfGroup);
 
@@ -88,6 +99,7 @@ namespace ArcCreate.Gameplay.Data
                 IsTrace = IsTrace,
                 TimingGroup = TimingGroup,
                 Sfx = Sfx,
+                ArcResolutionMultiplier = ArcResolutionMultiplier,
             };
 
             return arc;
@@ -106,6 +118,7 @@ namespace ArcCreate.Gameplay.Data
             IsTrace = n.IsTrace;
             TimingGroup = n.TimingGroup;
             Sfx = n.Sfx;
+            ArcResolutionMultiplier = n.ArcResolutionMultiplier;
             foreach (var at in ArcTaps)
             {
                 at.TimingGroup = n.TimingGroup;

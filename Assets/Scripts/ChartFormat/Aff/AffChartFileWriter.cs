@@ -132,7 +132,15 @@ namespace ArcCreate.ChartFormat
                     string arcStr =
                       $"{indent}arc({arc.Timing},{arc.EndTiming},{arc.XStart:f2},{arc.XEnd:f2},"
                     + $"{arc.LineType},{arc.YStart:f2},{arc.YEnd:f2},"
-                    + $"{arc.Color},{arc.Sfx ?? "none"},{(arc.IsTrace ? "true" : "false")})";
+                    + $"{arc.Color},{arc.Sfx ?? "none"},{(arc.IsTrace ? "true" : "false")}";
+                    if (Mathf.Approximately(arc.ArcResolutionMultiplier, 1.0f))
+                    {
+                        arcStr += ")";
+                    }
+                    else
+                    {
+                        arcStr += $",{arc.ArcResolutionMultiplier:f2})";
+                    }
 
                     if (arc.ArcTaps != null && arc.ArcTaps.Count != 0)
                     {

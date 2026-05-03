@@ -39,6 +39,7 @@ namespace ArcCreate.Compose.Selection
         [SerializeField] private ArcColorSelector arcColorField;
         [SerializeField] private Button arcOrTraceButton;
         [SerializeField] private TMP_InputField sfxField;
+        [SerializeField] private TMP_InputField arcResField;
         [SerializeField] private TMP_InputField widthField;
         [SerializeField] private TimingGroupField groupField;
         [SerializeField] private Button selectArcButton;
@@ -95,6 +96,7 @@ namespace ArcCreate.Compose.Selection
             laneFields.SetActive((includeTap || includeHold) && !includeArclike && !includeArctap);
             positionFields.SetActive(showArcSettings);
             arcSettingsFields.SetActive(showArcSettings);
+            arcResField.gameObject.SetActive(showArcSettings);
             widthField.gameObject.SetActive(showArctapWidth);
             sfxField.gameObject.SetActive(showArcSettings);
             groupField.gameObject.SetActive(selected.Any(n => !(n is ArcTap)));
@@ -125,10 +127,12 @@ namespace ArcCreate.Compose.Selection
             startYField.text = ExtractCommonProperty<Arc, float>(n => n.YStart, out float startY) ? startY.ToString() : Mixed;
             endXField.text = ExtractCommonProperty<Arc, float>(n => n.XEnd, out float endX) ? endX.ToString() : Mixed;
             endYField.text = ExtractCommonProperty<Arc, float>(n => n.YEnd, out float endY) ? endY.ToString() : Mixed;
+            arcResField.text = ExtractCommonProperty<Arc, float>(n => n.ArcResolutionMultiplier, out float arcRes) ? arcRes.ToString() : Mixed;
             arcTypeField.SetValueWithoutNotify(ExtractCommonProperty<Arc, int>(n => (int)n.LineType, out int lineTypeNum) ? (ArcLineType)lineTypeNum : ArcLineType.Unknown);
             arcColorField.SetValueWithoutNotify(ExtractCommonProperty<Arc, int>(n => n.Color, out int color) ? color : int.MinValue);
             sfxField.text = ExtractCommonProperty<Arc, string>(n => n.Sfx, out string sfx) ? sfx : Mixed;
             widthField.text = ExtractCommonProperty<ArcTap, float>(n => n.Width, out float arctapWidth) ? arctapWidth.ToString() : Mixed;
+            
 
             bool tg = ExtractCommonProperty<Note, int>(n => n.TimingGroup, out int group);
             groupField.SetValueWithoutNotify(null);
@@ -204,6 +208,7 @@ namespace ArcCreate.Compose.Selection
             startYField.onEndEdit.AddListener(OnStartYField);
             endXField.onEndEdit.AddListener(OnEndXField);
             endYField.onEndEdit.AddListener(OnEndYField);
+            arcResField.onEndEdit.AddListener(OnArcResField);
             arcTypeField.OnTypeChanged += OnArcTypeField;
             arcColorField.OnColorChanged += OnArcColorField;
             arcOrTraceButton.onClick.AddListener(OnArcOrTraceButton);
@@ -225,6 +230,7 @@ namespace ArcCreate.Compose.Selection
             startYField.onEndEdit.RemoveListener(OnStartYField);
             endXField.onEndEdit.RemoveListener(OnEndXField);
             endYField.onEndEdit.RemoveListener(OnEndYField);
+            arcResField.onEndEdit.RemoveListener(OnArcResField);
             arcTypeField.OnTypeChanged -= OnArcTypeField;
             arcColorField.OnColorChanged -= OnArcColorField;
             arcOrTraceButton.onClick.RemoveListener(OnArcOrTraceButton);
@@ -419,6 +425,19 @@ namespace ArcCreate.Compose.Selection
                 value,
                 a => a.YEnd,
                 (a, v) => a.YEnd = (float)v);
+        }
+
+        private void OnArcResField(string value)
+        {
+            if (value == Mixed)
+            {
+                return;
+            }
+
+            ModifyNotesFloatProperty<Arc>(
+                value,
+                a => a.ArcResolutionMultiplier,
+                (a, v) => a.ArcResolutionMultiplier = (float)v);
         }
 
         private bool TryParseXY(string value, out float x, out float y)

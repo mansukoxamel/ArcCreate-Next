@@ -119,16 +119,38 @@ namespace ArcCreate.ChartFormat
         {
             StringParser s = new StringParser(line);
             s.Skip("arc(".Length);
-            if (!s.ReadInt(",").TryUnwrap(out TextSpan<int> tick, out ParsingError e)
-             || !s.ReadInt(",").TryUnwrap(out TextSpan<int> endtick, out e)
-             || !s.ReadFloat(",").TryUnwrap(out TextSpan<float> startx, out e)
-             || !s.ReadFloat(",").TryUnwrap(out TextSpan<float> endx, out e)
-             || !s.ReadString(",").TryUnwrap(out TextSpan<string> linetype, out e)
-             || !s.ReadFloat(",").TryUnwrap(out TextSpan<float> starty, out e)
-             || !s.ReadFloat(",").TryUnwrap(out TextSpan<float> endy, out e)
-             || !s.ReadInt(",").TryUnwrap(out TextSpan<int> color, out e)
-             || !s.ReadString(",").TryUnwrap(out TextSpan<string> effect, out e)
-             || !s.ReadBool(")").TryUnwrap(out TextSpan<bool> istrace, out e))
+            if (!s.ReadString(")").TryUnwrap(out TextSpan<string> paramStr, out ParsingError e))
+            {
+                return ChartError.Parsing(line, lineNumber, RawEventType.Arc, e);
+            }
+
+            StringParser param = new StringParser(paramStr);
+            
+            if (!param.ReadInt(",").TryUnwrap(out TextSpan<int> tick, out e)
+             || !param.ReadInt(",").TryUnwrap(out TextSpan<int> endtick, out e)
+             || !param.ReadFloat(",").TryUnwrap(out TextSpan<float> startx, out e)
+             || !param.ReadFloat(",").TryUnwrap(out TextSpan<float> endx, out e)
+             || !param.ReadString(",").TryUnwrap(out TextSpan<string> linetype, out e)
+             || !param.ReadFloat(",").TryUnwrap(out TextSpan<float> starty, out e)
+             || !param.ReadFloat(",").TryUnwrap(out TextSpan<float> endy, out e)
+             || !param.ReadInt(",").TryUnwrap(out TextSpan<int> color, out e)
+             || !param.ReadString(",").TryUnwrap(out TextSpan<string> effect, out e))
+            {
+                return ChartError.Parsing(line, lineNumber, RawEventType.Arc, e);
+            }
+
+            TextSpan<bool> istrace;
+            TextSpan<float> arcres = new TextSpan<float>(1.0f, 0, 0);
+            
+            if (param.PeekTerminator(","))
+            {
+                if (!param.ReadBool(",").TryUnwrap(out istrace, out e)
+                    || !param.ReadFloat().TryUnwrap(out arcres, out e))
+                {
+                    return ChartError.Parsing(line, lineNumber, RawEventType.Arc, e);
+                }
+            }
+            else if(!param.ReadBool().TryUnwrap(out istrace, out e))
             {
                 return ChartError.Parsing(line, lineNumber, RawEventType.Arc, e);
             }
@@ -224,6 +246,7 @@ namespace ArcCreate.ChartFormat
                 Type = RawEventType.Arc,
                 ArcTaps = arctap,
                 Sfx = effect,
+                ArcResolutionMultiplier = arcres,
                 TimingGroup = CurrentTimingGroup,
                 Line = lineNumber,
             };
