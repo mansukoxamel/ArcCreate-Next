@@ -43,13 +43,13 @@ namespace ArcCreate.Gameplay.Chart
                 if (IsChained(overlap, arc))
                 {
                     if (arc.PreviousArc == null
-                     || arc.PreviousArc.Color == overlap.Color)
+                     || arc.Color == overlap.Color)
                     {
                         arc.PreviousArc = overlap;
                     }
 
                     if (overlap.NextArc == null
-                     || overlap.NextArc.Color == arc.Color)
+                     || overlap.Color == arc.Color)
                     {
                         overlap.NextArc = arc;
                     }
@@ -61,13 +61,13 @@ namespace ArcCreate.Gameplay.Chart
                 if (IsChained(arc, overlap))
                 {
                     if (arc.NextArc == null
-                     || arc.NextArc.Color == overlap.Color)
+                     || arc.Color == overlap.Color)
                     {
                         arc.NextArc = overlap;
                     }
 
                     if (overlap.PreviousArc == null
-                     || overlap.PreviousArc.Color == arc.Color)
+                     || overlap.Color == arc.Color)
                     {
                         overlap.PreviousArc = arc;
                     }
