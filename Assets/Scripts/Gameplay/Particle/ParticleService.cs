@@ -40,8 +40,6 @@ namespace ArcCreate.Gameplay.Particle
         [SerializeField] private RectTransform screenParticlesRect;
 
         [Header("Numbers")]
-        [SerializeField] private int tapParticlePoolCount = 50;
-        [SerializeField] private int textParticlePoolCount = 200;
         [SerializeField] private int arcParticlePoolCount = 4;
         [SerializeField] private int holdParticlePoolCount = 6;
         [SerializeField] private float earlyLateLength = 0.5f;
