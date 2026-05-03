@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using UnityEngine;
 
 namespace ArcCreate
@@ -91,8 +92,9 @@ namespace ArcCreate
         {
             if (Application.isMobilePlatform)
             {
-                LimitFrameRate.OnValueChanged.AddListener((value) => Application.targetFrameRate = value ? 60 : Screen.currentResolution.refreshRate);
-                Application.targetFrameRate = LimitFrameRate.Value ? 60 : Screen.currentResolution.refreshRate;
+                int maxRefreshRate = Screen.resolutions.Max(res => res.refreshRate);
+                LimitFrameRate.OnValueChanged.AddListener((value) => Application.targetFrameRate = value ? 60 : maxRefreshRate);
+                Application.targetFrameRate = LimitFrameRate.Value ? 60 : maxRefreshRate;
 
                 QualitySettings.vSyncCount = 0;
             }
