@@ -274,7 +274,7 @@ namespace ArcCreate.Compose.Macros
             {
                 if (!macros.ContainsKey(parent))
                 {
-                    AddNode(parent, "Unnamed", "Unnamed", null, null, script);
+                    throw new Exception($"Trying to add macro to a non-existent parent node {parent}");
                 }
 
                 MacroDefinition parentMacro = macros[parent];
