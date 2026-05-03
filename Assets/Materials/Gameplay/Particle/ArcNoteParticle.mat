@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ArcNoteParticle
-  m_Shader: {fileID: 4800000, guid: 87079ba2aa056e44e9e24be81dd374cd, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0b3eb8d11e144cc9a3c5fbcdcd7e4878, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 0
@@ -113,5 +113,5 @@ Material:
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _TintColor: {r: 1, g: 1, b: 1, a: 0.78431374}
+    - _TintColor: {r: 1, g: 1, b: 1, a: 0.5372549}
   m_BuildTextureStacks: []
