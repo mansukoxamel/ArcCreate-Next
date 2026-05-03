@@ -25,6 +25,7 @@ namespace ArcCreate.Compose.Macros
         public float EndTiming { get; set; } = 1000;
 
         public string Sfx { get; set; } = "none";
+        public float ArcResolutionMultiplier {get; set;} = 1;
 
         public float StartX => StartXY.X;
 
@@ -57,6 +58,7 @@ namespace ArcCreate.Compose.Macros
                 TimingGroup = TimingGroup,
                 IsTrace = IsTrace,
                 Sfx = Sfx,
+                ArcResolutionMultiplier = ArcResolutionMultiplier,
             };
         }
 
@@ -76,6 +78,7 @@ namespace ArcCreate.Compose.Macros
                 IsTrace = IsTrace,
                 TimingGroup = TimingGroup,
                 Sfx = Sfx,
+                ArcResolutionMultiplier = ArcResolutionMultiplier,
             };
         }
 

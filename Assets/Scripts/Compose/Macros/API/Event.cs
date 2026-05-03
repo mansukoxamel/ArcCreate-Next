@@ -27,7 +27,8 @@ namespace ArcCreate.Compose.Macros
             [EmmyChoice("b", "s", "si", "so", "sisi", "soso", "siso", "sosi")]
             string type = "s",
             int timingGroup = 0,
-            string sfx = "none")
+            string sfx = "none",
+            float arcResolutionMultiplier = 1)
         {
             if (timingGroup >= Services.Gameplay.Chart.TimingGroups.Count || timingGroup < 0)
             {
@@ -45,6 +46,7 @@ namespace ArcCreate.Compose.Macros
                 ArcType = type.ToArcLineType(),
                 TimingGroup = timingGroup,
                 Sfx = sfx,
+                ArcResolutionMultiplier = arcResolutionMultiplier,
             };
         }
 
@@ -59,7 +61,8 @@ namespace ArcCreate.Compose.Macros
             [EmmyChoice("b", "s", "si", "so", "sisi", "soso", "siso", "sosi")]
             string type = "s",
             int timingGroup = 0,
-            string sfx = "none")
+            string sfx = "none",
+            float arcResolutionMultiplier = 1)
         {
             return Arc(
                 timing,
@@ -72,7 +75,8 @@ namespace ArcCreate.Compose.Macros
                 color,
                 type,
                 timingGroup,
-                sfx);
+                sfx,
+                arcResolutionMultiplier);
         }
 
         [EmmyDoc("Create a tap event data.")]
@@ -245,6 +249,7 @@ namespace ArcCreate.Compose.Macros
             bool noHead = false;
             bool noArcCap = false;
             bool fadingHolds = false;
+            bool sloppyJudge = false;
             float arcResolution = 1;
             float angleX = 0;
             float angleY = 0;
@@ -287,6 +292,10 @@ namespace ArcCreate.Compose.Macros
                     case "fadingholds":
                         fadingHolds = val.Boolean;
                         break;
+                    
+                    case "sloppyjudge":
+                        sloppyJudge = val.Boolean;
+                        break;
 
                     case "arcresolution":
                         arcResolution = (float)val.Number;
@@ -320,6 +329,7 @@ namespace ArcCreate.Compose.Macros
                 NoHead = noHead,
                 NoArcCap = noArcCap,
                 FadingHolds = fadingHolds,
+                SloppyJudgement = sloppyJudge,
                 ArcResolution = arcResolution,
                 AngleX = angleX,
                 AngleY = angleY,
@@ -482,7 +492,8 @@ namespace ArcCreate.Compose.Macros
                         n.Color,
                         n.LineType.ToLineTypeString(),
                         n.TimingGroup,
-                        n.Sfx);
+                        n.Sfx,
+                        n.ArcResolutionMultiplier);
                     a.SetInstance(n);
                     result["arc"].Add(a);
                     arcs.Add(n, a);
