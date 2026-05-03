@@ -33,8 +33,9 @@ namespace ArcCreate.Compose.Grid
                     continue;
                 }
 
+                float divisor = currentTiming.Divisor >=0 ? currentTiming.Divisor : 0;
                 double distanceBetweenTwoLine =
-                    currentTiming.Bpm * Values.BeatlineDensity.Value == 0 ?
+                    currentTiming.Bpm * divisor == 0 ?
                     double.MaxValue :
                     60000f / Mathf.Abs(currentTiming.Bpm) / Values.BeatlineDensity.Value;
                 distanceBetweenTwoLine = Math.Max(distanceBetweenTwoLine, 1);
@@ -43,10 +44,11 @@ namespace ArcCreate.Compose.Grid
                 double timing = currentTiming.Timing;
                 while (timing < limit)
                 {
-                    Color beatlineColor = ResolveColor(count, Values.BeatlineDensity.Value);
+                    Color beatlineColor = ResolveColor(count, divisor, Values.BeatlineDensity.Value);
                     int t = (int)Math.Round(timing);
                     yield return new Beatline(
                         t,
+                        tg,
                         tg.GetFloorPosition(t),
                         Values.EditorBeatlineThickness,
                         beatlineColor);
@@ -65,6 +67,7 @@ namespace ArcCreate.Compose.Grid
                     yield break;
                 }
 
+                float divisor = lastTiming.Divisor >=0 ? lastTiming.Divisor : 0;
                 double distanceBetweenTwoLine =
                     lastTiming.Bpm * Values.BeatlineDensity.Value == 0 ?
                     double.MaxValue :
@@ -75,10 +78,11 @@ namespace ArcCreate.Compose.Grid
                 double timing = lastTiming.Timing;
                 while (timing <= limit)
                 {
-                    Color beatlineColor = ResolveColor(count, Values.BeatlineDensity.Value);
+                    Color beatlineColor = ResolveColor(count, divisor, Values.BeatlineDensity.Value);
                     int t = (int)Math.Round(timing);
                     yield return new Beatline(
                         t,
+                        tg,
                         tg.GetFloorPosition(t),
                         Values.EditorBeatlineThickness,
                         beatlineColor);
@@ -88,9 +92,9 @@ namespace ArcCreate.Compose.Grid
             }
         }
 
-        private Color ResolveColor(int count, float beatlineDensity)
+        private Color ResolveColor(int count, float divisor, float beatlineDensity)
         {
-            if (count % (beatlineDensity * beatlineDensity) == 0)
+            if (count % (divisor*beatlineDensity) == 0)
             {
                 return barColor;
             }

@@ -41,6 +41,7 @@ namespace ArcCreate.Gameplay.Chart
                             int t = (int)Math.Round(timing);
                             yield return new Beatline(
                                 t,
+                                tg,
                                 tg.GetFloorPosition(t),
                                 Values.BeatlineThickness,
                                 beatlineColor);
@@ -79,6 +80,7 @@ namespace ArcCreate.Gameplay.Chart
                     int t = (int)Math.Round(timing);
                     yield return new Beatline(
                         t,
+                        tg,
                         tg.GetFloorPosition(t),
                         Values.BeatlineThickness,
                         beatlineColor);
@@ -109,6 +111,7 @@ namespace ArcCreate.Gameplay.Chart
                             int t = (int)Math.Round(timing);
                             yield return new Beatline(
                                 t,
+                                tg,
                                 tg.GetFloorPosition(t),
                                 Values.BeatlineThickness,
                                 beatlineColor);

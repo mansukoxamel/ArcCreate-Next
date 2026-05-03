@@ -6,13 +6,15 @@ namespace ArcCreate.Gameplay.Chart
     {
         private BeatlineBehaviour instance;
         private readonly int timing;
+        private readonly TimingGroup timingGroup;
         private readonly double floorPosition;
         private readonly float thickness;
         private readonly Color color;
 
-        public Beatline(int timing, double floorPosition, float thickness, Color color)
+        public Beatline(int timing, TimingGroup timingGroup, double floorPosition, float thickness, Color color)
         {
             this.timing = timing;
+            this.timingGroup = timingGroup;
             this.floorPosition = floorPosition;
             this.color = color;
             this.thickness = thickness;
@@ -42,7 +44,7 @@ namespace ArcCreate.Gameplay.Chart
         {
             if (instance != null)
             {
-                float z = ArcFormula.FloorPositionToZ(FloorPosition - floorPosition, 0);
+                float z = ArcFormula.FloorPositionToZ(FloorPosition - floorPosition, timingGroup);
                 instance.transform.localPosition = new Vector3(0, 0, z);
                 instance.transform.localScale = new Vector3(
                     instance.transform.localScale.x,
