@@ -96,7 +96,7 @@ namespace ArcCreate.Compose.Selection
             laneFields.SetActive((includeTap || includeHold) && !includeArclike && !includeArctap);
             positionFields.SetActive(showArcSettings);
             arcSettingsFields.SetActive(showArcSettings);
-            arcResField.gameObject.SetActive(showArcSettings);
+            arcResField.transform.parent.gameObject.SetActive(showArcSettings);
             widthField.gameObject.SetActive(showArctapWidth);
             sfxField.gameObject.SetActive(showArcSettings);
             groupField.gameObject.SetActive(selected.Any(n => !(n is ArcTap)));

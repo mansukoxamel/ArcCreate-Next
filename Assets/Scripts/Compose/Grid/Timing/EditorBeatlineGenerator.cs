@@ -35,7 +35,7 @@ namespace ArcCreate.Compose.Grid
 
                 float divisor = currentTiming.Divisor >=0 ? currentTiming.Divisor : 0;
                 double distanceBetweenTwoLine =
-                    currentTiming.Bpm * divisor == 0 ?
+                    currentTiming.Bpm * Values.BeatlineDensity.Value == 0 ?
                     double.MaxValue :
                     60000f / Mathf.Abs(currentTiming.Bpm) / Values.BeatlineDensity.Value;
                 distanceBetweenTwoLine = Math.Max(distanceBetweenTwoLine, 1);
