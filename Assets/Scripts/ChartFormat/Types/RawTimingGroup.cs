@@ -50,6 +50,7 @@ namespace ArcCreate.ChartFormat
 
         public float JudgementOffsetZ { get; set; } = 0;
         public bool SloppyJudgement { get; set; } = false;
+        public bool EarlyJudgement { get; set; } = false;
 
         public SideOverride Side { get; set; } = SideOverride.None;
 
@@ -205,6 +206,9 @@ namespace ArcCreate.ChartFormat
                         case "sloppyjudge":
                             tg.SloppyJudgement = true;
                             break;
+                        case "earlyjudge":
+                            tg.EarlyJudgement = true;
+                            break;
                         case "autoplay":
                             tg.Autoplay = true;
                             break;
@@ -316,6 +320,11 @@ namespace ArcCreate.ChartFormat
             if (SloppyJudgement)
             {
                 opts.Add("sloppyjudge");
+            }
+
+            if (EarlyJudgement)
+            {
+                opts.Add("earlyjudge");
             }
 
             if (Autoplay)

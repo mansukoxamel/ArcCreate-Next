@@ -34,6 +34,7 @@ namespace ArcCreate.Gameplay.Data
             JudgementSizeX = raw.JudgementSizeX;
             JudgementSizeY = raw.JudgementSizeY;
             SloppyJudgement = raw.SloppyJudgement;
+            EarlyJudgement = raw.EarlyJudgement;
             ArcResolution = raw.ArcResolution;
             DropRate = raw.DropRate;
             DropRateSC = raw.DropRate;
@@ -94,6 +95,7 @@ namespace ArcCreate.Gameplay.Data
         public float JudgementOffsetZ { get; set; } = 0;
 
         public bool SloppyJudgement { get; set; } = false;
+        public bool EarlyJudgement { get; set; } = false;
 
         public float ArcResolution { get; set; } = 1;
 
@@ -179,6 +181,7 @@ namespace ArcCreate.Gameplay.Data
                 JudgementSizeX = JudgementSizeX,
                 JudgementSizeY = JudgementSizeY,
                 SloppyJudgement = SloppyJudgement,
+                EarlyJudgement = EarlyJudgement,
                 ArcResolution = ArcResolution,
                 Autoplay = Autoplay,
                 IgnoreMirror = IgnoreMirror,

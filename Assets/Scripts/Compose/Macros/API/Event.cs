@@ -250,6 +250,7 @@ namespace ArcCreate.Compose.Macros
             bool noArcCap = false;
             bool fadingHolds = false;
             bool sloppyJudge = false;
+            bool earlyJudge = false;
             float arcResolution = 1;
             float angleX = 0;
             float angleY = 0;
@@ -296,6 +297,10 @@ namespace ArcCreate.Compose.Macros
                     case "sloppyjudge":
                         sloppyJudge = val.Boolean;
                         break;
+                    
+                    case "earlyjudge":
+                        earlyJudge = val.Boolean;
+                        break;
 
                     case "arcresolution":
                         arcResolution = (float)val.Number;
@@ -330,6 +335,7 @@ namespace ArcCreate.Compose.Macros
                 NoArcCap = noArcCap,
                 FadingHolds = fadingHolds,
                 SloppyJudgement = sloppyJudge,
+                EarlyJudgement = earlyJudge,
                 ArcResolution = arcResolution,
                 AngleX = angleX,
                 AngleY = angleY,

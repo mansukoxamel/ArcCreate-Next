@@ -403,6 +403,27 @@ namespace ArcCreate.Gameplay.Data
             return WorldXAt(timing);
         }
 
+        public float WorldSegmentedYAt(int timing)
+        {
+            for (int i = 0; i < segments.Count; i++)
+            {
+                var seg = segments[i];
+                if (seg.Timing <= timing && timing <= seg.EndTiming)
+                {
+                    if (seg.Timing == seg.EndTiming)
+                    {
+                        return seg.StartPosition.y + ArcFormula.ArcYToWorld(YStart);
+                    }
+
+                    float dy = (seg.EndPosition - seg.StartPosition).y;
+                    float dt = (float)(timing - seg.Timing) / (seg.EndTiming - seg.Timing);
+                    return seg.StartPosition.y + (dt * dy) + ArcFormula.ArcYToWorld(YStart);
+                }
+            }
+
+            return WorldYAt(timing);
+        }
+
         public Vector3 WorldSegmentedPosAt(int timing)
         {
             for (int i = 0; i < segments.Count; i++)

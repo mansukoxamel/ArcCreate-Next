@@ -228,8 +228,8 @@ namespace ArcCreate.Gameplay.Judgement.Input
 
                     Vector2 judgementSize = req2.Properties.CurrentJudgementSize;
                     Vector3 judgementOffset = req2.Properties.CurrentJudgementOffset;
-                    Vector3 worldPosition1 = new Vector3(req1.Arc.WorldXAt(currentTiming), req1.Arc.WorldYAt(currentTiming), 0) + judgementOffset;
-                    Vector3 worldPosition2 = new Vector3(req2.Arc.WorldXAt(currentTiming), req2.Arc.WorldYAt(currentTiming), 0) + judgementOffset;
+                    Vector3 worldPosition1 = new Vector3(req1.Arc.WorldSegmentedXAt(currentTiming), req1.Arc.WorldSegmentedYAt(currentTiming), 0) + judgementOffset;
+                    Vector3 worldPosition2 = new Vector3(req2.Arc.WorldSegmentedXAt(currentTiming), req2.Arc.WorldSegmentedYAt(currentTiming), 0) + judgementOffset;
                     Vector3 screenPosition1 = Services.Camera.GameplayCamera.WorldToScreenPoint(worldPosition1);
                     Vector3 screenPosition2 = Services.Camera.GameplayCamera.WorldToScreenPoint(worldPosition2);
 
@@ -262,7 +262,11 @@ namespace ArcCreate.Gameplay.Judgement.Input
                     ArcJudgementRequest req = requests[i];
                     ArcColorLogic colorLogic = ArcColorLogic.Get(req.Arc.Color);
 
-                    if (currentTiming < req.StartAtTiming || currentTiming > req.Arc.EndTiming)
+                    if (currentTiming > req.Arc.EndTiming && !req.Properties.SloppyJudgement)
+                    {
+                        continue;
+                    }
+                    if (currentTiming < req.StartAtTiming)
                     {
                         continue;
                     }
@@ -272,7 +276,7 @@ namespace ArcCreate.Gameplay.Judgement.Input
                     bool collide = ArcCollide(input, req.Arc, currentTiming, judgementSize, judgementOffset);
                     if (collide)
                     {
-                        Vector3 worldPosition = new Vector3(req.Arc.WorldXAt(currentTiming), req.Arc.WorldYAt(currentTiming), 0);
+                        Vector3 worldPosition = new Vector3(req.Arc.WorldSegmentedXAt(currentTiming), req.Arc.WorldSegmentedYAt(currentTiming), 0);
                         Vector3 screenPosition = Services.Camera.GameplayCamera.WorldToScreenPoint(worldPosition);
                         float distance = (screenPosition - input.ScreenPos).sqrMagnitude;
                         colorLogic.FingerHit(input.Id, distance, (float)req.Arc.TimeIncrement);
@@ -327,7 +331,7 @@ namespace ArcCreate.Gameplay.Judgement.Input
 
         private bool ArcCollide(TouchInput touch, Arc arc, int currentTiming, Vector2 judgementSize, Vector3 judgementOffset)
         {
-            Vector3 arcWorldPosition = new Vector3(arc.WorldXAt(currentTiming), arc.WorldYAt(currentTiming)) + judgementOffset;
+            Vector3 arcWorldPosition = new Vector3(arc.WorldSegmentedXAt(currentTiming), arc.WorldSegmentedYAt(currentTiming)) + judgementOffset;
             float skyInputY = Services.Judgement.SkyInputY;
             if (arcWorldPosition.y <= skyInputY)
             {

@@ -43,6 +43,7 @@ namespace ArcCreate.Compose.Macros
         public bool FadingHolds { get; set; }
 
         public bool SloppyJudgement { get; set; }
+        public bool EarlyJudgement { get; set; }
 
         public bool IgnoreMirror { get; set; }
 
@@ -126,6 +127,7 @@ namespace ArcCreate.Compose.Macros
                 NoConnection = NoConnection,
                 FadingHolds = FadingHolds,
                 SloppyJudgement = SloppyJudgement,
+                EarlyJudgement = EarlyJudgement,
                 IgnoreMirror = IgnoreMirror,
                 Autoplay = Autoplay,
                 ArcResolution = ArcResolution,
@@ -210,6 +212,7 @@ namespace ArcCreate.Compose.Macros
             JudgementMaps = judgementMaps;
             FadingHolds = raw.FadingHolds;
             SloppyJudgement = raw.SloppyJudgement;
+            EarlyJudgement = raw.EarlyJudgement;
             Autoplay = raw.Autoplay;
             ArcResolution = raw.ArcResolution;
             AngleX = raw.AngleX;

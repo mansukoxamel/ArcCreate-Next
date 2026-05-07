@@ -70,11 +70,11 @@ namespace ArcCreate.Gameplay.Data
 
         public void UpdateJudgement(int currentTiming, GroupProperties groupProperties)
         {
-            if (!IsTrace && currentTiming >= Timing && Timing < EndTiming)
+            int timing = groupProperties.EarlyJudgement ? Timing - Values.GoodJudgeWindow : Timing;
+            if (!IsTrace && currentTiming >= timing && Timing < EndTiming)
             {
                 RequestJudgement(groupProperties);
             }
-
             if (!IsTrace && currentTiming >= Timing && Timing < EndTiming && !highlightRequestSent)
             {
                 RequestHighlight(currentTiming, groupProperties);
@@ -110,10 +110,6 @@ namespace ArcCreate.Gameplay.Data
             }
             else if (currentTiming <= EndTiming + Values.HoldMissLateJudgeWindow)
             {
-                if (!props.SloppyJudgement && currentTiming - Time.unscaledDeltaTime * 1000 > EndTiming)
-                {
-                    return;
-                }
                 SetGroupHighlight(true, currentTiming + Values.HoldParticlePersistDuration);
                 if (!hasBeenHitOnce)
                 {
@@ -141,11 +137,12 @@ namespace ArcCreate.Gameplay.Data
             for (int t = numJudgementRequestsSent; t < TotalCombo; t++)
             {
                 int timing = (int)System.Math.Round(Timing + (t * TimeIncrement));
+                int startTiming = props.EarlyJudgement && t == 0 ? timing - Values.GoodJudgeWindow : timing;
                 float timeIncrement = Mathf.Min((float)TimeIncrement, (float)Values.LongNoteMaxJudgeWindow);
                 int lateTiming = (int)System.Math.Round(FirstJudgeTime + (t+4) * timeIncrement);
                 Services.Judgement.Request(new ArcJudgementRequest()
                 {
-                    StartAtTiming = timing,
+                    StartAtTiming = startTiming,
                     ExpireAtTiming = lateTiming,
                     AutoAtTiming = timing,
                     Arc = this,
