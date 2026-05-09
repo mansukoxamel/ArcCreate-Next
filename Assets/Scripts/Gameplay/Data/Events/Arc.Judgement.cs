@@ -139,7 +139,7 @@ namespace ArcCreate.Gameplay.Data
                 int timing = (int)System.Math.Round(Timing + (t * TimeIncrement));
                 int startTiming = props.EarlyJudgement && t == 0 ? timing - Values.GoodJudgeWindow : timing;
                 float timeIncrement = Mathf.Min((float)TimeIncrement, (float)Values.LongNoteMaxJudgeWindow);
-                int lateTiming = (int)System.Math.Round(FirstJudgeTime + (t+4) * timeIncrement);
+                int lateTiming = (int)System.Math.Round(FirstJudgeTime + (t+2) * timeIncrement);
                 Services.Judgement.Request(new ArcJudgementRequest()
                 {
                     StartAtTiming = startTiming,

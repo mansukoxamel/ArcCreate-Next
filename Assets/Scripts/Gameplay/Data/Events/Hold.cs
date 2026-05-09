@@ -311,7 +311,7 @@ namespace ArcCreate.Gameplay.Data
                 Services.Judgement.Request(new LaneHoldJudgementRequest()
                 {
                     StartAtTiming = timing,
-                    ExpireAtTiming = timing + (int)(4 * timeIncrement),
+                    ExpireAtTiming = timing + (int)(2 * timeIncrement),
                     AutoAtTiming = timing,
                     Lane = Lane,
                     IsJudgement = true,
