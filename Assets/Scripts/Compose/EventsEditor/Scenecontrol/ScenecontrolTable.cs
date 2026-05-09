@@ -296,7 +296,7 @@ namespace ArcCreate.Compose.EventsEditor
 
             int index = IndexOf(Selected);
             Services.History.AddCommand(new EventCommand(
-                name: I18n.S("Compose.Notify.RemoveScenecontrol"),
+                name: I18n.S("Compose.Notify.History.RemoveScenecontrol"),
                 remove: new List<ArcEvent>() { Selected }));
             Selected = Data.Count == 0 ? null : Data[Mathf.Max(index - 1, 0)];
             Rebuild();

@@ -100,6 +100,8 @@ Compose:
         Invalid key: The string "{0}" does not match any key.
       InvalidModifier: |-
         Invalid modifier: The string "{0}" does not match any modifier key.
+      DuplicateModifier: |-
+        Invalid modifier: The string "{0}" contains duplicated modifier.
       InvalidActionPath: |-
         Invalid action path: The string "{0}" does not match any action.
     Scenecontrol: |-
@@ -204,7 +206,7 @@ Compose:
       CreateChart: Created chart file {Path}
       RemoveChart: Removed chart file {Path} from project
     Inspector:
-      InvalidParamameter: Invalid parameter
+      InvalidParameter: Invalid parameter
     Measurer:
       CopyTiming: Copied cursor timing
       CopyPosition: Copied arc's position
