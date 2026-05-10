@@ -174,9 +174,6 @@ jobs:
         with:
           xcode-version: latest-stable
 
-      - name: Download iOS Platform
-        run: xcodebuild -downloadPlatform iOS
-
       - name: Fix File Permissions and Run fastlane
         env:
           APPLE_CONNECT_EMAIL: ${{ secrets.APPLE_CONNECT_EMAIL }}
