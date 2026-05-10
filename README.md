@@ -29,6 +29,8 @@ ArcCreate is available on Windows, MacOS, Linux, Android and iOS.
 
 This project was made with Unity 2022.3.62f3. You can download the exact version from the [official Download Archive here](https://unity.com/releases/editor/archive).
 
+Maintenance note: Due to Unity PostProcessing package containing broken shader for GLES3 graphics API target, it's replaced with a patched package [here](https://github.com/Arcthesia/com.unity.postprocessing)
+
 # Project status
 
 ### Gameplay
