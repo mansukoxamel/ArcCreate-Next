@@ -53,13 +53,13 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.postprocessing": {
-      "version": "3.4.0",
+      "version": "https://github.com/Arcthesia/com.unity.postprocessing.git",
       "depth": 0,
-      "source": "registry",
+      "source": "git",
       "dependencies": {
         "com.unity.modules.physics": "1.0.0"
       },
-      "url": "https://packages.unity.com"
+      "hash": "e814af5f5f867f6977beadce77cd9966ca9acd09"
     },
     "com.unity.sysroot": {
       "version": "2.0.5",
