@@ -609,7 +609,7 @@ namespace ArcCreate.Gameplay.Data
             }
             
             bool isValidLength = EndTiming - Timing > 1;
-            if (currentTiming >= EndTiming)
+            if (currentTiming >= EndTiming && (Math.Abs(currentFloorPosition) < 100 || z != 0 ))
             {
                 if (IsLastArcOfGroup && isValidLength && !isControllerMode)
                 {
