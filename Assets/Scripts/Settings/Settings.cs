@@ -92,11 +92,14 @@ namespace ArcCreate
         {
             if (Application.isMobilePlatform)
             {
-                int maxRefreshRate = Screen.resolutions.Max(res => res.refreshRate);
+                int maxRefreshRate = Screen.currentResolution.refreshRate;
+                #if UNITY_ANDROID
+                    maxRefreshRate = Screen.resolutions.Max(res => res.refreshRate);
+                #endif
                 LimitFrameRate.OnValueChanged.AddListener((value) => Application.targetFrameRate = value ? 60 : maxRefreshRate);
                 Application.targetFrameRate = LimitFrameRate.Value ? 60 : maxRefreshRate;
 
-                QualitySettings.vSyncCount = 0;
+                QualitySettings.vSyncCount = VSync.Value ? 1 : 0;
             }
             else
             {
