@@ -99,7 +99,7 @@ namespace ArcCreate
                 LimitFrameRate.OnValueChanged.AddListener((value) => Application.targetFrameRate = value ? 60 : maxRefreshRate);
                 Application.targetFrameRate = LimitFrameRate.Value ? 60 : maxRefreshRate;
 
-                QualitySettings.vSyncCount = VSync.Value ? 1 : 0;
+                QualitySettings.vSyncCount = 0;
             }
             else
             {
