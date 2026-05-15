@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using System.Linq;
 using ArcCreate.Gameplay.Judgement;
-using ArcCreate.Gameplay.Utility;
 using UnityEngine;
 
 namespace ArcCreate.Gameplay.Data
@@ -139,6 +136,11 @@ namespace ArcCreate.Gameplay.Data
                 int timing = (int)System.Math.Round(Timing + (t * TimeIncrement));
                 int startTiming = props.EarlyJudgement && t == 0 ? timing - Values.GoodJudgeWindow : timing;
                 float timeIncrement = Mathf.Min((float)TimeIncrement, (float)Values.LongNoteMaxJudgeWindow);
+                if (!Mathf.Approximately(XStart, XEnd) && t==0)
+                {
+                    // Arcs have different timing increment on first combo when x1!=x2
+                    timeIncrement = Mathf.Min((float)TimeIncrement*0.25f, (float)Values.LongNoteMaxJudgeWindow);
+                }
                 int lateTiming = (int)System.Math.Round(FirstJudgeTime + (t+2) * timeIncrement);
                 Services.Judgement.Request(new ArcJudgementRequest()
                 {

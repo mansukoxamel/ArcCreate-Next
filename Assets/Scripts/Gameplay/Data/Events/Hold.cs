@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using ArcCreate.Gameplay.Judgement;
 using ArcCreate.Utility;
@@ -152,10 +151,7 @@ namespace ArcCreate.Gameplay.Data
             float clipZ = z;
             if ((!locked || groupProperties.NoInput) && !groupProperties.NoClip)
             {
-                if (Timing <= currentTiming)
-                {
-                    clipZ = 0;
-                }
+                clipZ = 0;
 
                 if ((currentFloorPosition - FloorPosition) / (EndFloorPosition - FloorPosition) > 1.0)
                 {
@@ -238,12 +234,6 @@ namespace ArcCreate.Gameplay.Data
             Services.InputFeedback.LaneFeedback(Mathf.RoundToInt(Lane));
             Services.Particle.PlayHoldParticle(this, new Vector3(ArcFormula.LaneToWorldX(Lane), 0, 0) + props.CurrentJudgementOffset);
             Services.Hitsound.PlayTapHitsound(Timing);
-
-            // Extend the note back
-            if (currentTiming < Timing)
-            {
-                FloorPosition = TimingGroupInstance.GetFloorPosition(currentTiming);
-            }
         }
 
         public void ProcessLaneHoldJudgement(bool isExpired, bool isJudgement, GroupProperties props)
@@ -303,21 +293,39 @@ namespace ArcCreate.Gameplay.Data
 
         private void RequestHoldJudgement(GroupProperties props)
         {
-            for (int t = numHoldJudgementRequestsSent; t < TotalCombo; t++)
+            if (TotalCombo == 1 && numHoldJudgementRequestsSent == 0)
             {
-                int timing = (int)System.Math.Round(FirstJudgeTime + (t * TimeIncrement));
-                float timeIncrement = Mathf.Min((float)TimeIncrement, (float)Values.LongNoteMaxJudgeWindow);
-
+                // special handling for hold with just 1 combo
+                int timing = Timing + (Timing - EndTiming) / 2;
                 Services.Judgement.Request(new LaneHoldJudgementRequest()
                 {
-                    StartAtTiming = timing,
-                    ExpireAtTiming = timing + (int)(2 * timeIncrement),
-                    AutoAtTiming = timing,
+                    StartAtTiming = (int)(Timing - TimeIncrement),
+                    ExpireAtTiming = timing,
+                    AutoAtTiming = Timing,
                     Lane = Lane,
                     IsJudgement = true,
                     Receiver = this,
                     Properties = props,
                 });
+            }
+            else
+            {
+                for (int t = numHoldJudgementRequestsSent; t < TotalCombo; t++)
+                {
+                    int timing = (int)System.Math.Round(FirstJudgeTime + (t * TimeIncrement));
+                    float timeIncrement = Mathf.Min((float)TimeIncrement, (float)Values.LongNoteMaxJudgeWindow);
+
+                    Services.Judgement.Request(new LaneHoldJudgementRequest()
+                    {
+                        StartAtTiming = timing,
+                        ExpireAtTiming = timing + (int)(2 * timeIncrement),
+                        AutoAtTiming = timing,
+                        Lane = Lane,
+                        IsJudgement = true,
+                        Receiver = this,
+                        Properties = props,
+                    });
+                }
             }
 
             numHoldJudgementRequestsSent = TotalCombo;
