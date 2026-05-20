@@ -9,8 +9,6 @@ namespace ArcCreate.Gameplay
 
         Scene Scene { get; }
 
-        PostProcessing PostProcessing { get; }
-
         Context Context { get; }
 
         string ScenecontrolFolder { get; set; }

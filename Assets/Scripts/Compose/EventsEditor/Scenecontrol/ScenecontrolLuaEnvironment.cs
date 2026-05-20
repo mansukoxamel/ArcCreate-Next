@@ -52,7 +52,6 @@ namespace ArcCreate.Compose.EventsEditor
             script.Globals["TriggerChannel"] = new TriggerChannelBuilder();
             script.Globals["Scene"] = Services.Gameplay.Scenecontrol.Scene;
             script.Globals["Context"] = Services.Gameplay.Scenecontrol.Context;
-            script.Globals["PostProcessing"] = Services.Gameplay.Scenecontrol.PostProcessing;
 
             script.Globals["addScenecontrol"] = (Action<string, DynValue, DynValue>)AddScenecontrol;
             script.Globals["notify"] = (Action<object>)Notify;

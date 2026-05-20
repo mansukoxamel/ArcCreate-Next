@@ -7,19 +7,28 @@ namespace ArcCreate.Gameplay.Scenecontrol
     public class ScenecontrolDeserialization
     {
         private readonly Scene scene;
-        private readonly PostProcessing postProcessing;
         private readonly List<SerializedUnit> serializedUnits;
         private readonly ISerializableUnit[] deserialized;
         private EnabledFeatures features = EnabledFeatures.None;
 
-        public ScenecontrolDeserialization(Scene scene, PostProcessing postProcessing, List<SerializedUnit> serializedUnits)
+        private readonly string[] REMOVED_CONTROLLERS =
+        {
+            "autoExposure", "bloom", "chromaticAberration", "colorGrading", "depthOfField", "grain", "lensDistortion",
+            "motionBlur", "vignette"
+        };
+        
+
+        public ScenecontrolDeserialization(Scene scene, List<SerializedUnit> serializedUnits)
         {
             this.serializedUnits = serializedUnits;
             this.scene = scene;
-            this.postProcessing = postProcessing;
             deserialized = new ISerializableUnit[serializedUnits.Count];
             for (int i = 0; i < serializedUnits.Count; i++)
             {
+                if (Array.IndexOf(REMOVED_CONTROLLERS, serializedUnits[i].Type) == -1)
+                {
+                    continue;
+                }
                 deserialized[i] = GetUnitFromId(i);
             }
         }
@@ -158,12 +167,6 @@ namespace ArcCreate.Gameplay.Scenecontrol
                     if (c != null)
                     {
                         return c;
-                    }
-
-                    ISceneController p = postProcessing.CreateFromTypeName(type);
-                    if (p != null)
-                    {
-                        return p;
                     }
 
                     throw new Exception($"Could not resolve object type {type}");

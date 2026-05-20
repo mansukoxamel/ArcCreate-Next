@@ -16,7 +16,6 @@ namespace ArcCreate.Gameplay.Scenecontrol
         [SerializeField] private TMP_FontAsset defaultFont;
         [SerializeField] private List<FontEntry> fonts;
         [SerializeField] private Scene scene;
-        [SerializeField] private PostProcessing postProcessing;
         [SerializeField] private SpriteRenderer trackSprite;
         [SerializeField] private SpriteRenderer singleLineL;
         [SerializeField] private SpriteRenderer singleLineR;
@@ -35,8 +34,6 @@ namespace ArcCreate.Gameplay.Scenecontrol
         public List<ScenecontrolEvent> Events => events;
 
         public Scene Scene => scene;
-
-        public PostProcessing PostProcessing => postProcessing;
 
         public Context Context => context;
 
@@ -178,7 +175,6 @@ namespace ArcCreate.Gameplay.Scenecontrol
         public void Clean()
         {
             Scene.ClearCache();
-            PostProcessing.DisablePostProcess();
             foreach (var c in referencedControllers)
             {
                 c.CleanController();
@@ -212,7 +208,7 @@ namespace ArcCreate.Gameplay.Scenecontrol
 
             scene.SetFileAccess(fileAccess);
             var units = JsonConvert.DeserializeObject<List<SerializedUnit>>(def);
-            var deserialization = new ScenecontrolDeserialization(scene, postProcessing, units);
+            var deserialization = new ScenecontrolDeserialization(scene, units);
             foreach (var unit in deserialization.Result)
             {
                 if (unit is ISceneController c)
