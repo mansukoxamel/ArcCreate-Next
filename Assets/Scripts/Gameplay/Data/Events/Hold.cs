@@ -47,6 +47,7 @@ namespace ArcCreate.Gameplay.Data
             locked = true;
             highlight = false;
             longParticleUntil = int.MinValue;
+            lastHitTime = int.MinValue;
             tapJudgementRequestSent = false;
             numHoldJudgementRequestsSent = ComboAt(timing);
             holdHighlightRequestSent = false;
