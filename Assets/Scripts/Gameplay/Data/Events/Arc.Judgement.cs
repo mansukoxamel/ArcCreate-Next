@@ -67,7 +67,7 @@ namespace ArcCreate.Gameplay.Data
 
         public void UpdateJudgement(int currentTiming, GroupProperties groupProperties)
         {
-            int timing = groupProperties.EarlyJudgement ? Timing - Values.GoodJudgeWindow : Timing;
+            int timing = groupProperties.EarlyJudgement ? Timing - Values.PerfectJudgeWindow : Timing;
             if (!IsTrace && currentTiming >= timing && Timing < EndTiming)
             {
                 RequestJudgement(groupProperties);
@@ -134,7 +134,7 @@ namespace ArcCreate.Gameplay.Data
             for (int t = numJudgementRequestsSent; t < TotalCombo; t++)
             {
                 int timing = (int)System.Math.Round(Timing + (t * TimeIncrement));
-                int startTiming = props.EarlyJudgement && t == 0 ? timing - Values.GoodJudgeWindow : timing;
+                int startTiming = props.EarlyJudgement && t == 0 ? timing - Values.PerfectJudgeWindow : timing;
                 float timeIncrement = Mathf.Min((float)TimeIncrement, (float)Values.LongNoteMaxJudgeWindow);
                 if (!Mathf.Approximately(XStart, XEnd) && t==0)
                 {
