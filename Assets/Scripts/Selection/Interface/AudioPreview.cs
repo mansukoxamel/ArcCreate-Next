@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.Threading;
 using ArcCreate.Data;
 using ArcCreate.Storage;
 using ArcCreate.Storage.Data;
+using ArcCreate.Utility.LRUCache;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -16,6 +18,7 @@ namespace ArcCreate.Selection.Interface
         [SerializeField] private float switchSceneAudioFadeDuration = 1;
         private CancellationTokenSource cts = new CancellationTokenSource();
         private (LevelStorage level, string audioPath) currentlyPlaying;
+        private LRUCache<string, AudioClip> audioCache = new LRUCache<string, AudioClip>(5, Destroy);
         private float minPreviewLength = 5;
 
         public void StopPreview()
@@ -36,7 +39,12 @@ namespace ArcCreate.Selection.Interface
         public async UniTask PlayPreviewAudio(LevelStorage level, ChartSettings chart, CancellationToken ct)
         {
             audioSource.Stop();
-            AudioClip clip = await storage.GetAudioClipStreaming(level, chart.AudioPath);
+            AudioClip clip = audioCache.Get(chart.AudioPath);
+            if (clip == null)
+            {
+                clip = await storage.GetAudioClipStreaming(level, chart.AudioPath);
+                audioCache.Add(chart.AudioPath, clip);
+            }
             if (ct.IsCancellationRequested)
             {
                 return;
