@@ -8,7 +8,7 @@ namespace ArcCreate
     public static class Settings
     {
         public static readonly StringSetting Locale = new StringSetting("System.Locale", null);
-
+        
         // Gameplay
         public static readonly IntSetting DropRate = new IntSetting("DropRate", 150, 0);
         public static readonly BoolSetting ShowEarlyLatePerfect = new BoolSetting("ShowEarlyLate", true);
@@ -92,10 +92,9 @@ namespace ArcCreate
         {
             if (Application.isMobilePlatform)
             {
-                LimitFrameRate.OnValueChanged.AddListener((value) => Application.targetFrameRate = value ? 60 : -1);
-                Application.targetFrameRate = LimitFrameRate.Value ? 60 : -1;
-
-                QualitySettings.vSyncCount = 0;
+                Application.targetFrameRate = 60;
+                LimitFrameRate.OnValueChanged.AddListener((value) => QualitySettings.vSyncCount = value ? 0 : 1);
+                QualitySettings.vSyncCount = LimitFrameRate.Value ? 0 : 1;
             }
             else
             {
