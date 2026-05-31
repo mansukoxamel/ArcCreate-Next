@@ -9,6 +9,7 @@ namespace ArcCreate.Gameplay.Scenecontrol
     [MoonSharpUserData]
     public class JudgementTrigger : Trigger
     {
+        private int targetTimingGroup = -1;
         private bool triggerOnMax = false;
         private bool triggerOnPerfectEarly = false;
         private bool triggerOnPerfectLate = false;
@@ -91,6 +92,13 @@ namespace ArcCreate.Gameplay.Scenecontrol
             return this;
         }
 
+        [EmmyDoc("Sets the target timing group index to listen from, defaults to all (-1)")]
+        public JudgementTrigger OfTimingGroup(int timingGroup)
+        {
+            targetTimingGroup = timingGroup;
+            return this;
+        }
+
         [EmmyDoc("Sets the value to send to the TriggerChannel bound to this trigger.")]
         public JudgementTrigger Dispatch(
             ValueChannel value,
@@ -131,10 +139,12 @@ namespace ArcCreate.Gameplay.Scenecontrol
 
         public override void Poll(int timing)
         {
-            List<JudgementResult> judgements = Services.Score.GetJudgementsThisFrame();
+            List<(int timingGroup, JudgementResult judgementResult)> judgements = Services.Score.GetJudgementsThisFrame();
             for (int i = 0; i < judgements.Count; i++)
             {
-                JudgementResult res = judgements[i];
+                int timingGrouop = judgements[i].timingGroup;
+                if(targetTimingGroup>0 && timingGrouop != timing) continue;
+                JudgementResult res = judgements[i].judgementResult;
                 switch (res)
                 {
                     case JudgementResult.MissEarly:
@@ -204,10 +214,11 @@ namespace ArcCreate.Gameplay.Scenecontrol
                 serialization.AddUnitAndGetId(TriggerDispatch.Value),
                 serialization.AddUnitAndGetId(TriggerDispatch.Duration),
                 TriggerDispatch.EasingString,
+                targetTimingGroup,
             };
         }
 
-        public override void DeserializeProperties(List<object> properties, ScenecontrolDeserialization deserialization)
+        public override void DeserializeProperties(List<object> properties, EnabledFeatures features, ScenecontrolDeserialization deserialization)
         {
             triggerOnMax = (bool)properties[0];
             triggerOnPerfectEarly = (bool)properties[1];
@@ -223,6 +234,10 @@ namespace ArcCreate.Gameplay.Scenecontrol
                 EasingString = (string)properties[9],
                 Easing = Easing.FromString((string)properties[9]),
             };
+            if (features.HasFlag(EnabledFeatures.JudgementTriggerTimingGroup))
+            {
+                targetTimingGroup = (int)properties[10];
+            }
         }
     }
 }

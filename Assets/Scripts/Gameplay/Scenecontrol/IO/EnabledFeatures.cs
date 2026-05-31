@@ -8,6 +8,7 @@ namespace ArcCreate.Gameplay.Scenecontrol
         None = 0,
         JudgeManipulation = 1,
         DropRateManipulation = 2,
-        All = None | JudgeManipulation | DropRateManipulation,
+        JudgementTriggerTimingGroup = 4,
+        All = None | JudgeManipulation | DropRateManipulation | JudgementTriggerTimingGroup,
     }
 }

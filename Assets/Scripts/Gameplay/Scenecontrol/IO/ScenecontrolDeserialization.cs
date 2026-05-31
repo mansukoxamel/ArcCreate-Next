@@ -25,7 +25,7 @@ namespace ArcCreate.Gameplay.Scenecontrol
             deserialized = new ISerializableUnit[serializedUnits.Count];
             for (int i = 0; i < serializedUnits.Count; i++)
             {
-                if (Array.IndexOf(REMOVED_CONTROLLERS, serializedUnits[i].Type) == -1)
+                if (Array.IndexOf(REMOVED_CONTROLLERS, serializedUnits[i].Type) != -1)
                 {
                     continue;
                 }

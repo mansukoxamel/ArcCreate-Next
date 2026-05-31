@@ -37,7 +37,7 @@ namespace ArcCreate.Gameplay.Score
         private float comboRedmix = 0;
         private readonly StatisticCalculator offsetCalculator = new StatisticCalculator();
         private readonly UnorderedList<ScoreEvent> pendingScoreEvents = new UnorderedList<ScoreEvent>(20);
-        private readonly List<JudgementResult> resultReceivedThisFrame = new List<JudgementResult>(20);
+        private readonly List<(int timingGroup, JudgementResult result)> resultReceivedThisFrame = new List<(int, JudgementResult)>(20);
         private Grade[] cachedGradeOptions;
 
         public int CurrentScore => (int)Math.Round(CurrentScoreTotal);
@@ -60,9 +60,9 @@ namespace ArcCreate.Gameplay.Score
             judgeCounts[(int)type] = count;
         }
 
-        public void ProcessJudgement(JudgementResult result, Option<int> offset)
+        public void ProcessJudgement(int timingGroup, JudgementResult result, Option<int> offset)
         {
-            resultReceivedThisFrame.Add(result);
+            resultReceivedThisFrame.Add((timingGroup, result));
             SetJudgementCount(result, GetJudgementCount(result) + 1);
 
             if (result.IsMiss())
@@ -195,7 +195,7 @@ namespace ArcCreate.Gameplay.Score
             offsetCalculator.Reset();
         }
 
-        public List<JudgementResult> GetJudgementsThisFrame() => resultReceivedThisFrame;
+        public List<(int, JudgementResult)> GetJudgementsThisFrame() => resultReceivedThisFrame;
 
         public void ClearJudgementsThisFrame() => resultReceivedThisFrame.Clear();
 

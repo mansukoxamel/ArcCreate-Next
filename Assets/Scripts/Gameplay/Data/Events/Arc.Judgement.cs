@@ -102,7 +102,7 @@ namespace ArcCreate.Gameplay.Data
                         spawnedParticleThisFrame = true;
                     }
 
-                    Services.Score.ProcessJudgement(result, Option<int>.None());
+                    Services.Score.ProcessJudgement(TimingGroup, result, Option<int>.None());
                 }
             }
             else if (currentTiming <= EndTiming + Values.HoldMissLateJudgeWindow)
@@ -124,7 +124,7 @@ namespace ArcCreate.Gameplay.Data
                         spawnedParticleThisFrame = true;
                     }
 
-                    Services.Score.ProcessJudgement(result, Option<int>.None());
+                    Services.Score.ProcessJudgement(TimingGroup, result, Option<int>.None());
                 }
             }
         }

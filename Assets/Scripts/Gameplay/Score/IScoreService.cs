@@ -18,17 +18,18 @@ namespace ArcCreate.Gameplay.Score
         /// <summary>
         /// Gets a list of judgement results that was sent to this service in a frame.
         /// </summary>
-        /// <returns>List of judgement results.</returns>
-        List<JudgementResult> GetJudgementsThisFrame();
+        /// <returns>List of tuple of timing group index and judgement results.</returns>
+        List<(int, JudgementResult)> GetJudgementsThisFrame();
 
         void ClearJudgementsThisFrame();
 
         /// <summary>
         /// Process one or multiple judgement events.
         /// </summary>
+        /// <param name="timingGroup">The source timingGroup index of judgement.</param>
         /// <param name="result">The result of the judgement.</param>
         /// <param name="offset">The optional offset from theoretical timing of the judgement.</param>
-        void ProcessJudgement(JudgementResult result, Option<int> offset);
+        void ProcessJudgement(int timingGroup, JudgementResult result, Option<int> offset);
 
         /// <summary>
         /// Set the score and combo counter to the state with the specified combo counts. Used for auto mode.

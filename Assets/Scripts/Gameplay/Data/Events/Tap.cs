@@ -141,7 +141,7 @@ namespace ArcCreate.Gameplay.Data
             JudgementResult result = props.MapJudgementResult(offset.CalculateJudgeResult());
             Services.Particle.PlayTapParticle(new Vector3(ArcFormula.LaneToWorldX(Lane), 0) + judgeOffset, result, false);
             Services.Particle.PlayTextParticle(new Vector3(ArcFormula.LaneToWorldX(Lane), 0) + judgeOffset, result, offset);
-            Services.Score.ProcessJudgement(result, offset);
+            Services.Score.ProcessJudgement(TimingGroup, result, offset);
             isHit = true;
 
             if (!result.IsMiss())

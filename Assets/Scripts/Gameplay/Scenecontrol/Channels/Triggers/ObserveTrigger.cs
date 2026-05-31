@@ -110,7 +110,7 @@ namespace ArcCreate.Gameplay.Scenecontrol
             };
         }
 
-        public override void DeserializeProperties(List<object> properties, ScenecontrolDeserialization deserialization)
+        public override void DeserializeProperties(List<object> properties, EnabledFeatures features, ScenecontrolDeserialization deserialization)
         {
             target = deserialization.GetUnitFromId<ValueChannel>(properties[0]);
             above = deserialization.GetUnitFromId<ValueChannel>(properties[1]);
