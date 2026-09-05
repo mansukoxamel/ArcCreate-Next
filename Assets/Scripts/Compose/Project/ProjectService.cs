@@ -12,6 +12,7 @@ using ArcCreate.Data;
 using ArcCreate.Gameplay;
 using ArcCreate.Utility;
 using ArcCreate.Utility.Extension;
+using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,6 +24,8 @@ namespace ArcCreate.Compose.Project
     [EditorScope("Project")]
     public class ProjectService : MonoBehaviour, IProjectService
     {
+        private const string RecentDirectoriesPlayerPrefKey = "Startup.RecentProjects";
+        private const int MaxRecentDirectoryCount = 10;
         [SerializeField] private GameplayData gameplayData;
         [SerializeField] private Button newProjectButton;
         [SerializeField] private Button openProjectButton;
@@ -38,6 +41,7 @@ namespace ArcCreate.Compose.Project
         [SerializeField] private List<Color> defaultDifficultyColors;
         [SerializeField] private List<string> defaultDifficultyNames;
         private AutosaveHelper autosaveHelper;
+        private Button recentDirectoriesButton;
         private bool isDirectFileProject;
         private Action<AudioClip> pendingAudioSwitch;
 #if UNITY_STANDALONE_WIN && !UNITY_EDITOR
@@ -292,6 +296,7 @@ namespace ArcCreate.Compose.Project
             currentChartPath.text = CurrentChart.ChartPath;
             LoadChart(CurrentChart);
             OnProjectLoad?.Invoke(CurrentProject);
+            RecordRecentDirectory(path);
             if (rememberPath)
             {
                 PlayerPrefs.SetString("LastProjectPath", path);
@@ -546,8 +551,123 @@ namespace ArcCreate.Compose.Project
             Shell.OpenExplorer(Path.GetDirectoryName(CurrentProject.Path));
         }
 
+        private void CreateRecentDirectoriesButton()
+        {
+            recentDirectoriesButton = Instantiate(openProjectButton, openProjectButton.transform.parent);
+            recentDirectoriesButton.gameObject.name = "RecentDirectoriesButton";
+            recentDirectoriesButton.transform.SetSiblingIndex(openProjectButton.transform.GetSiblingIndex() + 1);
+            recentDirectoriesButton.onClick.RemoveAllListeners();
+
+            IconText localizedLabel = recentDirectoriesButton.GetComponentInChildren<IconText>(true);
+            TMP_Text label = recentDirectoriesButton.GetComponentInChildren<TMP_Text>(true);
+            if (localizedLabel != null)
+            {
+                localizedLabel.enabled = false;
+            }
+
+            if (label != null)
+            {
+                label.text = "履歴";
+            }
+
+            Text icon = recentDirectoriesButton.GetComponentInChildren<Text>(true);
+            if (icon != null)
+            {
+                icon.text = "\ue889";
+            }
+
+            RectTransform rect = recentDirectoriesButton.transform as RectTransform;
+            if (rect != null && label != null)
+            {
+                rect.sizeDelta = new Vector2(label.preferredWidth + 40, rect.sizeDelta.y);
+            }
+
+            recentDirectoriesButton.onClick.AddListener(ShowRecentDirectories);
+        }
+
+        private void ShowRecentDirectories()
+        {
+            List<string> directories = LoadRecentDirectories();
+            if (directories.Count == 0)
+            {
+                Services.Popups.Notify(Popups.Severity.Info, "読み込み履歴はまだありません。");
+                return;
+            }
+
+            List<ButtonSetting> buttons = new List<ButtonSetting>();
+            foreach (string directory in directories)
+            {
+                string selectedDirectory = directory;
+                buttons.Add(new ButtonSetting
+                {
+                    Text = selectedDirectory,
+                    Callback = () => OpenDirectFile(selectedDirectory),
+                    ButtonColor = ButtonColor.Highlight,
+                });
+            }
+
+            buttons.Add(new ButtonSetting
+            {
+                Text = "キャンセル",
+                Callback = null,
+                ButtonColor = ButtonColor.Default,
+            });
+
+            Services.Popups.CreateTextDialog(
+                "読み込み履歴",
+                "読み込む曲フォルダを選択してください。",
+                buttons.ToArray());
+        }
+
+        private void RecordRecentDirectory(string sourcePath)
+        {
+            string directory = DirectFileProjectResolver.ResolveHistoryDirectory(sourcePath);
+            if (directory == null)
+            {
+                return;
+            }
+
+            List<string> directories = LoadRecentDirectories();
+            directories.RemoveAll(path => path.Equals(directory, StringComparison.OrdinalIgnoreCase));
+            directories.Insert(0, directory);
+            SaveRecentDirectories(directories.Take(MaxRecentDirectoryCount));
+        }
+
+        private List<string> LoadRecentDirectories()
+        {
+            string serialized = PlayerPrefs.GetString(RecentDirectoriesPlayerPrefKey, string.Empty);
+            if (string.IsNullOrEmpty(serialized))
+            {
+                return new List<string>();
+            }
+
+            try
+            {
+                List<string> storedPaths = JsonConvert.DeserializeObject<List<string>>(serialized);
+                List<string> directories = DirectFileProjectResolver
+                    .NormalizeHistoryDirectories(storedPaths, MaxRecentDirectoryCount)
+                    .ToList();
+                SaveRecentDirectories(directories);
+                return directories;
+            }
+            catch (JsonException exception)
+            {
+                Debug.LogWarning($"読み込み履歴を復元できなかったため初期化します。\n{exception.Message}");
+                PlayerPrefs.DeleteKey(RecentDirectoriesPlayerPrefKey);
+                return new List<string>();
+            }
+        }
+
+        private static void SaveRecentDirectories(IEnumerable<string> directories)
+        {
+            PlayerPrefs.SetString(
+                RecentDirectoriesPlayerPrefKey,
+                JsonConvert.SerializeObject(directories));
+        }
+
         private void Awake()
         {
+            CreateRecentDirectoriesButton();
             newProjectButton.onClick.AddListener(StartCreatingNewProject);
             openProjectButton.onClick.AddListener(StartOpeningProject);
             saveProjectButton.onClick.AddListener(SaveProject);
@@ -608,6 +728,7 @@ namespace ArcCreate.Compose.Project
 
             newProjectButton.onClick.RemoveListener(StartCreatingNewProject);
             openProjectButton.onClick.RemoveListener(StartOpeningProject);
+            recentDirectoriesButton?.onClick.RemoveListener(ShowRecentDirectories);
             saveProjectButton.onClick.RemoveListener(SaveProject);
             openFolderButton.onClick.RemoveListener(OpenProjectFolder);
             Settings.AutosaveInterval.OnValueChanged.RemoveListener(OnAutosaveIntervalChange);

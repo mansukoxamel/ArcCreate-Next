@@ -141,6 +141,28 @@ namespace Tests.Unit
             Assert.That(DirectFileProjectResolver.AreSameFile(first, second), Is.True);
         }
 
+        [Test]
+        public void ResolveHistoryDirectory_UsesTheContainingFolderForFiles()
+        {
+            string chart = CreateFile("2.aff");
+
+            Assert.That(DirectFileProjectResolver.ResolveHistoryDirectory(chart), Is.EqualTo(directory));
+            Assert.That(DirectFileProjectResolver.ResolveHistoryDirectory(directory), Is.EqualTo(directory));
+        }
+
+        [Test]
+        public void NormalizeHistoryDirectories_DeduplicatesFoldersAndRemovesMissingPaths()
+        {
+            string chart = CreateFile("2.aff");
+            string audio = CreateFile("base.ogg");
+
+            Assert.That(
+                DirectFileProjectResolver.NormalizeHistoryDirectories(
+                    new[] { chart, audio, Path.Combine(directory, "missing", "chart.aff") },
+                    10),
+                Is.EqualTo(new[] { directory }));
+        }
+
         private string CreateFile(string name)
         {
             string path = Path.Combine(directory, name);

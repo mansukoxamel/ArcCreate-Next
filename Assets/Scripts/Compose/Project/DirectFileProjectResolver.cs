@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -6,6 +7,53 @@ namespace ArcCreate.Compose.Project
 {
     public static class DirectFileProjectResolver
     {
+        public static string ResolveHistoryDirectory(string path)
+        {
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                return null;
+            }
+
+            try
+            {
+                string fullPath = Path.GetFullPath(path);
+                if (Directory.Exists(fullPath))
+                {
+                    return fullPath;
+                }
+
+                string directory = Path.GetDirectoryName(fullPath);
+                return Directory.Exists(directory) ? directory : null;
+            }
+            catch (ArgumentException)
+            {
+                return null;
+            }
+            catch (NotSupportedException)
+            {
+                return null;
+            }
+            catch (PathTooLongException)
+            {
+                return null;
+            }
+        }
+
+        public static string[] NormalizeHistoryDirectories(IEnumerable<string> paths, int maxCount)
+        {
+            if (paths == null || maxCount <= 0)
+            {
+                return Array.Empty<string>();
+            }
+
+            return paths
+                .Select(ResolveHistoryDirectory)
+                .Where(path => path != null)
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .Take(maxCount)
+                .ToArray();
+        }
+
         public static bool IsSupportedDrop(string path)
         {
             if (Directory.Exists(path))
