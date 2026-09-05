@@ -151,8 +151,12 @@ namespace ArcCreate.Gameplay.Judgement.Input
         public void HandleArcRequests(int currentTiming, UnorderedList<ArcJudgementRequest> requests)
         {
             ArcColorLogic.NewFrame(currentTiming);
+            for (int i = requests.Count - 1; i >= 0; i--)
+            {
+                ArcColorLogic.Get(requests[i].Arc.Color);
+            }
 
-            // Notify if arcs & fingers exists
+            // Notify whether active arcs and assigned fingers still exist.
             for (int c = 0; c <= ArcColorLogic.MaxColor; c++)
             {
                 ArcColorLogic color = ArcColorLogic.Get(c);
@@ -178,42 +182,12 @@ namespace ArcCreate.Gameplay.Judgement.Input
                 }
             }
 
-            // Process finger lifting
-            for (int inpIndex = 0; inpIndex < CurrentInputs.Count; inpIndex++)
-            {
-                TouchInput input = CurrentInputs[inpIndex];
-                if (input.Phase == TouchPhase.Ended || input.Phase == TouchPhase.Canceled)
-                {
-                    for (int c = 0; c <= ArcColorLogic.MaxColor; c++)
-                    {
-                        ArcColorLogic colorLogic = ArcColorLogic.Get(c);
-                        bool set = false;
-
-                        for (int i = requests.Count - 1; i >= 0; i--)
-                        {
-                            ArcJudgementRequest req = requests[i];
-                            if (currentTiming >= req.StartAtTiming
-                             && currentTiming <= req.Arc.EndTiming)
-                            {
-                                colorLogic.FingerLifted(input.Id, (float)req.Arc.TimeIncrement);
-                                set = true;
-                            }
-                        }
-
-                        if (!set)
-                        {
-                            colorLogic.FingerLifted(input.Id, 0);
-                        }
-                    }
-                }
-            }
-
-            // Detect grace period
+            // Opposite-color arcs closer than 200 internal units accept any finger for 500 ms.
             bool graceActive = false;
             for (int i = requests.Count - 1; i >= 0; i--)
             {
                 ArcJudgementRequest req1 = requests[i];
-                if (currentTiming > req1.Arc.EndTiming || currentTiming < req1.StartAtTiming)
+                if (currentTiming > req1.Arc.EndTiming || currentTiming < req1.Arc.Timing)
                 {
                     continue;
                 }
@@ -221,19 +195,21 @@ namespace ArcCreate.Gameplay.Judgement.Input
                 for (int j = i - 1; j >= 0; j--)
                 {
                     ArcJudgementRequest req2 = requests[j];
-                    if (req2.Arc.Color == req1.Arc.Color || currentTiming > req2.Arc.EndTiming || currentTiming < req2.StartAtTiming)
+                    if (req2.Arc.Color == req1.Arc.Color
+                     || currentTiming > req2.Arc.EndTiming
+                     || currentTiming < req2.Arc.Timing)
                     {
                         continue;
                     }
 
-                    Vector2 judgementSize = req2.Properties.CurrentJudgementSize;
-                    Vector3 judgementOffset = req2.Properties.CurrentJudgementOffset;
-                    Vector3 worldPosition1 = new Vector3(req1.Arc.WorldSegmentedXAt(currentTiming), req1.Arc.WorldSegmentedYAt(currentTiming), 0) + judgementOffset;
-                    Vector3 worldPosition2 = new Vector3(req2.Arc.WorldSegmentedXAt(currentTiming), req2.Arc.WorldSegmentedYAt(currentTiming), 0) + judgementOffset;
-                    Vector3 screenPosition1 = Services.Camera.GameplayCamera.WorldToScreenPoint(worldPosition1);
-                    Vector3 screenPosition2 = Services.Camera.GameplayCamera.WorldToScreenPoint(worldPosition2);
+                    Vector2 position1 = new Vector2(
+                        req1.Arc.WorldSegmentedXAt(currentTiming),
+                        req1.Arc.WorldSegmentedYAt(currentTiming)) + (Vector2)req1.Properties.CurrentJudgementOffset;
+                    Vector2 position2 = new Vector2(
+                        req2.Arc.WorldSegmentedXAt(currentTiming),
+                        req2.Arc.WorldSegmentedYAt(currentTiming)) + (Vector2)req2.Properties.CurrentJudgementOffset;
 
-                    if (ArcHitboxCollide(screenPosition1, screenPosition2, worldPosition1, worldPosition2, judgementSize))
+                    if (ArcFormula.AreArcsWithinIntersectionDistance(position1, position2))
                     {
                         graceActive = true;
                         break;
@@ -247,7 +223,38 @@ namespace ArcCreate.Gameplay.Judgement.Input
                 }
             }
 
-            // Process finger hitting
+            // A physical lift releases ownership. Only an active arc of the same color
+            // supplies the interval used by the native reacquisition lock.
+            for (int inpIndex = 0; inpIndex < CurrentInputs.Count; inpIndex++)
+            {
+                TouchInput input = CurrentInputs[inpIndex];
+                if (input.Phase != TouchPhase.Ended && input.Phase != TouchPhase.Canceled)
+                {
+                    continue;
+                }
+
+                for (int c = 0; c <= ArcColorLogic.MaxColor; c++)
+                {
+                    float judgeInterval = 0;
+                    for (int i = requests.Count - 1; i >= 0; i--)
+                    {
+                        ArcJudgementRequest req = requests[i];
+                        if (req.Arc.Color == c
+                         && currentTiming >= req.Arc.Timing
+                         && currentTiming <= req.Arc.EndTiming)
+                        {
+                            judgeInterval = (float)req.Arc.TimeIncrement;
+                            break;
+                        }
+                    }
+
+                    ArcColorLogic.Get(c).FingerLifted(input.Id, judgeInterval);
+                }
+            }
+
+            // Cache geometry before assigning any new finger. Initial acquisition and
+            // retained tracking deliberately use different lookahead and X ranges.
+            var collisionByFinger = new Dictionary<int, Dictionary<Arc, bool>>();
             for (int inpIndex = 0; inpIndex < CurrentInputs.Count; inpIndex++)
             {
                 TouchInput input = CurrentInputs[inpIndex];
@@ -257,33 +264,83 @@ namespace ArcCreate.Gameplay.Judgement.Input
                     continue;
                 }
 
+                var collisions = new Dictionary<Arc, bool>();
+                var distances = new Dictionary<Arc, float>();
+                collisionByFinger[input.Id] = collisions;
                 for (int i = requests.Count - 1; i >= 0; i--)
                 {
                     ArcJudgementRequest req = requests[i];
-                    ArcColorLogic colorLogic = ArcColorLogic.Get(req.Arc.Color);
-
                     if (currentTiming > req.Arc.EndTiming && !req.Properties.SloppyJudgement)
                     {
                         continue;
                     }
-                    if (currentTiming < req.StartAtTiming)
+                    if (currentTiming < req.Arc.Timing || collisions.ContainsKey(req.Arc))
                     {
                         continue;
                     }
 
                     Vector2 judgementSize = req.Properties.CurrentJudgementSize;
                     Vector2 judgementOffset = req.Properties.CurrentJudgementOffset;
-                    bool collide = ArcCollide(input, req.Arc, currentTiming, judgementSize, judgementOffset);
-                    if (collide)
+                    bool retained = ArcColorLogic.Get(req.Arc.Color).IsAssignedTo(input.Id);
+                    int positionTiming = ArcFormula.ArcInputPositionTiming(currentTiming, req.Arc.EndTiming, retained);
+                    Vector2 arcPosition = new Vector2(
+                        req.Arc.WorldSegmentedXAt(positionTiming),
+                        req.Arc.WorldSegmentedYAt(positionTiming)) + judgementOffset;
+                    distances[req.Arc] = (arcPosition - (Vector2)input.VerticalPos).sqrMagnitude;
+                    collisions[req.Arc] = ArcCollide(
+                        input,
+                        req.Arc,
+                        currentTiming,
+                        judgementSize,
+                        judgementOffset,
+                        retained);
+                }
+
+                // The native color owner is chosen from all active arcs, rather than
+                // treating a miss against one same-color arc as a miss against all.
+                for (int c = 0; c <= ArcColorLogic.MaxColor; c++)
+                {
+                    bool arcChecked = false;
+                    bool hit = false;
+                    float minDistance = float.MaxValue;
+                    float judgeInterval = 0;
+                    foreach (KeyValuePair<Arc, bool> collision in collisions)
                     {
-                        Vector3 worldPosition = new Vector3(req.Arc.WorldSegmentedXAt(currentTiming), req.Arc.WorldSegmentedYAt(currentTiming), 0);
-                        Vector3 screenPosition = Services.Camera.GameplayCamera.WorldToScreenPoint(worldPosition);
-                        float distance = (screenPosition - input.ScreenPos).sqrMagnitude;
-                        colorLogic.FingerHit(input.Id, distance, (float)req.Arc.TimeIncrement);
+                        Arc arc = collision.Key;
+                        if (arc.Color != c)
+                        {
+                            continue;
+                        }
+
+                        arcChecked = true;
+                        judgeInterval = (float)arc.TimeIncrement;
+                        if (!collision.Value)
+                        {
+                            continue;
+                        }
+
+                        float distance = distances[arc];
+                        if (distance < minDistance)
+                        {
+                            minDistance = distance;
+                        }
+
+                        hit = true;
+                    }
+
+                    if (!arcChecked)
+                    {
+                        continue;
+                    }
+
+                    ArcColorLogic colorLogic = ArcColorLogic.Get(c);
+                    if (hit)
+                    {
+                        colorLogic.FingerHit(input.Id, minDistance, judgeInterval);
                     }
                     else
                     {
-                        colorLogic.FingerMiss(input.Id, (float)req.Arc.TimeIncrement);
+                        colorLogic.FingerMiss(input.Id, judgeInterval);
                     }
                 }
             }
@@ -302,10 +359,9 @@ namespace ArcCreate.Gameplay.Judgement.Input
                     }
 
                     ArcColorLogic colorLogic = ArcColorLogic.Get(req.Arc.Color);
-
-                    Vector2 judgementSize = req.Properties.CurrentJudgementSize;
-                    Vector2 judgementOffset = req.Properties.CurrentJudgementOffset;
-                    bool collide = ArcCollide(input, req.Arc, currentTiming, judgementSize, judgementOffset);
+                    bool collide = collisionByFinger.TryGetValue(input.Id, out Dictionary<Arc, bool> collisions)
+                        && collisions.TryGetValue(req.Arc, out bool requestCollision)
+                        && requestCollision;
                     bool acceptInput = colorLogic.ShouldAcceptInput(input.Id);
 
                     if (collide && acceptInput)
@@ -329,31 +385,29 @@ namespace ArcCreate.Gameplay.Judgement.Input
             return Services.Camera.GameplayCamera.ScreenPointToRay(screenPosition);
         }
 
-        private bool ArcCollide(TouchInput touch, Arc arc, int currentTiming, Vector2 judgementSize, Vector3 judgementOffset)
+        private bool ArcCollide(
+            TouchInput touch,
+            Arc arc,
+            int currentTiming,
+            Vector2 judgementSize,
+            Vector3 judgementOffset,
+            bool retained)
         {
-            Vector3 arcWorldPosition = new Vector3(arc.WorldSegmentedXAt(currentTiming), arc.WorldSegmentedYAt(currentTiming)) + judgementOffset;
+            int positionTiming = ArcFormula.ArcInputPositionTiming(currentTiming, arc.EndTiming, retained);
+            Vector3 arcWorldPosition = new Vector3(
+                arc.WorldSegmentedXAt(positionTiming),
+                arc.WorldSegmentedYAt(positionTiming)) + judgementOffset;
             float skyInputY = Services.Judgement.SkyInputY;
             if (arcWorldPosition.y <= skyInputY)
             {
                 touch.VerticalPos.y = Mathf.Min(touch.VerticalPos.y, skyInputY);
             }
 
-            Vector3 arcScreenPos = Services.Camera.GameplayCamera.WorldToScreenPoint(arcWorldPosition);
-            Vector3 touchScreenPos = Services.Camera.GameplayCamera.WorldToScreenPoint(touch.VerticalPos);
-            return ArcHitboxCollide(arcScreenPos, touchScreenPos, touch.VerticalPos, arcWorldPosition, judgementSize);
-        }
-
-        private bool ArcHitboxCollide(Vector3 screenPosition1, Vector3 screenPosition2, Vector3 worldPosition1, Vector3 worldPosition2, Vector2 judgementSize)
-        {
-            float dx = Mathf.Abs(screenPosition1.x - screenPosition2.x);
-            float dy = Mathf.Abs(screenPosition1.y - screenPosition2.y);
-            bool screenCollide = dx <= (Values.LaneScreenHitboxHorizontal * 2 * Values.ArcHitboxX / Values.LaneWidth * judgementSize.x)
-                              && dy <= (Values.LaneScreenHitboxVertical * 2 * Values.ArcHitboxY / Values.LaneWidth * judgementSize.y);
-
-            float dWx = Mathf.Abs(worldPosition1.x - worldPosition2.x);
-            float dWy = Mathf.Abs(worldPosition1.y - worldPosition2.y);
-            bool worldCollide = dWx <= (Values.ArcHitboxX * judgementSize.x) && dWy <= (Values.ArcHitboxY * judgementSize.y);
-            return worldCollide || screenCollide;
+            return ArcFormula.IsWithinArcInputRange(
+                touch.VerticalPos,
+                arcWorldPosition,
+                retained,
+                judgementSize);
         }
 
         private bool ArcTapCollide(TouchInput input, Vector3 screenPosition, Vector3 worldPosition, float width, Vector2 judgementSize)

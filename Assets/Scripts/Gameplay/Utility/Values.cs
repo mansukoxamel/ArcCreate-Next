@@ -59,11 +59,14 @@ namespace ArcCreate.Gameplay
         // Judgement
         public const int ScoreModifyDelay = 500;
         public const int ArcLockDuration = 500;
-        public const int ArcGraceDuration = 600;
+        public const int ArcGraceDuration = 500;
         public const int ArcRedFlashCycle = 500;
         public const float ComboLostFlashDuration = 0.1f;
         public const float ArcHitboxX = 1.9f;
+        public const float ArcInitialHitboxX = 3.02f;
         public const float ArcHitboxY = 2.5f;
+        public const int ArcInitialLookahead = 120;
+        public const float ArcIntersectionDistance = 2f;
         public const float ArcTapHitboxX = 3.02f;
         public const float ArcTapHitboxYDown = 3.1f;
         public const float ArcTapHitboxYUp = 2.5f;

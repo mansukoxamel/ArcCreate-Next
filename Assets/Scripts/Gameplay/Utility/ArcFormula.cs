@@ -240,7 +240,35 @@ namespace ArcCreate.Gameplay
 
         public static int CalculateArcLockDuration(float arcJudgeInterval)
         {
-            return Mathf.Min(Mathf.RoundToInt(arcJudgeInterval * 4), 1000);
+            return (int)Mathf.Min(arcJudgeInterval * 4, 1000);
+        }
+
+        public static int CalculateArcMissDuration(float arcJudgeInterval, bool shortened)
+        {
+            float multiplier = shortened ? 0.5f : 2;
+            return (int)Mathf.Min(arcJudgeInterval * multiplier, 500);
+        }
+
+        public static int ArcInputPositionTiming(int currentTiming, int endTiming, bool retained)
+        {
+            return retained ? currentTiming : Mathf.Min(currentTiming + Values.ArcInitialLookahead, endTiming);
+        }
+
+        public static bool IsWithinArcInputRange(
+            Vector2 touchPosition,
+            Vector2 arcPosition,
+            bool retained,
+            Vector2 judgementSize)
+        {
+            float hitboxX = retained ? Values.ArcHitboxX : Values.ArcInitialHitboxX;
+            return Mathf.Abs(touchPosition.x - arcPosition.x) < hitboxX * judgementSize.x
+                && Mathf.Abs(touchPosition.y - arcPosition.y) < Values.ArcHitboxY * judgementSize.y;
+        }
+
+        public static bool AreArcsWithinIntersectionDistance(Vector2 first, Vector2 second)
+        {
+            return (first - second).sqrMagnitude
+                < Values.ArcIntersectionDistance * Values.ArcIntersectionDistance;
         }
 
         public static int CalculateArcSegmentCount(int duration, float arcResolution)

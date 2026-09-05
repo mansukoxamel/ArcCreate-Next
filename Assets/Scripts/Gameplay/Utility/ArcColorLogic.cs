@@ -40,6 +40,9 @@ namespace ArcCreate.Gameplay
         /// </summary>
         public int Color => color;
 
+        public bool IsAssignedTo(int fingerId)
+            => fingerId == AssignedFingerId;
+
         /// <summary>
         /// Gets the currently assigned finger id to this color.
         /// </summary>
@@ -61,10 +64,10 @@ namespace ArcCreate.Gameplay
         private bool IsFingerAssigned { get; set; }
 
         private bool IsInputLocked
-            => frameTiming <= lockUntil;
+            => frameTiming < lockUntil;
 
         private bool IsGraceActive
-            => frameTiming <= graceUntil;
+            => frameTiming < graceUntil;
 
         /// <summary>
         /// Get the instance for a color.
@@ -143,8 +146,6 @@ namespace ArcCreate.Gameplay
         public void StartGracePeriod()
         {
             graceUntil = frameTiming + Values.ArcGraceDuration;
-            UnlockInput();
-            ResetAssignedFinger();
         }
 
         /// <summary>
@@ -158,7 +159,7 @@ namespace ArcCreate.Gameplay
             {
                 ResetAssignedFinger();
 
-                if (existsArcWithinRangeThisFrame)
+                if (existsArcWithinRangeThisFrame && !IsGraceActive)
                 {
                     LockInput(arcJudgeInterval);
                 }
@@ -276,14 +277,14 @@ namespace ArcCreate.Gameplay
         /// <returns>Whether or not to accept input from the finger id.</returns>
         public bool ShouldAcceptInput(int fingerId)
         {
-            if (IsInputLocked)
-            {
-                return false;
-            }
-
             if (IsGraceActive)
             {
                 return true;
+            }
+
+            if (IsInputLocked)
+            {
+                return false;
             }
 
             // Just to be safe

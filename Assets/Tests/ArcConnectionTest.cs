@@ -59,6 +59,28 @@ namespace Tests.Unit
             Assert.That(ArcConnection.IsConnected(arc, arc), Is.False);
         }
 
+        [Test]
+        public void HasDirectionChange_ComparesDiscreteEndpointDirections()
+        {
+            Arc first = CreateArc(xStart: 0, xEnd: 1, yStart: 0, yEnd: 1);
+
+            Assert.That(
+                ArcConnection.HasDirectionChange(
+                    first,
+                    CreateArc(xStart: 1, xEnd: 2, yStart: 1, yEnd: 2)),
+                Is.False);
+            Assert.That(
+                ArcConnection.HasDirectionChange(
+                    first,
+                    CreateArc(xStart: 1, xEnd: 0, yStart: 1, yEnd: 2)),
+                Is.True);
+            Assert.That(
+                ArcConnection.HasDirectionChange(
+                    first,
+                    CreateArc(xStart: 1, xEnd: 2, yStart: 1, yEnd: 1)),
+                Is.True);
+        }
+
         private static Arc CreateArc(
             int startTiming = 1000,
             int endTiming = 1000,

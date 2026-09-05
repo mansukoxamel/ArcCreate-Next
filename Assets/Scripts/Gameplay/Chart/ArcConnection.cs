@@ -17,5 +17,11 @@ namespace ArcCreate.Gameplay.Chart
              && first.YEnd == second.YStart
              && first.IsTrace == second.IsTrace;
         }
+
+        public static bool HasDirectionChange(Arc first, Arc second)
+        {
+            return Math.Sign(first.XEnd - first.XStart) != Math.Sign(second.XEnd - second.XStart)
+                || Math.Sign(first.YEnd - first.YStart) != Math.Sign(second.YEnd - second.YStart);
+        }
     }
 }
