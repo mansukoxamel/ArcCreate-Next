@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using ArcCreate.Gameplay.Data;
-using UnityEngine;
 
 namespace ArcCreate.Gameplay.Chart
 {
@@ -38,9 +37,11 @@ namespace ArcCreate.Gameplay.Chart
 
         private void ChainArcIntoGroups(Arc arc)
         {
-            foreach (Arc overlap in Services.Chart.FindByEndTiming<Arc>(arc.Timing - 1, arc.Timing + 1))
+            foreach (Arc overlap in Services.Chart.FindByEndTiming<Arc>(
+                arc.Timing - ArcConnection.TimingToleranceMs,
+                arc.Timing + ArcConnection.TimingToleranceMs))
             {
-                if (IsChained(overlap, arc))
+                if (ArcConnection.IsConnected(overlap, arc))
                 {
                     if (arc.PreviousArc == null
                      || arc.Color == overlap.Color)
@@ -56,9 +57,11 @@ namespace ArcCreate.Gameplay.Chart
                 }
             }
 
-            foreach (Arc overlap in Services.Chart.FindByTiming<Arc>(arc.EndTiming - 1, arc.EndTiming + 1))
+            foreach (Arc overlap in Services.Chart.FindByTiming<Arc>(
+                arc.EndTiming - ArcConnection.TimingToleranceMs,
+                arc.EndTiming + ArcConnection.TimingToleranceMs))
             {
-                if (IsChained(arc, overlap))
+                if (ArcConnection.IsConnected(arc, overlap))
                 {
                     if (arc.NextArc == null
                      || arc.Color == overlap.Color)
@@ -91,14 +94,5 @@ namespace ArcCreate.Gameplay.Chart
             arc.PreviousArc = null;
         }
 
-        private bool IsChained(Arc first, Arc second)
-        {
-            return
-                !ReferenceEquals(first, second)
-             && Mathf.Abs(first.EndTiming - second.Timing) <= 1
-             && first.XEnd == second.XStart
-             && first.YEnd == second.YStart
-             && first.IsTrace == second.IsTrace;
-        }
     }
 }
