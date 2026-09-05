@@ -228,14 +228,18 @@ namespace ArcCreate.Gameplay
             return Mathf.Abs(thickness + (thickness * 3 * z / Values.TrackLengthBackward));
         }
 
-        public static float CalculateFadeOutAlpha(float z)
+        public static float CalculateShortNoteAlpha(float z)
         {
-            if (z <= 0)
-            {
-                return Mathf.Clamp((Values.TrackLengthForward + z) / Values.NoteFadeOutLength, 0, 1);
-            }
+            return Mathf.Clamp01(
+                (z - Values.ShortNoteFadeStartZ)
+                / (Values.ShortNoteFadeEndZ - Values.ShortNoteFadeStartZ));
+        }
 
-            return Mathf.Clamp((Values.TrackLengthBackward - z) / Values.NoteFadeOutLength, 0, 1);
+        public static float CalculateArcSegmentAlphaScalar(float z, bool isSlam)
+        {
+            float fadeStart = isSlam ? Values.SlamArcFadeStartZ : Values.LongArcFadeStartZ;
+            float progress = Mathf.Clamp01((z - fadeStart) / Values.ArcFadeLength);
+            return Mathf.Lerp(Values.MinArcAlphaScalar, 1, progress);
         }
 
         public static int CalculateArcLockDuration(float arcJudgeInterval)

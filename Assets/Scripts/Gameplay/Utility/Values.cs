@@ -9,7 +9,11 @@ namespace ArcCreate.Gameplay
         public const float TrackLengthBackward = 53.5f;
         public const float MinInputLaneZ = TrackLengthForward / 20f;
         public const float LaneWidth = 4.25f;
-        public const float NoteFadeOutLength = 20;
+        public const float ShortNoteFadeStartZ = -90;
+        public const float ShortNoteFadeEndZ = -80;
+        public const float LongArcFadeStartZ = -95;
+        public const float SlamArcFadeStartZ = -90;
+        public const float ArcFadeLength = 10;
         public const float ArcY0 = 1f;
         public const float ArcY1 = 5.5f;
 
@@ -31,7 +35,9 @@ namespace ArcCreate.Gameplay
         public const int HoldFlashCycle = 4;
         public const int ArcFlashCycle = 5;
         public const float MaxHoldAlpha = 0.8627451f;
-        public const float MaxArcAlpha = 0.8823592f;
+        public const float MaxArcAlpha = 225f / 255f;
+        public const float MaxArcTapAlpha = 240f / 255f;
+        public const float MinArcAlphaScalar = 1f / 3f;
         public const float FlashArcAlphaScalar = 0.85f;
         public const float FlashHoldAlphaScalar = 0.85f;
         public const float MissedArcAlphaScalar = 0.75f;

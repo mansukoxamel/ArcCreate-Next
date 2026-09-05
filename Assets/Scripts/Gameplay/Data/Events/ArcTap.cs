@@ -121,7 +121,7 @@ namespace ArcCreate.Gameplay.Data
             scl.x *= Width;
             Matrix4x4 matrix = groupProperties.GroupMatrix * Matrix4x4.TRS(pos, rot, scl);
 
-            float alpha = ArcFormula.CalculateFadeOutAlpha(z-5);
+            float alpha = ArcFormula.CalculateShortNoteAlpha(z) * Values.MaxArcTapAlpha;
             Color color = groupProperties.Color;
             color.a *= alpha;
 

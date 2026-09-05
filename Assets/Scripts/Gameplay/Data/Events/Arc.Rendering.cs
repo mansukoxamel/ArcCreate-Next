@@ -213,10 +213,6 @@ namespace ArcCreate.Gameplay.Data
             Color color = groupProperties.Color;
             color.a *= Mathf.Min(alpha, arcGroupAlpha);
             float baseAlpha = color.a;
-            if (!IsTrace)
-            {
-                color.a *= ArcFormula.CalculateFadeOutAlpha(z-5);
-            }
 
             int clipToTiming;
             double clipToFloorPosition;
@@ -281,7 +277,7 @@ namespace ArcCreate.Gameplay.Data
                 else
                 {
                     Color colorNew = color;
-                    colorNew.a = baseAlpha * ArcFormula.CalculateFadeOutAlpha(zPos-5);
+                    colorNew.a = baseAlpha * ArcFormula.CalculateArcSegmentAlphaScalar(zPos, Timing == EndTiming);
                     Services.Render.DrawArcSegment(Color, highlight, matrix * bodyMatrix, colorNew, IsSelected, redArcValue, basePos.y + segment.EndPosition.y, depth);
                     Color colorShadow = new Color(1, 1, 1, colorNew.a); // have to make another copy here so the alpha works (but it's struct wtf??)
                     if (!groupProperties.NoShadow)
