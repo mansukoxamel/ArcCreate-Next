@@ -39,6 +39,7 @@ namespace ArcCreate.Compose.Project
         [SerializeField] private List<string> defaultDifficultyNames;
         private AutosaveHelper autosaveHelper;
         private bool isDirectFileProject;
+        private Action<AudioClip> pendingAudioSwitch;
 #if UNITY_STANDALONE_WIN && !UNITY_EDITOR
         private readonly ConcurrentQueue<IReadOnlyList<string>> droppedFileBatches = new ConcurrentQueue<IReadOnlyList<string>>();
         private WindowsFileDrop windowsFileDrop;
@@ -157,11 +158,32 @@ namespace ArcCreate.Compose.Project
 
         public void OpenChart(ChartSettings chart)
         {
+            if (chart == null || chart == CurrentChart)
+            {
+                return;
+            }
+
+            OpenUnsavedChangesDialog(() => SwitchChart(chart));
+        }
+
+        private void SwitchChart(ChartSettings chart)
+        {
+            int currentTiming = Services.Gameplay.Audio.AudioTiming;
+            string currentAudioPath = GetAbsoluteAudioPath(CurrentChart);
+            string nextAudioPath = GetAbsoluteAudioPath(chart);
+            bool usesSameAudio = DirectFileProjectResolver.AreSameFile(currentAudioPath, nextAudioPath);
+
+            CurrentChart.LastWorkingTiming = currentTiming;
             CurrentChart = chart;
             CurrentProject.LastOpenedChartPath = CurrentChart.ChartPath;
             currentChartPath.text = CurrentChart.ChartPath;
-            LoadChart(CurrentChart);
-            Services.Gameplay.Audio.AudioTiming = chart.LastWorkingTiming;
+
+            if (!usesSameAudio)
+            {
+                Services.Gameplay.Audio.Pause();
+            }
+
+            LoadChart(CurrentChart, usesSameAudio, !usesSameAudio);
         }
 
         public void RemoveChart(ChartSettings chart)
@@ -291,6 +313,12 @@ namespace ArcCreate.Compose.Project
 
         private void OpenDirectFileImmediately(string path)
         {
+            if (Directory.Exists(path))
+            {
+                OpenDirectDirectory(Path.GetFullPath(path), null);
+                return;
+            }
+
             if (!File.Exists(path))
             {
                 Services.Popups.Notify(Popups.Severity.Error, $"ファイルが見つかりません。\n{path}");
@@ -300,7 +328,7 @@ namespace ArcCreate.Compose.Project
             path = Path.GetFullPath(path);
             if (!DirectFileProjectResolver.IsSupportedDrop(path))
             {
-                Services.Popups.Notify(Popups.Severity.Error, "AFFまたはOGGファイルをドロップしてください。");
+                Services.Popups.Notify(Popups.Severity.Error, "AFF、OGG、JPG、または曲フォルダをドロップしてください。");
                 return;
             }
 
@@ -314,26 +342,68 @@ namespace ArcCreate.Compose.Project
                     return;
                 }
 
-                OpenDirectChart(path, null);
+                OpenDirectChart(path, null, null);
+                return;
+            }
+
+            if (Path.GetExtension(path).Equals(".jpg", StringComparison.OrdinalIgnoreCase))
+            {
+                OpenDirectDirectory(Path.GetDirectoryName(path), path);
                 return;
             }
 
             string[] charts = DirectFileProjectResolver.FindChartsForAudio(path);
             if (charts.Length == 0)
             {
-                OpenDirectChart(Path.Combine(Path.GetDirectoryName(path), Values.DefaultChartFileName + ".aff"), path);
+                OpenDirectChart(
+                    Path.Combine(Path.GetDirectoryName(path), Values.DefaultChartFileName + ".aff"),
+                    path,
+                    null);
             }
             else if (charts.Length == 1)
             {
-                OpenDirectChart(charts[0], path);
+                OpenDirectChart(charts[0], path, null);
             }
             else
             {
-                ShowDirectChartSelection(path, charts);
+                ShowDirectChartSelection(path, charts, path, null);
             }
         }
 
-        private void ShowDirectChartSelection(string audioPath, string[] chartPaths)
+        private void OpenDirectDirectory(string directory, string droppedJacketPath)
+        {
+            string[] charts = DirectFileProjectResolver.FindLoadableChartsInDirectory(directory);
+            if (charts.Length == 0)
+            {
+                string baseAudio = Path.Combine(directory, Values.BaseFileName + ".ogg");
+                if (!File.Exists(baseAudio))
+                {
+                    Services.Popups.Notify(
+                        Popups.Severity.Error,
+                        $"曲フォルダに編集可能なAFFとOGG、またはbase.oggが見つかりません。\n{directory}");
+                    return;
+                }
+
+                OpenDirectChart(
+                    Path.Combine(directory, Values.DefaultChartFileName + ".aff"),
+                    baseAudio,
+                    droppedJacketPath);
+            }
+            else if (charts.Length == 1)
+            {
+                OpenDirectChart(charts[0], null, droppedJacketPath);
+            }
+            else
+            {
+                ShowDirectChartSelection(directory, charts, null, droppedJacketPath);
+            }
+        }
+
+        private void ShowDirectChartSelection(
+            string sourcePath,
+            string[] chartPaths,
+            string droppedAudioPath,
+            string droppedJacketPath)
         {
             List<ButtonSetting> buttons = new List<ButtonSetting>();
             foreach (string chartPath in chartPaths)
@@ -342,7 +412,7 @@ namespace ArcCreate.Compose.Project
                 buttons.Add(new ButtonSetting
                 {
                     Text = Path.GetFileName(selectedChartPath),
-                    Callback = () => OpenDirectChart(selectedChartPath, audioPath),
+                    Callback = () => OpenDirectChart(selectedChartPath, droppedAudioPath, droppedJacketPath),
                     ButtonColor = ButtonColor.Highlight,
                 });
             }
@@ -356,11 +426,14 @@ namespace ArcCreate.Compose.Project
 
             Services.Popups.CreateTextDialog(
                 "譜面を選択",
-                $"{Path.GetFileName(audioPath)}で編集するAFFを選んでください。",
+                $"{GetSourceName(sourcePath)}で編集するAFFを選んでください。",
                 buttons.ToArray());
         }
 
-        private void OpenDirectChart(string selectedChartPath, string droppedAudioPath)
+        private void OpenDirectChart(
+            string selectedChartPath,
+            string droppedAudioPath,
+            string droppedJacketPath)
         {
             string directory = Path.GetDirectoryName(selectedChartPath);
             List<string> chartPaths = Directory.GetFiles(directory, "*.aff")
@@ -391,7 +464,8 @@ namespace ArcCreate.Compose.Project
                 {
                     ChartPath = Path.GetFileName(chartPath),
                     AudioPath = Path.GetFileName(audioPath),
-                    JacketPath = File.Exists(Path.Combine(directory, "base.jpg")) ? "base.jpg" : null,
+                    JacketPath = Path.GetFileName(
+                        DirectFileProjectResolver.ResolveJacketForChart(chartPath, droppedJacketPath)),
                     BaseBpm = float.Parse(Values.DefaultBpm),
                 };
                 AutofillChart(chart);
@@ -526,6 +600,12 @@ namespace ArcCreate.Compose.Project
 #if UNITY_STANDALONE_WIN && !UNITY_EDITOR
             windowsFileDrop?.Dispose();
 #endif
+            if (pendingAudioSwitch != null)
+            {
+                gameplayData.AudioClip.OnValueChange -= pendingAudioSwitch;
+                pendingAudioSwitch = null;
+            }
+
             newProjectButton.onClick.RemoveListener(StartCreatingNewProject);
             openProjectButton.onClick.RemoveListener(StartOpeningProject);
             saveProjectButton.onClick.RemoveListener(SaveProject);
@@ -619,7 +699,10 @@ namespace ArcCreate.Compose.Project
             }
         }
 
-        private void LoadChart(ChartSettings chart)
+        private void LoadChart(
+            ChartSettings chart,
+            bool preserveAudioTiming = false,
+            bool playNewAudioFromStart = false)
         {
             string dir = Path.GetDirectoryName(CurrentProject.Path);
             string path = Path.Combine(dir, chart.ChartPath);
@@ -662,7 +745,15 @@ namespace ArcCreate.Compose.Project
 
             if (parseResult.IsOk)
             {
-                gameplayData.LoadChart(reader, Path.GetDirectoryName(path));
+                if (playNewAudioFromStart)
+                {
+                    RegisterAudioSwitchPlayback();
+                }
+
+                gameplayData.LoadChart(
+                    reader,
+                    Path.GetDirectoryName(path),
+                    resetAudioTiming: !preserveAudioTiming);
             }
             else
             {
@@ -765,6 +856,39 @@ namespace ArcCreate.Compose.Project
                         ButtonColor = ButtonColor.Default,
                     },
                 });
+        }
+
+        private string GetAbsoluteAudioPath(ChartSettings chart)
+        {
+            if (chart == null || string.IsNullOrEmpty(chart.AudioPath) || CurrentProject == null)
+            {
+                return null;
+            }
+
+            return Path.GetFullPath(Path.Combine(Path.GetDirectoryName(CurrentProject.Path), chart.AudioPath));
+        }
+
+        private static string GetSourceName(string sourcePath)
+        {
+            return Directory.Exists(sourcePath)
+                ? new DirectoryInfo(sourcePath).Name
+                : Path.GetFileName(sourcePath);
+        }
+
+        private void RegisterAudioSwitchPlayback()
+        {
+            if (pendingAudioSwitch != null)
+            {
+                gameplayData.AudioClip.OnValueChange -= pendingAudioSwitch;
+            }
+
+            pendingAudioSwitch = clip =>
+            {
+                gameplayData.AudioClip.OnValueChange -= pendingAudioSwitch;
+                pendingAudioSwitch = null;
+                Services.Gameplay.Audio.PlayImmediately(0);
+            };
+            gameplayData.AudioClip.OnValueChange += pendingAudioSwitch;
         }
     }
 }

@@ -53,7 +53,7 @@ namespace ArcCreate.Gameplay.Chart
         /// Load a chart.
         /// </summary>
         /// <param name="chart">Chart to load.</param>
-        void LoadChart(ChartReader chart);
+        void LoadChart(ChartReader chart, bool resetAudioTiming = true);
 
         /// <summary>
         /// Update judgement of all notes in the chart.

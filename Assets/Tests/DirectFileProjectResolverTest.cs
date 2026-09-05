@@ -77,9 +77,58 @@ namespace Tests.Unit
         [TestCase("chart.aff")]
         [TestCase("base.ogg")]
         [TestCase("CHART.AFF")]
-        public void IsSupportedDrop_AcceptsAffAndOggOnly(string name)
+        public void IsSupportedDrop_AcceptsAffAndOgg(string name)
         {
             Assert.That(DirectFileProjectResolver.IsSupportedDrop(name), Is.True);
+        }
+
+        [Test]
+        public void IsSupportedDrop_AcceptsJpgButRejectsPng()
+        {
+            Assert.That(DirectFileProjectResolver.IsSupportedDrop("base.jpg"), Is.True);
+            Assert.That(DirectFileProjectResolver.IsSupportedDrop("base.png"), Is.False);
+        }
+
+        [Test]
+        public void IsSupportedDrop_AcceptsDirectory()
+        {
+            Assert.That(DirectFileProjectResolver.IsSupportedDrop(directory), Is.True);
+        }
+
+        [Test]
+        public void FindLoadableChartsInDirectory_FiltersChartsWithoutAudio()
+        {
+            string chart0 = CreateFile("0.aff");
+            string chart3 = CreateFile("3.aff");
+            CreateFile("3.ogg");
+
+            Assert.That(
+                DirectFileProjectResolver.FindLoadableChartsInDirectory(directory),
+                Is.EqualTo(new[] { chart3 }));
+            Assert.That(File.Exists(chart0), Is.True);
+        }
+
+        [Test]
+        public void ResolveJacketForChart_PrefersChartSpecificThenBaseThenDroppedImage()
+        {
+            string chart = CreateFile("3.aff");
+            string dropped = CreateFile("base_256.jpg");
+
+            Assert.That(DirectFileProjectResolver.ResolveJacketForChart(chart, dropped), Is.EqualTo(dropped));
+
+            string baseJacket = CreateFile("base.jpg");
+            Assert.That(DirectFileProjectResolver.ResolveJacketForChart(chart, dropped), Is.EqualTo(baseJacket));
+
+            string chartJacket = CreateFile("3.jpg");
+            Assert.That(DirectFileProjectResolver.ResolveJacketForChart(chart, dropped), Is.EqualTo(chartJacket));
+        }
+
+        [Test]
+        public void AreSameFile_IgnoresCaseAndRelativeSegments()
+        {
+            string first = Path.Combine(directory, "base.ogg");
+            string second = Path.Combine(directory, ".", "BASE.OGG");
+            Assert.That(DirectFileProjectResolver.AreSameFile(first, second), Is.True);
         }
 
         private string CreateFile(string name)

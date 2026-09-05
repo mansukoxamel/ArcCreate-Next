@@ -14,12 +14,17 @@ namespace ArcCreate.Compose.Project
 
         protected override void ApplyChartSettings(ChartSettings chart)
         {
+            string previousAudioPath = audioFile.CurrentPath?.FullPath;
             audioFile.SetPathWithoutNotify(chart.AudioPath);
             jacket.SetPathWithoutNotify(chart.JacketPath);
             background.SetPathWithoutNotify(chart.BackgroundPath);
             video.SetPathWithoutNotify(chart.VideoPath);
 
-            GameplayData.LoadAudio(audioFile.CurrentPath?.FullPath);
+            string nextAudioPath = audioFile.CurrentPath?.FullPath;
+            if (!DirectFileProjectResolver.AreSameFile(previousAudioPath, nextAudioPath))
+            {
+                GameplayData.LoadAudio(nextAudioPath);
+            }
             GameplayData.LoadJacket(jacket.CurrentPath?.FullPath);
             GameplayData.LoadBackground(background.CurrentPath?.FullPath);
 

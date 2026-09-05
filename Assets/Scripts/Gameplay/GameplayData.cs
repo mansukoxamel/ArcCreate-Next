@@ -18,6 +18,7 @@ namespace ArcCreate.Gameplay
         [SerializeField] private Sprite defaultJacket;
         private bool isUsingDefaultBackground = true;
         private bool isUsingDefaultJacket = true;
+        private int audioLoadGeneration;
 
         public event Action OnChartFileLoad;
 
@@ -133,12 +134,13 @@ namespace ArcCreate.Gameplay
         /// <param name="path">The path to load.</param>
         public void LoadAudio(string path)
         {
+            int generation = ++audioLoadGeneration;
             if (AudioClip.Value != null)
             {
                 Destroy(AudioClip.Value);
             }
 
-            StartLoadingAudio(path).Forget();
+            StartLoadingAudio(path, generation).Forget();
         }
 
         /// <summary>
@@ -201,9 +203,13 @@ namespace ArcCreate.Gameplay
         /// <param name="reader">The chart reader defining the chart.</param>
         /// <param name="sfxParentFolder">The parent folder for loading custom SFX files.</param>
         /// <param name="fileAccess">Custom file accessor.</param>
-        public void LoadChart(ChartReader reader, string sfxParentFolder, IFileAccessWrapper fileAccess = null)
+        public void LoadChart(
+            ChartReader reader,
+            string sfxParentFolder,
+            IFileAccessWrapper fileAccess = null,
+            bool resetAudioTiming = true)
         {
-            Services.Chart.LoadChart(reader);
+            Services.Chart.LoadChart(reader, resetAudioTiming);
             Services.Hitsound.LoadCustomSfxs(sfxParentFolder, fileAccess).Forget();
             OnChartFileLoad?.Invoke();
         }
@@ -312,7 +318,7 @@ namespace ArcCreate.Gameplay
             Services.Skin.SetVideoBackground(path, isUri);
         }
 
-        internal async UniTask StartLoadingAudio(string path)
+        internal async UniTask StartLoadingAudio(string path, int generation)
         {
             using (UnityWebRequest req = UnityWebRequestMultimedia.GetAudioClip(
                 new Uri(path),
@@ -328,7 +334,14 @@ namespace ArcCreate.Gameplay
                     }));
                 }
 
-                AudioClip.Value = DownloadHandlerAudioClip.GetContent(req);
+                AudioClip clip = DownloadHandlerAudioClip.GetContent(req);
+                if (generation != audioLoadGeneration)
+                {
+                    Destroy(clip);
+                    return;
+                }
+
+                AudioClip.Value = clip;
             }
         }
 

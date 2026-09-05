@@ -14,7 +14,7 @@ namespace ArcCreate.Compose
         public const string ProjectExtensionWithoutDot = "arcproj";
 
         public static readonly string[] ImageExtensions
-            = new string[] { ".jpg", ".png" };
+            = new string[] { ".jpg" };
 
         public static readonly string[] AudioExtensions
             = new string[] { ".ogg" };

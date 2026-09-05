@@ -8,8 +8,18 @@ namespace ArcCreate.Compose.Project
     {
         public static bool IsSupportedDrop(string path)
         {
+            if (Directory.Exists(path))
+            {
+                return true;
+            }
+
             string extension = Path.GetExtension(path);
             if (extension.Equals(".aff", StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+
+            if (extension.Equals(".jpg", StringComparison.OrdinalIgnoreCase))
             {
                 return true;
             }
@@ -47,6 +57,45 @@ namespace ArcCreate.Compose.Project
             return Directory.GetFiles(directory, "*.aff")
                 .OrderBy(path => Path.GetFileName(path), StringComparer.OrdinalIgnoreCase)
                 .ToArray();
+        }
+
+        public static string[] FindLoadableChartsInDirectory(string directory)
+        {
+            return Directory.GetFiles(directory, "*.aff")
+                .Where(path => ResolveAudioForChart(path) != null)
+                .OrderBy(path => Path.GetFileName(path), StringComparer.OrdinalIgnoreCase)
+                .ToArray();
+        }
+
+        public static string ResolveJacketForChart(string chartPath, string preferredJacketPath = null)
+        {
+            string chartJacket = Path.ChangeExtension(chartPath, ".jpg");
+            if (File.Exists(chartJacket))
+            {
+                return chartJacket;
+            }
+
+            string baseJacket = Path.Combine(Path.GetDirectoryName(chartPath), "base.jpg");
+            if (File.Exists(baseJacket))
+            {
+                return baseJacket;
+            }
+
+            return !string.IsNullOrEmpty(preferredJacketPath) && File.Exists(preferredJacketPath)
+                ? preferredJacketPath
+                : null;
+        }
+
+        public static bool AreSameFile(string firstPath, string secondPath)
+        {
+            if (string.IsNullOrEmpty(firstPath) || string.IsNullOrEmpty(secondPath))
+            {
+                return false;
+            }
+
+            return Path.GetFullPath(firstPath).Equals(
+                Path.GetFullPath(secondPath),
+                StringComparison.OrdinalIgnoreCase);
         }
     }
 }

@@ -203,11 +203,14 @@ namespace ArcCreate.Gameplay.Chart
             Services.Scenecontrol.Clear();
         }
 
-        public void LoadChart(ChartReader reader)
+        public void LoadChart(ChartReader reader, bool resetAudioTiming = true)
         {
             LoadChart(new ArcChart(reader));
             IsLoaded = true;
-            Services.Audio.AudioTiming = 0;
+            if (resetAudioTiming)
+            {
+                Services.Audio.AudioTiming = 0;
+            }
         }
 
         public void LoadChart(ArcChart chart)

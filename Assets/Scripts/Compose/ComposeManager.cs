@@ -59,7 +59,7 @@ namespace ArcCreate.Compose
         private void StartCheckingStartupArgs()
         {
             string[] args = Environment.GetCommandLineArgs();
-            if (args.Length >= 2 && File.Exists(args[1]))
+            if (args.Length >= 2 && (File.Exists(args[1]) || Directory.Exists(args[1])))
             {
                 if (args[1].EndsWith(".arcproj", StringComparison.OrdinalIgnoreCase))
                 {
