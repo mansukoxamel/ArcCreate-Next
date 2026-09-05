@@ -109,15 +109,25 @@ namespace Tests.Unit
         }
 
         [Test]
-        public void ResolveJacketForChart_PrefersChartSpecificThenBaseThenDroppedImage()
+        public void ResolveJacketForChart_PrefersNormalChartThen1080ChartThenNormalBaseThen1080Base()
         {
             string chart = CreateFile("3.aff");
             string dropped = CreateFile("base_256.jpg");
 
             Assert.That(DirectFileProjectResolver.ResolveJacketForChart(chart, dropped), Is.EqualTo(dropped));
 
+            string highResolutionBaseJacket = CreateFile("1080_base.jpg");
+            Assert.That(
+                DirectFileProjectResolver.ResolveJacketForChart(chart, dropped),
+                Is.EqualTo(highResolutionBaseJacket));
+
             string baseJacket = CreateFile("base.jpg");
             Assert.That(DirectFileProjectResolver.ResolveJacketForChart(chart, dropped), Is.EqualTo(baseJacket));
+
+            string highResolutionChartJacket = CreateFile("1080_3.jpg");
+            Assert.That(
+                DirectFileProjectResolver.ResolveJacketForChart(chart, dropped),
+                Is.EqualTo(highResolutionChartJacket));
 
             string chartJacket = CreateFile("3.jpg");
             Assert.That(DirectFileProjectResolver.ResolveJacketForChart(chart, dropped), Is.EqualTo(chartJacket));

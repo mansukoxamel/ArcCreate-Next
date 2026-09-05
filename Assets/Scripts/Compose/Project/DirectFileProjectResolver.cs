@@ -75,10 +75,24 @@ namespace ArcCreate.Compose.Project
                 return chartJacket;
             }
 
-            string baseJacket = Path.Combine(Path.GetDirectoryName(chartPath), "base.jpg");
+            string directory = Path.GetDirectoryName(chartPath);
+            string chartName = Path.GetFileNameWithoutExtension(chartPath);
+            string highResolutionChartJacket = Path.Combine(directory, $"1080_{chartName}.jpg");
+            if (File.Exists(highResolutionChartJacket))
+            {
+                return highResolutionChartJacket;
+            }
+
+            string baseJacket = Path.Combine(directory, "base.jpg");
             if (File.Exists(baseJacket))
             {
                 return baseJacket;
+            }
+
+            string highResolutionBaseJacket = Path.Combine(directory, "1080_base.jpg");
+            if (File.Exists(highResolutionBaseJacket))
+            {
+                return highResolutionBaseJacket;
             }
 
             return !string.IsNullOrEmpty(preferredJacketPath) && File.Exists(preferredJacketPath)
