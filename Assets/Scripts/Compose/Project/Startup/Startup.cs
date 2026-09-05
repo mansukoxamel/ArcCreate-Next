@@ -45,6 +45,13 @@ namespace ArcCreate.Compose.Project
         {
             Close();
 
+            // Direct AFF/OGG sessions use a non-existent path only as their directory anchor.
+            // Do not record that internal path as a recent project.
+            if (!File.Exists(settings.Path))
+            {
+                return;
+            }
+
             string recentProjectsPrefs = PlayerPrefs.GetString(PlayerPrefKey);
             List<string> split = new List<string>();
             if (!string.IsNullOrEmpty(recentProjectsPrefs))

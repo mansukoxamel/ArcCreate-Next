@@ -17,7 +17,7 @@ namespace ArcCreate.Compose
             = new string[] { ".jpg", ".png" };
 
         public static readonly string[] AudioExtensions
-            = new string[] { ".ogg", ".wav", ".mp3" };
+            = new string[] { ".ogg" };
 
         // Names
         public const string DefaultChartFileName = "2";

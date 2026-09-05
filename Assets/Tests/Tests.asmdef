@@ -4,6 +4,7 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "ArcCreate.ChartFormat",
+        "ArcCreate.Compose",
         "ArcCreate.Gameplay",
         "ArcCreate.Utility",
         "UniTask",

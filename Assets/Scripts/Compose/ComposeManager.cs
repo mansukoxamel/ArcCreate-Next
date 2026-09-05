@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using ArcCreate.Compose.Popups;
+using ArcCreate.Compose.Project;
 using ArcCreate.Gameplay;
 using ArcCreate.SceneTransition;
 using Cysharp.Threading.Tasks;
@@ -58,9 +59,16 @@ namespace ArcCreate.Compose
         private void StartCheckingStartupArgs()
         {
             string[] args = Environment.GetCommandLineArgs();
-            if (args.Length >= 2 && File.Exists(args[1]) && args[1].EndsWith(".arcproj"))
+            if (args.Length >= 2 && File.Exists(args[1]))
             {
-                Services.Project.OpenProject(args[1]);
+                if (args[1].EndsWith(".arcproj", StringComparison.OrdinalIgnoreCase))
+                {
+                    Services.Project.OpenProject(args[1]);
+                }
+                else if (DirectFileProjectResolver.IsSupportedDrop(args[1]))
+                {
+                    Services.Project.OpenDirectFile(args[1]);
+                }
             }
         }
 

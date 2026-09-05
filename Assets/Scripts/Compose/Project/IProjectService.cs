@@ -68,5 +68,11 @@ namespace ArcCreate.Compose.Project
         /// </summary>
         /// <param name="projectPath">Path to the project file.</param>
         void OpenProject(string projectPath);
+
+        /// <summary>
+        /// Open an AFF chart or OGG audio file without requiring a project file.
+        /// </summary>
+        /// <param name="path">Path to an AFF chart or OGG audio file.</param>
+        void OpenDirectFile(string path);
     }
 }

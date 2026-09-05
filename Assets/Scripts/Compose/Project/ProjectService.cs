@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+#if UNITY_STANDALONE_WIN && !UNITY_EDITOR
+using System.Collections.Concurrent;
+#endif
 using ArcCreate.ChartFormat;
 using ArcCreate.Compose.Navigation;
 using ArcCreate.Compose.Popups;
@@ -34,6 +38,11 @@ namespace ArcCreate.Compose.Project
         [SerializeField] private List<Color> defaultDifficultyColors;
         [SerializeField] private List<string> defaultDifficultyNames;
         private AutosaveHelper autosaveHelper;
+        private bool isDirectFileProject;
+#if UNITY_STANDALONE_WIN && !UNITY_EDITOR
+        private readonly ConcurrentQueue<IReadOnlyList<string>> droppedFileBatches = new ConcurrentQueue<IReadOnlyList<string>>();
+        private WindowsFileDrop windowsFileDrop;
+#endif
 
         public event Action<ChartSettings> OnChartLoad;
 
@@ -47,6 +56,7 @@ namespace ArcCreate.Compose.Project
 
         public void CreateNewProject(NewProjectInfo info)
         {
+            isDirectFileProject = false;
             string projPath = info.ProjectFile.FullPath;
             if (!projPath.EndsWith(".arcproj"))
             {
@@ -197,7 +207,12 @@ namespace ArcCreate.Compose.Project
 
             CurrentChart.LastWorkingTiming = Services.Gameplay.Audio.AudioTiming;
             SerializeChart(CurrentProject);
-            SerializeProject(CurrentProject);
+            if (!isDirectFileProject)
+            {
+                SerializeProject(CurrentProject);
+            }
+
+            Values.ProjectModified = false;
         }
 
         [EditorAction("Reload", false, "<c-s-r>")]
@@ -219,6 +234,17 @@ namespace ArcCreate.Compose.Project
         public void OpenProject(string path)
         {
             ProjectSettings project = DeserializeProject(path);
+            isDirectFileProject = false;
+            OpenProject(project, path, true);
+        }
+
+        public void OpenDirectFile(string path)
+        {
+            OpenUnsavedChangesDialog(() => OpenDirectFileImmediately(path));
+        }
+
+        private void OpenProject(ProjectSettings project, string path, bool rememberPath)
+        {
             project.Path = path;
             CurrentProject = project;
 
@@ -243,14 +269,151 @@ namespace ArcCreate.Compose.Project
 
             currentChartPath.text = CurrentChart.ChartPath;
             LoadChart(CurrentChart);
-            OnProjectLoad.Invoke(CurrentProject);
-            PlayerPrefs.SetString("LastProjectPath", path);
+            OnProjectLoad?.Invoke(CurrentProject);
+            if (rememberPath)
+            {
+                PlayerPrefs.SetString("LastProjectPath", path);
+            }
 
-            Debug.Log(
-                I18n.S("Compose.Notify.Project.OpenProject", new Dictionary<string, object>()
+            if (rememberPath)
+            {
+                Debug.Log(
+                    I18n.S("Compose.Notify.Project.OpenProject", new Dictionary<string, object>()
+                    {
+                        { "Path", path },
+                    }));
+            }
+            else
+            {
+                Debug.Log($"譜面ファイルを直接編集で開きました: \"{CurrentChart.ChartPath}\"");
+            }
+        }
+
+        private void OpenDirectFileImmediately(string path)
+        {
+            if (!File.Exists(path))
+            {
+                Services.Popups.Notify(Popups.Severity.Error, $"ファイルが見つかりません。\n{path}");
+                return;
+            }
+
+            path = Path.GetFullPath(path);
+            if (!DirectFileProjectResolver.IsSupportedDrop(path))
+            {
+                Services.Popups.Notify(Popups.Severity.Error, "AFFまたはOGGファイルをドロップしてください。");
+                return;
+            }
+
+            if (Path.GetExtension(path).Equals(".aff", StringComparison.OrdinalIgnoreCase))
+            {
+                if (DirectFileProjectResolver.ResolveAudioForChart(path) == null)
                 {
-                    { "Path", path },
-                }));
+                    Services.Popups.Notify(
+                        Popups.Severity.Error,
+                        $"譜面に対応するOGGが見つかりません。\n{Path.GetFileName(path)}");
+                    return;
+                }
+
+                OpenDirectChart(path, null);
+                return;
+            }
+
+            string[] charts = DirectFileProjectResolver.FindChartsForAudio(path);
+            if (charts.Length == 0)
+            {
+                OpenDirectChart(Path.Combine(Path.GetDirectoryName(path), Values.DefaultChartFileName + ".aff"), path);
+            }
+            else if (charts.Length == 1)
+            {
+                OpenDirectChart(charts[0], path);
+            }
+            else
+            {
+                ShowDirectChartSelection(path, charts);
+            }
+        }
+
+        private void ShowDirectChartSelection(string audioPath, string[] chartPaths)
+        {
+            List<ButtonSetting> buttons = new List<ButtonSetting>();
+            foreach (string chartPath in chartPaths)
+            {
+                string selectedChartPath = chartPath;
+                buttons.Add(new ButtonSetting
+                {
+                    Text = Path.GetFileName(selectedChartPath),
+                    Callback = () => OpenDirectChart(selectedChartPath, audioPath),
+                    ButtonColor = ButtonColor.Highlight,
+                });
+            }
+
+            buttons.Add(new ButtonSetting
+            {
+                Text = "キャンセル",
+                Callback = null,
+                ButtonColor = ButtonColor.Default,
+            });
+
+            Services.Popups.CreateTextDialog(
+                "譜面を選択",
+                $"{Path.GetFileName(audioPath)}で編集するAFFを選んでください。",
+                buttons.ToArray());
+        }
+
+        private void OpenDirectChart(string selectedChartPath, string droppedAudioPath)
+        {
+            string directory = Path.GetDirectoryName(selectedChartPath);
+            List<string> chartPaths = Directory.GetFiles(directory, "*.aff")
+                .OrderBy(chart => Path.GetFileName(chart), StringComparer.OrdinalIgnoreCase)
+                .ToList();
+            if (!chartPaths.Contains(selectedChartPath, StringComparer.OrdinalIgnoreCase))
+            {
+                chartPaths.Add(selectedChartPath);
+            }
+
+            List<ChartSettings> charts = new List<ChartSettings>();
+            foreach (string chartPath in chartPaths)
+            {
+                string audioPath = DirectFileProjectResolver.ResolveAudioForChart(chartPath);
+                if (audioPath == null
+                 && droppedAudioPath != null
+                 && chartPath.Equals(selectedChartPath, StringComparison.OrdinalIgnoreCase))
+                {
+                    audioPath = droppedAudioPath;
+                }
+
+                if (audioPath == null)
+                {
+                    continue;
+                }
+
+                ChartSettings chart = new ChartSettings
+                {
+                    ChartPath = Path.GetFileName(chartPath),
+                    AudioPath = Path.GetFileName(audioPath),
+                    JacketPath = File.Exists(Path.Combine(directory, "base.jpg")) ? "base.jpg" : null,
+                    BaseBpm = float.Parse(Values.DefaultBpm),
+                };
+                AutofillChart(chart);
+                charts.Add(chart);
+            }
+
+            string selectedChartName = Path.GetFileName(selectedChartPath);
+            if (!charts.Any(chart => chart.ChartPath.Equals(selectedChartName, StringComparison.OrdinalIgnoreCase)))
+            {
+                Services.Popups.Notify(Popups.Severity.Error, "選択した譜面を開くためのOGGが見つかりません。");
+                return;
+            }
+
+            ProjectSettings directProject = new ProjectSettings
+            {
+                Path = Path.Combine(directory, ".ArcCreateNext.session.arcproj"),
+                LastOpenedChartPath = selectedChartName,
+                Charts = charts,
+            };
+
+            isDirectFileProject = true;
+            OpenProject(directProject, directProject.Path, false);
         }
 
         private void OnOpenConfirmed()
@@ -321,8 +484,48 @@ namespace ArcCreate.Compose.Project
             Settings.ShouldAutosave.OnValueChanged.AddListener(OnShouldAutosaveChange);
         }
 
+        private void Start()
+        {
+#if UNITY_STANDALONE_WIN && !UNITY_EDITOR
+            try
+            {
+                windowsFileDrop = new WindowsFileDrop(paths => droppedFileBatches.Enqueue(paths));
+                Debug.Log($"ファイルのドラッグ＆ドロップを初期化しました: 0x{windowsFileDrop.Window.ToInt64():X}");
+            }
+            catch (Exception exception)
+            {
+                Debug.LogError($"ファイルのドラッグ＆ドロップを初期化できませんでした。\n{exception}");
+            }
+#endif
+        }
+
+        private void Update()
+        {
+#if UNITY_STANDALONE_WIN && !UNITY_EDITOR
+            while (droppedFileBatches.TryDequeue(out IReadOnlyList<string> paths))
+            {
+                Debug.Log($"ファイルドロップメッセージを受信しました: {paths.Count}件");
+                if (paths.Count == 0)
+                {
+                    continue;
+                }
+
+                if (paths.Count > 1)
+                {
+                    Services.Popups.Notify(Popups.Severity.Warning, "一度に開けるファイルは1個です。先頭のファイルを開きます。");
+                }
+
+                Debug.Log($"ファイルをドロップしました: \"{paths[0]}\"");
+                OpenDirectFile(paths[0]);
+            }
+#endif
+        }
+
         private void OnDestroy()
         {
+#if UNITY_STANDALONE_WIN && !UNITY_EDITOR
+            windowsFileDrop?.Dispose();
+#endif
             newProjectButton.onClick.RemoveListener(StartCreatingNewProject);
             openProjectButton.onClick.RemoveListener(StartOpeningProject);
             saveProjectButton.onClick.RemoveListener(SaveProject);
