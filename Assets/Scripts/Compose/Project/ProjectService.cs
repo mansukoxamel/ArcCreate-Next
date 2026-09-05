@@ -667,6 +667,7 @@ namespace ArcCreate.Compose.Project
 
         private void Awake()
         {
+            newProjectButton.gameObject.SetActive(false);
             CreateRecentDirectoriesButton();
             newProjectButton.onClick.AddListener(StartCreatingNewProject);
             openProjectButton.onClick.AddListener(StartOpeningProject);
