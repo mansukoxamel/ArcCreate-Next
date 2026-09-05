@@ -53,14 +53,14 @@ namespace Tests.Unit
         }
 
         [Test]
-        public void KeyChannel_Extrapolate()
+        public void KeyChannel_ClampsOutsideKeyRange()
         {
             KeyChannel channel = new KeyChannel()
                 .AddKey(0, 0)
                 .AddKey(1, 1);
 
-            Assert.That(channel.ValueAt(-1), Is.LessThan(0));
-            Assert.That(channel.ValueAt(2), Is.GreaterThan(1));
+            Assert.That(channel.ValueAt(-1), Is.EqualTo(0));
+            Assert.That(channel.ValueAt(2), Is.EqualTo(1));
         }
 
         [Test]

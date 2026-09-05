@@ -24,7 +24,7 @@ namespace ArcCreate.Compose.Popups
             this.owner = owner;
             background.color = colors[(int)severity];
             this.text.text = text;
-            this.text.enableWordWrapping = true;
+            this.text.textWrappingMode = TextWrappingModes.Normal;
             ownerCamera = camera;
 
             SetPositionTo(screenPosition);

@@ -83,7 +83,7 @@ Shader "Compose/Waveform"
 				float uvx = i.uv.x;
 				float dx = ddx(uvx);
 
-				const float SAMPLING_RANGE =  6;
+				const int SAMPLING_RANGE = 6;
 				// If it works it's not stupid
 				float s = 0;
 				int totalSamples = _ToSample - _FromSample;

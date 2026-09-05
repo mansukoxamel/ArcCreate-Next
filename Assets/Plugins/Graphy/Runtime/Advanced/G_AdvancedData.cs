@@ -107,7 +107,7 @@ namespace Tayx.Graphy.Advanced
 
                 m_sb.Append( m_windowStrings[ 0 ] ).Append( Screen.width.ToStringNonAlloc() )
                     .Append( m_windowStrings[ 1 ] ).Append( Screen.height.ToStringNonAlloc() )
-                    .Append( m_windowStrings[ 2 ] ).Append( Screen.currentResolution.refreshRate.ToStringNonAlloc() )
+                    .Append( m_windowStrings[ 2 ] ).Append( Mathf.RoundToInt((float) Screen.currentResolution.refreshRateRatio.value).ToStringNonAlloc() )
                     .Append( m_windowStrings[ 3 ] )
                     .Append( m_windowStrings[ 4 ] ).Append( ((int) Screen.dpi).ToStringNonAlloc() )
                     .Append( m_windowStrings[ 5 ] );
@@ -327,7 +327,7 @@ namespace Tayx.Graphy.Advanced
                   + "x"
                   + res.height
                   + "@"
-                  + res.refreshRate
+                  + Mathf.RoundToInt((float) res.refreshRateRatio.value)
                   + "Hz";
 
             m_operatingSystemText.text

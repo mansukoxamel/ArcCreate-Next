@@ -47,5 +47,5 @@
         "Temp/": true
     },
     "dotnet.preferCSharpExtension": true,
-    "dotnet.defaultSolution": "ArcCreate.sln"
+    "dotnet.defaultSolution": "ArcCreate.slnx"
 }

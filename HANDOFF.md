@@ -14,7 +14,7 @@
 - リモート: `https://github.com/mansukoxamel/ArcCreate.git`
 - 基準ブランチ: `main`
 - 移転時の起点: `755c2e8818dab3c8404b3ff997e87373607891cd`（元の`origin/trunk`）
-- Unity: `2022.3.62f3`
+- Unity: `6000.3.20f1`（Unity 6.3 LTS）
 - Git署名: `jinn / jinn@local`
 
 `main`を復元可能な基準として保ち、試行錯誤する変更は目的別ブランチで行う。`master`は使わない。

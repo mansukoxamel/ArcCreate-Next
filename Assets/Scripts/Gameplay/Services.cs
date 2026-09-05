@@ -10,14 +10,17 @@ using ArcCreate.Gameplay.Scenecontrol;
 using ArcCreate.Gameplay.Score;
 using ArcCreate.Gameplay.Skin;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ArcCreate.Gameplay
 {
     internal class Services : MonoBehaviour
     {
         [SerializeField] private SkinService skin;
-        [SerializeField] private new AudioService audio;
-        [SerializeField] private new CameraService camera;
+        [FormerlySerializedAs("audio")]
+        [SerializeField] private AudioService audioService;
+        [FormerlySerializedAs("camera")]
+        [SerializeField] private CameraService cameraService;
         [SerializeField] private ChartService chart;
         [SerializeField] private ParticleService particle;
         [SerializeField] private JudgementService judgement;
@@ -55,11 +58,11 @@ namespace ArcCreate.Gameplay
             Chart = chart;
             Particle = particle;
             Judgement = judgement;
-            Audio = audio;
+            Audio = audioService;
             Score = score;
             InputFeedback = inputFeedback;
             Scenecontrol = scenecontrol;
-            Camera = camera;
+            Camera = cameraService;
             Render = render;
             Hitsound = hitsound;
         }

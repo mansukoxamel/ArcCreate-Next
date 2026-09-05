@@ -157,7 +157,7 @@ namespace ArcCreate.Remote.Gameplay
                 return;
             }
 
-            var gameplayManager = FindObjectOfType<GameplayManager>();
+            var gameplayManager = FindFirstObjectByType<GameplayManager>();
             if (gameplayManager != null)
             {
                 UseGameplay(gameplayManager);

@@ -16,7 +16,7 @@ namespace DynamicPanels
 
 					if( canvas == null )
 					{
-						canvas = Object.FindObjectOfType<DynamicPanelsCanvas>();
+						canvas = Object.FindFirstObjectByType<DynamicPanelsCanvas>();
 						if( !canvas )
 						{
 							Debug.LogError( "Panels require a DynamicPanelsCanvas!" );

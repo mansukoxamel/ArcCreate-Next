@@ -22,7 +22,7 @@ internal static class MenuOptions
 			GameObjectUtility.SetParentAndAlign(canvas, parent);
 			Undo.RegisterCreatedObjectUndo(canvas, "Create " + canvas.name);
 
-			if(GameObject.FindObjectOfType<EventSystem>() == null)
+			if(GameObject.FindFirstObjectByType<EventSystem>() == null)
 			{
 				GameObject eventSystem = new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
 				GameObjectUtility.SetParentAndAlign(eventSystem, parent);

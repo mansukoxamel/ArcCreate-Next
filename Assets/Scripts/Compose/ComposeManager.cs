@@ -23,7 +23,7 @@ namespace ArcCreate.Compose
 
         private void LoadGameplayScene()
         {
-            var gameplayManager = FindObjectOfType<GameplayManager>();
+            var gameplayManager = FindFirstObjectByType<GameplayManager>();
             if (gameplayManager != null)
             {
                 UseGameplay(gameplayManager);
