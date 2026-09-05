@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ArcCreate.Data;
 using ArcCreate.Gameplay.Chart;
 using ArcCreate.Gameplay.Data;
 using UnityEngine;
@@ -7,6 +8,8 @@ namespace ArcCreate.Gameplay
 {
     public static class ArcFormula
     {
+        private const float NativeZDistanceScale = 6000f * Constants.DropRateScalar;
+
         public static float ArcXToWorld(float x)
         {
             return (-Values.LaneWidth * 2 * x) + Values.LaneWidth;
@@ -77,7 +80,7 @@ namespace ArcCreate.Gameplay
         public static double ZToFloorPosition(float z, GroupProperties groupProperties) =>
             ZToFloorPosition(z, float.IsNaN(groupProperties.DropRateSC) ? Settings.DropRate.Value : groupProperties.DropRateSC);
 
-        public static double ZToFloorPosition(float z, float dropRate) => (double)(z / dropRate * Values.BaseBpm * -1000);
+        public static double ZToFloorPosition(float z, float dropRate) => (double)(z / dropRate * -NativeZDistanceScale);
 
         public static float FloorPositionToZ(double fp, int timingGroup) =>
             FloorPositionToZ(fp, Services.Chart.GetTimingGroup(timingGroup).GroupProperties);
@@ -88,7 +91,7 @@ namespace ArcCreate.Gameplay
         public static float FloorPositionToZ(double fp, GroupProperties groupProperties) => FloorPositionToZ(fp,
             float.IsNaN(groupProperties.DropRateSC) ? Settings.DropRate.Value : groupProperties.DropRateSC);
 
-        public static float FloorPositionToZ(double fp, float dropRate) => (float)(fp / Values.BaseBpm * dropRate / -1000);
+        public static float FloorPositionToZ(double fp, float dropRate) => (float)(fp * dropRate / -NativeZDistanceScale);
 
         public static float S(float start, float end, float t)
         {
