@@ -151,6 +151,14 @@ namespace ArcCreate.Gameplay
             return (value * value * value) + 1;
         }
 
+        public static float CalculateCameraTilt(float currentTilt, float targetTilt)
+        {
+            float factor = targetTilt == 0
+                ? Values.CameraTiltReturnFactor
+                : Values.CameraTiltFollowFactor;
+            return currentTilt + ((targetTilt - currentTilt) * factor);
+        }
+
         public static List<int> CalculateLongNoteJudgeTimings(int from, int to, float bpm)
         {
             List<int> result = new List<int>();

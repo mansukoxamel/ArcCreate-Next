@@ -256,17 +256,7 @@ namespace ArcCreate.Gameplay.GameplayCamera
             }
 
             float pos = -Mathf.Clamp(currentArcPos / Values.LaneWidth, -1, 1) * Values.CameraArcPosScalar;
-            float delta = pos - currentTilt;
-            if (Mathf.Abs(delta) >= 0.001f)
-            {
-                float speed = Values.CameraTiltSpeed;
-                float deltaTime = Mathf.Min(Time.deltaTime, 0.1f);
-                currentTilt += speed * delta * deltaTime;
-            }
-            else
-            {
-                currentTilt = pos;
-            }
+            currentTilt = ArcFormula.CalculateCameraTilt(currentTilt, pos);
 
             currentTilt *= tiltFactorExternal;
             currentArcPos = 0;

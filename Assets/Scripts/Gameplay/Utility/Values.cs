@@ -78,7 +78,8 @@ namespace ArcCreate.Gameplay
         public const float CameraRotXTablet = 27.378f;
         public const float SkyInputLabelX = -7.1f;
         public const float SkyInputLabelXTablet = -6.5f;
-        public const float CameraTiltSpeed = 6f;
+        public const float CameraTiltFollowFactor = 0.04f;
+        public const float CameraTiltReturnFactor = 0.02f;
         public const float CameraArcPosScalar = 0.05f;
 
         // Strings
