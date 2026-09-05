@@ -67,7 +67,7 @@ namespace ArcCreate.Gameplay.Data
                 case CameraType.Qo:
                     return ArcFormula.Qo(p);
                 case CameraType.S:
-                    return ArcFormula.B(0, 1, p);
+                    return p;
                 default:
                     return p;
             }
