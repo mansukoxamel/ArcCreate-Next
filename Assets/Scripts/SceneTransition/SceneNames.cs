@@ -11,18 +11,16 @@
         public const string ResultScene = "Result";
         public const string StorageScene = "Storage";
 
-#if UNITY_EDITOR
-        public const string DefaultScene = GreetingScene;
-#elif UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_STANDALONE
         public const string DefaultScene = ComposeScene;
 #else
         public const string DefaultScene = GreetingScene;
 #endif
 
-#if UNITY_EDITOR || !UNITY_STANDALONE
-        public static readonly string[] RequiredScenes = new string[] { StorageScene };
-#else
+#if UNITY_EDITOR || UNITY_STANDALONE
         public static readonly string[] RequiredScenes = new string[0];
+#else
+        public static readonly string[] RequiredScenes = new string[] { StorageScene };
 #endif
     }
 }

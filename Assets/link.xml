@@ -1,0 +1,24 @@
+<linker>
+  <!-- MoonSharp discovers the Lua API through reflection. -->
+  <assembly fullname="ArcCreate.Compose" preserve="all" />
+  <assembly fullname="ArcCreate.Gameplay" preserve="all" />
+  <assembly fullname="ArcCreate.Utility" preserve="all" />
+  <assembly fullname="MoonSharp.Interpreter" preserve="all" />
+
+  <!-- MoonSharp 2 resolves these Unity types by their legacy assembly name. -->
+  <assembly fullname="UnityEngine">
+    <type fullname="UnityEngine.Resources" preserve="all" />
+    <type fullname="UnityEngine.TextAsset" preserve="all" />
+    <type fullname="UnityEngine.Object" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.CoreModule">
+    <type fullname="UnityEngine.Resources" preserve="all" />
+    <type fullname="UnityEngine.TextAsset" preserve="all" />
+    <type fullname="UnityEngine.Object" preserve="all" />
+  </assembly>
+
+  <!-- Project and settings serialization use reflection. -->
+  <assembly fullname="Newtonsoft.Json" preserve="all" />
+  <assembly fullname="UltraLiteDB" preserve="all" />
+  <assembly fullname="YamlDotNet" preserve="all" />
+</linker>
