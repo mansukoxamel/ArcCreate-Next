@@ -11,7 +11,7 @@
 ## リポジトリ状態
 
 - ローカル: `D:\chaos\MAGATU_EMULATOR\ArcCreate`
-- リモート: `https://github.com/mansukoxamel/ArcCreate.git`
+- リモート: `https://github.com/mansukoxamel/ArcCreate-Next.git`
 - 基準ブランチ: `main`
 - 移転時の起点: `755c2e8818dab3c8404b3ff997e87373607891cd`（元の`origin/trunk`）
 - Unity: `6000.3.20f1`（Unity 6.3 LTS）
@@ -48,7 +48,7 @@
 - ArcCreateはArcade Plusより入力判定と編集機能が発展しており、開発母体に適する。
 - Arcade Plusはcameraの`s`とアーク追従tiltなど、一部が本家3.6.1に近い。比較資料として使う。
 - アーク8種類`b / s / si / so / sisi / siso / sosi / soso`の連続補間式とX/Y割当はArcCreate、Arcade Plusとも本家3.6.1に一致する。
-- アーク描画用の折れ線分割では整数ミリ秒への丸めに差があり、500msや1000msのアークで本家より区間が1本増える場合がある。
+- アーク描画用の折れ線分割と端点整数化は、0.3.2で本家準拠へ修正した。
 - 移転起点のArcCreateではcamera命令`s`がsmoothstepだが、本家3.6.1とArcade Plusは線形である。0.1.1で本家準拠の線形補間へ修正した。
 - 本家3.6.1のアーク追従tiltは追従中4%、中央復帰中2%を1更新ごとに補間する。移転起点にあった常時`6 * deltaTime`は、0.1.2で本家準拠の二係数へ修正した。
 - Z距離は本家、ArcCreate、Arcade Plusで倍率・基準BPM正規化が異なる。カメラ値で相殺せず、距離関数を独立して直す。
@@ -63,7 +63,7 @@
 
 1. camera命令`s`の線形補間（0.1.1で対応済み）
 2. アーク追従tiltの追従・復帰係数（0.1.2で対応済み）
-3. アークの正規化時間による折れ線分割と端点整数化
+3. アークの正規化時間による折れ線分割と端点整数化（0.3.2で対応済み）
 4. timing区間をまたぐZ距離積分とハイスピード
 5. アーク接続条件
 6. 初回取得、保持、離脱、再取得ロック、異色近接猶予

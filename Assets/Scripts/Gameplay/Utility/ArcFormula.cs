@@ -17,6 +17,20 @@ namespace ArcCreate.Gameplay
             return Values.ArcY0 + ((Values.ArcY1 - Values.ArcY0) * y);
         }
 
+        public static float ArcXToWorld(float start, float end, float t, ArcLineType type)
+        {
+            float internalStart = (int)((850f * start) - 425f);
+            float internalEnd = (int)((850f * end) - 425f);
+            return -X(internalStart, internalEnd, t, type) / 100f;
+        }
+
+        public static float ArcYToWorld(float start, float end, float t, ArcLineType type)
+        {
+            float internalStart = (int)((450f * start) + 100f);
+            float internalEnd = (int)((450f * end) + 100f);
+            return Y(internalStart, internalEnd, t, type) / 100f;
+        }
+
         public static float WorldXToArc(float x)
         {
             return (x - Values.LaneWidth) / -Values.LaneWidth / 2;
@@ -226,11 +240,38 @@ namespace ArcCreate.Gameplay
             return Mathf.Min(Mathf.RoundToInt(arcJudgeInterval * 4), 1000);
         }
 
-        public static float CalculateArcSegmentLength(int duration, float arcResolution)
+        public static int CalculateArcSegmentCount(int duration, float arcResolution)
         {
-            if(arcResolution==0) return duration;
-            float length = Values.ArcSegmentLength / arcResolution;
-            return duration < 1000 ? length : length * 2;
+            float normalizedSegmentCount = CalculateArcNormalizedSegmentCount(duration, arcResolution);
+            return Mathf.Max(Mathf.CeilToInt(normalizedSegmentCount), 1);
+        }
+
+        public static float CalculateArcSegmentProgress(int duration, float arcResolution, int segmentIndex)
+        {
+            float normalizedSegmentCount = CalculateArcNormalizedSegmentCount(duration, arcResolution);
+            if (normalizedSegmentCount <= 0)
+            {
+                return 1;
+            }
+
+            return Mathf.Min((segmentIndex + 1) / normalizedSegmentCount, 1);
+        }
+
+        public static float CalculateArcSegmentInterval(int duration, float arcResolution)
+        {
+            float normalizedSegmentCount = CalculateArcNormalizedSegmentCount(duration, arcResolution);
+            return normalizedSegmentCount <= 0 ? Mathf.Max(duration, 1) : duration / normalizedSegmentCount;
+        }
+
+        private static float CalculateArcNormalizedSegmentCount(int duration, float arcResolution)
+        {
+            if (duration <= 0 || arcResolution <= 0)
+            {
+                return 0;
+            }
+
+            float segmentsPerSecond = duration < 1000 ? 14f : 7f;
+            return duration / 1000f * segmentsPerSecond * arcResolution;
         }
     }
 }

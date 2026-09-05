@@ -196,13 +196,11 @@ namespace ArcCreate.Gameplay.Utility
             float offset = arc.IsTrace ? Values.TraceMeshOffset : Values.ArcMeshOffset;
             float offsetHalf = offset / 2;
 
-            int segmentCount = Mathf.CeilToInt((arc.EndTiming - arc.Timing) / arc.SegmentLength);
-            segmentCount = Mathf.Max(segmentCount, 1);
-            float segmentLength = arc.SegmentLength;
+            int segmentCount = arc.SegmentCount;
             var tg = arc.TimingGroupInstance;
 
-            float baseX = ArcFormula.ArcXToWorld(arc.XStart);
-            float baseY = ArcFormula.ArcYToWorld(arc.YStart);
+            float baseX = arc.WorldXAtProgress(0);
+            float baseY = arc.WorldYAtProgress(0);
             float baseZ = ArcFormula.FloorPositionToZ(arc.FloorPosition, arc.TimingGroup);
 
             // help
@@ -215,7 +213,7 @@ namespace ArcCreate.Gameplay.Utility
                 // |/|\|
                 // 2 | 3
                 //  \0/
-                bool arcIsBackward = tg.GetFloorPosition(Mathf.Min(arc.Timing + (int)segmentLength, arc.EndTiming)) < arc.FloorPosition;
+                bool arcIsBackward = tg.GetFloorPosition(arc.SegmentTimingAt(0)) < arc.FloorPosition;
                 vertices.Add(new Vector3(0, -offsetHalf, arcIsBackward ? -offsetHalf : offsetHalf)); // 0
                 vertices.Add(new Vector3(0, offsetHalf, 0)); // 1
                 vertices.Add(new Vector3(offset, -offsetHalf, 0)); // 2
@@ -230,10 +228,10 @@ namespace ArcCreate.Gameplay.Utility
 
                 for (int i = 0; i < segmentCount; i++)
                 {
-                    int timing = Mathf.RoundToInt(arc.Timing + (segmentLength * (i + 1)));
-                    timing = Mathf.Min(timing, arc.EndTiming);
-                    float x = timing == arc.EndTiming ? ArcFormula.ArcXToWorld(arc.XEnd) : arc.WorldXAt(timing);
-                    float y = timing == arc.EndTiming ? ArcFormula.ArcYToWorld(arc.YEnd) : arc.WorldYAt(timing);
+                    float progress = arc.SegmentProgressAt(i);
+                    int timing = arc.SegmentTimingAt(i);
+                    float x = arc.WorldXAtProgress(progress);
+                    float y = arc.WorldYAtProgress(progress);
                     float z = ArcFormula.FloorPositionToZ(tg.GetFloorPosition(timing), arc.TimingGroup);
 
                     float dx = x - baseX;
@@ -274,10 +272,10 @@ namespace ArcCreate.Gameplay.Utility
                 vertices.Add(new Vector3(-offset, -offsetHalf, 0)); // 2
                 for (int i = 0; i < segmentCount; i++)
                 {
-                    int timing = Mathf.RoundToInt(arc.Timing + (segmentLength * (i + 1)));
-                    timing = Mathf.Min(timing, arc.EndTiming);
-                    float x = timing == arc.EndTiming ? ArcFormula.ArcXToWorld(arc.XEnd) : arc.WorldXAt(timing);
-                    float y = timing == arc.EndTiming ? ArcFormula.ArcYToWorld(arc.YEnd) : arc.WorldYAt(timing);
+                    float progress = arc.SegmentProgressAt(i);
+                    int timing = arc.SegmentTimingAt(i);
+                    float x = arc.WorldXAtProgress(progress);
+                    float y = arc.WorldYAtProgress(progress);
                     float z = ArcFormula.FloorPositionToZ(tg.GetFloorPosition(timing), arc.TimingGroup);
 
                     float dx = x - baseX;

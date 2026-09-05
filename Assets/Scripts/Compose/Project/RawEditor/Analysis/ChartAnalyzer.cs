@@ -160,14 +160,13 @@ namespace ArcCreate.Compose.Project
                                 continue;
                             }
 
-                            float percent = Mathf.Clamp((float)(at.Timing - a.Timing) / (a.EndTiming - a.Timing), 0, 1);
-                            Vector2 pos = a.EndTiming == a.Timing ?
-                                new Vector2(
-                                    ArcFormula.ArcXToWorld(at.Timing <= a.Timing ? a.XStart : a.XEnd),
-                                    ArcFormula.ArcYToWorld(at.Timing <= a.Timing ? a.YStart : a.YEnd)) :
-                                new Vector2(
-                                    ArcFormula.ArcXToWorld(ArcFormula.X(a.XStart, a.XEnd, percent, a.LineType.ToArcLineType())),
-                                    ArcFormula.ArcYToWorld(ArcFormula.Y(a.YStart, a.YEnd, percent, a.LineType.ToArcLineType())));
+                            float percent = a.EndTiming == a.Timing
+                                ? (at.Timing <= a.Timing ? 0 : 1)
+                                : Mathf.Clamp((float)(at.Timing - a.Timing) / (a.EndTiming - a.Timing), 0, 1);
+                            ArcLineType lineType = a.LineType.ToArcLineType();
+                            Vector2 pos = new Vector2(
+                                ArcFormula.ArcXToWorld(a.XStart, a.XEnd, percent, lineType),
+                                ArcFormula.ArcYToWorld(a.YStart, a.YEnd, percent, lineType));
                             if (!requireTaps.ContainsKey(at.Timing))
                             {
                                 requireTaps.Add(at.Timing, new List<Vector2> { pos });
