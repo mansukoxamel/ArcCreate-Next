@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>ルール - Arcaea Wiki*</title>
+  <meta name="source" content="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB">
+</head>
+<body>
+<p>Source: <a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB">https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB</a></p>
+<div id="content">
+<div class="spacer"> </div>
+<p>Arcaeaの詳細なルールや機能をまとめたページです。<br/>
+本ページはiOS/Android版の情報を基にまとめています。Nintendo Switch版の変更点は<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Nintendo%20Switch#difference" title="Nintendo Switch">こちら</a>。<br/>
+このページに載っていない内容(主にアプリ内で書かれていないこと)は<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%81%93%E3%81%BC%E3%82%8C%E8%A9%B1" title="こぼれ話">こぼれ話</a>へ。<br/>
+初心者の方はまず<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E5%88%9D%E5%BF%83%E8%80%85%E3%81%AE%E6%96%B9%E3%81%B8" title="初心者の方へ">初心者の方へ</a>を読み、わからないことがあれば辞書的にこのページを使用することを勧めます。</p>
+<div style="text-align:center">(ver.6.12.10時点)</div>
+<div class="spacer"> </div>
+<div class="contents">
+<a id="contents-index"></a>
+<ul class="list1"><li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#regcloud">各種機能 </a>
+<ul class="list2"><li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#menu">メインメニュー </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#register">ユーザー登録・ログイン </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#friend">フレンド </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#profile">プロフィールカード </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#customize">カスタマイズ</a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#cloudsync">クラウド同期 </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#lang">言語設定 </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#achievement">実績 </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#beginnersmission">ビギナーミッション </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#streamingmode">ストリーミングモード </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#potential">ポテンシャル </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#setting">プレイ設定 </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#currency">欠片・メモリー </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#other">その他の機能 </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#offline">オフライン時の挙動 </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#online">公式サイト/Arcaea Online </a></li></ul></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#rule">ルール </a>
+<ul class="list2"><li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#b7db779e">曲属性 </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#difficulty">難易度・レベル </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#judge">判定 </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#recollection">想起率 </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#grading">グレード </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#clear">クリア称号 </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#notes">ノーツ </a></li></ul></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#gameplay">ゲームプレイの流れ </a>
+<ul class="list2"><li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#songselect">楽曲・レベル選択 </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#linkplay">Link Play </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#playscreen">プレイ画面</a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#result">リザルト画面 </a></li></ul></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#unlock">アプリ内課金・楽曲や譜面の解禁 </a>
+<ul class="list2"><li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#unlockpack">楽曲・パックの購入 </a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#unlocklevel">楽曲・譜面の解禁 </a></li></ul></li></ul>
+</div>
+<div class="spacer"> </div>
+<h2 id="h2_content_1_0">各種機能  <a class="anchor_super" name="regcloud"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=regcloud" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h2>
+<h3 class="heading-after-first" id="h3_content_1_1">メインメニュー  <a class="anchor_super" name="menu"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=menu" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p>Arcaeaを起動するとまず最初に表示される画面です。ハブのような役割をもち、この画面を通して様々な機能にアクセスできます。</p>
+<ul class="list1"><li>「Music Play」：<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#songselect">楽曲選択画面</a>に移行します。</li>
+<li>「Story Mode」：<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC" title="ストーリー">ストーリー</a>にアクセスできます。</li>
+<li>「Course Mode」：<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B3%E3%83%BC%E3%82%B9%E3%83%A2%E3%83%BC%E3%83%89" title="コースモード">コースモード</a>にアクセスできます。</li>
+<li>「Network（地球儀のマーク）」：<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#friend">フレンドの追加と確認</a>、<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#profile">プロフィールカード</a>、<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#cloudsync">クラウド同期</a>、<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#account">アカウント管理</a>、<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#code">コードの利用</a>にアクセスできます。</li>
+<li>「More」：<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Tutorial" title="Tutorial">チュートリアル</a>、<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#lang">言語設定</a>、<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#download">ダウンロードの管理</a>、<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#achievement">実績</a>にアクセスできます。<a class="note_super tooltip" data-tooltip-content='&lt;p&gt;以前は&lt;a href="#streamingmode"&gt;ストリーミングモード&lt;/a&gt;も存在したが、削除された。&lt;/p&gt;&lt;div style="text-align: right;"&gt;&lt;a href="#notefoot_1"&gt;脚注 *1 へ&lt;/a&gt;&lt;/div&gt;' id="notetext_1">*1</a></li>
+<li>「World」：<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89" title="ワールドモード">ワールドモード</a>にアクセスできます。
+<ul class="list2"><li>スタミナ残量は右下に、(開催されている場合)イベントの残り日数が右上に表示されます。</li>
+<li>「続きへ」を押すと進行中のマップに直で飛ぶことができます。</li></ul></li>
+<li>「ビギナーミッション（書類のマーク）」（Worldの右上）：<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#beginnersmission">ビギナーミッション</a>にアクセスできます。全てのミッションを達成すると表示されなくなります。</li>
+<li>「UPDATE」：最新のアップデートで実装されたコンテンツが表示されます。</li>
+<li>「⇄（変更する）」：<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#customize">カスタマイズ</a>ができます。</li></ul>
+<p>画面上部に表示される以下の機能は、プレイ中以外のほとんどの画面で表示されます。<br/>
+<a class="anchor" name="profileplate"></a></p>
+<ul class="list1"><li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#register">ユーザー名</a>
+<ul class="list2"><li>ログインしていない場合は「ゲスト」と表示されます。</li>
+<li>ユーザー名はプロフィールプレートに表示されます。プレートは<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B3%E3%83%BC%E3%82%B9%E3%83%A2%E3%83%BC%E3%83%89" title="コースモード">コースモード</a>や<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#online">Arcaea Online</a>で入手することができます。
+<ul class="list3"><li><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B3%E3%83%BC%E3%82%B9%E3%83%A2%E3%83%BC%E3%83%89" title="コースモード">コースモード</a>で獲得したプレートのうち、一番難易度が高いものが自動で設定されます。Arcaea Onlineにて任意のプレートを設定することが可能です。</li></ul></li></ul></li>
+<li>選択している<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC" title="パートナー">パートナー</a>
+<ul class="list2"><li>パートナーアイコンをタップするとパートナー選択画面に移行します。</li></ul></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#potential">ポテンシャル</a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#ranking">順位</a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#setting">設定</a></li>
+<li>保有している<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#currency">欠片・メモリー</a>
+<ul class="list3"><li>メモリー欄をタップするとメモリー購入画面に移行します。</li></ul></li></ul>
+<div class="spacer"> </div>
+<div class="caption-flybox">
+</div>
+<h3 class="heading-after-first" id="h3_content_1_2">ユーザー登録・ログイン  <a class="anchor_super" name="register"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=register" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p><span class="wikicolor" style="color:#ffffff; background-color:#292929">※オンラインでプレイするには最新バージョンのアプリが必須です。<br class="spacer"/>※複数人でのアカウント共有を防ぐため、1アカウントでログインできるデバイスは<ins>2台まで</ins>です。3台目以降はログイン履歴の古い順から自動でログアウトされます。</span><br/>
+ユーザー登録をすると、以下の機能が利用できるようになります。</p>
+<ul class="list1"><li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#friend">フレンド機能</a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#profile">プロフィール</a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#cloudsync">クラウド同期</a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#account">アカウント管理</a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#code">コードの利用</a></li>
+<li><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89" title="ワールドモード">ワールドモード</a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#beginnersmission">ビギナーミッション</a>の報酬受け取り</li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#potential">ポテンシャル</a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#linkplay">Link Play</a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#currency">メモリー</a>の購入</li>
+<li>楽曲ランキングへの登録</li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#online">Arcaea Online</a>の利用　など</li></ul>
+<p>ユーザー登録をしなくても、「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#arcaea" title="パック順">Arcaea</a>」パックの楽曲のうちワールドモードでの解禁が不要なものは遊ぶことができます。<br/>
+しかし、数が少ない上に難易度の低い曲が多いため、<ins>Arcaeaを楽しみたいのならユーザー登録を強くお勧めします。</ins></p>
+<p><span>[画像: ユーザー登録]</span></p>
+<p>「メインメニュー」&gt;「Network（地球儀のマーク）」&gt;「登録」と進み、<a class="ext" href="https://arcaea.lowiro.com/terms_of_service" rel="nofollow">利用規約<span class="system-icon ext pukiwiki-open-uri" data-frame="_blank" data-href="https://arcaea.lowiro.com/terms_of_service"></span></a>をよく読んで下さい。同意すると画像のような入力画面が表示されるので、必要事項を記入して「アカウントを作成」を押せば登録完了となります。<br/>
+この際、すでに使われているユーザー名は使用できません。また、ユーザー名は<a class="ext" href="https://arcaea.lowiro.com/ja/name_change" rel="nofollow">公式サイト<span class="system-icon ext pukiwiki-open-uri" data-frame="_blank" data-href="https://arcaea.lowiro.com/ja/name_change"></span></a>から変更可能です（<ins>変更1回につき100メモリー</ins>）。<br/>
+登録が完了すると以降は自動でログインされます。基本的にログイン状態は保持されますが、ログアウト状態になった場合は「メインメニュー」&gt;「Network」&gt;「ログイン」からログインし直す必要があります。</p>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_3">フレンド  <a class="anchor_super" name="friend"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=friend" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p><span class="wikicolor" style="color:#ffffff; background-color:#292929">※<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#register">ユーザー登録・ログイン</a>が必要です。</span><br/>
+<span>[画像: フレンド追加]</span></p>
+<p>フレンドになることで楽曲選択画面のフレンドランキングに表示されるようになります。<br/>
+「メインメニュー」&gt;「Network（地球儀のマーク）」&gt;「追加」と進み、相手のIDを入力して下さい。</p>
+<ul class="list1"><li>IDは<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#profile">プロフィールカード</a>のユーザー名下部に表示される9桁の数字です。<br/>
+フレンド追加数上限は初期状態で10名で、<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#currency">欠片</a>を消費することで拡張が可能です(2023/04/27時点では最大で30名)。<br/>
+お互いにフレンド登録をすると、フレンド一覧の名前の横に「MUTUAL」の表示が出ます。</li>
+<li>なお、この機能は一方通行であるため、<ins>相互フレンドになるには相手側の端末でもフレンド追加作業を行う必要があります</ins>。</li></ul>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_4">プロフィールカード  <a class="anchor_super" name="profile"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=profile" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p><span class="wikicolor" style="color:#ffffff; background-color:#292929">※<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#register">ユーザー登録・ログイン</a>が必要です。</span><br/>
+<span>[画像: プロフィールカード]</span><br/>
+<span class="wikicolor" style="color:#ffffff; background-color:#292929">※画像内に表示されているデータは架空のものです。</span></p>
+<p>「メインメニュー」&gt;「Network（地球儀のマーク）」&gt;「プロフィール」より、自分のプロフィールカードを表示することができます。</p>
+<ul class="list1"><li>ポテンシャル、ユーザー名、ID、クリア状況、現在選択しているパートナーが表示されます。
+<ul class="list2"><li>クリア状況は難易度表示をタップすることで「<span class="wikicolor" style="color:aqua">PST</span> → <span class="wikicolor" style="color:lime">PRS</span> → <span class="wikicolor" style="color:fuchsia">FTR</span> → <span class="wikicolor" style="color:mediumpurple">ETR</span>→ <span class="wikicolor" style="color:red">BYD</span> → <span class="wikicolor" style="color:aqua">PST</span> → ...」の順に切り替わります。</li></ul></li>
+<li>カードの背景は選択している<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#scenery">情景</a>によって変化します。</li>
+<li>ユーザー名の背景には選択しているプロフィールプレートが反映されます。
+<ul class="list2"><li>ユーザー名および右端の矢印をタップするとプロフィールプレートを選択することができます。</li></ul></li>
+<li>左上にはプリセットに設定しているパートナーが表示されます。
+<ul class="list2"><li>矢印のアイコンをタップするとパートナー選択画面に遷移します。</li>
+<li>この機能はver6.14.10のパートナー選択機能改修で実装されました。それ以前は「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC/%E6%81%92%E5%B8%B8#hikarifr" title="パートナー/恒常">Fracture 光</a>」「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC/%E6%81%92%E5%B8%B8#tairitsugl" title="パートナー/恒常">Grievous Lady 対立</a>」「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC/%E6%81%92%E5%B8%B8#insight" title="パートナー/恒常">天賦第八究明者 識眼</a>」を解禁するとアイコンが表示されていました。</li>
+<li>また、以前はここをタップすることでストーリーの<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC/Main%20Story/Adverse%20Prelude#mv1" title="ストーリー/Main Story/Adverse Prelude">V-1</a>が再生されていましたが、現在ではこの機能は削除され、専用のページで読むことができます。</li></ul></li></ul>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_5">カスタマイズ <a class="anchor_super" name="customize"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=customize" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p><span class="wikicolor" style="color:#ffffff; background-color:#292929">※<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#register">ユーザー登録・ログイン</a>は不要ですが、機能が大幅に制限される可能性があります。</span><br/>
+<a class="anchor" name="scenery"></a><br/>
+<span>[画像: カスタマイズ]</span><br/>
+「メインメニュー」左下にある「変更する」ボタンをタップすることで設定画面に移行。「タイトル画面」「BGM」「情景」の3つを変更できます。</p>
+<ul class="list1"><li><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC" title="ストーリー">ストーリー</a>や<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89" title="ワールドモード">ワールドモード</a>を進行することにより、項目が解放されていきます。</li>
+<li>以前は「情景」のみ変更可能でしたが、<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E5%B1%A5%E6%AD%B4/v6.0.0%EF%BD%9E#v6110" title="アップデート履歴/v6.0.0～">ver6.11.0</a>にて「タイトル画面」「BGM」も変更できるようになりました。</li>
+<li>右上のボタン2種類を押すことで、それぞれ設定画面やパートナーを非表示にして確認することができます。
+<ul class="list2"><li>左側(長方形のアイコン)：設定画面を非表示にします。「タイトル画面」「BGM」「情景」のいずれを選択していても選択可能です。</li>
+<li>左側(初期光のアイコン)：パートナーを非表示にします。「BGM」「情景」を選択しているときのみ選択可能です。</li></ul></li></ul>
+<p><span class="wikicolor" style="color:#ffffff; background-color:#292929">タイトル画面</span></p>
+<ul class="list1"><li>ゲーム起動時のタイトル画面が変化します。今までの大規模なアップデート等で変更されていたタイトル画面の中から、解放されている任意のタイトル画面を設定することができます。ただし、<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Testify" title="Testify">Testify</a>解禁～<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Last" title="Last">Last</a>解禁までのタイトル画面のみ存在しません。<br class="spacer"/>ver6.11.0時点で、ゲームを再起動する以外でタイトル画面を観る手段は存在しません。</li></ul>
+<p><span class="wikicolor" style="color:#ffffff; background-color:#292929">BGM</span></p>
+<ul class="list1"><li>ゲーム中のBGMが変化します。メインメニューでのBGMだけでなく、リザルト画面やワールドモードのBGMも変化します。</li></ul>
+<p><span class="wikicolor" style="color:#ffffff; background-color:#292929">情景</span></p>
+<ul class="list1"><li>メインメニューの背景、楽曲パック一覧画面のお気に入りタブの背景、<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#profile">プロフィールカード</a>の背景が変化します。情景はワールドモードで解禁することができます。また、入手した情景は<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#online">Arcaea Online</a>内のプロフィール、及びポテンシャル内訳画像の背景に設定することができます。<br class="spacer"/>情景のみ、Arcaea Onlineから変更することもできます。</li></ul>
+<div class="fold-container clearfix">
+<div class="fold-summary hidden-on-open">カスタマイズ一覧</div>
+<div class="fold-content visible-on-open"><p><span class="wikicolor" style="color:#ffffff; background-color:#292929">カスタマイズ一覧</span></p>
+<ul class="list1"><li>「デフォルト期間」項目について
+<ul class="list2"><li>「タイトル画面」「BGM」はその項目がデフォルトとして設定されていた期間を表しています。
+<ul class="list3"><li>ストーリー進行などにより変化する場合、該当する全項目をデフォルトとして扱っています。</li></ul></li>
+<li>「情景」の追加日はその項目が設定できるようになったバージョンを記載しています。</li></ul></li></ul>
+<div class="tablescroll tablescroll-screen-sticky" style="">
+<div class="h-scrollable"><table><thead><tr><th rowspan="2" style="text-align:center;">項目</th><th rowspan="2" style="text-align:center;">獲得条件</th><th colspan="2" style="text-align:center;">デフォルト期間</th></tr><tr><th style="text-align:center;">追加Ver.<br class="spacer"/>(追加日)</th><th style="text-align:center;">最終Ver.<br class="spacer"/>(終了日)</th></tr></thead><tbody><tr><td colspan="4" style="text-align:center; background-color:#303030; color:white;"><strong>タイトル画面</strong></td></tr><tr><td style="text-align:center;">デフォルト</td><td style="text-align:center;">最初から所持<br class="spacer"/>現在はLucent Historiaになっている</td><td style="text-align:center;">6.12.0<br class="spacer"/>(26/01/29)</td><td style="text-align:center;">-</td></tr><tr><td style="background-color:#404040; text-align:center;">Arcaea Next Stage</td><td style="background-color:#404040; text-align:center;">なし<br class="spacer"/>(期間中デフォルトとしてのみ配信、終了後は設定不可)</td><td style="background-color:#404040; text-align:center;">6.11.0<br class="spacer"/>(25/11/27)</td><td style="background-color:#404040; text-align:center;">6.11.8<br class="spacer"/>(26/01/29)</td></tr><tr><td style="text-align:center;">Ascension</td><td style="text-align:center;">【要検証】楽曲「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Designant." title="Designant.">Designant.</a>」を解放？</td><td style="text-align:center;">6.0.0<br class="spacer"/>(24/11/21)</td><td style="text-align:center;">6.10.8<br class="spacer"/>(25/11/27)</td></tr><tr><td rowspan="2" style="background-color:#404040; text-align:center;">Lucent Historia</td><td rowspan="2" style="background-color:#404040; text-align:center;">Story Modeで<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC/Main%20Story%20Act%20II/Lucent%20Historia" title="ストーリー/Main Story Act II/Lucent Historia">Lucent Historia</a>を読了する<a class="note_super tooltip" data-tooltip-content='&lt;p&gt;ver6.12.0よりデフォルトになっており条件もなくなっているが、今後新規タイトル画面追加時に同じ条件が設定されると思われるため、条件記述は残している。&lt;/p&gt;&lt;div style="text-align: right;"&gt;&lt;a href="#notefoot_2"&gt;脚注 *2 へ&lt;/a&gt;&lt;/div&gt;' id="notetext_2">*2</a></td><td style="background-color:#404040; text-align:center;">6.0.0<br class="spacer"/>(24/11/21)</td><td style="background-color:#404040; text-align:center;">6.10.8<br class="spacer"/>(25/11/27)</td></tr><tr><td style="background-color:#404040; text-align:center;">6.12.0<br class="spacer"/>(26/01/29)</td><td style="background-color:#404040; text-align:center;">-</td></tr><tr><td style="text-align:center;">Silent Answer</td><td style="text-align:center;">【要検証】Story「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC/Main%20Story/Final%20Verdict#onelastdream" title="ストーリー/Main Story/Final Verdict">終わりの末夢</a>」を閲覧？<a class="note_super tooltip" data-tooltip-content='&lt;p&gt;「&lt;a href="/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC/Main%20Story/Final%20Verdict#onelastdream" title="ストーリー/Main Story/Final Verdict" class="rel-wiki-page"&gt;終わりの末夢&lt;/a&gt;」を閲覧すると、それまで選択していたタイトル画面に関係なくSilent Answerが設定される。&lt;/p&gt;&lt;div style="text-align: right;"&gt;&lt;a href="#notefoot_3"&gt;脚注 *3 へ&lt;/a&gt;&lt;/div&gt;' id="notetext_3">*3</a></td><td style="text-align:center;">4.0.255<br class="spacer"/>(22/07/13)</td><td style="text-align:center;">5.10.6<br class="spacer"/>(24/11/21)</td></tr><tr><td style="text-align:center;">Final Verdict</td><td style="text-align:center;">Story Modeで<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC/Main%20Story/Final%20Verdict" title="ストーリー/Main Story/Final Verdict">Final Verdict</a>を読了する</td><td style="text-align:center;">4.0.0<br class="spacer"/>(22/07/07)</td><td style="text-align:center;">5.10.6<br class="spacer"/>(24/11/21)</td></tr><tr><td style="text-align:center;">Black Fate</td><td style="text-align:center;">Story Modeで<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC/Main%20Story/Black%20Fate" title="ストーリー/Main Story/Black Fate">Black Fate</a>を読了する</td><td style="text-align:center;">3.0.0<br class="spacer"/>(20/05/27)</td><td style="text-align:center;">3.12.10<br class="spacer"/>(22/07/07)</td></tr><tr><td style="text-align:center;">Luminous Sky<a class="note_super tooltip" data-tooltip-content='&lt;p&gt;タイトル画面の光と対立のイラストについて：デフォルト期間中はver.2.0.0より前が覚醒前の旧イラストで、ver.2.0.0にて覚醒後イラストに変更。カスタマイズで設定できるタイトル画面では覚醒後イラストとなっている。&lt;/p&gt;&lt;div style="text-align: right;"&gt;&lt;a href="#notefoot_4"&gt;脚注 *4 へ&lt;/a&gt;&lt;/div&gt;' id="notetext_4">*4</a></td><td style="text-align:center;">Story Modeで<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC/Main%20Story/Luminous%20Sky" title="ストーリー/Main Story/Luminous Sky">Luminous Sky</a>を読了する</td><td style="text-align:center;">1.7.0<br class="spacer"/>(18/07/16)</td><td style="text-align:center;">2.6.2<br class="spacer"/>(20/05/27)</td></tr><tr><td style="text-align:center;">Vicious Labyrinth<a class="note_super tooltip" data-tooltip-content='&lt;p&gt;タイトル画面の光と対立のイラストについて：デフォルト期間中は覚醒前の旧イラストだったが、カスタマイズで設定できるタイトル画面では覚醒後イラストとなっている。&lt;/p&gt;&lt;div style="text-align: right;"&gt;&lt;a href="#notefoot_5"&gt;脚注 *5 へ&lt;/a&gt;&lt;/div&gt;' id="notetext_5">*5</a></td><td style="text-align:center;">Story Modeで<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC/Main%20Story/Vicious%20Labyrinth" title="ストーリー/Main Story/Vicious Labyrinth">Vicious Labyrinth</a>を読了する</td><td style="text-align:center;">1.5.0<br class="spacer"/>(17/11/03)</td><td style="text-align:center;">1.6.6<br class="spacer"/>(18/07/16)</td></tr><tr><td style="text-align:center;">Eternal Core<a class="note_super tooltip" data-tooltip-content='&lt;p&gt;タイトル画面の光と対立のイラストについて：デフォルト期間中は覚醒前の旧イラストだったが、カスタマイズで設定できるタイトル画面では覚醒後イラストとなっている。&lt;/p&gt;&lt;div style="text-align: right;"&gt;&lt;a href="#notefoot_6"&gt;脚注 *6 へ&lt;/a&gt;&lt;/div&gt;' id="notetext_6">*6</a></td><td style="text-align:center;">Story Modeで<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC/Main%20Story/Eternal%20Core" title="ストーリー/Main Story/Eternal Core">Eternal Core</a>を読了する</td><td style="text-align:center;">1.0.5<br class="spacer"/>(17/03/09)</td><td style="text-align:center;">1.1.6<br class="spacer"/>(17/11/03)</td></tr><tr><td colspan="4" style="text-align:center; background-color:#303030; color:white;"><strong>BGM</strong></td></tr><tr><td style="text-align:center;">デフォルト</td><td style="text-align:center;">最初から所持</td><td style="text-align:center;">6.0.0<br class="spacer"/>(24/11/21)</td><td style="text-align:center;">-</td></tr><tr><td style="text-align:center;">Black Fate</td><td style="text-align:center;">Story Modeで<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC/Main%20Story/Black%20Fate" title="ストーリー/Main Story/Black Fate">Black Fate</a>を読了する</td><td style="text-align:center;">3.0.0<br class="spacer"/>(20/05/27)</td><td style="text-align:center;">5.10.6<br class="spacer"/>(24/11/21)</td></tr><tr><td style="text-align:center;">Eternal Core</td><td style="text-align:center;">Story Modeで<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC/Main%20Story/Eternal%20Core" title="ストーリー/Main Story/Eternal Core">Eternal Core</a>を読了する</td><td style="text-align:center;">1.0.5<br class="spacer"/>(17/03/09)</td><td style="text-align:center;">2.6.2<br class="spacer"/>(20/05/27)</td></tr><tr><td colspan="4" style="text-align:center; background-color:#303030; color:white;"><strong>情景</strong></td></tr><tr><td style="text-align:center;">旅立ち</td><td style="text-align:center;">最初から所持</td><td style="text-align:center;">1.0.5<br class="spacer"/>(17/03/09)</td><td style="text-align:center;">-</td></tr><tr><td style="text-align:center;">失われた世界</td><td style="text-align:center;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89/Chapter%201#scenery" title="ワールドモード/Chapter 1">ワールドモード</a>で獲得する</td><td style="text-align:center;">3.0.0<br class="spacer"/>(20/05/27)</td><td style="text-align:center;">-</td></tr><tr><td style="text-align:center;">世界の外れ</td><td style="text-align:center;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89/Chapter%202#scenery" title="ワールドモード/Chapter 2">ワールドモード</a>で獲得する</td><td style="text-align:center;">3.0.0<br class="spacer"/>(20/05/27)</td><td style="text-align:center;">-</td></tr><tr><td style="text-align:center;">収束の螺旋塔</td><td style="text-align:center;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89/Chapter%203#scenery" title="ワールドモード/Chapter 3">ワールドモード</a>で獲得する</td><td style="text-align:center;">3.0.0<br class="spacer"/>(20/05/27)</td><td style="text-align:center;">-</td></tr><tr><td style="text-align:center;">眠れる残響</td><td style="text-align:center;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89/Chapter%204#scenery" title="ワールドモード/Chapter 4">ワールドモード</a>で獲得する</td><td style="text-align:center;">3.0.0<br class="spacer"/>(20/05/27)</td><td style="text-align:center;">-</td></tr><tr><td style="text-align:center;">果てない齟齬</td><td style="text-align:center;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89/Chapter%205#scenery" title="ワールドモード/Chapter 5">ワールドモード</a>で獲得する</td><td style="text-align:center;">3.0.0<br class="spacer"/>(20/05/27)</td><td style="text-align:center;">-</td></tr><tr><td style="text-align:center;">忘らるる造形</td><td style="text-align:center;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89/Chapter%206#scenery" title="ワールドモード/Chapter 6">ワールドモード</a>で獲得する</td><td style="text-align:center;">3.12.0<br class="spacer"/>(22/02/17)</td><td style="text-align:center;">-</td></tr><tr><td style="text-align:center;">追憶の地平</td><td style="text-align:center;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89/Chapter%207#scenery" title="ワールドモード/Chapter 7">ワールドモード</a>で獲得する</td><td style="text-align:center;">4.0.0<br class="spacer"/>(22/07/07)</td><td style="text-align:center;">-</td></tr><tr><td style="text-align:center;">うたかたの狭間</td><td style="text-align:center;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89/Chapter%208#scenery" title="ワールドモード/Chapter 8">ワールドモード</a>で獲得する</td><td style="text-align:center;">6.2.0<br class="spacer"/>(25/01/23)</td><td style="text-align:center;">-</td></tr><tr><td style="text-align:center;">神々の螺旋塔</td><td style="text-align:center;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89/Chapter%209#scenery" title="ワールドモード/Chapter 9">ワールドモード</a>で獲得する</td><td style="text-align:center;">6.12.0<br class="spacer"/>(26/01/29)</td><td style="text-align:center;">-</td></tr><tr><td style="text-align:center;">Lost Chapter: Beyond</td><td style="text-align:center;">ワールドモードで<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89/Lost%20Chapter/Page%203#scenery" title="ワールドモード/Lost Chapter/Page 3">Lost Chapter: Beyond</a>を獲得する</td><td style="text-align:center;">5.3.0<br class="spacer"/>(24/01/25)</td><td style="text-align:center;">-</td></tr></tbody></table></div>
+</div>
+<div class="spacer"> </div>
+<ul class="list1"><li>【要検証】ストーリー読了となる条件（どのストーリーまで読めば読了となるか）
+<ul class="list2"><li>Eternal Core：「1-3」「2-3」の2つ？</li>
+<li>Vicious Labyrinth：「2-9」「V-0」のどちら？</li>
+<li>Luminous Sky：「1-9」「V-0」のどちら？</li>
+<li>Black Fate：「VS-8」？</li>
+<li>Final Verdict：「F-7」まで？ 「F-7」＋エピローグ2つ(「終わりの末夢」「無欠の願い」)？</li>
+<li>Lucent Historia：「20-8」まで？</li>
+<li>Silent Answer・Ascension：それぞれ過去にタイトル画面が変更されていた条件を満たすだけでよい？ 関連Storyを読了する必要がある？
+<ul class="list3"><li>前者の場合、条件達成で変化していた後の背景の方が先に解禁されることになり、若干違和感がある</li></ul></li></ul></li></ul>
+</div>
+</div>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_6">クラウド同期  <a class="anchor_super" name="cloudsync"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=cloudsync" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p><span class="wikicolor" style="color:#ffffff; background-color:#292929">※<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#register">ユーザー登録・ログイン</a>が必要です。<br class="spacer"/>※<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E5%B1%A5%E6%AD%B4/v1.0.5%EF%BD%9Ev2.6.2#v150" title="アップデート履歴/v1.0.5～v2.6.2">ver.1.5.0</a>より欠片の所持数の同期はできなくなりました。</span></p>
+<p>楽曲ごとのスコア・解禁済楽曲・ストーリー読破状況の情報をクラウドに保存でき、他デバイスと同期することができます。<br/>
+<ins>同期は自動でなく手動</ins>なので、こまめなアップロードをお勧めします。<br/>
+以下のデータはクラウド同期をしても引き継がれないため、注意が必要です。</p>
+<ul class="list1"><li>入手した<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#currency">欠片</a>
+<ul class="list2"><li><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC/%E6%9C%9F%E9%96%93%E9%99%90%E5%AE%9A#kouw" title="パートナー/期間限定">ウィンター紅</a>の蓄積分を含む。</li></ul></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#songselect">お気に入り</a>登録した楽曲</li>
+<li>お気に入り登録した<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC" title="パートナー">パートナー</a></li>
+<li>各種<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#setting">設定</a>項目</li></ul>
+<div class="fold-container clearfix">
+<div class="fold-summary hidden-on-open">クラウド同期をしなくても引き継がれるデータ</div>
+<div class="fold-content visible-on-open"><p><span class="wikicolor" style="color:white; background-color:#292929">クラウド同期をしなくても引き継がれるデータ</span></p>
+<ul class="list1"><li>入手した<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#currency">メモリー</a></li>
+<li>購入した楽曲・パック</li>
+<li>解禁した<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC" title="パートナー">パートナー</a>・パートナーレベル</li>
+<li><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89" title="ワールドモード">ワールドモード</a>の進捗</li>
+<li><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B3%E3%83%BC%E3%82%B9%E3%83%A2%E3%83%BC%E3%83%89" title="コースモード">コースモード</a>のクリア状況</li>
+<li>スタミナ残量</li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#potential">ポテンシャル</a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#friend">登録したフレンド・拡張したフレンド枠</a></li></ul>
+</div>
+</div>
+<div class="responsive-layout-container responsive-layout-break-s">
+<div class="responsive-layout-row" style="">
+<div class="responsive-layout-item">
+<div class="responsive-layout-item-content" style="">
+<p><span>[画像: クラウド同期]</span></p>
+</div>
+</div>
+<div class="responsive-layout-item">
+<div class="responsive-layout-item-content" style="">
+<p><span>[画像: クラウド同期v3.2.3]</span></p>
+</div>
+</div>
+</div>
+</div>
+<ul class="list1"><li>メインデバイス（画像ではiPad）で「メインメニュー」&gt;「Network（地球儀のマーク）」&gt;「クラウド同期」と進み、データをアップロードします。成功のダイアログが出れば完了です。
+<ul class="list2"><li>リザルト画面左上の「同期」からでもデータのアップロードが可能です。</li></ul></li>
+<li>同期先デバイス（画像ではiPhone）で同じく「クラウド同期」に進むと、画像のようなダイアログが表示されます。<br/>
+「ダウンロード」をタップするとデータが同期され、「アップロード」をタップするとクラウド上のデータがデバイスのデータに上書きされます。</li></ul>
+<p>端末とクラウドでセーブデータが一部食い違う際、引き継ぐセーブデータを選択するダイアログが表示されます。ここでクラウドのデータを使用した場合、端末上のスコアがより低いものに更新される可能性があります（ランキングやポテンシャルなどには影響しません）。</p>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_7">言語設定  <a class="anchor_super" name="lang"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=lang" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p>「メインメニュー」&gt;「More」&gt;「言語」より、アプリ内言語を任意に変更することができます。<br/>
+選択できるのは以下の5言語です。</p>
+<ul class="list1"><li>English / 英語</li>
+<li>日本語</li>
+<li>한국어 / 韓国語</li>
+<li>中文 (繁體) / 中国語 繁体字</li>
+<li>中文 (简体) / 中国語 簡体字</li></ul>
+<p>全ての言語において各国語のスタッフによるネイティブ翻訳(機械翻訳ではない自然な文章での翻訳)がされています。</p>
+<ul class="list1"><li>楽曲タイトルの中には日本語版でのみ日本語表記となっているものが存在します。
+<ul class="list2"><li>例: 日本語題 -「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E7%8B%82%E8%A8%80%E7%B6%BA%E8%AA%9E" title="狂言綺語">狂言綺語</a>」<br/>
+英題 - False Embellishment</li>
+<li>このような楽曲は日本語以外の設定では英題表記となります。また日本語設定でも、タイトル順ソートでは英題基準で並び替えが行われます。</li></ul></li>
+<li>ギリシャ文字を含むタイトルにはアルファベットに変更されているものが存在します。
+<ul class="list2"><li>「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%CF%894" title="ω4">ω4</a>」 → w4<br/>
+「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%CE%B3uar%CE%B4ina" title="γuarδina">γuarδina</a>」→ guardina<br/>
+「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%CE%B1terl%CE%B2us" title="αterlβus">αterlβus</a>」→ aterlbus</li></ul></li>
+<li>中国語版では「Music Play」の表記が「開始遊戲」となっているなど少々表記が変更されています。</li>
+<li>コンポーザー・イラストレーター・譜面制作者は、言語に関わらずそのまま表記されます。</li></ul>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_8">実績  <a class="anchor_super" name="achievement"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=achievement" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p>iOSやGoogle Playの実績機能に対応しています。ゲーム内での報酬などは特にありません。達成状況は「メインメニュー」&gt;「More」&gt;「実績」より確認できます。</p>
+<div class="fold-container clearfix">
+<div class="fold-summary hidden-on-open">実績の一覧</div>
+<div class="fold-content visible-on-open"><p><span class="wikicolor" style="color:white; background-color:#292929">実績の一覧</span><br/>
+※pts...iOSのGame Center<br/>
+※XP...Google Playの実績</p>
+<div class="nobr"><div class="h-scrollable"><table><thead><tr><th>実績</th><th>解放条件</th><th>pts</th><th>XP</th><th>備考</th></tr></thead><tbody><tr><td>反射神経の特訓<br class="spacer"/><em>Reflex Training</em></td><td>速度2.0以上で楽曲をクリア</td><td>5</td><td>500</td><td></td></tr><tr><td>放浪者<br class="spacer"/><em>Wanderer</em></td><td>50譜面をクリア</td><td>10</td><td>1000</td><td></td></tr><tr><td>旅行者<br class="spacer"/><em>Traveller</em></td><td>100譜面をクリア</td><td>20</td><td>2000</td><td></td></tr><tr><td>夜明け<br class="spacer"/><em>Daybreak</em></td><td>20譜面でAA以上のランクを達成</td><td>10</td><td>1000</td><td></td></tr><tr><td>ゼニス<br class="spacer"/><em>Zenith</em></td><td>50譜面でAA以上のランクを達成</td><td>20</td><td>2000</td><td></td></tr><tr><td>夕暮れ<br class="spacer"/><em>Dusk</em></td><td>20譜面でEX以上のランクを達成</td><td>20</td><td>2000</td><td></td></tr><tr><td>北極星<br class="spacer"/><em>North Star</em></td><td>50譜面でEX以上のランクを達成</td><td>30</td><td>3000</td><td></td></tr><tr><td>始まり<br class="spacer"/><em>Beginnings</em></td><td>いずれかの楽曲でPure Memoryを達成</td><td>20</td><td>2000</td><td></td></tr><tr><td>追憶<br class="spacer"/><em>Remembrance</em></td><td>いずれかの楽曲でFull Recallを達成</td><td>10</td><td>1000</td><td></td></tr><tr><td>メトロノーム<br class="spacer"/><em>Metronome</em></td><td>いずれかの楽曲で理論値を達成</td><td>30</td><td>3000</td><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Tutorial" title="Tutorial">Tutorial</a>では取得不可</td></tr><tr><td>捜索者<br class="spacer"/><em>Seeker</em></td><td>5つのFuture譜面でPure Memoryを達成</td><td>40</td><td>4000</td><td></td></tr><tr><td>ナイストライ<br class="spacer"/><em>Nice Try</em></td><td>想起率69%で楽曲クリア失敗</td><td>5</td><td>500</td><td>初期状態は非表示</td></tr><tr><td>境界線<br class="spacer"/><em>Borderline</em></td><td>想起率70%で楽曲クリア</td><td>5</td><td>500</td><td>初期状態は非表示</td></tr><tr><td>一応はクリア<br class="spacer"/><em>Technically clear</em></td><td>Dランクで楽曲クリア</td><td>5</td><td>500</td><td>初期状態は非表示</td></tr><tr><td>風変わり<br class="spacer"/><em>Off-Beat</em></td><td>AAランクで楽曲クリア失敗</td><td>5</td><td>500</td><td>初期状態は非表示</td></tr><tr><td>時の先駆け<br class="spacer"/><em>Ahead of Time</em></td><td>5つ以上のFar(すべてEarly)を記録し、<br class="spacer"/>楽曲をクリア</td><td>5</td><td>500</td><td>初期状態は非表示</td></tr><tr><td>遅れ<br class="spacer"/><em>Falling Behind</em></td><td>5つ以上のFar(すべてLate)を記録し、<br class="spacer"/>楽曲をクリア</td><td>5</td><td>500</td><td>初期状態は非表示</td></tr><tr><td>完璧には遠い<br class="spacer"/><em>Far from Perfect</em></td><td>Far1個、Lost0個で楽曲をクリア</td><td>5</td><td>500</td><td>初期状態は非表示</td></tr><tr><td>永久に迷子<br class="spacer"/><em>Forever Lost</em></td><td>Far0個、Lost1個で楽曲をクリア</td><td>5</td><td>500</td><td>初期状態は非表示</td></tr><tr><td>救世主<br class="spacer"/><em>Savior</em></td><td>EASYのスキルを使って楽曲を5回クリア</td><td>10</td><td>1000</td><td></td></tr><tr><td>挑戦者<br class="spacer"/><em>Challenger</em></td><td>HARDのスキルを使って楽曲を5回クリア</td><td>20</td><td>2000</td><td></td></tr><tr><td>反射<br class="spacer"/><em>Reflections</em></td><td>MIRRORのスキルを使って楽曲を5回クリア</td><td>10</td><td>1000</td><td></td></tr><tr><td>永遠の仲間<br class="spacer"/><em>Eternal Companion</em></td><td>パートナーをレベル20まで育てた</td><td>30</td><td>3000</td><td></td></tr><tr><td>過去の遺物<br class="spacer"/><em>Remnant of the Past</em></td><td>ポテンシャルが2.00に到達</td><td>10</td><td>1000</td><td></td></tr><tr><td>現在の約束<br class="spacer"/><em>Promise in the Present</em></td><td>ポテンシャルが5.00に到達</td><td>20</td><td>2000</td><td></td></tr><tr><td>将来の夢<br class="spacer"/><em>Dreams for the Future</em></td><td>ポテンシャルが8.00に到達</td><td>30</td><td>3000</td><td></td></tr><tr><td>向こう側の世界<br class="spacer"/><em>The World Beyond</em></td><td>ポテンシャルが11.00に到達</td><td>40</td><td>4000</td><td></td></tr><tr><td>冒険の始まり<br class="spacer"/><em>The Start of a Journey</em></td><td>Worldモードで楽曲をプレイ</td><td>5</td><td>500</td><td></td></tr><tr><td>流れ星<br class="spacer"/><em>Shooting Star</em></td><td>Worldマップのイベントマップで楽曲をプレイ</td><td>10</td><td>1000</td><td></td></tr><tr><td>パートナーシップ<br class="spacer"/><em>Partnership</em></td><td>Worldモードでパートナーをアンロック</td><td>5</td><td>500</td><td></td></tr><tr><td>発見<br class="spacer"/><em>Discovery</em></td><td>Worldモードで楽曲をアンロック</td><td>5</td><td>500</td><td></td></tr><tr><td>世界の不安定<br class="spacer"/><em>World Instability</em></td><td>アノマリーに遭遇した</td><td>20</td><td>2000</td><td>初期状態は非表示<br class="spacer"/>「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Grievous%20Lady" title="Grievous Lady">Grievous Lady</a>」を出現させると取得<br class="spacer"/>（「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Fracture%20Ray" title="Fracture Ray">Fracture Ray</a>」などでは取得不可）</td></tr><tr><td>アーケアの友<br class="spacer"/><em>Friend of Arcaea</em></td><td>メモリーを購入</td><td>30</td><td>3000</td><td></td></tr><tr><td>収集者<br class="spacer"/><em>Gatherer</em></td><td>1000の欠片を集めた</td><td>10</td><td>1000</td><td rowspan="3">条件の値は累計ではなく現在所持数</td></tr><tr><td>コレクター<br class="spacer"/><em>Collector</em></td><td>3000の欠片を集めた</td><td>20</td><td>2000</td></tr><tr><td>偉大なコレクター<br class="spacer"/><em>Grand Collector</em></td><td>5000の欠片を集めた</td><td>30</td><td>3000</td></tr><tr><td>友達付き合い<br class="spacer"/><em>Companionship</em></td><td>友達を1人追加</td><td>5</td><td>500</td><td></td></tr><tr><td>外交的<br class="spacer"/><em>Extrovert</em></td><td>友達を5人追加</td><td>10</td><td>1000</td><td></td></tr><tr><td>勉強家<br class="spacer"/><em>Diligent Student</em></td><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Tutorial" title="Tutorial">チュートリアル(Basic)</a>でPMクリア</td><td>5</td><td>500</td><td>初期状態は非表示</td></tr><tr><td>クラスでトップ<br class="spacer"/><em>Top of the Class</em></td><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Tutorial" title="Tutorial">チュートリアル(Advanced)</a>でPMクリア</td><td>5</td><td>500</td><td>初期状態は非表示</td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+<div class="spacer"> </div>
+<div class="caption-flybox">
+</div>
+<h3 class="heading-after-first" id="h3_content_1_9">ビギナーミッション  <a class="anchor_super" name="beginnersmission"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=beginnersmission" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p><span class="wikicolor" style="color:#ffffff; background-color:#292929">※報酬の受取には<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#register">ユーザー登録・ログイン</a>が必要です。</span><br/>
+初心者向けのミッションです。「メインメニュー」からアクセスできます。<br/>
+それぞれのミッションに報酬が用意されているほか、Tier内のすべてのミッションを達成することで追加の報酬が獲得できます。</p>
+<div class="fold-container clearfix">
+<div class="fold-summary hidden-on-open">ビギナーミッションの一覧</div>
+<div class="fold-content visible-on-open"><p><span class="wikicolor" style="color:white; background-color:#292929">ビギナーミッションの一覧</span></p>
+<div class="nobr"><div class="h-scrollable"><table><thead><tr><th>ミッション<br class="spacer"/>(解説)</th><th>報酬</th></tr></thead><tbody><tr><th style="color:white; width:400px;">▼Tier 1▼</th><th style="color:white; text-align:center; width:150px;"><span style="font-size:10px">すべて達成で</span><br class="spacer"/><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#currency">欠片</a> 100個</th></tr><tr><td style="width:400px;">チュートリアルを完了する<br class="spacer"/>（「Main Menu」&gt;「More」から）</td><td style="text-align:center; width:150px;">欠片 10個</td></tr><tr><td style="width:400px;">いずれかの難易度で楽曲をクリアする</td><td style="text-align:center; width:150px;">欠片 10個</td></tr><tr><td style="width:400px;">『設定』メニューを開く</td><td style="text-align:center; width:150px;">欠片 10個</td></tr><tr><td style="width:400px;">パック選択画面から『全曲』を選択する<br class="spacer"/>（<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#songselect">楽曲・レベル選択</a>画面中央上部の表示から）</td><td style="text-align:center; width:150px;">欠片 10個</td></tr><tr><td style="width:400px;">『欠片』を使って楽曲を開放する</td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC#etherdrop" title="パートナー">エーテルの雫</a> 1個</td></tr><tr><th style="color:white; width:400px;">▼Tier 2▼</th><th style="color:white; text-align:center; width:150px;"><span style="font-size:10px">すべて達成で</span><br class="spacer"/>エーテルの雫 3個</th></tr><tr><td style="width:400px;">『<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#register">アカウント</a>』を作成する</td><td style="text-align:center; width:150px;">欠片 20個</td></tr><tr><td style="width:400px;">『<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#profile">プロフィールカード</a>』を確認する</td><td style="text-align:center; width:150px;">欠片 20個</td></tr><tr><td style="width:400px;">『<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC" title="パートナー">パートナー</a>』を変更する</td><td style="text-align:center; width:150px;">欠片 20個</td></tr><tr><td style="width:400px;">『<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89" title="ワールドモード">World Mode</a>』で『スタミナ』を消費する</td><td style="text-align:center; width:150px;">エーテルの雫 1個</td></tr><tr><td style="width:400px;">『<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC" title="ストーリー">Story Mode</a>』でプロローグ『Arcaea』を読み始める<br class="spacer"/>（ストーリー「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC/Main%20Story/Arcaea#m01" title="ストーリー/Main Story/Arcaea">0-1</a>」を解放する）</td><td style="text-align:center; width:150px;">エーテルの雫 1個</td></tr><tr><th style="color:white; width:400px;">▼Tier 3▼</th><th style="color:white; text-align:center; width:150px;"><span style="font-size:10px">すべて達成で</span><br class="spacer"/><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89#stamina" title="ワールドモード">スタミナ</a> +6</th></tr><tr><td style="width:400px;">『PRS以上の難易度』で楽曲をクリアする</td><td style="text-align:center; width:150px;">欠片 50個</td></tr><tr><td style="width:400px;">『エーテルの雫』を使いパートナーを強化する<br class="spacer"/>（パートナー選択画面から）</td><td style="text-align:center; width:150px;">スタミナ +2</td></tr><tr><td style="width:400px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC#status" title="パートナー">ステータス</a>『STEP値』が50以上のパートナーでWorld Modeを進める<br class="spacer"/>（参考: <a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC/%E6%81%92%E5%B8%B8#tairitsu" title="パートナー/恒常">対立</a>を使えばレベル1でも達成可能。<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC/%E6%81%92%E5%B8%B8#hikari" title="パートナー/恒常">光</a>はレベル12以上必要）</td><td style="text-align:center; width:150px;">欠片 50個</td></tr><tr><td style="width:400px;">『欠片獲得倍率』がx1.2以上のパートナーでいずれかの楽曲をプレイ<br class="spacer"/>（ステータス『FRAG値』が60以上のパートナー）<br class="spacer"/>（参考: <a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC/%E6%81%92%E5%B8%B8#hikari" title="パートナー/恒常">光</a>はレベル9以上、<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC/%E6%81%92%E5%B8%B8#tairitsu" title="パートナー/恒常">対立</a>はレベル8以上必要）</td><td style="text-align:center; width:150px;">スタミナ +2</td></tr><tr><th style="color:white; width:400px;">▼Tier 4▼</th><th style="color:white; text-align:center; width:150px;"><span style="font-size:10px">すべて達成で</span><br class="spacer"/>楽曲「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Innocence" title="Innocence">Innocence</a>」</th></tr><tr><td style="width:400px;">いずれかの楽曲を『EX』以上のグレードでクリア</td><td style="text-align:center; width:150px;">欠片 100個</td></tr><tr><td style="width:400px;">『<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#potential">ポテンシャル</a>』が3.50以上に到達する<br class="spacer"/>（Level 3以上の楽曲を中心にクリアするとよい）</td><td style="text-align:center; width:150px;">スタミナ +2</td></tr><tr><td style="width:400px;">2つの『チャプター』でワールドマップを解放<br class="spacer"/>（報酬ではなく、マップ自体の解放）</td><td style="text-align:center; width:150px;">欠片 100個</td></tr><tr><td style="width:400px;">World Modeで楽曲を一つ開放する</td><td style="text-align:center; width:150px;">エーテルの雫 3個</td></tr><tr><td style="width:400px;">『Story Mode』で新規プロローグ『Arcaea』を読了<br class="spacer"/>（ストーリー「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC/Main%20Story/Arcaea#m03" title="ストーリー/Main Story/Arcaea">0-3</a>」を解放して読む）</td><td style="text-align:center; width:150px;">スタミナ +2</td></tr><tr><th style="color:white; width:400px;">▼Tier 5▼</th><th style="color:white; text-align:center; width:150px;"><span style="font-size:10px">すべて達成で</span><br class="spacer"/>Memory Archiveチケット</th></tr><tr><td style="width:400px;">検索ウィンドウで曲をフォルダで分類しフォルダをどれか開く</td><td style="text-align:center; width:150px;">欠片 50個</td></tr><tr><td style="width:400px;">パートナーを1人レベルアップさせてレベル12以上にする<br class="spacer"/>（参考: Tier 4までのミッションで入手したエーテルの雫9個を<br class="spacer"/> 1人のパートナーに全て使うとレベル12になる）</td><td style="text-align:center; width:150px;">欠片 250個</td></tr><tr><td style="width:400px;">World Modeにてパートナー覚醒アイテム『<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89#cores" title="ワールドモード">核</a>』をどれか一つ入手<br class="spacer"/>（常設マップでは<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89/Chapter%209#init" title="ワールドモード/Chapter 9">生彩の核</a>、無料･0スタミナマップでは<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89/Chapter%203#conf-d" title="ワールドモード/Chapter 3">相反の核</a>が最短）</td><td style="text-align:center; width:150px;">エーテルの雫 3個</td></tr><tr><td style="width:400px;">『<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B3%E3%83%BC%E3%82%B9%E3%83%A2%E3%83%BC%E3%83%89" title="コースモード">Course Mode</a>』でコースを1つクリアする</td><td style="text-align:center; width:150px;">エーテルの雫 3個</td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+<p><span class="wikicolor" style="color:#ffffff; background-color:#292929">Memory Archiveチケットについて</span></p>
+<ul class="list1"><li>「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#memoryarchive" title="パック順">Memory Archive</a>」の「<span class="wikicolor" style="color:red"><strong>Beyond</strong></span>以外の全難易度がLevel 9+以下の楽曲」1曲を<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#currency">メモリー</a>を消費せずに入手することができます。
+<ul class="list2"><li>どれか1つの難易度でもLevel 10以上の楽曲には使用できません。
+<ul class="list3"><li>例：<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Distorted%20Fate" title="Distorted Fate">Distorted Fate</a>（<span class="wikicolor" style="color:fuchsia"><strong>FTR</strong></span>は9でOKだが、<span class="wikicolor" style="color:mediumpurple"><strong>ETR</strong></span>は10+なのでNG）</li></ul></li>
+<li><span class="wikicolor" style="color:red"><strong>Beyond</strong></span>譜面は条件対象外のため、Levelは問いません。
+<ul class="list3"><li>例：<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Libertas" title="Libertas">Libertas</a>（<span class="wikicolor" style="color:fuchsia"><strong>FTR</strong></span>は9でOK、<span class="wikicolor" style="color:red"><strong>BYD</strong></span>は10だが条件対象外なのでOK）</li></ul></li>
+<li>メモリーを直接消費して購入する以外の方法で入手する楽曲にも使用できません。
+<ul class="list3"><li><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%CE%B3uar%CE%B4ina" title="γuarδina">γuarδina</a>・<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/D%C3%A9sive" title="Désive">Désive</a>などの楽曲は、ワールドモードで解放する楽曲のため対象外です。</li>
+<li><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Innocence" title="Innocence">Innocence</a>は上記の通りTier 4コンプリートの報酬であるため、Memory Archiveチケット入手時点で既に入手済みです。</li></ul></li>
+<li>交換可能な楽曲は選曲リスト上にチケットのマークが表示されます。</li>
+<li>チケットはメモリーよりも優先して使用されます（チケットを残しておいてメモリーで購入することはできません）。</li></ul></li></ul>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_10">ストリーミングモード  <a class="anchor_super" name="streamingmode"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=streamingmode" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p>ver.4.4.6頃にて廃止されました。</p>
+<div class="fold-container clearfix">
+<div class="fold-summary hidden-on-open">過去の仕様</div>
+<div class="fold-content visible-on-open"><p><span class="wikicolor" style="color:#ffffff; background-color:#292929">過去の仕様</span></p>
+<ul class="list1"><li>起動方法<br/>
+「メインメニュー」&gt;「More」を選択し、「Credits」の上に表示されている「About」を10回押します。<br/>
+すると、「成功 : ストリーミングモードが作動しました」というメッセージが表示された後、メインメニューに戻ります。</li>
+<li>起動時の動作<br/>
+通常時からの変更点は以下の通りです。
+<ul class="list2"><li>他音楽ゲームとのコラボレーション楽曲が利用できなくなります。<br/>
+楽曲の情報は表示されますが、楽曲のプレビューは流れず、選曲できなくなっています。
+<div class="fold-container clearfix">
+<div class="fold-summary hidden-on-open">例外として利用可能な楽曲</div>
+<div class="fold-content visible-on-open"><p><span class="wikicolor" style="color:white; background-color:#292929">例外として利用可能な楽曲</span></p>
+<ul class="list1"><li>Pack Append「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#maimai2" title="パック順">Collaboration Chapter 2</a>」(maimai) の楽曲</li>
+<li>Pack Append「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#chunithm3" title="パック順">Collaboration Chapter 3</a>」(CHUNITHM) の楽曲</li>
+<li><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E7%A7%8B%E3%81%AE%E9%99%BD%E7%82%8E" title="秋の陽炎">秋の陽炎</a></li>
+<li><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E5%A4%9C%E6%A1%9C%E5%90%B9%E9%9B%AA" title="夜桜吹雪">夜桜吹雪</a></li>
+<li><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Aurgelmir" title="Aurgelmir">Aurgelmir</a></li></ul>
+</div>
+</div></li>
+<li>「メインメニュー」&gt;「Network（地球儀のマーク）」とプロフィールカードに表示されるユーザーIDが非表示になります。</li></ul></li>
+<li>終了方法<br/>
+アプリを再起動することでストリーミングモードが終了します。</li>
+<li>不具合<br/>
+ver.4.4.0現在、以下の動作を行うとアプリが強制終了する不具合が確認されています。
+<ul class="list2"><li>ストリーミングモードを起動した状態で<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#linkplay">Link Play</a>を開始し、解禁条件が存在しないコラボレーション楽曲を選択する。<br/>
+「この曲を解禁していない、またはまだ未購入のプレイヤーさんがいます。」とのメッセージが表示される。そこで「アンロック」を選択する。</li></ul></li></ul>
+</div>
+</div>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_11">ポテンシャル  <a class="anchor_super" name="potential"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=potential" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p>ポテンシャルとは、プレイの出来栄えから算出されるプレイヤーのスキルレベルを数値化した指標です。いわゆるスキルポイント・ランキングレートにあたります。詳しい仕組みは<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%9D%E3%83%86%E3%83%B3%E3%82%B7%E3%83%A3%E3%83%AB%E7%A0%94%E7%A9%B6%E6%89%80" title="ポテンシャル研究所">ポテンシャル研究所</a>を参照。</p>
+<p>ポテンシャルはほぼすべての画面で上部のパートナーアイコンの右下に表示されます。<br/>
+オンラインでプレイ時、リザルト画面に移行するとポテンシャルが増減する場合があります。<br/>
+ポイント表示の背景デザインはポイントの数値によって変化します（全8+1パターン）。<br/>
+画像左から「0.00～2.99」「3.00～6.99」「7.00～9.99」「10.00～10.99」「11.00～11.99」「12.00～12.49」「12.50～12.99」「13.00～」。（<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%81%93%E3%81%BC%E3%82%8C%E8%A9%B1/%E6%A5%BD%E6%9B%B2%E9%96%A2%E9%80%A3#y2022" title="こぼれ話/楽曲関連">2022年度エイプリルフール</a>においてのみ、「?.??」が存在しました）</p>
+<div class="nobr"><div class="h-scrollable"><table><thead><tr><th>ポイントの変化(減少/停滞/増加)</th><th>ポイント表示</th></tr></thead><tbody><tr><td><span>[画像: Potential]</span></td><td><span>[画像: Potential]</span></td></tr></tbody></table></div>
+</div>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_12">プレイ設定  <a class="anchor_super" name="setting"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=setting" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p><span>[画像: Settings]</span></p>
+<p>選曲画面上部の「設定」から、ゲームプレイに関わる設定を行うことができます。</p>
+<div class="fold-container clearfix">
+<div class="fold-summary hidden-on-open">設定の一覧</div>
+<div class="fold-content visible-on-open"><p><span class="wikicolor" style="color:white; background-color:#292929">設定の一覧</span></p>
+<ul class="list1"><li>プレイ設定
+<ul class="list2"><li>Pure L/E表示<br/>
+<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#judgedetail">PURE判定</a>のLATE/EARLYをプレイ中及びリザルト画面で表示するかどうかを選択できます。</li>
+<li>譜面速度<br/>
+ノーツが流れてくるスピードを調整できます。1.0～6.5まで0.1刻みの56段階で、数字が小さいほど遅く、大きいほど速くなります。基本的にどの譜面も同じ速度で流れてきますが、一部譜面では通常とは異なる速度が設定されているため、適宜ここで自分好みの速さに調整するといいかもしれません。</li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#potintial">ポテンシャル</a>表示<br/>
+画面上部のポテンシャルの表示/非表示を切り替えられま。非表示でも変動はします。</li>
+<li>スタミナ回復通知<br/>
+<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89" title="ワールドモード">ワールドモード</a>のスタミナ自動回復が完了した時のプッシュ通知の有無を設定できます。端末本体の設定でArcaeaからの通知を許可しておく必要があります。</li>
+<li>スキル表示<br/>
+楽曲プレイ開始前に<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC" title="パートナー">パートナー</a>スキルの発動を知らせるカットインの表示/非表示を切り替えられます。</li>
+<li>ポーズ方式<br/>
+楽曲プレイ中のポーズボタンの起動方法を「タップ1回」「タップ2回」「長押し」「ボタン非表示」から選べます。</li></ul></li></ul>
+<ul class="list1"><li>音声設定
+<ul class="list2"><li>SE音量<br/>
+タップ音などのSEの音量を調整できます。効果音のズレが気になる場合はここで音量をオフ（0%）にするといいでしょう。<br/>
+音ズレ調整が+101以上もしくは-101以下（絶対値が101以上）の場合は強制的に0%に変更されます。</li>
+<li>音ズレ調整(画像では遅延補正)<br/>
+楽曲と譜面のズレを調整できます。端末ごとの目安は<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E9%81%85%E5%BB%B6%E8%AA%BF%E6%95%B4%E5%A0%B1%E5%91%8A" title="遅延調整報告">遅延調整報告</a>へ。</li>
+<li>音声プリセット<br/>
+タップすると「スピーカー/有線」「Bluetooth」が交互に切り替わり、SE音量/音ズレ調整を個別に保存しておくことができます。</li></ul></li></ul>
+<ul class="list1"><li>画面設定
+<ul class="list2"><li>色覚補助モード<br/>
+赤色のアークノートが黄緑色に変わり、青色のアークノートも若干青みが強まった色合いになります。<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC/%E6%81%92%E5%B8%B8%28Page4%29#tairitsutrin" title="パートナー/恒常(Page4)">対立&amp;トリン</a>のスキルが発動した場合もアークノートはこちらの設定が優先されます。
+<div class="fold-container clearfix">
+<div class="fold-summary hidden-on-open">参考画像</div>
+<div class="fold-content visible-on-open"><p><span class="wikicolor" style="color:#ffffff; background-color:#292929">参考画像</span><br/>
+<span>[画像: 色覚補助モード]</span></p>
+</div>
+</div></li>
+<li>FR/PM表示<br/>
+FULL RECALL(FR)、PURE MEMORY(PM)の継続中に表示されるマークの表示/非表示、及びその表示位置（楽曲名の下 or コンボ表示の下）を設定できます。</li>
+<li>Late/Earlyの位置<br/>
+PURE判定及びFAR判定のLATE/EARLYの表示位置（画面上部 or  画面中部 or 画面下部）を設定できます。</li>
+<li>グラフィック品質（旧動作優先モード）<br/>
+性能に余裕がない端末向けに「軽量」「標準/高」から選べます。</li>
+<li>タッチエフェクト<br/>
+有効にすると、画面をタッチした際にエフェクトを表示します。楽曲プレイ画面で表示せず、メニュー画面のみ表示することもできます。</li>
+<li>フレームレート（リフレッシュシートが120Hzの端末のみ）<br/>
+最高フレームレートを60fpsから120fpsに変更できます。有効時は消費電力が増加します。
+<div class="fold-container clearfix">
+<div class="fold-summary hidden-on-open">有効にした時のプレイ感の差異(個人差あり)</div>
+<div class="fold-content visible-on-open"><p><span class="wikicolor" style="color:#ffffff; background-color:#292929">有効にした時のプレイ感の差異(個人差あり)</span></p>
+<ul class="list1"><li>無印PURE判定の範囲が僅かに広がります。</li>
+<li>LATE/EARLYのPURE判定の範囲が狭まります(FARが若干出やすくなります)。</li>
+<li>アークノーツ、ロングノーツの判定が僅かに厳しくなります。</li></ul>
+</div>
+</div></li></ul></li></ul>
+</div>
+</div>
+<div class="spacer"> </div>
+<div class="caption-flybox">
+</div>
+<h3 class="heading-after-first" id="h3_content_1_13">欠片・メモリー  <a class="anchor_super" name="currency"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=currency" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p><ruby>欠片<rp>(</rp><rt>かけら</rt><rp>)</rp></ruby>とメモリーはArcaeaアプリ内の通貨です。それぞれが異なる入手方法や役割をもっています。</p>
+<ul class="list1"><li>欠片（Fragments）<br/>
+欠片は9,999個で1スタックとなり、最大で3スタック（=29,997個）まで貯めることができます。スタックされた欠片は「欠片」欄の下部に白線で表示されます。
+<ul class="list2"><li>以下の用途に使うことができます。
+<ul class="list3"><li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#unlocklevel">譜面の解禁</a></li>
+<li><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89" title="ワールドモード">ワールドモード</a>のスタミナ回復と<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89#legacy" title="ワールドモード">Play+</a>、<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89/Lost%20Chapter" title="ワールドモード/Lost Chapter">Lost Chapter</a>のブースト</li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#friend">フレンド</a>枠の上限解放</li>
+<li>Link Playでのスタンプの解放</li></ul></li>
+<li>以下の手段から入手できます。
+<ul class="list3"><li>楽曲プレイ(Music Play・ワールドモードのどちらでも)の<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#reward">報酬</a></li>
+<li>ワールドモードの<span class="wikicolor" style="color:#00FFFF">報酬タイル(欠片)</span>に設置された報酬</li></ul></li></ul></li>
+<li>メモリー（Memory）<br/>
+メモリーには所持数の上限はありません。
+<ul class="list2"><li>以下の用途に使うことができます。
+<ul class="list3"><li>楽曲パック、「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#memoryarchive" title="パック順">Memory Archive</a>」の楽曲の購入</li>
+<li>ワールドモードのスタミナ回復・<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#memoryboost">メモリーブースト</a></li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#register">ユーザー名</a>の変更</li>
+<li>Arcaea Onlineの加入・更新</li></ul></li>
+<li>以下の手段から入手できます。
+<ul class="list3"><li>リアルマネーでの購入(アプリ内もしくは<a class="ext" href="https://arcaea.lowiro.com/" rel="nofollow">公式サイト<span class="system-icon ext pukiwiki-open-uri" data-frame="_blank" data-href="https://arcaea.lowiro.com/"></span></a>から)<br/>
+┗公式サイトからの購入はおまけがつきます。クレジットカードが必要です。<br/>
+┗値段は<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/#info" title="FrontPage">こちら</a>を参照。</li>
+<li>1/1に配布されるお年玉の100メモリー…毎年恒例にはなっていますが、必ず実施されるとは限りません。</li></ul></li></ul></li></ul>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_14">その他の機能  <a class="anchor_super" name="other"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=other" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p><a class="anchor" name="account"></a></p>
+<ul class="list1"><li>アカウント管理<br/>
+ログアウト、アカウント削除ができます。<br/>
+アカウント削除を選択すると登録したメールアドレスに削除確認メールが送られ、承認をするとアカウントが削除されます。</li></ul>
+<p><a class="anchor" name="code"></a></p>
+<ul class="list1"><li>コードの利用<br/>
+各所で手に入れることができるコードを入力できます。<br/>
+なお、ここで<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Arcaea%20Sound%20Collection" title="Arcaea Sound Collection">各種OST</a>のシリアルコードを入力すると、<a class="ext" href="https://arcaea.lowiro.com/" rel="nofollow">Arcaea公式サイト<span class="system-icon ext pukiwiki-open-uri" data-frame="_blank" data-href="https://arcaea.lowiro.com/"></span></a>でそれぞれのCDのデジタル音源をダウンロードできるリンクが<ins>3回まで</ins>生成できます（それぞれの期限は24時間）。</li></ul>
+<p><a class="anchor" name="download"></a></p>
+<ul class="list1"><li>ダウンロードの管理<br/>
+ダウンロードの管理では、所有している全楽曲のデータをダウンロード(または削除)できます。ここでいう楽曲のデータは音源と譜面のデータを指し、スコアや解禁情報などは含みません。削除しても、一括または個別に再ダウンロードできます。</li></ul>
+<p><a class="anchor" name="ranking"></a></p>
+<ul class="list1"><li>順位<br/>
+トップ200のプレイヤーに限り、プレイヤーアイコンに特殊なフレームが表示されます。<br/>
+このフレームには全ての<span class="wikicolor" style="color:fuchsia"><strong>Future</strong></span>/<span class="wikicolor" style="color:mediumpurple">Eternal</span>/<span class="wikicolor" style="color:red"><strong>Beyond</strong></span>譜面のスコアを計上した数値を基準とするランクが表示されます。</li></ul>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_15">オフライン時の挙動  <a class="anchor_super" name="offline"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=offline" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p>オフライン時、以下の機能は使用できません。</p>
+<ul class="list1"><li>ワールドモード</li>
+<li>コースモード</li>
+<li>メモリーの購入・使用</li>
+<li>パートナーのスキル、ステータスの反映
+<ul class="list2"><li>覚醒状態への切り替えも不可能</li></ul></li>
+<li>楽曲ランキングの閲覧、スコアの登録</li>
+<li>ポテンシャルの閲覧、更新</li>
+<li>フレンド機能<br/>
+など</li></ul>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_16">公式サイト/Arcaea Online  <a class="anchor_super" name="online"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=online" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p><a class="ext" href="https://arcaea.lowiro.com" rel="nofollow">Arcaeaの公式サイト<span class="system-icon ext pukiwiki-open-uri" data-frame="_blank" data-href="https://arcaea.lowiro.com"></span></a>ではArcaeaの基本的な情報に加え、前日にプレイ回数が多かった楽曲のランキング(有料・無料それぞれ15曲ずつ)を閲覧することができます。また、<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#currency">メモリー</a>の購入もお得な値段で可能です。<br/>
+さらに、Arcaea Onlineというサービスも利用でき、以下のような機能にアクセスできます。一部の機能は200メモリーで月額会員になると利用できます。</p>
+<ul class="list1"><li>プロフィール
+<ul class="list2"><li>アカウント名、ポテンシャル、ID、現在設定しているパートナーを確認できます。</li>
+<li><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#profileplate" title="ルール">プロフィールプレート</a>を変更することができます。</li></ul></li>
+<li>登録しているフレンド</li>
+<li>パートナー
+<ul class="list2"><li>所持しているパートナーのスキル、レベル、ステータスを確認できます。
+<ul class="list3"><li>設定パートナーを変更することができます。</li></ul></li></ul></li>
+<li>スコアボード
+<ul class="list2"><li>各難易度(<span class="wikicolor" style="color:aqua">Past</span>、<span class="wikicolor" style="color:lime">Present</span>、<span class="wikicolor" style="color:fuchsia">Future</span>、<span class="wikicolor" style="color:mediumpurple">Eternal</span>、<span class="wikicolor" style="color:red">Beyond</span>)毎の累計スコアの全国ランキングを確認できます。</li>
+<li>上記のフレンド内ランキングを確認できます。【月額プラン限定】</li></ul></li>
+<li>スコアデータ【月額プラン限定】
+<ul class="list2"><li>各楽曲の最高スコアやそのときの日付・スコア・判定内訳、年間プレイ回数などを確認できます。</li>
+<li>曲名・スコア・スコアMax差分・日付順でソートできます。</li></ul></li>
+<li>ポテンシャル【月額プラン限定】
+<ul class="list2"><li><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%9D%E3%83%86%E3%83%B3%E3%82%B7%E3%83%A3%E3%83%AB%E7%A0%94%E7%A9%B6%E6%89%80" title="ポテンシャル研究所">ポテンシャル算出</a>に使われている楽曲の閲覧や画像出力ができます。</li>
+<li>過去のポテンシャル遷移(最長5年)を見ることができます。</li></ul></li>
+<li>ワールドブースト【月額プラン限定】
+<ul class="list2"><li><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89" title="ワールドモード">ワールドモード</a>のプレイ時に追加で最大30%まで進行度をブーストします。
+<ul class="list3"><li>加入初日は20%、継続購読するごとに+5%されます。継続購読していない場合、継続購読の進行度ブーストがリセットされます。</li>
+<li>パートナーの経験値はブーストされません。</li></ul></li></ul></li>
+<li>限定プロフィールプレート【月額プラン限定】
+<ul class="list2"><li>新たな限定デザインのプロフィールプレートを入手することができます。</li>
+<li>毎月1日に更新され、翌月までにArcaea Onlineにアクセスすると入手できます。
+<div class="fold-container clearfix">
+<div class="fold-summary hidden-on-open">プロフィールプレートの一覧</div>
+<div class="fold-content visible-on-open"><p><span class="wikicolor" style="color:white; background-color:#292929">プロフィールプレートの一覧</span></p>
+<div class="h-scrollable"><table><thead><tr><th style="text-align:center; width:70px;">入手日時</th><th style="text-align:center; width:300px;">バナー画像</th><th style="text-align:center; width:150px;">関連楽曲</th></tr></thead><tbody><tr><td style="text-align:center; width:70px;">2024年<br class="spacer"/>6月</td><td style="text-align:center; width:300px;"><span>[画像: ArcaeaOnlineprofilebanner202406.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Grievous%20Lady" title="Grievous Lady">Grievous Lady</a><br class="spacer"/>（最上段右側の左右反転）</td></tr><tr><td style="text-align:center; width:70px;">2024年<br class="spacer"/>7月</td><td style="text-align:center; width:300px;"><span>[画像: ArcaeaOnlineprofilebanner202407.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E5%BD%A9%E3%82%8B%E5%A4%8F%E3%81%AE%E6%81%8B%E8%8A%B1%E7%81%AB" title="彩る夏の恋花火">彩る夏の恋花火</a><br class="spacer"/>（最上段の花火の繋ぎ合わせ）</td></tr><tr><td style="text-align:center; width:70px;">2024年<br class="spacer"/>8月</td><td style="text-align:center; width:300px;"><span>[画像: ArcaeaOnlineprofilebanner202408.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Equilibrium" title="Equilibrium">Equilibrium</a><br class="spacer"/>（中段右側）</td></tr><tr><td style="text-align:center; width:70px;">2024年<br class="spacer"/>9月</td><td style="text-align:center; width:300px;"><span>[画像: ArcaeaOnlineprofilebanner202409.webp]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Felis" title="Felis">Felis</a><br class="spacer"/>（<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC/%E6%81%92%E5%B8%B8%28Page2%29#alicetenniel" title="パートナー/恒常(Page2)">テニエル</a>の左右のつなぎ合わせ）</td></tr><tr><td style="text-align:center; width:70px;">2024年<br class="spacer"/>10月</td><td style="text-align:center; width:300px;"><span>[画像: ArcaeaOnlineprofilebanner202410.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E7%A7%8B%E3%81%AE%E9%99%BD%E7%82%8E" title="秋の陽炎">秋の陽炎</a><br class="spacer"/>（左半分は最上段左、右側も最上段左？）</td></tr><tr><td style="text-align:center; width:70px;">2024年<br class="spacer"/>11月</td><td style="text-align:center; width:300px;"><span>[画像: ArcaeaOnlineprofilebanner202411.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/amygdata" title="amygdata">amygdata</a><br class="spacer"/>（上段左側）</td></tr><tr><td style="text-align:center; width:70px;">2024年<br class="spacer"/>12月</td><td style="text-align:center; width:300px;"><span>[画像: ArcaeaOnlineprofilebanner202412.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Purgatorium" title="Purgatorium">Purgatorium</a><br class="spacer"/>（<span class="wikicolor" style="color:fuchsia">FTR</span>アートワークの手前左側のロウソク）</td></tr><tr><td style="text-align:center; width:70px;">2025年<br class="spacer"/>1月</td><td style="text-align:center; width:300px;"><span>[画像: ArcaeaOnlineprofilebanner202501.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Wish%20Upon%20a%20Snow" title="Wish Upon a Snow">Wish Upon a Snow</a><br class="spacer"/>（背景はアートワーク左上、結晶はタイトル後方のリカラー）</td></tr><tr><td style="text-align:center; width:70px;">2025年<br class="spacer"/>2月</td><td style="text-align:center; width:300px;"><span>[画像: 30c7cf5f5e27fb2ad530a0ac9c2e8397.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Aegleseeker" title="Aegleseeker">Aegleseeker</a><br class="spacer"/>（左側は<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC/%E6%81%92%E5%B8%B8%28Page2%29#lagrange" title="パートナー/恒常(Page2)">ラグランジュ</a>の服の紋様の左右反転）</td></tr><tr><td style="text-align:center; width:70px;">2025年<br class="spacer"/>3月</td><td style="text-align:center; width:300px;"><span>[画像: a5218903700262306526a469ac22df9c.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/To%20the%20Milky%20Way" title="To the Milky Way">To the Milky Way</a><br class="spacer"/>（<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC/%E6%9C%9F%E9%96%93%E9%99%90%E5%AE%9A#namiy" title="パートナー/期間限定">宵闇 奈実</a>の左手薬指付近）</td></tr><tr><td style="text-align:center; width:70px;">2025年<br class="spacer"/>4月</td><td style="text-align:center; width:300px;"><span>[画像: 1f87ffc0d5afa9c0265ac9180f7b90eb.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Nirv%20lucE" title="Nirv lucE">Nirv lucE</a><br class="spacer"/>（ジャケット上部）</td></tr><tr><td style="text-align:center; width:70px;">2025年<br class="spacer"/>5月</td><td style="text-align:center; width:300px;"><span>[画像: fb433f64375ed40cddad5985d7d2aed5.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Free%20Myself" title="Free Myself">Free Myself</a><br class="spacer"/>（ジャケット背景のマークを並べたもの）</td></tr><tr><td style="text-align:center; width:70px;">2025年<br class="spacer"/>6月</td><td style="text-align:center; width:300px;"><span>[画像: 1c02fdbcc602749aca8052b67680ce73.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/AttraqtiA" title="AttraqtiA">AttraqtiA</a><br class="spacer"/>（ジャケット左下角）</td></tr><tr><td style="text-align:center; width:70px;">2025年<br class="spacer"/>7月</td><td style="text-align:center; width:300px;"><span>[画像: fd8488a2dd19ef8cc29304417e30dcbc_0.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Auxesia" title="Auxesia">Auxesia</a><br class="spacer"/>（ジャケット背景右上）</td></tr><tr><td style="text-align:center; width:70px;">2025年<br class="spacer"/>8月</td><td style="text-align:center; width:300px;"><span>[画像: 7b9507758dfb10d573aafc978ed853f7.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/blue%20comet" title="blue comet">blue comet</a><br class="spacer"/>（ジャケット背景やや中段寄りの左上）</td></tr><tr><td style="text-align:center; width:70px;">2025年<br class="spacer"/>9月</td><td style="text-align:center; width:300px;"><span>[画像: b4ad5790385d8664877686e60fa31c02.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E7%B7%8B%E7%BA%8F%E3%81%84%E3%81%AE%E5%AE%B5" title="緋纏いの宵">緋纏いの宵</a><br class="spacer"/>（ジャケット中央上部）</td></tr><tr><td style="text-align:center; width:70px;">2025年<br class="spacer"/>10月</td><td style="text-align:center; width:300px;"><span>[画像: a6e9c75bc81317d2a04f57ba29ec4fdf.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/GIMME%20DA%20BLOOD" title="GIMME DA BLOOD">GIMME DA BLOOD</a><br class="spacer"/>（大きい「M」の右下の部分）</td></tr><tr><td style="text-align:center; width:70px;">2025年<br class="spacer"/>11月</td><td style="text-align:center; width:300px;"><span>[画像: 7935a50f4c773a7a027891922b2adf07.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/NULL%20APOPHENIA" title="NULL APOPHENIA">NULL APOPHENIA</a><br class="spacer"/>（ジャケット左上部）</td></tr><tr><td style="text-align:center; width:70px;">2025年<br class="spacer"/>12月</td><td style="text-align:center; width:300px;"><span>[画像: ArcaeaOnlineprofilebanner202512.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/MIRINAE" title="MIRINAE">MIRINAE</a><br class="spacer"/>（ジャケット左上）</td></tr><tr><td style="text-align:center; width:70px;">2026年<br class="spacer"/>1月</td><td style="text-align:center; width:300px;"><span>[画像: ArcaeaOnlineprofilebanner202601.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Empire%20of%20Winter" title="Empire of Winter">Empire of Winter</a><br class="spacer"/> （ジャケット中央上部）</td></tr><tr><td style="text-align:center; width:70px;">2026年<br class="spacer"/>2月</td><td style="text-align:center; width:300px;"><span>[画像: ArcaeaOnlineprofilebanner202602.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/GLORY%EF%BC%9AROAD" title="GLORY：ROAD">GLORY：ROAD</a><br class="spacer"/>（ジャケット左上）</td></tr><tr><td style="text-align:center; width:70px;">2026年<br class="spacer"/>3月</td><td style="text-align:center; width:300px;"><span>[画像: ArcaeaOnlineprofilebanner202603.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/NEO%20WINGS" title="NEO WINGS">NEO WINGS</a><br class="spacer"/>（？）</td></tr><tr><td style="text-align:center; width:70px;">2026年<br class="spacer"/>4月</td><td style="text-align:center; width:300px;"><span>[画像: IMG_9858.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/WAIT%20FOR%20DAWN" title="WAIT FOR DAWN">WAIT FOR DAWN</a><br class="spacer"/> （ジャケット右上）</td></tr><tr><td style="text-align:center; width:70px;">2026年<br class="spacer"/>5月</td><td style="text-align:center; width:300px;"><span>[画像: IMG_9859.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Phantasia" title="Phantasia">Phantasia</a><br class="spacer"/>（ジャケット左上<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC/%E6%81%92%E5%B8%B8%28Page3%29#ayu" title="パートナー/恒常(Page3)">彩夢</a>の使い魔）</td></tr><tr><td style="text-align:center; width:70px;">2026年<br class="spacer"/>6月</td><td style="text-align:center; width:300px;"><span>[画像: IMG_9936.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Undying%20Macula" title="Undying Macula">Undying Macula</a><br class="spacer"/> （<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC/%E6%81%92%E5%B8%B8#maya" title="パートナー/恒常">マヤ</a>の胸元のリボンが左右反転したもの）</td></tr><tr><td style="text-align:center; width:70px;">2026年<br class="spacer"/>7月</td><td style="text-align:center; width:300px;"><span>[画像: IMG_0177.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Cryogenic" title="Cryogenic">Cryogenic</a><br class="spacer"/> （タイトルの左横、右のキャラの髪部分）</td></tr><tr><td style="text-align:center; width:70px;">2026年<br class="spacer"/>8月</td><td style="text-align:center; width:300px;"><span>[画像: IMG_0267.png]</span></td><td style="text-align:center; width:150px;"><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/mod" title="mod">mod</a><br class="spacer"/>（中央左、ModのM近辺）</td></tr></tbody></table></div>
+</div>
+</div></li></ul></li>
+<li>マンスリーボーナス【月額プラン限定】
+<ul class="list2"><li>月額プランの初回加入時と更新時に、以下の3つの特典から好きなものを選んで入手できます。選択はArcaea Onlineの「購読状況」から行います。<br/>
+※加入･更新から30日経過すると、<ins>自動的にエーテルの雫を選択した処理がなされます</ins>。雫以外が欲しい場合は忘れないうちに入手しておきましょう。
+<div class="h-scrollable"><table><thead><tr><th>特典</th><th>詳細</th></tr></thead><tbody><tr><td>「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#memoryarchive" title="パック順">Memory Archive</a>」パックの楽曲1つ<br class="spacer">(ランダム)</br></td><td>直接購入以外の方法で解禁する曲(<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%CE%B3uar%CE%B4ina" title="γuarδina">γuarδina</a>・<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Innocence" title="Innocence">Innocence</a>・<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/D%C3%A9sive" title="Désive">Désive</a>・<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Acheron" title="Acheron">Acheron</a>)は対象外です。全曲購入済みの場合は選択できません。</td></tr><tr><td>「メモリーブースト」チケット2枚</td><td>50メモリーの代わりに使用してメモリーブーストを発動できます。<br class="spacer"/>ただし、<strong>入手時点から15日間</strong>という使用期限があります。<br class="spacer"/>入手する際には使用するマップがあるか、十分注意しましょう。</td></tr><tr><td>エーテルの雫20個</td><td>Lv1のパートナーをLv20にするために必要な経験値の半分、Lv20のパートナーをLv30にするために必要な経験値の1/3程度が手に入ります。</td></tr></tbody></table></div></li></ul></li></ul>
+<div class="spacer"> </div>
+<div class="spacer"> </div>
+<h2 class="heading-after-first" id="h2_content_1_17">ルール  <a class="anchor_super" name="rule"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=rule" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h2>
+<h3 class="heading-after-first" id="h3_content_1_18">曲属性  <a class="anchor_super" name="b7db779e"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=b7db779e" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p>Arcaeaには「<span class="wikicolor" style="color:#000000; background-color:lightskyblue">Light(光)</span>」「<span class="wikicolor" style="color:#ffffff; background-color:indigo">Conflict(対立)</span>」という2つの曲属性が存在し、ほとんどの楽曲はどちらかの属性に分類されています。</p>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_19">難易度・レベル  <a class="anchor_super" name="difficulty"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=difficulty" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p>Arcaeaには<span class="wikicolor" style="color:Aqua"><strong>Past</strong></span> / <span class="wikicolor" style="color:Lime"><strong>Present</strong></span> / <span class="wikicolor" style="color:Fuchsia"><strong>Future</strong></span> / <span class="wikicolor" style="color:mediumpurple"><strong>Eternal</strong></span> / <span class="wikicolor" style="color:Red"><strong>Beyond</strong></span>の5つの難易度表記が存在し、それぞれ<span class="wikicolor" style="color:Aqua"><strong>PST</strong></span> / <span class="wikicolor" style="color:Lime"><strong>PRS</strong></span> / <span class="wikicolor" style="color:Fuchsia"><strong>FTR</strong></span> / <span class="wikicolor" style="color:mediumpurple"><strong>ETR</strong></span> / <span class="wikicolor" style="color:Red"><strong>BYD</strong></span>と省略されます。</p>
+<ul class="list1"><li><span class="wikicolor" style="color:Aqua"><strong>Past</strong></span> / <span class="wikicolor" style="color:Lime"><strong>Present</strong></span> / <span class="wikicolor" style="color:Fuchsia"><strong>Future</strong></span>は全ての楽曲に存在します。<a class="note_super tooltip" data-tooltip-content='&lt;p&gt;エイプリルフール限定楽曲とチュートリアルを除く&lt;/p&gt;&lt;div style="text-align: right;"&gt;&lt;a href="#notefoot_7"&gt;脚注 *7 へ&lt;/a&gt;&lt;/div&gt;' id="notetext_7">*7</a></li>
+<li><span class="wikicolor" style="color:mediumpurple"><strong>Eternal</strong></span> / <span class="wikicolor" style="color:Red"><strong>Beyond</strong></span>は一部楽曲にどちらか一方が存在し、第4の譜面として別ソートで並びます。
+<ul class="list2"><li><span class="wikicolor" style="color:mediumpurple"><strong>Eternal</strong></span>譜面は新たに<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89" title="ワールドモード">ワールドモード</a>などで譜面を解禁する必要はありません。</li>
+<li><span class="wikicolor" style="color:Red"><strong>Beyond</strong></span>譜面はほとんどの場合、特定の解禁作業(<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89/Lost%20Chapter" title="ワールドモード/Lost Chapter">Lost Chapter</a>や<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89/Breached%20Chapter" title="ワールドモード/Breached Chapter">Breached Chapter</a>での解禁等)を経ることで選択できます。解禁作業を終えるまでは一覧に表示されず、レベルも表示されません。<a class="note_super tooltip" data-tooltip-content='&lt;p&gt;ワールドモードでの解禁が条件の場合、欄そのものは灰色の穴のような形で表示され、Beyond譜面の存在が示唆されます。&lt;/p&gt;&lt;div style="text-align: right;"&gt;&lt;a href="#notefoot_8"&gt;脚注 *8 へ&lt;/a&gt;&lt;/div&gt;' id="notetext_8">*8</a></li>
+<li>全曲フォルダもしくは<span class="wikicolor" style="color:mediumpurple"><strong>ETR</strong></span>譜面と<span class="wikicolor" style="color:Red"><strong>BYD</strong></span>譜面が混合しているパックを選択した場合、<span class="wikicolor" style="color:mediumpurple"><strong>ETR</strong></span> / <span class="wikicolor" style="color:Red"><strong>BYD</strong></span>の難易度をタップする事でどちらをソートするか切り替える事が出来ます。</li></ul></li></ul>
+<p>上記難易度とは別に、すべての譜面には1~7、7+、8、8+、9、9+、10、10+、11、11+、12の全17段階でレベルが割り振られています。</p>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_20">判定  <a class="anchor_super" name="judge"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=judge" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p>判定ラインは上段・下段に1つずつあり、下段レーンに関しては左から第1/第2/第3/第4レーンと呼ばれます。<br/>
+「スコア」は10,000,000を総ノーツ数で割った値を100%とし、それぞれの判定時に入る得点を示します。</p>
+<div class="h-scrollable"><table><thead><tr><th style="text-align:center; width:110px;">判定</th><th style="text-align:center; width:80px;">スコア</th><th style="text-align:center; width:80px;">コンボ</th><th style="text-align:center; width:380px;">備考</th></tr></thead><tbody><tr><td style="text-align:center; width:110px;"><span>[画像: PURE]</span></td><td style="text-align:center; width:80px;">100%<br class="spacer"/>(+1pt)</td><td style="text-align:center; width:80px;">◯</td><td style="text-align:left; width:380px;">[無印] 最もタイミング良くノーツを拾った場合(+1pt)(±25ms)。<br class="spacer"/>[EARLY/LATE] 若干早く/遅くノーツを拾った場合(±50ms)。</td></tr><tr><td style="text-align:center; width:110px;"><span>[画像: FAR]</span></td><td style="text-align:center; width:80px;">50%</td><td style="text-align:center; width:80px;">◯</td><td style="text-align:left; width:380px;">[EARLY/LATE] 早い/遅いタイミングでノーツを拾った場合。(±100ms)</td></tr><tr><td style="text-align:center; width:110px;"><span>[画像: LOST]</span></td><td style="text-align:center; width:80px;">0%</td><td style="text-align:center; width:80px;">×</td><td style="text-align:left; width:380px;">ノーツを見逃した場合。もしくは早く押しすぎた場合。コンボが途切れる。</td></tr></tbody></table></div>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_21">想起率  <a class="anchor_super" name="recollection"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=recollection" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p>クリア条件に関わります。PURE/FAR判定で増加し、LOST判定を受けると減少します。詳しくは<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%81%93%E3%81%BC%E3%82%8C%E8%A9%B1#recollection" title="こぼれ話">こぼれ話</a>を参照。<br/>
+想起率ゲージは<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC" title="パートナー">パートナー</a>のSKILLによって変化し、3種類に大別できます。詳しい効果はそれぞれの項目を参照。<br/>
+<a class="anchor" name="NORMALgage"></a></p>
+<ul class="list1"><li><span class="wikicolor" style="color:#ffffff; background-color:#292929">NORMALゲージ</span><br/>
+通常のゲージです。0%からスタートし、楽曲終了時に70%以上でクリアとなります。<br/>
+<a class="anchor" name="EASYgage"></a></li>
+<li><span class="wikicolor" style="color:white; background-color:#006633">EASYゲージ</span><br/>
+NORMALゲージよりもLOST時の想起率減少が少ないゲージです。0%からスタートし、楽曲終了時に70%以上でクリアとなります。<br/>
+<a class="anchor" name="HARDgage"></a></li>
+<li><span class="wikicolor" style="color:white; background-color:darkred">HARDゲージ</span><br/>
+他のゲージよりクリア条件が厳しくなっています。100%からスタートし、楽曲終了までに0%まで減少した瞬間プレイが終了します。強制終了することなく完走するとクリアとなります。</li></ul>
+<p>これらを基本として、パートナーごとに様々なバリエーションがあります。</p>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_22">グレード  <a class="anchor_super" name="grading"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=grading" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p>総合スコアに応じて下記の表のようにグレード分けがなされます。</p>
+<div class="nobr"><div class="h-scrollable"><table><thead><tr><th rowspan="2" style="text-align:center; width:200px;">グレード</th><th colspan="2" style="text-align:center;">総合スコア</th></tr><tr><th style="text-align:center; width:230px;">通常</th><th style="text-align:center; width:230px;">コースモード</th></tr></thead><tbody><tr><td style="text-align:center; width:200px;"><span>[画像: EX+]</span></td><td style="text-align:center; width:230px;">09,900,000 ～ 10,000,000+(総ノーツ数)</td><td style="text-align:center; width:230px;">39,600,000 ～ 40,000,000+(総ノーツ数)</td></tr><tr><td style="text-align:center; width:200px;"><span>[画像: EX]</span></td><td style="text-align:center; width:230px;">09,800,000 ～ 09,899,999</td><td style="text-align:center; width:230px;">39,200,000 ～ 39,599,999</td></tr><tr><td style="text-align:center; width:200px;"><span>[画像: AA]</span></td><td style="text-align:center; width:230px;">09,500,000 ～ 09,799,999</td><td style="text-align:center; width:230px;">38,000,000 ～ 39,199,999</td></tr><tr><td style="text-align:center; width:200px;"><span>[画像: A]</span></td><td style="text-align:center; width:230px;">09,200,000 ～ 09,499,999</td><td style="text-align:center; width:230px;">36,800,000 ～ 37,999,999</td></tr><tr><td style="text-align:center; width:200px;"><span>[画像: B]</span></td><td style="text-align:center; width:230px;">08,900,000 ～ 09,199,999</td><td style="text-align:center; width:230px;">35,600,000 ～ 36,799,999</td></tr><tr><td style="text-align:center; width:200px;"><span>[画像: C]</span></td><td style="text-align:center; width:230px;">08,600,000 ～ 08,899,999</td><td style="text-align:center; width:230px;">34,400,000 ～ 35,599,999</td></tr><tr><td style="text-align:center; width:200px;"><span>[画像: D]</span></td><td style="text-align:center; width:230px;">00,000,000 ～ 08,599,999</td><td style="text-align:center; width:230px;">00,000,000 ～ 34,399,999</td></tr></tbody></table></div>
+</div>
+<p>全てのノーツをPURE(EARLY/LATE)で拾った場合の最高スコアを10,000,000とし、PURE(無印)は1つにつきさらに+1されます。<br/>
+よって理論値は「10,000,000+(ノーツ数)」と計算できます。<br/>
+例) <a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Grievous%20Lady" title="Grievous Lady">Grievous Lady</a> (<span class="wikicolor" style="color:Fuchsia"><strong>FTR</strong></span>)は1,450ノーツなので、理論値は10,001,450点。</p>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_23">クリア称号  <a class="anchor_super" name="clear"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=clear" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p>譜面終了時に満たしていた条件に応じてクリア称号が与えられ、「TRACK COMPLETE」以上がクリアとして扱われます。<br/>
+ただしEASYゲージで「TRACK COMPLETE」を取得した場合は、クリア扱いではありますが<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#profile">プロフィールカード</a>等の統計における"CLEAR"にはカウントされません。</p>
+<div class="nobr"><div class="h-scrollable"><table><thead><tr><th colspan="2" style="text-align:center;">称号</th><th style="text-align:center; width:360px;">獲得条件</th></tr></thead><tbody><tr><td style="text-align:center; width:250px;"><span>[画像: PURE MEMORY]</span></td><td style="text-align:center; width:50px;"><span>[画像: P]</span></td><td style="text-align:center; width:360px;">全てのノーツをPURE判定で拾う</td></tr><tr><td style="text-align:center; width:250px;"><span>[画像: FULL RECALL]</span></td><td style="text-align:center; width:50px;"><span>[画像: F]</span></td><td style="text-align:center; width:360px;">全てのノーツをFAR判定以上で拾う<br class="spacer"/>いわゆるフルコンボ</td></tr><tr><td rowspan="3" style="text-align:center; width:250px;"><span>[画像: TRACK COMPLETE]</span></td><td style="text-align:center; width:50px;"><span>[画像: C]</span></td><td style="text-align:center; width:360px;">譜面終了時の想起率が70%以上</td></tr><tr><td style="text-align:center; width:50px;"><span>[画像: C]</span></td><td style="text-align:center; width:360px;">譜面終了時の想起率が70%以上<br class="spacer"/>(EASYスキル発動時)</td></tr><tr><td style="text-align:center; width:50px;"><span>[画像: C]</span></td><td style="text-align:center; width:360px;">HARDスキルを発動した状態で譜面を完走</td></tr><tr><td style="text-align:center; width:250px;"><span>[画像: TRACK LOST]</span></td><td style="text-align:center; width:50px;"><span>[画像: L]</span></td><td style="text-align:center; width:360px;">譜面終了時の想起率が70%未満、<br class="spacer"/>またはHARDスキル発動中に想起率が尽きてプレイ中断</td></tr></tbody></table></div>
+</div>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_24">ノーツ  <a class="anchor_super" name="notes"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=notes" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p>Arcaeaでは下記5種類のノーツが登場します。</p>
+<div class="nobr"><div class="h-scrollable"><table><thead><tr><th style="text-align:center; width:132px;">フロアノート</th><th style="text-align:center; width:132px;">ロングノート</th><th style="text-align:center; width:132px;">アークノート</th><th style="text-align:center; width:132px;">スカイノート</th><th style="text-align:center; width:132px;">トレースノート</th></tr></thead><tbody><tr><td style="text-align:center; width:132px;"><span>[画像: Floor]</span></td><td style="text-align:center; width:132px;"><span>[画像: Long]</span></td><td style="text-align:center; width:132px;"><span>[画像: Arc]</span></td><td style="text-align:center; width:132px;"><span>[画像: Sky]</span></td><td style="text-align:center; width:132px;"><span>[画像: Trace]</span></td></tr></tbody></table></div>
+</div>
+<ul class="list1"><li>フロアノート<br/>
+下段を流れるノートです。ラインに重なった瞬間にタップして拾います。</li></ul>
+<ul class="list1"><li>ロングノート<br/>
+下段を流れるノートです。ラインに重なった瞬間にタップし、ラインを過ぎるまでホールドして拾います。判定は無印PURE/LOSTのみ。
+<ul class="list2"><li>ラインを過ぎている途中からでも拾い始めることができます。</li>
+<li>途中で離しても直ぐに戻せばコンボは途切れません。この性質を利用して、<ins>ロングノートの途中で押している指を入れ替える</ins>ことができます。</li></ul></li></ul>
+<ul class="list1"><li>アークノート<br/>
+上～下段を流れるノートです。ラインを過ぎるまでホールドしながら拾います。判定は無印PURE/LOSTのみ。
+<ul class="list2"><li><span class="wikicolor" style="color:#8af">青</span>/<span class="wikicolor" style="color:#f8b">赤</span>(色覚補助モードは<span class="wikicolor" style="color:#66f">青</span>/<span class="wikicolor" style="color:#df8">黄</span>)の2色があり、基本的にそれぞれ左手/右手を使って拾うと取りやすくなるように設計されています。</li>
+<li><span class="wikicolor" style="color:Aqua"><strong>Past</strong></span>譜面では、必ず第1/第2レーンの間の上空か、第3/第4レーンの間の上空に始点が固定されます。またノートの動きは平行移動のみです。<br/>
+<span class="wikicolor" style="color:Lime"><strong>Present</strong></span>/<span class="wikicolor" style="color:Fuchsia"><strong>Future</strong></span>/<span class="wikicolor" style="color:mediumpurple"><strong>Eternal</strong></span>/<span class="wikicolor" style="color:Red"><strong>Beyond</strong></span>譜面では始点が固定されず、さらに上下段レーンの間を自由に動きます。
+<ul class="list3"><li><span class="wikicolor" style="color:Lime"><strong>Present</strong></span>譜面では上下移動を知らせるマークが表示されます。</li>
+<li>ホールドする位置によってレーンが傾きます。</li></ul></li>
+<li>ラインを過ぎている途中からでも拾い始めることができます。また、ロングノートとは異なり始点の判定は無いため、あらかじめ指を置いていても拾うことができます。</li>
+<li>ホールド中に指がずれた場合、少しだけ透明になります。判定点が無い所であれば、直ぐに指を戻せばコンボは途切れません。<br/>
+拾っている<ins>途中で画面から指を離したり、大きく指がずれた場合、一定時間濃い赤色になり、強制的にLOST判定が出ます</ins>。</li>
+<li>アークノートを一度拾った指は、画面から指を離すまで基本的に同色のアークノートしか拾う事が出来なくなります。
+<ul class="list3"><li><ins>アークノート同士が接触している間など、隠された特定のポイントに限り</ins>、拾う色を入れ替える事ができるますが、それ以外で異なる指が触れていると、入力無視されている合図としてアークノートは赤く表示されます。</li></ul></li></ul></li></ul>
+<ul class="list1"><li>スカイノート
+<ul class="list2"><li>上~下段を流れるノートです。トレースノートの先端に重なった瞬間にタップして拾います。</li>
+<li>必ず後述のトレースノートに沿って流れてきます(システム上の話であり、譜面によってはトレースノートをごく短くしてスカイノート単独で流れてくるように見せていることもあります)。</li>
+<li><span class="wikicolor" style="color:Lime"><strong>Present</strong></span>/<span class="wikicolor" style="color:Fuchsia"><strong>Future</strong></span>/<span class="wikicolor" style="color:mediumpurple"><strong>Eternal</strong></span>/<span class="wikicolor" style="color:Red"><strong>Beyond</strong></span>譜面にのみ出現します。</li>
+<li>フロアノートと同時押しの場合は青い線で結ばれて流れてきます。また、タイミングはフロアノートと同じ位置の影によっても示されます。</li></ul></li></ul>
+<ul class="list1"><li>アークノート、スカイノート共通
+<ul class="list2"><li><span class="wikicolor" style="color:Red"><strong>Beyond</strong></span>譜面では<span class="wikicolor" style="color:Fuchsia"><strong>Future</strong></span>以下の譜面よりも上側における可動域が広くなります。
+<div class="fold-container clearfix">
+<div class="fold-summary hidden-on-open">参考</div>
+<div class="fold-content visible-on-open"><p><span>[画像: Beyond譜面のアークノート/スカイノート可動域]</span></p>
+<div style="text-align:right"><a class="ext" href="https://twitter.com/ArcaeaWiki/status/1267678079050067969" rel="nofollow">https://twitter.com/ArcaeaWiki/status/1267678079050067969<span class="system-icon ext pukiwiki-open-uri" data-frame="_blank" data-href="https://twitter.com/ArcaeaWiki/status/1267678079050067969"></span></a></div>
+</div>
+</div>
+<ul class="list3"><li><span class="wikicolor" style="color:Fuchsia"><strong>Future</strong></span>譜面でも<span class="wikicolor" style="color:Red"><strong>Beyond</strong></span>譜面の可動域にノーツが出現する楽曲が一部存在します。<br/>
+例：<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Good%20bye%2C%20Merry-Go-Round." title="Good bye, Merry-Go-Round.">Good bye, Merry-Go-Round.</a> (<span class="wikicolor" style="color:fuchsia"><strong>FTR</strong></span>)</li>
+<li><span class="wikicolor" style="color:mediumpurple"><strong>Eternal</strong></span>譜面では多くの譜面で<span class="wikicolor" style="color:Red"><strong>Beyond</strong></span>譜面の可動域にノーツが出現します。</li>
+<li>また一部の譜面では、Sky Inputを越えた場所や、この可動域のさらに外側にノーツが出現する場合があります。<br/>
+例：<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/UNKNOWN%20LEVELS" title="UNKNOWN LEVELS">UNKNOWN LEVELS</a> (<span class="wikicolor" style="color:fuchsia"><strong>FTR</strong></span>)、<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Party%20Vinyl" title="Party Vinyl">Party Vinyl</a> (<span class="wikicolor" style="color:red"><strong>BYD</strong></span>)、<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Shades%20of%20Light%20in%20a%20Transcendent%20Realm" title="Shades of Light in a Transcendent Realm">Shades of Light in a Transcendent Realm</a> (<span class="wikicolor" style="color:red"><strong>BYD</strong></span>)</li></ul></li></ul></li></ul>
+<ul class="list1"><li>トレースノート
+<ul class="list2"><li>上段～下段を流れるノートです。アークノート/スカイノートの予告やプレイ中の演出に用いられます。操作の必要はなく、判定やスコアには関係ありません。
+<div class="fold-container clearfix">
+<div class="fold-summary hidden-on-open">トレースノートを用いた演出例</div>
+<div class="fold-content visible-on-open"><p><a data-lightbox="imageset" href="https://cdn.wikiwiki.jp/to/w/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB/::attach/trace_design1.jpg?rev=8185dc1605e9cc64c8a626c8dbf0eff6&amp;t=20170807123602" title="トレースノート演出例"><span>[画像: トレースノート演出例]</span></a><br/>
+<a data-lightbox="imageset" href="https://cdn.wikiwiki.jp/to/w/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB/::attach/trace_design2.jpg?rev=4c8ed885c200e2d4a4f09e40aadce444&amp;t=20170807123611" title="トレースノート演出例"><span>[画像: トレースノート演出例]</span></a></p>
+</div>
+</div></li></ul></li></ul>
+<div class="spacer"> </div>
+<div class="spacer"> </div>
+<h2 class="heading-after-first" id="h2_content_1_25">ゲームプレイの流れ  <a class="anchor_super" name="gameplay"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=gameplay" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h2>
+<h3 class="heading-after-first" id="h3_content_1_26">楽曲・レベル選択  <a class="anchor_super" name="songselect"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=songselect" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p><span>[画像: Song Select]</span></p>
+<ul class="list1"><li>難易度<br/>
+画面左上の難易度欄をタップすることで難易度を変更できます。</li></ul>
+<ul class="list1"><li>パック表示<br/>
+以下の要素が表示されます。
+<ul class="list2"><li>パックが何番目に並んでいるか</li>
+<li>パック名</li>
+<li>FULL RECALL/PURE MEMORY した楽曲の数、パックに含まれる楽曲の数
+<ul class="list3"><li>難易度で<span class="wikicolor" style="color:mediumpurple"><strong>Eternal</strong></span>や<span class="wikicolor" style="color:red"><strong>Beyond</strong></span>を選択している場合、それぞれその譜面が実装されている楽曲の分のみ表示されます。</li></ul></li>
+<li>パック表示の部分をタップするとパック選択画面に移行します。
+<ul class="list3"><li>右下の「全曲 (All Songs)」から、パックに関係なくすべての楽曲を表示できます。</li>
+<li>一部のパックは条件を満たすとパックの画像が変更されます。同時に、右上に矢印が表示されるようになり、これをタップすると元のパック画像に戻すことが可能です。該当するパックと条件は以下の通りです。
+<div class="h-scrollable"><table><thead><tr><th>パック</th><th>条件</th></tr></thead><tbody><tr><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#lasting" title="パック順">Lasting Eden<br class="spacer">(Severed Eden)</br></a></td><td>楽曲「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Arghena" title="Arghena">Arghena</a>」を解禁</td></tr><tr><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#extant" title="パック順">Extant Anima</a></td><td>ストーリー「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC/Side%20Story/Extant%20Anima" title="ストーリー/Side Story/Extant Anima">Extant Anima</a>」<br class="spacer"/>および「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC/Side%20Story/Extant%20Anima%20-%20Chapter%20Experientia" title="ストーリー/Side Story/Extant Anima - Chapter Experientia">Extant Anima -Chapter Experientia-</a>」を読破</td></tr><tr><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#djmax" title="パック順">DJMAX Collaboration</a></td><td>パック「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#djmax" title="パック順">DJMAX Collaboration</a>」<br class="spacer"/>およびPack Append「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#djmax2" title="パック順">Collaboration Chapter 2</a>」を両方購入</td></tr><tr><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#rotaeno" title="パック順">Rotaeno Collaboration</a></td><td>ストーリー「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC/Archive%20Story/Rotaeno" title="ストーリー/Archive Story/Rotaeno">Rotaeno</a>」を読破</td></tr></tbody></table></div></li></ul></li></ul></li></ul>
+<ul class="list1"><li>楽曲欄<br/>
+画面右に並ぶ楽曲欄を上下にスワイプして楽曲を選択できます。<br/>
+楽曲欄には以下の要素が表示されます。
+<ul class="list2"><li>譜面のレベル</li>
+<li>曲属性</li>
+<li>グレード</li>
+<li><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#clear">クリア称号</a></li>
+<li>楽曲の解禁方法に応じて異なる背景が表示されます。
+<div class="fold-container clearfix">
+<div class="fold-summary hidden-on-open">背景の種類</div>
+<div class="fold-content visible-on-open"><div class="h-scrollable"><table><thead><tr><th style="text-align:center; width:128px;">背景</th><th colspan="2">説明</th></tr></thead><tbody><tr><td style="text-align:center; width:128px;"><span>[画像: Free]</span></td><td style="text-align:center;">無料曲</td><td>無料で解禁される楽曲。<br class="spacer">“Arcaea” パックにのみ存在し、ユーザー登録およびログインを行っていない状態でもプレイが可能です。</br></td></tr><tr><td style="text-align:center; width:128px;"><span>[画像: Paid]</span></td><td style="text-align:center;">有料曲</td><td><a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#currency">メモリー</a>で購入することで解禁される楽曲。<br class="spacer">一部の有料パックに含まれる特別な解禁作業を必要とする楽曲も、<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89" title="ワールドモード">ワールドモード</a>で解禁するものでなければ、この背景が優先される。</br></td></tr><tr><td style="text-align:center; width:128px;"><span>[画像: World]</span></td><td style="text-align:center;">ワールドモード解禁曲</td><td>ワールドモードで解禁される楽曲。<br class="spacer"/>「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#extend1" title="パック順">Extend Archive 1: Visions</a>」パックに含まれる楽曲のように、現在ではワールドモードで解禁できなくなった場合もこちらに含まれます。<br class="spacer"/>無料曲と有料曲(有料パックに含まれる楽曲)に関係なく、この背景が優先されます。</td></tr><tr><td style="text-align:center; width:128px;"><span>[画像: Beyond]</span></td><td style="text-align:center;">Lost Chapter解禁譜面<br class="spacer"/>(<span class="wikicolor" style="color:Red"><strong>Beyond</strong></span>譜面)</td><td>ワールドモードの<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89/Lost%20Chapter" title="ワールドモード/Lost Chapter">Lost Chapter</a>で解禁することでプレイ可能となる譜面。<br class="spacer"/>上記のすべてに関係なく、<span class="wikicolor" style="color:Red"><strong>Beyond</strong></span>譜面はこの背景が優先されます。</td></tr></tbody></table></div>
+</div>
+</div></li></ul></li></ul>
+<ul class="list1"><li>RANDOM<br/>
+最下部の「RANDOM」をタップすると楽曲がランダムに選曲されます(ワールドモードのランダムタイルとは異なり、プレイは始まりません)。また、一度タップした後は右下に常駐します。右下の「˄/˅」を押すとフォルダ(フォルダがなしの場合はページ)の最上部/最下部に飛びます。</li></ul>
+<ul class="list1"><li>お気に入り<br/>
+パック選択画面の最下端から擬似楽曲パック「Favorites」を選択できます。文字通り楽曲をお気に入りに設定し、パック一覧左端の「Favorites」パックに表示する機能です。<br/>
+楽曲を選択した状態でその楽曲の欄を右にスライドすると「Favorites」ボタンが出現し、押すと「Favorites」パックに追加されます。
+<div class="fold-container clearfix">
+<div class="fold-summary hidden-on-open">お気に入り選択時の画像</div>
+<div class="fold-content visible-on-open"><p><span>[画像: Favorite]</span></p>
+</div>
+</div></li>
+<li>アートワーク<br/>
+画面左半分には楽曲のアートワークが表示されます。難易度や時間帯によってアートワークが変化する楽曲も存在します。<br/>
+アートワークをタップすると、左端の楽曲ランキングが「ランク→フレンド→全世界→(非表示)→ランク...」と変化します。それぞれ最大20人分が表示されます。
+<ul class="list2"><li>ランク表示では、自分より上位4名・下位15名が表示されます。なお、同スコアの場合は更新が新しい人が上位になります。<br/>
+自分のランクが9999位未満の場合、9981~9999位と自分の計20人が表示されます。この場合、自分の順位は表示されません。</li></ul></li></ul>
+<ul class="list1"><li>ソート/フォルダ/検索機能<br/>
+アートワーク画像下部左側のボタンをタップするとソート・フォルダ・検索機能を使用する事が可能です。
+<ul class="list2"><li>ソート機能<br/>
+決められた順に楽曲を並び替えることができます。デフォルトは「難易度順」です。また、リセットの左に位置するボタンで「昇順(↑)」「降順(↓)」を切り替えることができます。（デフォルトは昇順）</li>
+<li>ただし、Anomaly･Terminal楽曲 (「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Aegleseeker" title="Aegleseeker">Aegleseeker</a>」なども含む)の未解禁譜面はソートを無視して一番下側に表示されます。
+<div class="fold-container clearfix">
+<div class="fold-summary hidden-on-open">並び替えの詳細</div>
+<div class="fold-content visible-on-open"><p><span class="wikicolor" style="color:#ffffff; background-color:#292929">並び替えの詳細</span></p>
+<ul class="list1"><li>曲名 (Title)
+<ul class="list2"><li>英語表記のタイトル順に表示されます。</li>
+<li>数字・記号→アルファベット(A-Z)→ギリシャ文字(α-ω)の順。</li>
+<li>同名の場合は収録日の古い順に表示されます。</li></ul></li>
+<li>難易度 (Difficulty)
+<ul class="list2"><li>楽曲の難易度の低い順で表示されます。</li>
+<li>同難易度の場合は曲名順に表示されます。</li></ul></li>
+<li>追加日 (Date)
+<ul class="list2"><li>楽曲の収録日の古い順に表示されます(最新曲は一番下)。</li></ul></li>
+<li>グレード (Grade)
+<ul class="list2"><li>MAX (理論値)→PM→EX+→EX→AA→A→B→C→D→未プレイの順に表示されます。</li>
+<li>同グレードの場合、スコアの高い順に表示され、スコアも同点の場合は曲名順に表示されます。</li></ul></li>
+<li>クリア (Clear)
+<ul class="list2"><li>PURE MEMORY→FULL RECALL→TC (HARD)→TC (NORMAL)→TC (EASY)→TRACK LOST→未プレイの順に表示されます。</li>
+<li>クリアの種類が同じ場合、グレード順→スコアの高い順に表示されます。
+<ul class="list3"><li>PURE MEMORYはグレード順と違い、理論値・理論値未達成をまとめてスコアの高い順に並べます。</li></ul></li></ul></li>
+<li>作曲者 (Artist)
+<ul class="list2"><li>作曲者名順に表示されます。</li>
+<li>数字・記号→アルファベット(A-Z)→ひらがな(あ-ん)→カタカナ(ア-ン)→漢字の順。</li>
+<li>同名の場合は曲名順に表示されます。</li></ul></li></ul>
+</div>
+</div></li>
+<li>フォルダ機能<br/>
+「パック (Pack)」「Ver. (Version)」「レベル (Level)」「グレード (Grade)」「クリア (Clear)」でフォルダ分けされた表示にすることができます。
+<ul class="list3"><li>「パック」はパック選択時はメインパックとPack Append別に分類します（Pack Appendがないパックでは分類されません）。全曲表示・お気に入り・ワールドモードの楽曲制限タイルではパック選択画面の左上のパックから順にフォルダ分けして表示します（Pack Appendはメインパックにまとめられます）。なお、「パック」をもう一度タップすると「なし」（全曲を一斉表示）に変更できます。</li>
+<li>「バージョン」は「譜面が追加されたバージョン」で判定されます。マイナーバージョン(ver.X.Y.ZのY)までで分類され、パッチバージョン(Z)があるものもマイナーバージョンを基準に振り分けられます(例: ver.1.0.10は「1.0」のフォルダ)。</li>
+<li>「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#memoryarchive" title="パック順">Memory Archive</a>」パックのみ、「パック」の代わりに独自のデフォルトフォルダとして「カテゴリ」が存在します。分類は以下の表のとおりです。もう一度タップで「パック」と同様に「なし」に変更することもできます。
+<div class="h-scrollable"><table><thead><tr><th>カテゴリ</th><th>解説</th></tr></thead><tbody><tr><td>ポップ・おすすめ</td><td>主に音楽ゲーム以外のゲーム楽曲が分類されています。</td></tr><tr><td>パートナー</td><td>パートナー・核・ストーリーの解禁に関連する楽曲が分類されます。<br class="spacer">このカテゴリに分類される楽曲は基本的に<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%81%93%E3%81%BC%E3%82%8C%E8%A9%B1#anniversarysale" title="こぼれ話">アニバーサリーセール</a>で割引されない傾向にあります。</br></td></tr><tr><td>オリジナル</td><td>「パートナー」に該当しない書き下ろし楽曲が分類されます。</td></tr><tr><td>バラエティ</td><td>BMS楽曲や各種アーティストの同人アルバムからの収録曲が分類されます。</td></tr><tr><td>音楽ゲーム</td><td>各種コラボレーションや<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%81%93%E3%81%BC%E3%82%8C%E8%A9%B1#crossingpulse" title="こぼれ話">Crossing Pulse</a>など、他の音楽ゲームからの移植曲が分類されます。<br class="spacer">パートナー解禁マップのトリガーになっている曲でも、こちらが優先されます。</br></td></tr></tbody></table></div></li></ul></li></ul></li></ul>
+<ul class="list2"><li>検索機能<br/>
+楽曲名とコンポーザー名から楽曲を検索することができます。
+<ul class="list3"><li>楽曲名をそのまま検索した場合だけでなく、日本語の読みで検索した場合もヒットします。</li>
+<li>特殊な読み方であってもヒットします。<br/>
+(例) <a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%EF%BC%BBX%EF%BC%BD" title="［X］">[X]</a> → インフィニティ など
+<div class="spacer"> </div></li></ul></li></ul>
+<h3 class="heading-after-first" id="h3_content_1_27">Link Play  <a class="anchor_super" name="linkplay"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=linkplay" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p><span class="wikicolor" style="color:#ffffff; background-color:#292929">※<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#register">ユーザー登録・ログイン</a>が必要です。</span><br/>
+<span>[画像: Link Play]</span></p>
+<p>2～4人で同時に遊べるオンラインマルチプレイモードです。<br/>
+かつてはプライベートルーム限定(ランダムマッチ機能はありません)でしたが、v5.10.0よりランダムマッチが可能になりました。<br/>
+Twitter上ではLink Play用公式ハッシュタグ(<a class="ext" href="https://twitter.com/hashtag/arcaea_link" rel="nofollow">#arcaea_link<span class="system-icon ext pukiwiki-open-uri" data-frame="_blank" data-href="https://twitter.com/hashtag/arcaea_link"></span></a> )、Discordの<a class="ext" href="https://twitter.com/lowiro_staff/status/996143532888023041" rel="nofollow">公式サーバー<span class="system-icon ext pukiwiki-open-uri" data-frame="_blank" data-href="https://twitter.com/lowiro_staff/status/996143532888023041"></span></a>ではlink-playチャンネルが用意されているので、これらを利用して参加者を募集してみるのも良いでしょう。</p>
+<ul class="list1"><li>ルームへ参加する<br/>
+「Music Play」 から、楽曲選択画面の中央下部にあるタブ(「&lt;･･&gt;」)をタップすると「Link Play」ウインドウが表示されます。
+<ul class="list2"><li>新しくルームを立てる場合、主催者は「非公開」を選択して新規ルームを作成します。ルームウインドウの左上にはルームコードの表示欄があり、目のマークをタップするとルームコードの表示/非表示を切り替えることができます(デフォルトでは非表示になっています)。
+<ul class="list3"><li>公開ルームを立てる場合、一度「非公開」でルームを立ててから、ルールの設定で公開設定を「公開」にして下さい。</li></ul></li>
+<li>公開ルームに参加する場合、「公開」を選択すると、ルームの検索が開始されます。</li>
+<li>非公開ルームに参加する場合、「Link Play」ウインドウのルームコード入力欄にルームコードを入力してルームに参加します。大文字小文字の区別はされません。
+<ul class="list3"><li>そのルームが演奏中だった場合はその旨の表示がされて入ることが出来ません。この場合はしばらく待つ必要があります(1曲は長いものでも3分弱です)。</li></ul></li></ul></li>
+<li>ルールを設定する<br/>
+ルームウインドウの左下にある「ルーム設定」では、下記の設定が行えます。
+<ul class="list2"><li>ルームの公開設定
+<ul class="list3"><li>「公開」に設定するとランダムマッチ機能でプレイヤーがルームに参加できるようになります。</li></ul></li>
+<li>選曲権
+<ul class="list3"><li>「代表制」では選曲権を持っているプレイヤーが選曲します。選曲権は曲が終了しても移動しません。</li>
+<li>「交代制」は代表制と同じく選曲権を持っているプレイヤーが選曲しますが、1曲ごとに選曲権が他のプレイヤーにローテーションされます。</li>
+<li>「投票制」では全員が希望楽曲を選び、その中からランダムで決定されます。<br/>
+楽曲選択時間になると、「Link Play」ウィンドウ下部に「おまかせ選曲」が表示されるようになり、これを選択した場合は希望楽曲を選択せずに進み、希望楽曲を選択した他のプレイヤーの中からランダムで決定されます。<br/>
+全員がおまかせを選択した場合は、選曲可能な全ての曲の中からランダムで決定されます。</li>
+<li>ルームの公開設定が「公開」になっている場合、選曲権の設定は「投票制」で固定となります。</li></ul></li>
+<li>選曲タイマー
+<ul class="list3"><li>オンにした場合、選曲時間に時間制限が設けられます。</li>
+<li>ルームの公開設定が「公開」になっている場合、選曲タイマーはオンで固定となります。</li></ul></li>
+<li>選曲権を持っているプレイヤーは，各プレイヤーのネームプレート右側にある「⋮」から以下の操作ができます。
+<ul class="list3"><li>プレイヤーの強制退出<br/>
+任意のプレイヤーを強制退出させることができます。</li>
+<li>選曲権をわたす<br/>
+選曲権を別のプレイヤーに譲ることができます。</li></ul></li></ul></li>
+<li>プレイの流れ
+<ul class="list2"><li>選曲権が「代表制」または「交代制」の時に選曲権を持っているプレイヤー、選曲権が「投票制」になっている場合は全員、全員が購入・解禁している楽曲に限り、選曲することができます。一人でも購入・解禁していない人がいる楽曲は選曲できません。
+<ul class="list3"><li>Link Play中は、通常の楽曲フォルダに加えて「選曲可能」というフォルダが選べます。選べる曲が少ない時などに役に立つフォルダです。</li>
+<li>選曲権が「代表制」または「交代制」になっていて選曲権を持っていないプレイヤーは選曲できませんが、楽曲を選択するとその楽曲を「おすすめ」することができます。</li></ul></li>
+<li>選曲権を持っている人が曲を選んだら、確認画面に移行し、全員が「READY」を押したらスタートします。この際、設定とパートナーの変更が可能で、楽曲をダウンロードしていない場合はダウンロードを開始することができます。</li>
+<li>ハードゲージでTRACK LOSTしたり、難易度ごとに演奏時間が異なる曲を各々が別難易度で演奏しているなどの理由で終了時間が異なる場合、先に演奏が終わった人は他の人が終了するまでしばらく待つことになります。</li>
+<li>Link Playで楽曲をプレイした場合、欠片を追加で獲得できます。</li>
+<li>プレイしている全員がFULL RECALL以上またはPURE MEMORYを達成した際、専用の演出が再生されます。
+<ul class="list3"><li>リザルトではそれぞれ「LINKED FULL RECALL」「LINKED PURE MEMORY」と表示されます。</li></ul></li>
+<li>ルームを退出するときは、ルームウインドウの右上にある「退出する」か、楽曲選択画面の左下にある「中断する」をタップして退出します。</li></ul></li></ul>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_28">プレイ画面 <a class="anchor_super" name="playscreen"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=playscreen" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p><span>[画像: プレイ画面]</span></p>
+<ul class="list1"><li>PAUSEボタン<br/>
+デフォルトでは1回タップすることでプレイが一時停止され、「つづける(Resume)」「リトライ(Retry)」「中断する(Quit)」を選択できます。
+<ul class="list2"><li>「設定」→「プレイ設定」の2ページ目で『タップ1回』『タップ2回』『長押し』『非表示』の4つを選ぶことができます。</li>
+<li>他のいくつかの音楽ゲームとは異なり、ポーズ解除時にウェイトが入らず直ちにプレイが再開されるので注意が必要です。</li>
+<li>「リトライ」は<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89" title="ワールドモード">ワールドモード</a>、<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%82%B3%E3%83%BC%E3%82%B9%E3%83%A2%E3%83%BC%E3%83%89" title="コースモード">コースモード</a>でのプレイ時には表示されません。「中断する」は表示されますが、押すと警告が表示されます。</li></ul></li></ul>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_29">リザルト画面  <a class="anchor_super" name="result"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=result" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<ul class="list1"><li>判定詳細表示<br/>
+リザルト画面の判定内訳部分をタップすると、右側にさらに詳しい判定結果が表示されます(<strong>2</strong>、<strong>3</strong>については<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#settings">設定</a>の「Pure L/E表示」を有効にしていると表示されます)。<br/>
+<span>[画像: Judge details]</span>
+<ul class="list2"><li>1 - 無印PURE判定の数。</li>
+<li>2 - EARLYのついたFAR判定の数 (EARLYのついたPURE判定の数 )</li>
+<li>3 - LATEのついたFAR判定の数 (LATEのついたPURE判定の数 )</li></ul></li></ul>
+<p><a class="anchor" name="reward"></a></p>
+<ul class="list1"><li>報酬<br/>
+ゲームプレイの出来栄えに応じて「REWARD(報酬)」として<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#currency">欠片</a>が与えられます。
+<div class="nobr"><div class="h-scrollable"><table><thead><tr><th style="text-align:center; width:100px;">報酬名</th><th>付与条件</th><th style="text-align:center; width:60px;">欠片数</th><th>表示例</th></tr></thead><tbody><tr><td style="text-align:left; width:100px;">プレイ</td><td>「TRACK LOST」の場合に与えられます。</td><td style="text-align:center; width:60px;">下表参照</td><td rowspan="6"><span>[画像: Reward]</span></td></tr><tr><td style="text-align:left; width:100px;">クリア</td><td>「TRACK COMPLETE」以上の場合に与えられます。</td><td style="text-align:center; width:60px;">下表参照</td></tr><tr><td style="text-align:left; width:100px;">パフォーマンス</td><td>「FULL RECALL」以上の場合に与えられます。</td><td style="text-align:center; width:60px;">下表参照</td></tr><tr><td style="text-align:left; width:100px;">LINKED</td><td>Link Playで楽曲をプレイした場合に与えられます。</td><td style="text-align:center; width:60px;">下表参照</td></tr><tr><td style="text-align:left; width:100px;">初回クリア</td><td>そのトラックを初めてクリアした時に与えられます。</td><td style="text-align:center; width:60px;">10</td></tr><tr><td style="text-align:left; width:100px;">パートナー</td><td>パートナーの所持スキルの効果によって与えられます。</td><td style="text-align:center; width:60px;">詳しくは<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC" title="パートナー">こちら</a></td></tr></tbody></table></div>
+</div>
+入手できる欠片の量はプレイした譜面の難易度とレベル、称号によって決まります。
+<ul class="list2"><li>TRACK COMPLETEの種別(EASY/HARD)は関係しません。</li>
+<li>放置プレイ防止の措置として、TRACK LOSTかつスコアが550万点未満の場合は一切の報酬が得られません(内訳には何も表示されず、パートナーが欠片に影響するスキルを所持していても無効になります)。<br/>
+550万点未満であってもTRACK COMPLETE以上を達成した場合は通常通り報酬を獲得できます。<br/>
+この数値は設定している<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC" title="パートナー">パートナー</a>のFRAG値に基づいて再計算され、最終的な付与数が決定されます。
+<div class="nobr"><div class="h-scrollable"><table><thead><tr><th colspan="2" rowspan="2">項目</th><th colspan="10" style="text-align:center;">レベル</th></tr><tr><th style="text-align:center;">1<br class="spacer">2<br class="spacer">?</br></br></th><th style="text-align:center;">3</th><th style="text-align:center;">4</th><th style="text-align:center;">5</th><th style="text-align:center;">6<br class="spacer">7<br class="spacer"/>7+</br></th><th style="text-align:center;">8<br class="spacer"/>8+</th><th style="text-align:center;">9<br class="spacer"/>9+</th><th style="text-align:center;">10<br class="spacer"/>10+</th><th style="text-align:center;">11<br class="spacer"/>11+</th><th style="text-align:center;">12</th></tr></thead><tbody><tr><td colspan="2">プレイ</td><td style="text-align:center;">1</td><td style="text-align:center;">2</td><td style="text-align:center;">3</td><td style="text-align:center;">4</td><td style="text-align:center;">5</td><td style="text-align:center;">6</td><td style="text-align:center;">7</td><td style="text-align:center;">8</td><td style="text-align:center;">9</td><td style="text-align:center;">10</td></tr><tr><td rowspan="5">クリア</td><td style="text-align:center;"><span class="wikicolor" style="color:Aqua"><strong>PST</strong></span></td><td style="text-align:center;">9</td><td style="text-align:center;">10</td><td style="text-align:center;">11</td><td style="text-align:center;">12</td><td style="text-align:center;">13</td><td style="text-align:center;">-</td><td style="text-align:center;">-</td><td style="text-align:center;">-</td><td style="text-align:center;">-</td><td style="text-align:center;">-</td></tr><tr><td style="text-align:center;"><span class="wikicolor" style="color:Lime"><strong>PRS</strong></span></td><td style="text-align:center;">-</td><td style="text-align:center;">11</td><td style="text-align:center;">12</td><td style="text-align:center;">13</td><td style="text-align:center;">14</td><td style="text-align:center;">15</td><td style="text-align:center;">16</td><td style="text-align:center;">-</td><td style="text-align:center;">-</td><td style="text-align:center;">-</td></tr><tr><td style="text-align:center;"><span class="wikicolor" style="color:Fuchsia"><strong>FTR</strong></span>/<span class="wikicolor" style="color:mediumpurple"><strong>ETR</strong></span></td><td style="text-align:center;">11</td><td style="text-align:center;">-</td><td style="text-align:center;">-</td><td style="text-align:center;">-</td><td style="text-align:center;">15</td><td style="text-align:center;">16</td><td style="text-align:center;">17</td><td style="text-align:center;">18</td><td style="text-align:center;">19</td><td style="text-align:center;">-</td></tr><tr><td style="text-align:center;"><span class="wikicolor" style="color:Red"><strong>BYD</strong></span></td><td style="text-align:center;">-</td><td style="text-align:center;">-</td><td style="text-align:center;">-</td><td style="text-align:center;">-</td><td style="text-align:center;">-</td><td style="text-align:center;">17</td><td style="text-align:center;">18</td><td style="text-align:center;">19</td><td style="text-align:center;">20</td><td style="text-align:center;">21</td></tr><tr><td style="text-align:center;">FR/PM</td><td colspan="10" style="text-align:center;">LV問わず <span class="wikicolor" style="color:Aqua"><strong>PST</strong></span>:8 <span class="wikicolor" style="color:Lime"><strong>PRS</strong></span>:9 <span class="wikicolor" style="color:Fuchsia"><strong>FTR</strong></span>/<span class="wikicolor" style="color:mediumpurple"><strong>ETR</strong></span>:10 <span class="wikicolor" style="color:Red"><strong>BYD</strong></span>:11</td></tr><tr><td rowspan="2">パフォーマンス</td><td style="text-align:center;">FR</td><td style="text-align:center;">2</td><td style="text-align:center;">4</td><td style="text-align:center;">6</td><td style="text-align:center;">8</td><td style="text-align:center;">10</td><td style="text-align:center;">12</td><td style="text-align:center;">14</td><td style="text-align:center;">16</td><td style="text-align:center;">18</td><td style="text-align:center;">20</td></tr><tr><td style="text-align:center;">PM</td><td style="text-align:center;">2</td><td style="text-align:center;">5</td><td style="text-align:center;">8</td><td style="text-align:center;">10</td><td style="text-align:center;">13</td><td style="text-align:center;">16</td><td style="text-align:center;">18</td><td style="text-align:center;">21</td><td style="text-align:center;">24</td><td style="text-align:center;">27</td></tr><tr><td colspan="2">LINKED</td><td style="text-align:center;">?</td><td style="text-align:center;">?</td><td style="text-align:center;">?</td><td style="text-align:center;">?</td><td style="text-align:center;">?</td><td style="text-align:center;">4</td><td style="text-align:center;">4</td><td style="text-align:center;">5</td><td style="text-align:center;">?</td><td style="text-align:center;">?</td></tr></tbody></table></div>
+</div>
+レベル・クリア状況別に合計してまとめると以下の通りになります。<br/>
+※下記表はソロプレイ(Link Playでない)の場合となります。
+<div class="nobr"><div class="h-scrollable"><table><tbody><tr><th>難易度</th><th>レベル</th><th>LO</th><th>TC</th><th>FR</th><th>PM</th></tr><tr><td rowspan="5" style="text-align:center;"><span class="wikicolor" style="color:Aqua"><strong>PST</strong></span></td><td style="text-align:center;">1-2</td><td style="text-align:center;">1</td><td style="text-align:center;">9</td><td style="text-align:center;">10</td><td style="text-align:center;">10</td></tr><tr><td style="text-align:center;">3</td><td style="text-align:center;">2</td><td style="text-align:center;">10</td><td style="text-align:center;">12</td><td style="text-align:center;">13</td></tr><tr><td style="text-align:center;">4</td><td style="text-align:center;">3</td><td style="text-align:center;">11</td><td style="text-align:center;">14</td><td style="text-align:center;">16</td></tr><tr><td style="text-align:center;">5</td><td style="text-align:center;">4</td><td style="text-align:center;">12</td><td style="text-align:center;">16</td><td style="text-align:center;">18</td></tr><tr><td style="text-align:center;">6-7+</td><td style="text-align:center;">5</td><td style="text-align:center;">13</td><td style="text-align:center;">18</td><td style="text-align:center;">21</td></tr><tr><td rowspan="6" style="text-align:center;"><span class="wikicolor" style="color:Lime"><strong>PRS</strong></span></td><td style="text-align:center;">3</td><td style="text-align:center;">2</td><td style="text-align:center;">11</td><td style="text-align:center;">13</td><td style="text-align:center;">14</td></tr><tr><td style="text-align:center;">4</td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;">15</td><td style="text-align:center;">17</td></tr><tr><td style="text-align:center;">5</td><td style="text-align:center;">4</td><td style="text-align:center;">13</td><td style="text-align:center;">17</td><td style="text-align:center;">19</td></tr><tr><td style="text-align:center;">6-7+</td><td style="text-align:center;">5</td><td style="text-align:center;">14</td><td style="text-align:center;">19</td><td style="text-align:center;">22</td></tr><tr><td style="text-align:center;">8-8+</td><td style="text-align:center;">6</td><td style="text-align:center;">15</td><td style="text-align:center;">21</td><td style="text-align:center;">25</td></tr><tr><td style="text-align:center;">9</td><td style="text-align:center;">7</td><td style="text-align:center;">16</td><td style="text-align:center;">23</td><td style="text-align:center;">27</td></tr><tr><td rowspan="6" style="text-align:center;"><span class="wikicolor" style="color:Fuchsia"><strong>FTR</strong></span><br class="spacer"><span class="wikicolor" style="color:mediumpurple"><strong>ETR</strong></span></br></td><td style="text-align:center;">7-7+</td><td style="text-align:center;">5</td><td style="text-align:center;">15</td><td style="text-align:center;">20</td><td style="text-align:center;">23</td></tr><tr><td style="text-align:center;">8-8+</td><td style="text-align:center;">6</td><td style="text-align:center;">16</td><td style="text-align:center;">22</td><td style="text-align:center;">26</td></tr><tr><td style="text-align:center;">9-9+</td><td style="text-align:center;">7</td><td style="text-align:center;">17</td><td style="text-align:center;">24</td><td style="text-align:center;">28</td></tr><tr><td style="text-align:center;">10-10+</td><td style="text-align:center;">8</td><td style="text-align:center;">18</td><td style="text-align:center;">26</td><td style="text-align:center;">31</td></tr><tr><td style="text-align:center;">11</td><td style="text-align:center;">9</td><td style="text-align:center;">19</td><td style="text-align:center;">28</td><td style="text-align:center;">34</td></tr><tr><td style="text-align:center;">?</td><td style="text-align:center;">1</td><td style="text-align:center;">11</td><td style="text-align:center;">12</td><td style="text-align:center;">12</td></tr><tr><td rowspan="5" style="text-align:center;"><span class="wikicolor" style="color:Red"><strong>BYD</strong></span></td><td style="text-align:center;">8-8+</td><td style="text-align:center;">6</td><td style="text-align:center;">17</td><td style="text-align:center;">23</td><td style="text-align:center;">27</td></tr><tr><td style="text-align:center;">9-9+</td><td style="text-align:center;">7</td><td style="text-align:center;">18</td><td style="text-align:center;">25</td><td style="text-align:center;">29</td></tr><tr><td style="text-align:center;">10-10+</td><td style="text-align:center;">8</td><td style="text-align:center;">19</td><td style="text-align:center;">27</td><td style="text-align:center;">31</td></tr><tr><td style="text-align:center;">11</td><td style="text-align:center;">9</td><td style="text-align:center;">20</td><td style="text-align:center;">29</td><td style="text-align:center;">35</td></tr><tr><td style="text-align:center;">12</td><td style="text-align:center;">10</td><td style="text-align:center;">21</td><td style="text-align:center;">31</td><td style="text-align:center;">38</td></tr></tbody></table></div>
+</div></li></ul></li></ul>
+<ul class="list1"><li>その他
+<ul class="list2"><li>理論値を取ると、リザルト及びプレイ画面右上のスコア表示の影が青く変化します(選曲画面を除く)。</li>
+<li>総合スコアの下側(グレード表記の上側)には、その楽曲の最高得点である「HIGH SCORE」が表示されます。<br/>
+右側にはハイスコアとの差が±で表記され、スコアが現在記録されているものよりも高い場合は、HIGH SCORE表示の背景デザインが紫色になり、ハイスコアが更新されます。</li>
+<li>リザルト画面左上には、そのプレイでの最大コンボ数である「MAX RECALL」が表示されます。</li></ul></li></ul>
+<div class="spacer"> </div>
+<h2 class="heading-after-first" id="h2_content_1_30">アプリ内課金・楽曲や譜面の解禁  <a class="anchor_super" name="unlock"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=unlock" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h2>
+<h3 class="heading-after-first" id="h3_content_1_31">楽曲・パックの購入  <a class="anchor_super" name="unlockpack"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=unlockpack" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<p><span class="wikicolor" style="color:#ffffff; background-color:#292929">※<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#register">ユーザー登録・ログイン</a>が必要です。</span></p>
+<p>Arcaeaでは直接楽曲やパックを購入するのではなく、まずアプリ内通貨の<a href="https://wikiwiki.jp/arcaea/%E3%83%AB%E3%83%BC%E3%83%AB#currency">メモリー</a>を購入し、そのメモリーを使って楽曲やパックを購入します。</p>
+<p><span>[画像: Unlock song]</span></p>
+<p>購入したい楽曲(パックの場合はそのパック内のいずれかの楽曲)をタップすることで購入画面が表示されます。</p>
+<p>楽曲やパックは次の区分によって分けられます。</p>
+<ul class="list1"><li>「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#memoryarchive" title="パック順">Memory Archive</a>」 : 曲単位で購入可能です。</li>
+<li>「Extend Archive」：<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86" title="パック順">パック順</a>を参照</li>
+<li>「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#arcaea" title="パック順">Arcaea</a>」パック : 無料で入手可能です。</li>
+<li>「World Extend」：<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86" title="パック順">パック順</a>を参照</li>
+<li>Main Story、Side Story、Collaboration : パック単位で購入可能です。一部パックには「Pack Append」という追加楽曲パックが存在します。
+<ul class="list2"><li>パック選択画面のパックの下側にあるPack Appendの欄をタップするか、選曲リストの一番下にある「Appendへ」というボタンをタップすると、Pack Appendの購入画面に移行します。<br/>
+ここでパック名か楽曲をタップすることで購入画面が表示されます。購入をやめる場合はリスト最上部の「戻る」ボタンで元の選曲リストへ戻ることができます。<br/>
+なお、Appendという名前ではありますが、基本的には<strong>元の楽曲パックを購入せず、Pack Appendのみ購入することも可能です</strong>。
+<ul class="list3"><li>ただし例外として、<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#lasting2" title="パック順">Lasting Eden Chapter 2</a>のみ、元の楽曲パックである<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#lasting" title="パック順">Lasting Eden</a>を先に購入する必要があります。</li></ul>
+また、購入した楽曲は元のパックの選曲リストに統合され、購入時のようにリストを行き来することなく選曲可能になります。
+<div class="fold-container clearfix">
+<div class="fold-summary hidden-on-open">Pack Appendのみ購入した場合</div>
+<div class="fold-content visible-on-open"><p><span class="wikicolor" style="color:#ffffff; background-color:#292929">Pack Appendのみ購入した場合</span><br/>
+例)「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#chunithm" title="パック順">CHUNITHM Collaboration</a>」パックのPack Append「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#chunithm2" title="パック順">Collaboration Chapter 2</a>」を購入した場合<br/>
+パック選択画面では未解禁の状態で表示されます。<br/>
+「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Garakuta%20Doll%20Play" title="Garakuta Doll Play">Garakuta Doll Play</a>」「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E6%80%92%E6%A7%8C" title="怒槌">怒槌</a>」「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/World%20Vanquisher" title="World Vanquisher">World Vanquisher</a>」を遊ぶには、元の楽曲パック「CHUNITHM Collaboration」を買う必要があります。<br/>
+<span>[画像: Only unlock Pack Append]</span></p>
+</div>
+</div></li></ul></li></ul>
+<div class="spacer"> </div>
+<h3 class="heading-after-first" id="h3_content_1_32">楽曲・譜面の解禁  <a class="anchor_super" name="unlocklevel"></a> <a class="anchor_super" href="https://wikiwiki.jp/arcaea/::cmd/edit?page=%E3%83%AB%E3%83%BC%E3%83%AB&amp;id=unlocklevel" rel="nofollow"><span class="system-icon paraedit" title="Edit"></span></a></h3>
+<ul class="list1"><li><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%A2%E3%83%BC%E3%83%89" title="ワールドモード">ワールドモード</a>での楽曲の解禁<br/>
+<span>[画像: Locked songs]</span></li></ul>
+<p>一部の収録曲はワールドモードを進めることで解禁されます。入手前はアートワーク画像・楽曲欄が半透明になっています。</p>
+<ul class="list1"><li>譜面の解禁<br/>
+<span>[画像: Unlock level]</span></li></ul>
+<p>未解禁の譜面には鍵マークがついており、それぞれ解禁に必要な条件が付記されています。<br/>
+解禁条件の詳細については各楽曲ページの「Requirements」項目を参照。</p>
+<p>なお、特定の譜面のクリア/プレイが指定されている場合、上位の譜面でも条件を満たすことができます。</p>
+<ul class="list2"><li>例) <span class="wikicolor" style="color:lime">Present</span>譜面が指定されている場合、<span class="wikicolor" style="color:fuchsia">Future</span>/<span class="wikicolor" style="color:mediumpurple">Eternal</span>/<span class="wikicolor" style="color:red">Beyond</span>譜面でクリア・同グレードを獲得しても解禁が可能。</li></ul>
+<p>Requirementsの項目には以下のような種類があります。</p>
+<ul class="list1"><li>欠片???個</li>
+<li>楽曲 [難易度] のプレイ</li>
+<li>楽曲 [難易度] のクリア
+<ul class="list2"><li>ワールドモード対象曲や楽曲パックの高難易度曲に多い条件。基本的により簡単な楽曲が指定されますが、「<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Ether%20Strike" title="Ether Strike">Ether Strike</a>」など例外も存在します。</li></ul></li>
+<li>楽曲 [難易度] をグレード「??」以上でクリア</li>
+<li>楽曲 [難易度] をグレード「??」以上で?回クリア
+<ul class="list2"><li>Switch版や高難易度曲で登場する条件。Level 11のような高難易度楽曲ではこれら二つが併用されていることがあります。</li></ul></li>
+<li>ポテンシャルxx.xx以上を獲得
+<ul class="list2"><li>基本的に隠し楽曲でないLevel 11譜面、<a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E3%83%91%E3%83%83%E3%82%AF%E9%A0%86#memoryarchive" title="パック順">Memory Archive</a>のLevel 10+の譜面の一部に設定されています。
+<div class="h-scrollable"><table><thead><tr><td style="text-align:center;"><strong>解禁譜面</strong></td><td style="text-align:center;"><strong>必要ポテンシャル</strong></td></tr></thead><tbody><tr><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Abstruse%20Dilemma" title="Abstruse Dilemma">Abstruse Dilemma</a>(<span class="wikicolor" style="color:fuchsia"><strong>FTR</strong></span>)</td><td rowspan="6"><span class="wikicolor" style="color:red"><strong>11.00</strong></span></td></tr><tr><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Aegleseeker" title="Aegleseeker">Aegleseeker</a>(<span class="wikicolor" style="color:fuchsia"><strong>FTR</strong></span>)</td></tr><tr><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E6%9C%80%E5%BC%B7STRONGER" title="最強STRONGER">最強STRONGER</a>(<span class="wikicolor" style="color:fuchsia"><strong>FTR</strong></span>)</td></tr><tr><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Aether%20Crest%EF%BC%9A%20Astral" title="Aether Crest： Astral">Aether Crest: Astral</a>(<span class="wikicolor" style="color:mediumpurple"><strong>ETR</strong></span>)</td></tr><tr><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Lament%20Rain" title="Lament Rain">Lament Rain</a>(<span class="wikicolor" style="color:red"><strong>BYD</strong></span>)</td></tr><tr><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/%E5%A4%9A%E6%AC%A1%E5%85%83%E5%AE%87%E5%AE%99%E8%9E%8D%E5%90%88%E8%AB%96" title="多次元宇宙融合論">多次元宇宙融合論</a>(<span class="wikicolor" style="color:mediumpurple"><strong>ETR</strong></span>)</td></tr><tr><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/PRIMITIVE%20LIGHTS" title="PRIMITIVE LIGHTS">PRIMITIVE LIGHTS</a>(<span class="wikicolor" style="color:fuchsia"><strong>FTR</strong></span>)</td><td rowspan="4"><span class="wikicolor" style="color:purple"><strong>10.00</strong></span></td></tr><tr><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/NULL%20APOPHENIA" title="NULL APOPHENIA">NULL APOPHENIA</a>(<span class="wikicolor" style="color:fuchsia"><strong>FTR</strong></span>)</td></tr><tr><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Acid%20God" title="Acid God">Acid God</a>(<span class="wikicolor" style="color:mediumpurple"><strong>ETR</strong></span>)</td></tr><tr><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/Xterfusion" title="Xterfusion">Xterfusion</a>(<span class="wikicolor" style="color:mediumpurple"><strong>ETR</strong></span>)</td></tr><tr><td><a class="rel-wiki-page" href="https://wikiwiki.jp/arcaea/chronologia" title="chronologia">chronologia</a>(<span class="wikicolor" style="color:mediumpurple"><strong>ETR</strong></span>)</td><td><strong>6.16</strong></td></tr></tbody></table></div></li></ul></li></ul>
+<div class="spacer"> </div>
+<div class="spacer"> </div>
+<div class="spacer"> </div>
+<h4 id="h4_content_31_0">コメント</h4>
+</div>
+</body>
+</html>

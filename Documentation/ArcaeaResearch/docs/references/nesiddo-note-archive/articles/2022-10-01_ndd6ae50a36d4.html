@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>timinggroupについて理解しよう！（anglex &amp; angleyの解説付き）</title>
+  <meta name="source" content="https://note.com/nesiddo/n/ndd6ae50a36d4">
+  <meta name="published" content="2022-10-01T13:25:29.000+09:00">
+</head>
+<body>
+<h1>timinggroupについて理解しよう！（anglex &amp; angleyの解説付き）</h1>
+<p>Source: <a href="https://note.com/nesiddo/n/ndd6ae50a36d4">https://note.com/nesiddo/n/ndd6ae50a36d4</a></p>
+<p>Published: 2022-10-01T13:25:29.000+09:00</p>
+<hr>
+<p name="6e3db092-eb3d-4e0a-a882-5748b0c8c65a" id="6e3db092-eb3d-4e0a-a882-5748b0c8c65a">timinggroup…それは使いこなせばかっこいいのに理解が難しい…<br>そんな謎の存在timinggroupを解剖します。<br>みなさんもtiminggroupの使い手になりましょう。</p><h2 name="180f5b7c-4ce0-49ec-b3c6-10fd8fb9f217" id="180f5b7c-4ce0-49ec-b3c6-10fd8fb9f217">timinggroupって？</h2><p name="d3026e20-46f1-402a-b857-e088620e4fa6" id="d3026e20-46f1-402a-b857-e088620e4fa6">timinggroupの使い手の方々にわかりやすい説明を求めたところ、</p><p name="91000637-e3e5-4594-8517-59398b6a223f" id="91000637-e3e5-4594-8517-59398b6a223f"><strong>「透明のトラックを追加する」<br></strong>や<br><strong>「異なるBPMを持つことができるレイヤーのようなもので、BPMの高いtiminggroupを使うことで追い越しギミックを作れる。」<br></strong>という回答をいただきました。<strong><br>使い手が言っているのでこういう概念で間違いなさそうです。</strong></p><p name="fe037121-98be-4fe8-8676-d33496aebd34" id="fe037121-98be-4fe8-8676-d33496aebd34">実際、timinggroupの概要は<strong>透明のトラック（timingのまとまり）を追加し、任意のノーツに任意のBPMを付与する</strong>、といった感じです。</p><p name="b3f0a58a-9f3e-46d5-9dd7-cb16cd25c2eb" id="b3f0a58a-9f3e-46d5-9dd7-cb16cd25c2eb"><strong>読んでもわかんねぇ！って人は実際に手を動かしてみましょう。</strong></p><p name="cff7f312-25e1-4e51-b378-9e45ba47cb34" id="cff7f312-25e1-4e51-b378-9e45ba47cb34">試しにコードを用意してみました。</p><pre name="1e8b1270-09d6-4034-a1f6-6156ba6dd96e" id="1e8b1270-09d6-4034-a1f6-6156ba6dd96e"><code>timing(0,220.00,4.00);
+(4363,1);
+(5454,1);
+timinggroup(){
+timing(0,110.00,4.00);
+(4363,2);
+(5454,2);
+};
+timinggroup(){
+timing(0,180.00,4.00);
+(4363,3);
+(5454,3);
+};
+timinggroup(){
+timing(0,300.00,4.00);
+(4363,4);
+(5454,4);
+};
+</code></pre><p name="e4edc77b-beb4-4fa1-b496-d99bb7051f9f" id="e4edc77b-beb4-4fa1-b496-d99bb7051f9f">これで左から順にBPMが、220,110,180,300の速さでノーツが流れてきます。</p><figure name="e62b771d-d715-4f92-965f-3851b8a532d9" id="e62b771d-d715-4f92-965f-3851b8a532d9"><img src="https://assets.st-note.com/production/uploads/images/88031259/picture_pc_d8686c8fd40f2fac54f4a53177cd9b6c.gif" alt="" width="320" height="180"><figcaption></figcaption></figure><p name="fc8c8cd5-3fe9-4ed5-a154-a0587e6f94ef" id="fc8c8cd5-3fe9-4ed5-a154-a0587e6f94ef">ノーツは同時のタイミングで下のラインに到達しますがBPMが違うだけでなんか混乱しますよね。それがtiminggroupです。この機能をうまく使ってギミックを作るというわけです。</p><h2 name="f8076b9a-ef4b-4efb-baf7-24c5be589792" id="f8076b9a-ef4b-4efb-baf7-24c5be589792">ギミックを作ってみよう。</h2><p name="418ed64f-1ef9-4d6c-acff-b0c4b61c26b1" id="418ed64f-1ef9-4d6c-acff-b0c4b61c26b1">ノーツに独自のスピードがつけられるわけですから、創作の幅は広がります。例えば、</p><figure name="63c1b29e-f8d8-45ad-b5cc-9aad49d413b6" id="63c1b29e-f8d8-45ad-b5cc-9aad49d413b6" data-src="https://youtu.be/qnZvh0MZcLs?t=96" data-identifier="null" embedded-service="youtube" embedded-content-key="emb970760cc28f1">  </figure><p name="aa8ba585-e2b7-414a-932c-348a572af8b4" id="aa8ba585-e2b7-414a-932c-348a572af8b4">こんな感じで、1:37からみたいにできたり、</p><figure name="d08873ab-2729-4dce-a9c9-2335d363f035" id="d08873ab-2729-4dce-a9c9-2335d363f035" data-src="https://youtu.be/Z1kesawOGFg?t=124" data-identifier="null" embedded-service="youtube" embedded-content-key="embcfc4517c6101">  </figure><p name="1adcaa09-3a47-4072-8d63-5e7957263197" id="1adcaa09-3a47-4072-8d63-5e7957263197">2:04からのように脳トレ譜面を作ったり、</p><figure name="d1b366ea-ef48-4ed3-ae54-4ee75741d406" id="d1b366ea-ef48-4ed3-ae54-4ee75741d406" data-src="https://youtu.be/CD3sX3tiMmQ?t=61" data-identifier="null" embedded-service="youtube" embedded-content-key="embd62e264b02bb">  </figure><p name="ac8574fb-7e74-434a-9e6e-50978fa1ce3b" id="ac8574fb-7e74-434a-9e6e-50978fa1ce3b">このようにホールドをtiminggroupで流し元のtimingで小節線を変えることでかっこよくし、スカイノーツがバウンドするギミックを作ったり、</p><figure name="9e43a85d-c779-4299-98b8-2ea0273ead25" id="9e43a85d-c779-4299-98b8-2ea0273ead25" data-src="https://www.youtube.com/watch?v=HQNO-haBHqc&amp;t" data-identifier="null" embedded-service="youtube" embedded-content-key="emb47d3b5f9ccff">  </figure><p name="e4f00d86-4df4-4ec4-aa4b-6a53aad37314" id="e4f00d86-4df4-4ec4-aa4b-6a53aad37314">この動画すべてみたいに、なんかすごい芸術を作ることができます。</p><p name="b6f343ec-4970-427b-81d4-1c5cc913d1b6" id="b6f343ec-4970-427b-81d4-1c5cc913d1b6">……..ちょっと待って。今の動画の1:36みたいな反応しないで流れていったノーツあるが….これはいったい???</p><h3 name="66361e6e-4fb8-4c9b-8d60-4eb40c5bc952" id="66361e6e-4fb8-4c9b-8d60-4eb40c5bc952">noinput&nbsp;</h3><p name="11a79117-2f50-4790-89a8-3aaed0e5faf8" id="11a79117-2f50-4790-89a8-3aaed0e5faf8">timinggroupに関する機能の一つとしてnoinputがあります。機能は<br><strong>そのtiminggroupに所属しているノーツの判定をなくす。<br></strong>というものです。シンプル。<br>例は下のような感じです。</p><pre name="11103666-210c-4b79-bd14-e59cf8b4e649" id="11103666-210c-4b79-bd14-e59cf8b4e649"><code>timinggroup(noinput){
+timing(0,110.00,4.00);
+(4363,2);
+(5454,2);
+};</code></pre><p name="c0685d44-8050-49f0-917f-64e94d09814e" id="c0685d44-8050-49f0-917f-64e94d09814e">2レーン目のノーツが反応しないですぎていくと思います。</p><p name="c7b851c6-cb17-41e5-aa16-a302dde3e0d5" id="c7b851c6-cb17-41e5-aa16-a302dde3e0d5">これもうまく使えばかっこいいギミックが作れそうですね！</p><p name="140cd018-3c81-46e1-9542-7f5ecf4d8e1f" id="140cd018-3c81-46e1-9542-7f5ecf4d8e1f">…実はもう一つ機能があります。</p><h3 name="d8dc8c87-d372-4c3d-a5e6-83e16f36b09e" id="d8dc8c87-d372-4c3d-a5e6-83e16f36b09e">anglex &amp; angley</h3><p name="ad128f6e-febe-4d8a-9c24-1de7b8097107" id="ad128f6e-febe-4d8a-9c24-1de7b8097107">皆様は覚えているでしょうか。2022年のエイプリール譜面の衝撃を。</p><figure name="cad5aa96-4f3c-4776-a93c-b6394379c678" id="cad5aa96-4f3c-4776-a93c-b6394379c678" data-src="https://www.youtube.com/watch?v=CUItBLslYzI" data-identifier="null" embedded-service="youtube" embedded-content-key="emb8c29ba00d348">  </figure><p style="text-align: left" name="1c93aea6-5f2e-4382-9fb6-d6510c8bb17e" id="1c93aea6-5f2e-4382-9fb6-d6510c8bb17e">0:53は横に動き、<br>2:12からは縦に降ってくるし…<br>この謎挙動も今のコードで再現することができます。<br>（ArcadeZeroAppend、ArcadeZeroYutMOD、ArcadeOne、ArcadeAlphaは対応。ArcadeZero v4は別仕様、後で解説します。）<br>この 挙動は ArcTap（スカイノーツ） に対してのみ有効です。<br>イメージとしてはanglexは縦方向、angleyは横方向の指示だと思ってください。<br>例</p><pre name="a237ff87-4849-4748-b557-9d880823d13c" id="a237ff87-4849-4748-b557-9d880823d13c"><code>timinggroup(anglex200){
+timing(0,220.00,4.00);
+arc(4363,4364,0.50,0.50,s,0.00,0.00,0,none,true)[arctap(4363)];
+};
+timinggroup(angley200){
+timing(0,220.00,4.00);
+arc(4363,4364,0.50,0.50,s,0.00,0.00,0,none,true)[arctap(4363)];
+};
+timinggroup(angley3400){
+timing(0,220.00,4.00);
+arc(4363,4364,0.50,0.50,s,0.00,0.00,0,none,true)[arctap(4363)];
+};
+timinggroup(angley3400_anglex200){
+timing(0,220.00,4.00);
+arc(4363,4364,0.50,0.50,s,0.00,0.00,0,none,true)[arctap(4363)];
+};
+timinggroup(noinput_angley200_anglex200){
+timing(0,220.00,4.00);
+arc(4363,4364,0.50,0.50,s,0.00,0.00,0,none,true)[arctap(4363)];
+};</code></pre><p name="278df719-0688-476b-8329-4d7776bd654c" id="278df719-0688-476b-8329-4d7776bd654c">このように記述します。<br>注意点としては、angleyについて、反時計回りに角度が増えていくので、<br><strong>angley200なら左20度の方向から、<br>angley3400なら右20度の方向から(左340度の方向から)</strong><br>ノーツが流れてきます。</p><p name="370915e2-84f2-4701-ac9b-9c7cce0e733f" id="370915e2-84f2-4701-ac9b-9c7cce0e733f">わかりやすくするために動画の例を置いておきます。</p><figure name="c8bcdc69-09a5-4546-9809-ed41ea095ccc" id="c8bcdc69-09a5-4546-9809-ed41ea095ccc" data-src="https://youtu.be/8Zj6Ih9QbT4" data-identifier="null" embedded-service="youtube" embedded-content-key="emb8264996c40fa">  </figure><figure name="63fb02cf-50d0-4b28-95d1-97607f1caf72" id="63fb02cf-50d0-4b28-95d1-97607f1caf72" data-src="https://youtu.be/78RnkzFUjhg" data-identifier="null" embedded-service="youtube" embedded-content-key="embae746a241096">  </figure><p name="33e575c0-b5ad-407c-90c0-62eaa33d8728" id="33e575c0-b5ad-407c-90c0-62eaa33d8728">マウス手書きの図も置いておきますので参考までにどうぞ。</p><figure name="06de81e9-9669-4434-a882-b08ee5f4bad3" id="06de81e9-9669-4434-a882-b08ee5f4bad3"><img src="https://assets.st-note.com/img/1664598304507-AaGOdwqG1U.png" alt="" width="620" height="481"><figcaption></figcaption></figure><p name="a5eff180-6f8c-424b-8e1a-09474f429e84" id="a5eff180-6f8c-424b-8e1a-09474f429e84"><strong>ArcadeZero v4～では注意が必要です。</strong><br>例として、<br>timinggroup(noinput_anglex25_angley50)<br>を、<br>timinggroup(noinput,angleX=2.5,angleY=5)<br>のように置き換える必要があります。<br>つまり先ほどの挙動と同じようにするには、</p><pre name="5b341388-2abf-42bb-9ffc-732fdcaad7fe" id="5b341388-2abf-42bb-9ffc-732fdcaad7fe"><code>timinggroup(angleX=20){
+timing(0,220.00,4.00);
+arc(4363,4364,0.50,0.50,s,0.00,0.00,0,none,true)[arctap(4363)];
+};
+timinggroup(angleY=20){
+timing(0,220.00,4.00);
+arc(4363,4364,0.50,0.50,s,0.00,0.00,0,none,true)[arctap(4363)];
+};
+timinggroup(angleY=340){
+timing(0,220.00,4.00);
+arc(4363,4364,0.50,0.50,s,0.00,0.00,0,none,true)[arctap(4363)];
+};
+timinggroup(angleY=340,angleX=20){
+timing(0,220.00,4.00);
+arc(4363,4364,0.50,0.50,s,0.00,0.00,0,none,true)[arctap(4363)];
+};
+timinggroup(noinput,angleY=20,angleX=20){
+timing(0,220.00,4.00);
+arc(4363,4364,0.50,0.50,s,0.00,0.00,0,none,true)[arctap(4363)];
+};</code></pre><p name="88153a11-68c6-401b-a180-d5be13332a05" id="88153a11-68c6-401b-a180-d5be13332a05">このようにして記述する必要があります。</p><p name="4b6e5225-4319-40d8-8d54-7f077f231757" id="4b6e5225-4319-40d8-8d54-7f077f231757">anglex &amp; angleyは一方通行の挙動しかできないので少し不便に感じるかもしれませんが使いこなせるとかっこいいですね。</p><p name="92f6bad0-543e-49a1-8ff5-82811876c7cf" id="92f6bad0-543e-49a1-8ff5-82811876c7cf">以上timinggroupの説明でした。少し難しいかもしれませんが、とりあえずnoinput までを使いこなせればほぼ完璧だと言っていいでしょう。<br>とりあえずいろいろ試してみることをお勧めします。</p><p name="7d2252a9-ae49-4ddb-be71-542dc23513f2" id="7d2252a9-ae49-4ddb-be71-542dc23513f2">記:nesiddo</p>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>【Mac/Linux向け】創作譜面をArcaoidに出力する方法</title>
+  <meta name="source" content="https://note.com/nesiddo/n/n99131c610431">
+  <meta name="published" content="2021-12-06T17:39:04.000+09:00">
+</head>
+<body>
+<h1>【Mac/Linux向け】創作譜面をArcaoidに出力する方法</h1>
+<p>Source: <a href="https://note.com/nesiddo/n/n99131c610431">https://note.com/nesiddo/n/n99131c610431</a></p>
+<p>Published: 2021-12-06T17:39:04.000+09:00</p>
+<hr>
+<p style="text-align: left" name="11e226e5-d688-45b0-93e5-028d76b2c847" id="11e226e5-d688-45b0-93e5-028d76b2c847"><strong>Macだと.exe開かないんですよ！</strong>っていう意見があったので対処法をここに残しておきます！<br>最近ArcadeもLinuxやMacに対応しているので…ね。<br>自分はMac持っていないのでWindowsでバリバリ解説していますが多分方法は変わらないはずです。そうですよね…?</p><h2 name="ef4fe7c0-4e6a-4024-819e-0a66434e6f77">対処法</h2><p name="9db97849-b933-4817-b596-fe768ba4d56e" id="9db97849-b933-4817-b596-fe768ba4d56e"><strong>「一から.arcaoidファイルを作る！！！！」</strong><br>というわけでそういうことです。<br>でも難しい作業と知識が必要みたなことはなくただ少し面倒なだけです。</p><h3 name="b5b3ee63-2106-42a3-bcc1-0833d1d6fc61">手順1：ファイルを作る</h3><p name="fd37d41e-567c-4867-ad9e-2ce61d3ca62b" id="fd37d41e-567c-4867-ad9e-2ce61d3ca62b">ファイル名は曲名にしよう！</p><figure name="043a25fb-09b6-4f69-997a-ce90389d6536"><img src="https://assets.st-note.com/img/1638778702753-dLOnDFvsYJ.png" alt="" width="620" height="348"><figcaption></figcaption></figure><h3 name="b764255d-32d8-42e7-8631-d5775297158c">手順２：ファイル内にジャケット、音源、譜面ファイルをコピペ。</h3><p name="b97f6c75-ff8d-4b11-b955-e04ba6681682" id="b97f6c75-ff8d-4b11-b955-e04ba6681682">それだけ。</p><h3 name="9f6dc8b8-efac-4350-997a-ed79fa168adf">手順３：ファイル内に「ARCAOID.txt」を作る。</h3><figure name="49f0e69d-8b24-4fa8-ac67-ffb167f1c127"><img src="https://assets.st-note.com/img/1638778952944-uPgNYcEOOu.png" alt="" width="620" height="281"><figcaption></figcaption></figure><h3 name="ce28720a-76b1-4d52-ae7b-ad2d0996df2c">手順４：「ARCAOID.txt」内に曲情報を書く。</h3><p name="21b905db-da47-43b9-af52-b36bef47f224" id="21b905db-da47-43b9-af52-b36bef47f224">ここが一番大事です。<br>以下の内容を書き込みます。</p><pre name="b4dcfd65-1475-46a6-aa5b-d677354a56c5"><code>タイトル名
+譜面制作者名
+イラストレーター
+BPM
+Futureの難易度
+Presentの難易度
+Pastの難易度
+曲のサイド(CONFLICT or LIGHT)
+作曲者名
+背景を適用するか(CUSTOMBG=FALSE or CUSTOMBG=TRUE)</code></pre><p name="8b5703c0-67a7-4211-bbca-24436a9e6f44" id="8b5703c0-67a7-4211-bbca-24436a9e6f44">例としてはこんな感じ</p><pre name="8a51e42c-c23c-450d-b2cc-df666231b77d"><code>Hearts
+nesiddo
+
+180
+9
+?
+?
+LIGHT
+niki
+CUSTOMBG=TRUE</code></pre><p name="fd3c0ae5-a54c-4a55-8cca-8d76f21f70ae" id="fd3c0ae5-a54c-4a55-8cca-8d76f21f70ae">イラストレーターは空白にすると表示されないようになります。<br>また、<strong>作っていない難易度は「？」にすれば1.aff、0.affは必要ありません。</strong></p><h3 name="28e158e8-3bbf-4b1c-a8ec-c05970e563de">手順５：手順1で作ったファイルをZIP化する。</h3><h3 name="ae82a760-d67e-49e5-b706-407880174f20">手順6：拡張子を.arcaoidlevelに変更する。</h3><figure name="3b4bdfb9-480a-4440-a224-de4e4360bb2d"><img src="https://assets.st-note.com/img/1638779631750-xenUOWX8Ao.png" alt="" width="620" height="281"><figcaption></figcaption></figure><p style="text-align: left" name="1d7eaa92-19d1-4e99-951a-07c038884d79" id="1d7eaa92-19d1-4e99-951a-07c038884d79"><strong>これでおしまいです！</strong><br>スマホのArcaoidに移植しプレイする方法はWindowsと同じです。<br><a href="https://note.com/nesiddo/n/n72edfb405a80" target="_blank" rel="nofollow noopener">https://note.com/nesiddo/n/n72edfb405a80</a></p><p name="39931971-2c09-4ee9-996a-7d4355200fa3" id="39931971-2c09-4ee9-996a-7d4355200fa3">今回使った譜面<br>【Arcaea Fanmade】Hearts / niki [FTR 9]<br><a href="https://www.youtube.com/watch?v=9JVGMnONSdA" target="_blank" rel="nofollow noopener">https://www.youtube.com/watch?v=9JVGMnONSdA</a></p><p style="text-align: start" name="MxXFy" id="MxXFy">記:nesiddo</p><p style="text-align: start" name="qNtoO" id="qNtoO"><strong>記事一覧↓<br>Arcaea&nbsp;Fanmade（創作譜面）の作り方一覧<br></strong><a href="https://note.com/nesiddo/n/nd54c0c766c8a" target="_blank" rel="nofollow noopener">https://note.com/nesiddo/n/nd54c0c766c8a</a></p>
+</body>
+</html>

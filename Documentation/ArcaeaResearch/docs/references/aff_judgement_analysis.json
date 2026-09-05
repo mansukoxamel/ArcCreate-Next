@@ -1,0 +1,3675 @@
+{
+  "scope": {
+    "songs_dir": "D:\\work\\arcaea\\songs",
+    "wiki_dir": "docs\\references\\arcaea-wiki-archive\\pages",
+    "parsed_aff_files": 1478,
+    "parse_errors": []
+  },
+  "features": {
+    "charts": 1478,
+    "taps": 337948,
+    "holds": 69387,
+    "arcs": 571322,
+    "arctaps": 154342,
+    "designant_arcs": 782,
+    "zero_bpm_long_notes": 358,
+    "strict_continuations": 385672,
+    "loose_continuations": 388694,
+    "native_3_6_1_continuations": 388586,
+    "long_notes_crossing_timing": 2440
+  },
+  "model_total_difference_histogram": {
+    "0": 1353,
+    "1": 80,
+    "2": 30,
+    "3": 5,
+    "4": 6,
+    "5": 1,
+    "6": 1,
+    "7": 1,
+    "10": 1
+  },
+  "native_3_6_1_minus_arcade_plus_histogram": {
+    "-2": 3,
+    "-1": 3,
+    "0": 1467,
+    "1": 2,
+    "2": 1,
+    "4": 2
+  },
+  "aggregate_model_counts": {
+    "arccreate_tap": 337646,
+    "arccreate_hold_judgements": 164240,
+    "arccreate_arc_judgements": 553312,
+    "arccreate_arctap": 153351,
+    "arccreate_total": 1208549,
+    "arcade_plus_tap": 337646,
+    "arcade_plus_hold_judgements": 164244,
+    "arcade_plus_arc_judgements": 553515,
+    "arcade_plus_arctap": 153351,
+    "arcade_plus_total": 1208756,
+    "native_3_6_1_tap": 337646,
+    "native_3_6_1_hold_judgements": 164245,
+    "native_3_6_1_arc_judgements": 553517,
+    "native_3_6_1_arctap": 153351,
+    "native_3_6_1_total": 1208759
+  },
+  "native_3_6_1_minus_arcade_plus_component_histograms": {
+    "tap": {
+      "0": 1478
+    },
+    "hold_judgements": {
+      "-2": 1,
+      "-1": 3,
+      "0": 1471,
+      "2": 3
+    },
+    "arc_judgements": {
+      "-2": 2,
+      "0": 1472,
+      "1": 2,
+      "2": 2
+    },
+    "arctap": {
+      "0": 1478
+    },
+    "total": {
+      "-2": 3,
+      "-1": 3,
+      "0": 1467,
+      "1": 2,
+      "2": 1,
+      "4": 2
+    }
+  },
+  "wiki_total_comparison": {
+    "compared": 1252,
+    "arccreate": 1129,
+    "arcade_plus": 1234,
+    "native_3_6_1": 1242,
+    "both": 1128,
+    "neither": 17,
+    "different_models": 109,
+    "different_arccreate": 1,
+    "different_arcade_plus": 106
+  },
+  "wiki_component_comparison": {
+    "arctap_compared": 841,
+    "arctap_arccreate": 823,
+    "arctap_arcade_plus": 823,
+    "arctap_native_3_6_1": 823,
+    "tap_compared": 710,
+    "tap_arccreate": 683,
+    "tap_arcade_plus": 683,
+    "tap_native_3_6_1": 683,
+    "hold_judgements_compared": 704,
+    "hold_judgements_arccreate": 663,
+    "hold_judgements_arcade_plus": 665,
+    "hold_judgements_native_3_6_1": 666,
+    "arc_judgements_compared": 703,
+    "arc_judgements_arccreate": 615,
+    "arc_judgements_arcade_plus": 652,
+    "arc_judgements_native_3_6_1": 655
+  },
+  "difference_examples": [
+    {
+      "path": "D:\\work\\arcaea\\songs\\aethercrest\\1.aff",
+      "title": "Aether Crest: Astral",
+      "difficulty": "Present",
+      "wiki_total": 1147,
+      "arccreate": {
+        "tap": 301,
+        "hold_judgements": 95,
+        "arc_judgements": 592,
+        "arctap": 158,
+        "total": 1146
+      },
+      "arcade_plus": {
+        "tap": 301,
+        "hold_judgements": 95,
+        "arc_judgements": 593,
+        "arctap": 158,
+        "total": 1147
+      },
+      "native_3_6_1": {
+        "tap": 301,
+        "hold_judgements": 95,
+        "arc_judgements": 593,
+        "arctap": 158,
+        "total": 1147
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\aethercrest\\2.aff",
+      "title": "Aether Crest: Astral",
+      "difficulty": "Future",
+      "wiki_total": 1508,
+      "arccreate": {
+        "tap": 337,
+        "hold_judgements": 195,
+        "arc_judgements": 711,
+        "arctap": 263,
+        "total": 1506
+      },
+      "arcade_plus": {
+        "tap": 337,
+        "hold_judgements": 195,
+        "arc_judgements": 713,
+        "arctap": 263,
+        "total": 1508
+      },
+      "native_3_6_1": {
+        "tap": 337,
+        "hold_judgements": 195,
+        "arc_judgements": 713,
+        "arctap": 263,
+        "total": 1508
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\aethercrest\\4.aff",
+      "title": "Aether Crest: Astral",
+      "difficulty": "Eternal",
+      "wiki_total": 1941,
+      "arccreate": {
+        "tap": 372,
+        "hold_judgements": 466,
+        "arc_judgements": 716,
+        "arctap": 386,
+        "total": 1940
+      },
+      "arcade_plus": {
+        "tap": 372,
+        "hold_judgements": 466,
+        "arc_judgements": 717,
+        "arctap": 386,
+        "total": 1941
+      },
+      "native_3_6_1": {
+        "tap": 372,
+        "hold_judgements": 466,
+        "arc_judgements": 717,
+        "arctap": 386,
+        "total": 1941
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\altair\\1.aff",
+      "title": "Altair (feat. *spiLa*)",
+      "difficulty": "Present",
+      "wiki_total": 828,
+      "arccreate": {
+        "tap": 154,
+        "hold_judgements": 148,
+        "arc_judgements": 507,
+        "arctap": 18,
+        "total": 827
+      },
+      "arcade_plus": {
+        "tap": 154,
+        "hold_judgements": 148,
+        "arc_judgements": 508,
+        "arctap": 18,
+        "total": 828
+      },
+      "native_3_6_1": {
+        "tap": 154,
+        "hold_judgements": 148,
+        "arc_judgements": 508,
+        "arctap": 18,
+        "total": 828
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\alterale\\1.aff",
+      "title": "AlterAle",
+      "difficulty": "Present",
+      "wiki_total": 881,
+      "arccreate": {
+        "tap": 250,
+        "hold_judgements": 157,
+        "arc_judgements": 432,
+        "arctap": 40,
+        "total": 879
+      },
+      "arcade_plus": {
+        "tap": 250,
+        "hold_judgements": 157,
+        "arc_judgements": 434,
+        "arctap": 40,
+        "total": 881
+      },
+      "native_3_6_1": {
+        "tap": 250,
+        "hold_judgements": 157,
+        "arc_judgements": 434,
+        "arctap": 40,
+        "total": 881
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\alterego\\1.aff",
+      "title": "ALTER EGO",
+      "difficulty": "Present",
+      "wiki_total": 1213,
+      "arccreate": {
+        "tap": 374,
+        "hold_judgements": 181,
+        "arc_judgements": 479,
+        "arctap": 178,
+        "total": 1212
+      },
+      "arcade_plus": {
+        "tap": 374,
+        "hold_judgements": 181,
+        "arc_judgements": 480,
+        "arctap": 178,
+        "total": 1213
+      },
+      "native_3_6_1": {
+        "tap": 374,
+        "hold_judgements": 181,
+        "arc_judgements": 480,
+        "arctap": 178,
+        "total": 1213
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\anokumene\\3.aff",
+      "title": "Anökumene",
+      "difficulty": "Beyond",
+      "wiki_total": null,
+      "arccreate": {
+        "tap": 373,
+        "hold_judgements": 67,
+        "arc_judgements": 331,
+        "arctap": 199,
+        "total": 970
+      },
+      "arcade_plus": {
+        "tap": 373,
+        "hold_judgements": 67,
+        "arc_judgements": 332,
+        "arctap": 199,
+        "total": 971
+      },
+      "native_3_6_1": {
+        "tap": 373,
+        "hold_judgements": 67,
+        "arc_judgements": 332,
+        "arctap": 199,
+        "total": 971
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\arcahv\\1.aff",
+      "title": "Arcahv",
+      "difficulty": "Present",
+      "wiki_total": 884,
+      "arccreate": {
+        "tap": 84,
+        "hold_judgements": 195,
+        "arc_judgements": 488,
+        "arctap": 115,
+        "total": 882
+      },
+      "arcade_plus": {
+        "tap": 84,
+        "hold_judgements": 197,
+        "arc_judgements": 488,
+        "arctap": 115,
+        "total": 884
+      },
+      "native_3_6_1": {
+        "tap": 84,
+        "hold_judgements": 197,
+        "arc_judgements": 488,
+        "arctap": 115,
+        "total": 884
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\ascent\\0.aff",
+      "title": "Ascent",
+      "difficulty": "Past",
+      "wiki_total": 455,
+      "arccreate": {
+        "tap": 91,
+        "hold_judgements": 58,
+        "arc_judgements": 303,
+        "arctap": 0,
+        "total": 452
+      },
+      "arcade_plus": {
+        "tap": 91,
+        "hold_judgements": 58,
+        "arc_judgements": 306,
+        "arctap": 0,
+        "total": 455
+      },
+      "native_3_6_1": {
+        "tap": 91,
+        "hold_judgements": 58,
+        "arc_judgements": 306,
+        "arctap": 0,
+        "total": 455
+      },
+      "difference": 3
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\badtek\\2.aff",
+      "title": "BADTEK",
+      "difficulty": "Future",
+      "wiki_total": 916,
+      "arccreate": {
+        "tap": 320,
+        "hold_judgements": 84,
+        "arc_judgements": 242,
+        "arctap": 268,
+        "total": 914
+      },
+      "arcade_plus": {
+        "tap": 320,
+        "hold_judgements": 84,
+        "arc_judgements": 244,
+        "arctap": 268,
+        "total": 916
+      },
+      "native_3_6_1": {
+        "tap": 320,
+        "hold_judgements": 84,
+        "arc_judgements": 244,
+        "arctap": 268,
+        "total": 916
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\besideyou\\0.aff",
+      "title": "Beside You",
+      "difficulty": "Past",
+      "wiki_total": 526,
+      "arccreate": {
+        "tap": 51,
+        "hold_judgements": 155,
+        "arc_judgements": 318,
+        "arctap": 0,
+        "total": 524
+      },
+      "arcade_plus": {
+        "tap": 51,
+        "hold_judgements": 155,
+        "arc_judgements": 320,
+        "arctap": 0,
+        "total": 526
+      },
+      "native_3_6_1": {
+        "tap": 51,
+        "hold_judgements": 155,
+        "arc_judgements": 320,
+        "arctap": 0,
+        "total": 526
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\bethere\\2.aff",
+      "title": "Be There",
+      "difficulty": "Future",
+      "wiki_total": 982,
+      "arccreate": {
+        "tap": 270,
+        "hold_judgements": 55,
+        "arc_judgements": 484,
+        "arctap": 169,
+        "total": 978
+      },
+      "arcade_plus": {
+        "tap": 270,
+        "hold_judgements": 55,
+        "arc_judgements": 488,
+        "arctap": 169,
+        "total": 982
+      },
+      "native_3_6_1": {
+        "tap": 270,
+        "hold_judgements": 55,
+        "arc_judgements": 488,
+        "arctap": 169,
+        "total": 982
+      },
+      "difference": 4
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\blackmirror\\2.aff",
+      "title": "Black Mirror on the Wall",
+      "difficulty": "Future",
+      "wiki_total": 735,
+      "arccreate": {
+        "tap": 201,
+        "hold_judgements": 85,
+        "arc_judgements": 359,
+        "arctap": 88,
+        "total": 733
+      },
+      "arcade_plus": {
+        "tap": 201,
+        "hold_judgements": 85,
+        "arc_judgements": 361,
+        "arctap": 88,
+        "total": 735
+      },
+      "native_3_6_1": {
+        "tap": 201,
+        "hold_judgements": 85,
+        "arc_judgements": 361,
+        "arctap": 88,
+        "total": 735
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\bluecomet\\1.aff",
+      "title": "blue comet",
+      "difficulty": "Present",
+      "wiki_total": 645,
+      "arccreate": {
+        "tap": 145,
+        "hold_judgements": 151,
+        "arc_judgements": 333,
+        "arctap": 15,
+        "total": 644
+      },
+      "arcade_plus": {
+        "tap": 145,
+        "hold_judgements": 151,
+        "arc_judgements": 334,
+        "arctap": 15,
+        "total": 645
+      },
+      "native_3_6_1": {
+        "tap": 145,
+        "hold_judgements": 151,
+        "arc_judgements": 334,
+        "arctap": 15,
+        "total": 645
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\bluecomet\\2.aff",
+      "title": "blue comet",
+      "difficulty": "Future",
+      "wiki_total": 776,
+      "arccreate": {
+        "tap": 180,
+        "hold_judgements": 115,
+        "arc_judgements": 372,
+        "arctap": 105,
+        "total": 772
+      },
+      "arcade_plus": {
+        "tap": 180,
+        "hold_judgements": 115,
+        "arc_judgements": 376,
+        "arctap": 105,
+        "total": 776
+      },
+      "native_3_6_1": {
+        "tap": 180,
+        "hold_judgements": 115,
+        "arc_judgements": 376,
+        "arctap": 105,
+        "total": 776
+      },
+      "difference": 4
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\bluerose\\2.aff",
+      "title": "Blue Rose",
+      "difficulty": "Future",
+      "wiki_total": 955,
+      "arccreate": {
+        "tap": 308,
+        "hold_judgements": 29,
+        "arc_judgements": 443,
+        "arctap": 173,
+        "total": 953
+      },
+      "arcade_plus": {
+        "tap": 308,
+        "hold_judgements": 29,
+        "arc_judgements": 445,
+        "arctap": 173,
+        "total": 955
+      },
+      "native_3_6_1": {
+        "tap": 308,
+        "hold_judgements": 29,
+        "arc_judgements": 445,
+        "arctap": 173,
+        "total": 955
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\breachoffaith\\2.aff",
+      "title": "Breach of Faith",
+      "difficulty": "Future",
+      "wiki_total": 1373,
+      "arccreate": {
+        "tap": 288,
+        "hold_judgements": 35,
+        "arc_judgements": 734,
+        "arctap": 314,
+        "total": 1371
+      },
+      "arcade_plus": {
+        "tap": 288,
+        "hold_judgements": 35,
+        "arc_judgements": 736,
+        "arctap": 314,
+        "total": 1373
+      },
+      "native_3_6_1": {
+        "tap": 288,
+        "hold_judgements": 35,
+        "arc_judgements": 736,
+        "arctap": 314,
+        "total": 1373
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\chronicle\\0.aff",
+      "title": "Chronicle",
+      "difficulty": "Past",
+      "wiki_total": 928,
+      "arccreate": {
+        "tap": 154,
+        "hold_judgements": 318,
+        "arc_judgements": 455,
+        "arctap": 0,
+        "total": 927
+      },
+      "arcade_plus": {
+        "tap": 154,
+        "hold_judgements": 318,
+        "arc_judgements": 456,
+        "arctap": 0,
+        "total": 928
+      },
+      "native_3_6_1": {
+        "tap": 154,
+        "hold_judgements": 318,
+        "arc_judgements": 456,
+        "arctap": 0,
+        "total": 928
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\corruption\\0.aff",
+      "title": "Corruption",
+      "difficulty": "Past",
+      "wiki_total": 664,
+      "arccreate": {
+        "tap": 56,
+        "hold_judgements": 118,
+        "arc_judgements": 489,
+        "arctap": 0,
+        "total": 663
+      },
+      "arcade_plus": {
+        "tap": 56,
+        "hold_judgements": 118,
+        "arc_judgements": 490,
+        "arctap": 0,
+        "total": 664
+      },
+      "native_3_6_1": {
+        "tap": 56,
+        "hold_judgements": 118,
+        "arc_judgements": 490,
+        "arctap": 0,
+        "total": 664
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\cosmica\\0.aff",
+      "title": "Cosmica",
+      "difficulty": "Past",
+      "wiki_total": 428,
+      "arccreate": {
+        "tap": 30,
+        "hold_judgements": 140,
+        "arc_judgements": 257,
+        "arctap": 0,
+        "total": 427
+      },
+      "arcade_plus": {
+        "tap": 30,
+        "hold_judgements": 140,
+        "arc_judgements": 258,
+        "arctap": 0,
+        "total": 428
+      },
+      "native_3_6_1": {
+        "tap": 30,
+        "hold_judgements": 140,
+        "arc_judgements": 258,
+        "arctap": 0,
+        "total": 428
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\crimsonquartz\\0.aff",
+      "title": "Crimson Quartz",
+      "difficulty": "Past",
+      "wiki_total": 569,
+      "arccreate": {
+        "tap": 79,
+        "hold_judgements": 110,
+        "arc_judgements": 379,
+        "arctap": 0,
+        "total": 568
+      },
+      "arcade_plus": {
+        "tap": 79,
+        "hold_judgements": 110,
+        "arc_judgements": 380,
+        "arctap": 0,
+        "total": 569
+      },
+      "native_3_6_1": {
+        "tap": 79,
+        "hold_judgements": 110,
+        "arc_judgements": 380,
+        "arctap": 0,
+        "total": 569
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\desive\\2.aff",
+      "title": "Désive",
+      "difficulty": "Future",
+      "wiki_total": 1273,
+      "arccreate": {
+        "tap": 243,
+        "hold_judgements": 224,
+        "arc_judgements": 555,
+        "arctap": 250,
+        "total": 1272
+      },
+      "arcade_plus": {
+        "tap": 243,
+        "hold_judgements": 224,
+        "arc_judgements": 556,
+        "arctap": 250,
+        "total": 1273
+      },
+      "native_3_6_1": {
+        "tap": 243,
+        "hold_judgements": 224,
+        "arc_judgements": 556,
+        "arctap": 250,
+        "total": 1273
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\divinelight\\2.aff",
+      "title": "Divine Light of Myriad",
+      "difficulty": "Future",
+      "wiki_total": null,
+      "arccreate": {
+        "tap": 462,
+        "hold_judgements": 109,
+        "arc_judgements": 225,
+        "arctap": 224,
+        "total": 1020
+      },
+      "arcade_plus": {
+        "tap": 462,
+        "hold_judgements": 109,
+        "arc_judgements": 226,
+        "arctap": 224,
+        "total": 1021
+      },
+      "native_3_6_1": {
+        "tap": 462,
+        "hold_judgements": 109,
+        "arc_judgements": 226,
+        "arctap": 224,
+        "total": 1021
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\dropdead\\3.aff",
+      "title": "dropdead",
+      "difficulty": "Beyond",
+      "wiki_total": 1503,
+      "arccreate": {
+        "tap": 223,
+        "hold_judgements": 188,
+        "arc_judgements": 832,
+        "arctap": 258,
+        "total": 1501
+      },
+      "arcade_plus": {
+        "tap": 223,
+        "hold_judgements": 188,
+        "arc_judgements": 834,
+        "arctap": 258,
+        "total": 1503
+      },
+      "native_3_6_1": {
+        "tap": 223,
+        "hold_judgements": 188,
+        "arc_judgements": 834,
+        "arctap": 258,
+        "total": 1503
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\edenwacca\\1.aff",
+      "title": "eden",
+      "difficulty": "Present",
+      "wiki_total": 1194,
+      "arccreate": {
+        "tap": 302,
+        "hold_judgements": 124,
+        "arc_judgements": 702,
+        "arctap": 65,
+        "total": 1193
+      },
+      "arcade_plus": {
+        "tap": 302,
+        "hold_judgements": 124,
+        "arc_judgements": 703,
+        "arctap": 65,
+        "total": 1194
+      },
+      "native_3_6_1": {
+        "tap": 302,
+        "hold_judgements": 124,
+        "arc_judgements": 703,
+        "arctap": 65,
+        "total": 1194
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\edenwacca\\2.aff",
+      "title": "eden",
+      "difficulty": "Future",
+      "wiki_total": 1365,
+      "arccreate": {
+        "tap": 419,
+        "hold_judgements": 34,
+        "arc_judgements": 656,
+        "arctap": 254,
+        "total": 1363
+      },
+      "arcade_plus": {
+        "tap": 419,
+        "hold_judgements": 34,
+        "arc_judgements": 658,
+        "arctap": 254,
+        "total": 1365
+      },
+      "native_3_6_1": {
+        "tap": 419,
+        "hold_judgements": 34,
+        "arc_judgements": 658,
+        "arctap": 254,
+        "total": 1365
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\epitaxy\\2.aff",
+      "title": "epitaxy",
+      "difficulty": "Future",
+      "wiki_total": 1177,
+      "arccreate": {
+        "tap": 257,
+        "hold_judgements": 210,
+        "arc_judgements": 591,
+        "arctap": 118,
+        "total": 1176
+      },
+      "arcade_plus": {
+        "tap": 257,
+        "hold_judgements": 210,
+        "arc_judgements": 592,
+        "arctap": 118,
+        "total": 1177
+      },
+      "native_3_6_1": {
+        "tap": 257,
+        "hold_judgements": 210,
+        "arc_judgements": 592,
+        "arctap": 118,
+        "total": 1177
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\equilibrium\\0.aff",
+      "title": "Equilibrium",
+      "difficulty": "Past",
+      "wiki_total": 587,
+      "arccreate": {
+        "tap": 64,
+        "hold_judgements": 248,
+        "arc_judgements": 274,
+        "arctap": 0,
+        "total": 586
+      },
+      "arcade_plus": {
+        "tap": 64,
+        "hold_judgements": 248,
+        "arc_judgements": 275,
+        "arctap": 0,
+        "total": 587
+      },
+      "native_3_6_1": {
+        "tap": 64,
+        "hold_judgements": 248,
+        "arc_judgements": 275,
+        "arctap": 0,
+        "total": 587
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\equilibrium\\1.aff",
+      "title": "Equilibrium",
+      "difficulty": "Present",
+      "wiki_total": 724,
+      "arccreate": {
+        "tap": 122,
+        "hold_judgements": 45,
+        "arc_judgements": 464,
+        "arctap": 89,
+        "total": 720
+      },
+      "arcade_plus": {
+        "tap": 122,
+        "hold_judgements": 45,
+        "arc_judgements": 468,
+        "arctap": 89,
+        "total": 724
+      },
+      "native_3_6_1": {
+        "tap": 122,
+        "hold_judgements": 45,
+        "arc_judgements": 468,
+        "arctap": 89,
+        "total": 724
+      },
+      "difference": 4
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\eveninginscarlet\\0.aff",
+      "title": "Evening in Scarlet",
+      "difficulty": "Past",
+      "wiki_total": null,
+      "arccreate": {
+        "tap": 95,
+        "hold_judgements": 118,
+        "arc_judgements": 315,
+        "arctap": 0,
+        "total": 528
+      },
+      "arcade_plus": {
+        "tap": 95,
+        "hold_judgements": 118,
+        "arc_judgements": 317,
+        "arctap": 0,
+        "total": 530
+      },
+      "native_3_6_1": {
+        "tap": 95,
+        "hold_judgements": 118,
+        "arc_judgements": 317,
+        "arctap": 0,
+        "total": 530
+      },
+      "difference": 2
+    }
+  ],
+  "different_model_wiki_examples": [
+    {
+      "path": "D:\\work\\arcaea\\songs\\aethercrest\\1.aff",
+      "title": "Aether Crest: Astral",
+      "difficulty": "Present",
+      "wiki_total": 1147,
+      "arccreate_total": 1146,
+      "arcade_plus_total": 1147,
+      "native_3_6_1_total": 1147
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\aethercrest\\2.aff",
+      "title": "Aether Crest: Astral",
+      "difficulty": "Future",
+      "wiki_total": 1508,
+      "arccreate_total": 1506,
+      "arcade_plus_total": 1508,
+      "native_3_6_1_total": 1508
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\aethercrest\\4.aff",
+      "title": "Aether Crest: Astral",
+      "difficulty": "Eternal",
+      "wiki_total": 1941,
+      "arccreate_total": 1940,
+      "arcade_plus_total": 1941,
+      "native_3_6_1_total": 1941
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\altair\\1.aff",
+      "title": "Altair (feat. *spiLa*)",
+      "difficulty": "Present",
+      "wiki_total": 828,
+      "arccreate_total": 827,
+      "arcade_plus_total": 828,
+      "native_3_6_1_total": 828
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\alterale\\1.aff",
+      "title": "AlterAle",
+      "difficulty": "Present",
+      "wiki_total": 881,
+      "arccreate_total": 879,
+      "arcade_plus_total": 881,
+      "native_3_6_1_total": 881
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\alterego\\1.aff",
+      "title": "ALTER EGO",
+      "difficulty": "Present",
+      "wiki_total": 1213,
+      "arccreate_total": 1212,
+      "arcade_plus_total": 1213,
+      "native_3_6_1_total": 1213
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\arcahv\\1.aff",
+      "title": "Arcahv",
+      "difficulty": "Present",
+      "wiki_total": 884,
+      "arccreate_total": 882,
+      "arcade_plus_total": 884,
+      "native_3_6_1_total": 884
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\ascent\\0.aff",
+      "title": "Ascent",
+      "difficulty": "Past",
+      "wiki_total": 455,
+      "arccreate_total": 452,
+      "arcade_plus_total": 455,
+      "native_3_6_1_total": 455
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\badtek\\2.aff",
+      "title": "BADTEK",
+      "difficulty": "Future",
+      "wiki_total": 916,
+      "arccreate_total": 914,
+      "arcade_plus_total": 916,
+      "native_3_6_1_total": 916
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\besideyou\\0.aff",
+      "title": "Beside You",
+      "difficulty": "Past",
+      "wiki_total": 526,
+      "arccreate_total": 524,
+      "arcade_plus_total": 526,
+      "native_3_6_1_total": 526
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\bethere\\2.aff",
+      "title": "Be There",
+      "difficulty": "Future",
+      "wiki_total": 982,
+      "arccreate_total": 978,
+      "arcade_plus_total": 982,
+      "native_3_6_1_total": 982
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\blackmirror\\2.aff",
+      "title": "Black Mirror on the Wall",
+      "difficulty": "Future",
+      "wiki_total": 735,
+      "arccreate_total": 733,
+      "arcade_plus_total": 735,
+      "native_3_6_1_total": 735
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\bluecomet\\1.aff",
+      "title": "blue comet",
+      "difficulty": "Present",
+      "wiki_total": 645,
+      "arccreate_total": 644,
+      "arcade_plus_total": 645,
+      "native_3_6_1_total": 645
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\bluecomet\\2.aff",
+      "title": "blue comet",
+      "difficulty": "Future",
+      "wiki_total": 776,
+      "arccreate_total": 772,
+      "arcade_plus_total": 776,
+      "native_3_6_1_total": 776
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\bluerose\\2.aff",
+      "title": "Blue Rose",
+      "difficulty": "Future",
+      "wiki_total": 955,
+      "arccreate_total": 953,
+      "arcade_plus_total": 955,
+      "native_3_6_1_total": 955
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\breachoffaith\\2.aff",
+      "title": "Breach of Faith",
+      "difficulty": "Future",
+      "wiki_total": 1373,
+      "arccreate_total": 1371,
+      "arcade_plus_total": 1373,
+      "native_3_6_1_total": 1373
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\chronicle\\0.aff",
+      "title": "Chronicle",
+      "difficulty": "Past",
+      "wiki_total": 928,
+      "arccreate_total": 927,
+      "arcade_plus_total": 928,
+      "native_3_6_1_total": 928
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\corruption\\0.aff",
+      "title": "Corruption",
+      "difficulty": "Past",
+      "wiki_total": 664,
+      "arccreate_total": 663,
+      "arcade_plus_total": 664,
+      "native_3_6_1_total": 664
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\cosmica\\0.aff",
+      "title": "Cosmica",
+      "difficulty": "Past",
+      "wiki_total": 428,
+      "arccreate_total": 427,
+      "arcade_plus_total": 428,
+      "native_3_6_1_total": 428
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\crimsonquartz\\0.aff",
+      "title": "Crimson Quartz",
+      "difficulty": "Past",
+      "wiki_total": 569,
+      "arccreate_total": 568,
+      "arcade_plus_total": 569,
+      "native_3_6_1_total": 569
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\desive\\2.aff",
+      "title": "Désive",
+      "difficulty": "Future",
+      "wiki_total": 1273,
+      "arccreate_total": 1272,
+      "arcade_plus_total": 1273,
+      "native_3_6_1_total": 1273
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\dropdead\\3.aff",
+      "title": "dropdead",
+      "difficulty": "Beyond",
+      "wiki_total": 1503,
+      "arccreate_total": 1501,
+      "arcade_plus_total": 1503,
+      "native_3_6_1_total": 1503
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\edenwacca\\1.aff",
+      "title": "eden",
+      "difficulty": "Present",
+      "wiki_total": 1194,
+      "arccreate_total": 1193,
+      "arcade_plus_total": 1194,
+      "native_3_6_1_total": 1194
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\edenwacca\\2.aff",
+      "title": "eden",
+      "difficulty": "Future",
+      "wiki_total": 1365,
+      "arccreate_total": 1363,
+      "arcade_plus_total": 1365,
+      "native_3_6_1_total": 1365
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\epitaxy\\2.aff",
+      "title": "epitaxy",
+      "difficulty": "Future",
+      "wiki_total": 1177,
+      "arccreate_total": 1176,
+      "arcade_plus_total": 1177,
+      "native_3_6_1_total": 1177
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\equilibrium\\0.aff",
+      "title": "Equilibrium",
+      "difficulty": "Past",
+      "wiki_total": 587,
+      "arccreate_total": 586,
+      "arcade_plus_total": 587,
+      "native_3_6_1_total": 587
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\equilibrium\\1.aff",
+      "title": "Equilibrium",
+      "difficulty": "Present",
+      "wiki_total": 724,
+      "arccreate_total": 720,
+      "arcade_plus_total": 724,
+      "native_3_6_1_total": 724
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\fantasy\\0.aff",
+      "title": "FANTA5Y",
+      "difficulty": "Past",
+      "wiki_total": 536,
+      "arccreate_total": 530,
+      "arcade_plus_total": 536,
+      "native_3_6_1_total": 536
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\feelssoright\\2.aff",
+      "title": "Feels So Right feat. Renko",
+      "difficulty": "Future",
+      "wiki_total": 947,
+      "arccreate_total": 946,
+      "arcade_plus_total": 947,
+      "native_3_6_1_total": 947
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\felys\\0.aff",
+      "title": "felys final remix",
+      "difficulty": "Past",
+      "wiki_total": 626,
+      "arccreate_total": 624,
+      "arcade_plus_total": 626,
+      "native_3_6_1_total": 626
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\finalstep\\0.aff",
+      "title": "Final Step!",
+      "difficulty": "Past",
+      "wiki_total": 625,
+      "arccreate_total": 621,
+      "arcade_plus_total": 625,
+      "native_3_6_1_total": 625
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\finalstep\\1.aff",
+      "title": "Final Step!",
+      "difficulty": "Present",
+      "wiki_total": 684,
+      "arccreate_total": 683,
+      "arcade_plus_total": 684,
+      "native_3_6_1_total": 684
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\galacticlove\\2.aff",
+      "title": "Galactic Love",
+      "difficulty": "Future",
+      "wiki_total": 813,
+      "arccreate_total": 812,
+      "arcade_plus_total": 813,
+      "native_3_6_1_total": 813
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\gimmedablood\\0.aff",
+      "title": "GIMME DA BLOOD",
+      "difficulty": "Past",
+      "wiki_total": 582,
+      "arccreate_total": 581,
+      "arcade_plus_total": 582,
+      "native_3_6_1_total": 582
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\gothiveofra\\0.aff",
+      "title": "Got hive of Ra",
+      "difficulty": "Past",
+      "wiki_total": 322,
+      "arccreate_total": 321,
+      "arcade_plus_total": 322,
+      "native_3_6_1_total": 322
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\gothiveofra\\1.aff",
+      "title": "Got hive of Ra",
+      "difficulty": "Present",
+      "wiki_total": 509,
+      "arccreate_total": 508,
+      "arcade_plus_total": 509,
+      "native_3_6_1_total": 509
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\hailstone\\0.aff",
+      "title": "Hailstone",
+      "difficulty": "Past",
+      "wiki_total": 534,
+      "arccreate_total": 533,
+      "arcade_plus_total": 534,
+      "native_3_6_1_total": 534
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\hailstone\\1.aff",
+      "title": "Hailstone",
+      "difficulty": "Present",
+      "wiki_total": 651,
+      "arccreate_total": 650,
+      "arcade_plus_total": 651,
+      "native_3_6_1_total": 651
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\headbonkache\\0.aff",
+      "title": "Head BONK ache",
+      "difficulty": "Past",
+      "wiki_total": 570,
+      "arccreate_total": 569,
+      "arcade_plus_total": 570,
+      "native_3_6_1_total": 570
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\headbonkache\\1.aff",
+      "title": "Head BONK ache",
+      "difficulty": "Present",
+      "wiki_total": 725,
+      "arccreate_total": 724,
+      "arcade_plus_total": 725,
+      "native_3_6_1_total": 725
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\headbonkache\\2.aff",
+      "title": "Head BONK ache",
+      "difficulty": "Future",
+      "wiki_total": 1061,
+      "arccreate_total": 1059,
+      "arcade_plus_total": 1061,
+      "native_3_6_1_total": 1061
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\heavenlycaress\\2.aff",
+      "title": "Heavenly caress",
+      "difficulty": "Future",
+      "wiki_total": 1560,
+      "arccreate_total": 1559,
+      "arcade_plus_total": 1560,
+      "native_3_6_1_total": 1560
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\hellohell\\2.aff",
+      "title": "HELLOHELL",
+      "difficulty": "Future",
+      "wiki_total": 673,
+      "arccreate_total": 672,
+      "arcade_plus_total": 673,
+      "native_3_6_1_total": 673
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\ichirin\\2.aff",
+      "title": "〇、",
+      "difficulty": "Future",
+      "wiki_total": 708,
+      "arccreate_total": 709,
+      "arcade_plus_total": 710,
+      "native_3_6_1_total": 710
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\ifi\\2.aff",
+      "title": "#1f1e33",
+      "difficulty": "Future",
+      "wiki_total": 1576,
+      "arccreate_total": 1575,
+      "arcade_plus_total": 1576,
+      "native_3_6_1_total": 1576
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\impact\\1.aff",
+      "title": "IMPACT",
+      "difficulty": "Present",
+      "wiki_total": 913,
+      "arccreate_total": 912,
+      "arcade_plus_total": 913,
+      "native_3_6_1_total": 913
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\invain\\2.aff",
+      "title": "In Vain",
+      "difficulty": "Future",
+      "wiki_total": 1111,
+      "arccreate_total": 1110,
+      "arcade_plus_total": 1111,
+      "native_3_6_1_total": 1111
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\invertedworld\\1.aff",
+      "title": "Inverted World",
+      "difficulty": "Present",
+      "wiki_total": 646,
+      "arccreate_total": 645,
+      "arcade_plus_total": 646,
+      "native_3_6_1_total": 646
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\jingle\\0.aff",
+      "title": "Jingle",
+      "difficulty": "Past",
+      "wiki_total": 530,
+      "arccreate_total": 529,
+      "arcade_plus_total": 530,
+      "native_3_6_1_total": 530
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\lapis\\2.aff",
+      "title": "Lapis",
+      "difficulty": "Future",
+      "wiki_total": 920,
+      "arccreate_total": 919,
+      "arcade_plus_total": 920,
+      "native_3_6_1_total": 920
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\last\\1.aff",
+      "title": "Last",
+      "difficulty": "Present",
+      "wiki_total": 781,
+      "arccreate_total": 779,
+      "arcade_plus_total": 781,
+      "native_3_6_1_total": 781
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\lastendconductor\\3.aff",
+      "title": "lastendconductor",
+      "difficulty": "Beyond",
+      "wiki_total": 1339,
+      "arccreate_total": 1337,
+      "arcade_plus_total": 1339,
+      "native_3_6_1_total": 1339
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\lethalvoltage\\0.aff",
+      "title": "Lethal Voltage",
+      "difficulty": "Past",
+      "wiki_total": 724,
+      "arccreate_total": 723,
+      "arcade_plus_total": 724,
+      "native_3_6_1_total": 724
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\lethalvoltage\\1.aff",
+      "title": "Lethal Voltage",
+      "difficulty": "Present",
+      "wiki_total": 922,
+      "arccreate_total": 921,
+      "arcade_plus_total": 922,
+      "native_3_6_1_total": 922
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\letsrock\\1.aff",
+      "title": "Let's Rock (Arcaea mix)",
+      "difficulty": "Present",
+      "wiki_total": 963,
+      "arccreate_total": 962,
+      "arcade_plus_total": 963,
+      "native_3_6_1_total": 963
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\liftoff\\1.aff",
+      "title": "LiftOff",
+      "difficulty": "Present",
+      "wiki_total": 500,
+      "arccreate_total": 499,
+      "arcade_plus_total": 500,
+      "native_3_6_1_total": 500
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\lightsofmuse\\1.aff",
+      "title": "Lights of Muse",
+      "difficulty": "Present",
+      "wiki_total": 438,
+      "arccreate_total": 437,
+      "arcade_plus_total": 438,
+      "native_3_6_1_total": 438
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\logos\\0.aff",
+      "title": "Logos",
+      "difficulty": "Past",
+      "wiki_total": 697,
+      "arccreate_total": 696,
+      "arcade_plus_total": 697,
+      "native_3_6_1_total": 697
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\lostemotion\\2.aff",
+      "title": "Lost Emotion feat. nomico",
+      "difficulty": "Future",
+      "wiki_total": 1123,
+      "arccreate_total": 1113,
+      "arcade_plus_total": 1123,
+      "native_3_6_1_total": 1123
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\lostintheabyss\\2.aff",
+      "title": "Lost in the Abyss",
+      "difficulty": "Future",
+      "wiki_total": 1179,
+      "arccreate_total": 1172,
+      "arcade_plus_total": 1179,
+      "native_3_6_1_total": 1179
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\lumia\\3.aff",
+      "title": "Lumia",
+      "difficulty": "Beyond",
+      "wiki_total": 814,
+      "arccreate_total": 811,
+      "arcade_plus_total": 814,
+      "native_3_6_1_total": 814
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\macromod\\0.aff",
+      "title": "Macrocosmic Modulation",
+      "difficulty": "Past",
+      "wiki_total": 608,
+      "arccreate_total": 607,
+      "arcade_plus_total": 608,
+      "native_3_6_1_total": 608
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\megalovaniarmx\\4.aff",
+      "title": "MEGALOVANIA (Camellia Remix)",
+      "difficulty": "Eternal",
+      "wiki_total": 1468,
+      "arccreate_total": 1466,
+      "arcade_plus_total": 1468,
+      "native_3_6_1_total": 1468
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\mirinae\\0.aff",
+      "title": "MIRINAE",
+      "difficulty": "Past",
+      "wiki_total": 646,
+      "arccreate_total": 644,
+      "arcade_plus_total": 646,
+      "native_3_6_1_total": 646
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\neokosmo\\2.aff",
+      "title": "nέο κόsmo",
+      "difficulty": "Future",
+      "wiki_total": 979,
+      "arccreate_total": 978,
+      "arcade_plus_total": 979,
+      "native_3_6_1_total": 979
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\oblivia\\1.aff",
+      "title": "Oblivia",
+      "difficulty": "Present",
+      "wiki_total": 517,
+      "arccreate_total": 514,
+      "arcade_plus_total": 517,
+      "native_3_6_1_total": 517
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\oblivia\\2.aff",
+      "title": "Oblivia",
+      "difficulty": "Future",
+      "wiki_total": 956,
+      "arccreate_total": 955,
+      "arcade_plus_total": 956,
+      "native_3_6_1_total": 956
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\odysseia\\1.aff",
+      "title": "ΟΔΥΣΣΕΙΑ",
+      "difficulty": "Present",
+      "wiki_total": 909,
+      "arccreate_total": 906,
+      "arcade_plus_total": 909,
+      "native_3_6_1_total": 909
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\odysseia\\2.aff",
+      "title": "ΟΔΥΣΣΕΙΑ",
+      "difficulty": "Future",
+      "wiki_total": 1092,
+      "arccreate_total": 1091,
+      "arcade_plus_total": 1092,
+      "native_3_6_1_total": 1092
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\oldschoolsalvage\\2.aff",
+      "title": "Old School Salvage",
+      "difficulty": "Future",
+      "wiki_total": 1316,
+      "arccreate_total": 1315,
+      "arcade_plus_total": 1316,
+      "native_3_6_1_total": 1316
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\omegafour\\2.aff",
+      "title": "ω4",
+      "difficulty": "Future",
+      "wiki_total": 1393,
+      "arccreate_total": 1392,
+      "arcade_plus_total": 1393,
+      "native_3_6_1_total": 1393
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\onandon\\1.aff",
+      "title": "On And On!! feat. Jenga",
+      "difficulty": "Present",
+      "wiki_total": 616,
+      "arccreate_total": 614,
+      "arcade_plus_total": 616,
+      "native_3_6_1_total": 616
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\onefr\\2.aff",
+      "title": "1F√",
+      "difficulty": "Future",
+      "wiki_total": 758,
+      "arccreate_total": 757,
+      "arcade_plus_total": 758,
+      "native_3_6_1_total": 758
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\pragmatism\\3.aff",
+      "title": "PRAGMATISM",
+      "difficulty": "Beyond",
+      "wiki_total": 1502,
+      "arccreate_total": 1500,
+      "arcade_plus_total": 1502,
+      "native_3_6_1_total": 1502
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\primitivelights\\0.aff",
+      "title": "PRIMITIVE LIGHTS",
+      "difficulty": "Past",
+      "wiki_total": 785,
+      "arccreate_total": 784,
+      "arcade_plus_total": 785,
+      "native_3_6_1_total": 785
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\qovat\\0.aff",
+      "title": "Qovat",
+      "difficulty": "Past",
+      "wiki_total": 519,
+      "arccreate_total": 518,
+      "arcade_plus_total": 519,
+      "native_3_6_1_total": 519
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\quon\\2.aff",
+      "title": "Quon",
+      "difficulty": "Future",
+      "wiki_total": 991,
+      "arccreate_total": 990,
+      "arcade_plus_total": 991,
+      "native_3_6_1_total": 991
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\quonwacca\\2.aff",
+      "title": "Quon",
+      "difficulty": "Future",
+      "wiki_total": 991,
+      "arccreate_total": 747,
+      "arcade_plus_total": 749,
+      "native_3_6_1_total": 749
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\raysofremnant\\0.aff",
+      "title": "Rays of Remnant",
+      "difficulty": "Past",
+      "wiki_total": 710,
+      "arccreate_total": 709,
+      "arcade_plus_total": 710,
+      "native_3_6_1_total": 710
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\renegade\\1.aff",
+      "title": "Renegade",
+      "difficulty": "Present",
+      "wiki_total": 751,
+      "arccreate_total": 750,
+      "arcade_plus_total": 751,
+      "native_3_6_1_total": 751
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\renegade\\3.aff",
+      "title": "Renegade",
+      "difficulty": "Beyond",
+      "wiki_total": 1165,
+      "arccreate_total": 1162,
+      "arcade_plus_total": 1165,
+      "native_3_6_1_total": 1165
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\sacrifice\\1.aff",
+      "title": "SACRIFICE feat. ayame",
+      "difficulty": "Present",
+      "wiki_total": 779,
+      "arccreate_total": 778,
+      "arcade_plus_total": 779,
+      "native_3_6_1_total": 779
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\saintorsinner\\1.aff",
+      "title": "Saint or Sinner",
+      "difficulty": "Present",
+      "wiki_total": 563,
+      "arccreate_total": 561,
+      "arcade_plus_total": 563,
+      "native_3_6_1_total": 563
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\seclusion\\2.aff",
+      "title": "Seclusion",
+      "difficulty": "Future",
+      "wiki_total": 1132,
+      "arccreate_total": 1131,
+      "arcade_plus_total": 1132,
+      "native_3_6_1_total": 1132
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\senkyou\\2.aff",
+      "title": "Senkyou",
+      "difficulty": "Future",
+      "wiki_total": 964,
+      "arccreate_total": 962,
+      "arcade_plus_total": 964,
+      "native_3_6_1_total": 964
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\shadesoflight\\3.aff",
+      "title": "Shades of Light in a Transcendent Realm",
+      "difficulty": "Beyond",
+      "wiki_total": 1042,
+      "arccreate_total": 1041,
+      "arcade_plus_total": 1042,
+      "native_3_6_1_total": 1042
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\shrink\\0.aff",
+      "title": "shrink",
+      "difficulty": "Past",
+      "wiki_total": 451,
+      "arccreate_total": 447,
+      "arcade_plus_total": 451,
+      "native_3_6_1_total": 451
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\shrink\\1.aff",
+      "title": "shrink",
+      "difficulty": "Present",
+      "wiki_total": 660,
+      "arccreate_total": 659,
+      "arcade_plus_total": 660,
+      "native_3_6_1_total": 660
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\shrink\\2.aff",
+      "title": "shrink",
+      "difficulty": "Future",
+      "wiki_total": 939,
+      "arccreate_total": 938,
+      "arcade_plus_total": 939,
+      "native_3_6_1_total": 939
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\snowwhite\\3.aff",
+      "title": "Snow White",
+      "difficulty": "Beyond",
+      "wiki_total": 1031,
+      "arccreate_total": 1029,
+      "arcade_plus_total": 1031,
+      "native_3_6_1_total": 1031
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\spiritdauntless\\1.aff",
+      "title": "Spirit of the Dauntless",
+      "difficulty": "Present",
+      "wiki_total": 957,
+      "arccreate_total": 953,
+      "arcade_plus_total": 957,
+      "native_3_6_1_total": 957
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\stasis\\0.aff",
+      "title": "Stasis",
+      "difficulty": "Past",
+      "wiki_total": 848,
+      "arccreate_total": 846,
+      "arcade_plus_total": 848,
+      "native_3_6_1_total": 848
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\stasis\\2.aff",
+      "title": "Stasis",
+      "difficulty": "Future",
+      "wiki_total": 1521,
+      "arccreate_total": 1519,
+      "arcade_plus_total": 1521,
+      "native_3_6_1_total": 1521
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\straightintolights\\0.aff",
+      "title": "Straight into the lights",
+      "difficulty": "Past",
+      "wiki_total": 583,
+      "arccreate_total": 581,
+      "arcade_plus_total": 583,
+      "native_3_6_1_total": 583
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\straightintolights\\2.aff",
+      "title": "Straight into the lights",
+      "difficulty": "Future",
+      "wiki_total": 1226,
+      "arccreate_total": 1225,
+      "arcade_plus_total": 1226,
+      "native_3_6_1_total": 1226
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\stratoliner\\2.aff",
+      "title": "Stratoliner",
+      "difficulty": "Future",
+      "wiki_total": 877,
+      "arccreate_total": 876,
+      "arcade_plus_total": 877,
+      "native_3_6_1_total": 877
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\syro\\1.aff",
+      "title": "Syro",
+      "difficulty": "Present",
+      "wiki_total": 829,
+      "arccreate_total": 828,
+      "arcade_plus_total": 829,
+      "native_3_6_1_total": 829
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\syuten\\1.aff",
+      "title": "syūten",
+      "difficulty": "Present",
+      "wiki_total": 446,
+      "arccreate_total": 445,
+      "arcade_plus_total": 446,
+      "native_3_6_1_total": 446
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\tempestissimo\\2.aff",
+      "title": "Tempestissimo",
+      "difficulty": "Future",
+      "wiki_total": 1254,
+      "arccreate_total": 1253,
+      "arcade_plus_total": 1254,
+      "native_3_6_1_total": 1254
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\themessage\\2.aff",
+      "title": "The Message",
+      "difficulty": "Future",
+      "wiki_total": 992,
+      "arccreate_total": 991,
+      "arcade_plus_total": 992,
+      "native_3_6_1_total": 992
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\thirdsun\\4.aff",
+      "title": "Third Sun",
+      "difficulty": "Eternal",
+      "wiki_total": 1043,
+      "arccreate_total": 1042,
+      "arcade_plus_total": 1043,
+      "native_3_6_1_total": 1043
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\vandalism\\0.aff",
+      "title": "Vandalism",
+      "difficulty": "Past",
+      "wiki_total": 668,
+      "arccreate_total": 667,
+      "arcade_plus_total": 668,
+      "native_3_6_1_total": 668
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\vulcanus\\1.aff",
+      "title": "Vulcānus",
+      "difficulty": "Present",
+      "wiki_total": 1234,
+      "arccreate_total": 1233,
+      "arcade_plus_total": 1234,
+      "native_3_6_1_total": 1234
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\waitfordawn\\1.aff",
+      "title": "WAIT FOR DAWN",
+      "difficulty": "Present",
+      "wiki_total": 636,
+      "arccreate_total": 635,
+      "arcade_plus_total": 636,
+      "native_3_6_1_total": 636
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\waitfordawn\\2.aff",
+      "title": "WAIT FOR DAWN",
+      "difficulty": "Future",
+      "wiki_total": 861,
+      "arccreate_total": 860,
+      "arcade_plus_total": 861,
+      "native_3_6_1_total": 861
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\wishuponasnow\\2.aff",
+      "title": "Wish Upon a Snow",
+      "difficulty": "Future",
+      "wiki_total": 1309,
+      "arccreate_total": 1308,
+      "arcade_plus_total": 1309,
+      "native_3_6_1_total": 1309
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\withu\\2.aff",
+      "title": "with U",
+      "difficulty": "Future",
+      "wiki_total": 932,
+      "arccreate_total": 931,
+      "arcade_plus_total": 932,
+      "native_3_6_1_total": 932
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\worldexecuteme\\2.aff",
+      "title": "world.execute(me);",
+      "difficulty": "Future",
+      "wiki_total": 851,
+      "arccreate_total": 850,
+      "arcade_plus_total": 851,
+      "native_3_6_1_total": 851
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\worldfragments\\2.aff",
+      "title": "World Fragments III(radio edit)",
+      "difficulty": "Future",
+      "wiki_total": 1387,
+      "arccreate_total": 1387,
+      "arcade_plus_total": 1388,
+      "native_3_6_1_total": 1387
+    }
+  ],
+  "wiki_mismatch_examples": [
+    {
+      "path": "D:\\work\\arcaea\\songs\\aethercrest\\1.aff",
+      "title": "Aether Crest: Astral",
+      "difficulty": "Present",
+      "wiki": {
+        "total": 1147,
+        "tap": 302,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": 158
+      },
+      "arccreate": {
+        "tap": 301,
+        "hold_judgements": 95,
+        "arc_judgements": 592,
+        "arctap": 158,
+        "total": 1146
+      },
+      "arcade_plus": {
+        "tap": 301,
+        "hold_judgements": 95,
+        "arc_judgements": 593,
+        "arctap": 158,
+        "total": 1147
+      },
+      "native_3_6_1": {
+        "tap": 301,
+        "hold_judgements": 95,
+        "arc_judgements": 593,
+        "arctap": 158,
+        "total": 1147
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\aethercrest\\2.aff",
+      "title": "Aether Crest: Astral",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 1508,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": null
+      },
+      "arccreate": {
+        "tap": 337,
+        "hold_judgements": 195,
+        "arc_judgements": 711,
+        "arctap": 263,
+        "total": 1506
+      },
+      "arcade_plus": {
+        "tap": 337,
+        "hold_judgements": 195,
+        "arc_judgements": 713,
+        "arctap": 263,
+        "total": 1508
+      },
+      "native_3_6_1": {
+        "tap": 337,
+        "hold_judgements": 195,
+        "arc_judgements": 713,
+        "arctap": 263,
+        "total": 1508
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\aethercrest\\4.aff",
+      "title": "Aether Crest: Astral",
+      "difficulty": "Eternal",
+      "wiki": {
+        "total": 1941,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": null
+      },
+      "arccreate": {
+        "tap": 372,
+        "hold_judgements": 466,
+        "arc_judgements": 716,
+        "arctap": 386,
+        "total": 1940
+      },
+      "arcade_plus": {
+        "tap": 372,
+        "hold_judgements": 466,
+        "arc_judgements": 717,
+        "arctap": 386,
+        "total": 1941
+      },
+      "native_3_6_1": {
+        "tap": 372,
+        "hold_judgements": 466,
+        "arc_judgements": 717,
+        "arctap": 386,
+        "total": 1941
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\altair\\1.aff",
+      "title": "Altair (feat. *spiLa*)",
+      "difficulty": "Present",
+      "wiki": {
+        "total": 828,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": null
+      },
+      "arccreate": {
+        "tap": 154,
+        "hold_judgements": 148,
+        "arc_judgements": 507,
+        "arctap": 18,
+        "total": 827
+      },
+      "arcade_plus": {
+        "tap": 154,
+        "hold_judgements": 148,
+        "arc_judgements": 508,
+        "arctap": 18,
+        "total": 828
+      },
+      "native_3_6_1": {
+        "tap": 154,
+        "hold_judgements": 148,
+        "arc_judgements": 508,
+        "arctap": 18,
+        "total": 828
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\alterale\\1.aff",
+      "title": "AlterAle",
+      "difficulty": "Present",
+      "wiki": {
+        "total": 881,
+        "tap": 250,
+        "hold_judgements": 157,
+        "arc_judgements": 434,
+        "arctap": 40
+      },
+      "arccreate": {
+        "tap": 250,
+        "hold_judgements": 157,
+        "arc_judgements": 432,
+        "arctap": 40,
+        "total": 879
+      },
+      "arcade_plus": {
+        "tap": 250,
+        "hold_judgements": 157,
+        "arc_judgements": 434,
+        "arctap": 40,
+        "total": 881
+      },
+      "native_3_6_1": {
+        "tap": 250,
+        "hold_judgements": 157,
+        "arc_judgements": 434,
+        "arctap": 40,
+        "total": 881
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\alterego\\1.aff",
+      "title": "ALTER EGO",
+      "difficulty": "Present",
+      "wiki": {
+        "total": 1213,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": null
+      },
+      "arccreate": {
+        "tap": 374,
+        "hold_judgements": 181,
+        "arc_judgements": 479,
+        "arctap": 178,
+        "total": 1212
+      },
+      "arcade_plus": {
+        "tap": 374,
+        "hold_judgements": 181,
+        "arc_judgements": 480,
+        "arctap": 178,
+        "total": 1213
+      },
+      "native_3_6_1": {
+        "tap": 374,
+        "hold_judgements": 181,
+        "arc_judgements": 480,
+        "arctap": 178,
+        "total": 1213
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\alterego\\2.aff",
+      "title": "ALTER EGO",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 1466,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": null
+      },
+      "arccreate": {
+        "tap": 401,
+        "hold_judgements": 179,
+        "arc_judgements": 478,
+        "arctap": 410,
+        "total": 1468
+      },
+      "arcade_plus": {
+        "tap": 401,
+        "hold_judgements": 179,
+        "arc_judgements": 478,
+        "arctap": 410,
+        "total": 1468
+      },
+      "native_3_6_1": {
+        "tap": 401,
+        "hold_judgements": 177,
+        "arc_judgements": 478,
+        "arctap": 410,
+        "total": 1466
+      },
+      "difference": 0
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\andrevivemelody\\1.aff",
+      "title": "And Revive The Melody",
+      "difficulty": "Present",
+      "wiki": {
+        "total": 1269,
+        "tap": 330,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": 168
+      },
+      "arccreate": {
+        "tap": 330,
+        "hold_judgements": 125,
+        "arc_judgements": 648,
+        "arctap": 168,
+        "total": 1271
+      },
+      "arcade_plus": {
+        "tap": 330,
+        "hold_judgements": 125,
+        "arc_judgements": 648,
+        "arctap": 168,
+        "total": 1271
+      },
+      "native_3_6_1": {
+        "tap": 330,
+        "hold_judgements": 125,
+        "arc_judgements": 646,
+        "arctap": 168,
+        "total": 1269
+      },
+      "difference": 0
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\arcahv\\1.aff",
+      "title": "Arcahv",
+      "difficulty": "Present",
+      "wiki": {
+        "total": 884,
+        "tap": 84,
+        "hold_judgements": 197,
+        "arc_judgements": 488,
+        "arctap": 115
+      },
+      "arccreate": {
+        "tap": 84,
+        "hold_judgements": 195,
+        "arc_judgements": 488,
+        "arctap": 115,
+        "total": 882
+      },
+      "arcade_plus": {
+        "tap": 84,
+        "hold_judgements": 197,
+        "arc_judgements": 488,
+        "arctap": 115,
+        "total": 884
+      },
+      "native_3_6_1": {
+        "tap": 84,
+        "hold_judgements": 197,
+        "arc_judgements": 488,
+        "arctap": 115,
+        "total": 884
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\arcanaeden\\0.aff",
+      "title": "Arcana Eden",
+      "difficulty": "Past",
+      "wiki": {
+        "total": 1097,
+        "tap": 236,
+        "hold_judgements": 399,
+        "arc_judgements": 461,
+        "arctap": 1
+      },
+      "arccreate": {
+        "tap": 236,
+        "hold_judgements": 399,
+        "arc_judgements": 462,
+        "arctap": 1,
+        "total": 1098
+      },
+      "arcade_plus": {
+        "tap": 236,
+        "hold_judgements": 399,
+        "arc_judgements": 462,
+        "arctap": 1,
+        "total": 1098
+      },
+      "native_3_6_1": {
+        "tap": 236,
+        "hold_judgements": 399,
+        "arc_judgements": 462,
+        "arctap": 1,
+        "total": 1098
+      },
+      "difference": 0
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\ascent\\0.aff",
+      "title": "Ascent",
+      "difficulty": "Past",
+      "wiki": {
+        "total": 455,
+        "tap": 91,
+        "hold_judgements": 58,
+        "arc_judgements": 306,
+        "arctap": 0
+      },
+      "arccreate": {
+        "tap": 91,
+        "hold_judgements": 58,
+        "arc_judgements": 303,
+        "arctap": 0,
+        "total": 452
+      },
+      "arcade_plus": {
+        "tap": 91,
+        "hold_judgements": 58,
+        "arc_judgements": 306,
+        "arctap": 0,
+        "total": 455
+      },
+      "native_3_6_1": {
+        "tap": 91,
+        "hold_judgements": 58,
+        "arc_judgements": 306,
+        "arctap": 0,
+        "total": 455
+      },
+      "difference": 3
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\badtek\\2.aff",
+      "title": "BADTEK",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 916,
+        "tap": 320,
+        "hold_judgements": 84,
+        "arc_judgements": 244,
+        "arctap": 268
+      },
+      "arccreate": {
+        "tap": 320,
+        "hold_judgements": 84,
+        "arc_judgements": 242,
+        "arctap": 268,
+        "total": 914
+      },
+      "arcade_plus": {
+        "tap": 320,
+        "hold_judgements": 84,
+        "arc_judgements": 244,
+        "arctap": 268,
+        "total": 916
+      },
+      "native_3_6_1": {
+        "tap": 320,
+        "hold_judgements": 84,
+        "arc_judgements": 244,
+        "arctap": 268,
+        "total": 916
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\besideyou\\0.aff",
+      "title": "Beside You",
+      "difficulty": "Past",
+      "wiki": {
+        "total": 526,
+        "tap": 51,
+        "hold_judgements": 155,
+        "arc_judgements": 320,
+        "arctap": 0
+      },
+      "arccreate": {
+        "tap": 51,
+        "hold_judgements": 155,
+        "arc_judgements": 318,
+        "arctap": 0,
+        "total": 524
+      },
+      "arcade_plus": {
+        "tap": 51,
+        "hold_judgements": 155,
+        "arc_judgements": 320,
+        "arctap": 0,
+        "total": 526
+      },
+      "native_3_6_1": {
+        "tap": 51,
+        "hold_judgements": 155,
+        "arc_judgements": 320,
+        "arctap": 0,
+        "total": 526
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\bethere\\2.aff",
+      "title": "Be There",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 982,
+        "tap": 270,
+        "hold_judgements": 55,
+        "arc_judgements": 488,
+        "arctap": 169
+      },
+      "arccreate": {
+        "tap": 270,
+        "hold_judgements": 55,
+        "arc_judgements": 484,
+        "arctap": 169,
+        "total": 978
+      },
+      "arcade_plus": {
+        "tap": 270,
+        "hold_judgements": 55,
+        "arc_judgements": 488,
+        "arctap": 169,
+        "total": 982
+      },
+      "native_3_6_1": {
+        "tap": 270,
+        "hold_judgements": 55,
+        "arc_judgements": 488,
+        "arctap": 169,
+        "total": 982
+      },
+      "difference": 4
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\blackmirror\\2.aff",
+      "title": "Black Mirror on the Wall",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 735,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": null
+      },
+      "arccreate": {
+        "tap": 201,
+        "hold_judgements": 85,
+        "arc_judgements": 359,
+        "arctap": 88,
+        "total": 733
+      },
+      "arcade_plus": {
+        "tap": 201,
+        "hold_judgements": 85,
+        "arc_judgements": 361,
+        "arctap": 88,
+        "total": 735
+      },
+      "native_3_6_1": {
+        "tap": 201,
+        "hold_judgements": 85,
+        "arc_judgements": 361,
+        "arctap": 88,
+        "total": 735
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\bluecomet\\1.aff",
+      "title": "blue comet",
+      "difficulty": "Present",
+      "wiki": {
+        "total": 645,
+        "tap": 145,
+        "hold_judgements": 151,
+        "arc_judgements": 334,
+        "arctap": 15
+      },
+      "arccreate": {
+        "tap": 145,
+        "hold_judgements": 151,
+        "arc_judgements": 333,
+        "arctap": 15,
+        "total": 644
+      },
+      "arcade_plus": {
+        "tap": 145,
+        "hold_judgements": 151,
+        "arc_judgements": 334,
+        "arctap": 15,
+        "total": 645
+      },
+      "native_3_6_1": {
+        "tap": 145,
+        "hold_judgements": 151,
+        "arc_judgements": 334,
+        "arctap": 15,
+        "total": 645
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\bluecomet\\2.aff",
+      "title": "blue comet",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 776,
+        "tap": 180,
+        "hold_judgements": 115,
+        "arc_judgements": 376,
+        "arctap": 105
+      },
+      "arccreate": {
+        "tap": 180,
+        "hold_judgements": 115,
+        "arc_judgements": 372,
+        "arctap": 105,
+        "total": 772
+      },
+      "arcade_plus": {
+        "tap": 180,
+        "hold_judgements": 115,
+        "arc_judgements": 376,
+        "arctap": 105,
+        "total": 776
+      },
+      "native_3_6_1": {
+        "tap": 180,
+        "hold_judgements": 115,
+        "arc_judgements": 376,
+        "arctap": 105,
+        "total": 776
+      },
+      "difference": 4
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\bluerose\\2.aff",
+      "title": "Blue Rose",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 955,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": null
+      },
+      "arccreate": {
+        "tap": 308,
+        "hold_judgements": 29,
+        "arc_judgements": 443,
+        "arctap": 173,
+        "total": 953
+      },
+      "arcade_plus": {
+        "tap": 308,
+        "hold_judgements": 29,
+        "arc_judgements": 445,
+        "arctap": 173,
+        "total": 955
+      },
+      "native_3_6_1": {
+        "tap": 308,
+        "hold_judgements": 29,
+        "arc_judgements": 445,
+        "arctap": 173,
+        "total": 955
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\breachoffaith\\2.aff",
+      "title": "Breach of Faith",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 1373,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": null
+      },
+      "arccreate": {
+        "tap": 288,
+        "hold_judgements": 35,
+        "arc_judgements": 734,
+        "arctap": 314,
+        "total": 1371
+      },
+      "arcade_plus": {
+        "tap": 288,
+        "hold_judgements": 35,
+        "arc_judgements": 736,
+        "arctap": 314,
+        "total": 1373
+      },
+      "native_3_6_1": {
+        "tap": 288,
+        "hold_judgements": 35,
+        "arc_judgements": 736,
+        "arctap": 314,
+        "total": 1373
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\chronicle\\0.aff",
+      "title": "Chronicle",
+      "difficulty": "Past",
+      "wiki": {
+        "total": 928,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": 0
+      },
+      "arccreate": {
+        "tap": 154,
+        "hold_judgements": 318,
+        "arc_judgements": 455,
+        "arctap": 0,
+        "total": 927
+      },
+      "arcade_plus": {
+        "tap": 154,
+        "hold_judgements": 318,
+        "arc_judgements": 456,
+        "arctap": 0,
+        "total": 928
+      },
+      "native_3_6_1": {
+        "tap": 154,
+        "hold_judgements": 318,
+        "arc_judgements": 456,
+        "arctap": 0,
+        "total": 928
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\corruption\\0.aff",
+      "title": "Corruption",
+      "difficulty": "Past",
+      "wiki": {
+        "total": 664,
+        "tap": 56,
+        "hold_judgements": 118,
+        "arc_judgements": 490,
+        "arctap": 0
+      },
+      "arccreate": {
+        "tap": 56,
+        "hold_judgements": 118,
+        "arc_judgements": 489,
+        "arctap": 0,
+        "total": 663
+      },
+      "arcade_plus": {
+        "tap": 56,
+        "hold_judgements": 118,
+        "arc_judgements": 490,
+        "arctap": 0,
+        "total": 664
+      },
+      "native_3_6_1": {
+        "tap": 56,
+        "hold_judgements": 118,
+        "arc_judgements": 490,
+        "arctap": 0,
+        "total": 664
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\cosmica\\0.aff",
+      "title": "Cosmica",
+      "difficulty": "Past",
+      "wiki": {
+        "total": 428,
+        "tap": 30,
+        "hold_judgements": 140,
+        "arc_judgements": 258,
+        "arctap": 0
+      },
+      "arccreate": {
+        "tap": 30,
+        "hold_judgements": 140,
+        "arc_judgements": 257,
+        "arctap": 0,
+        "total": 427
+      },
+      "arcade_plus": {
+        "tap": 30,
+        "hold_judgements": 140,
+        "arc_judgements": 258,
+        "arctap": 0,
+        "total": 428
+      },
+      "native_3_6_1": {
+        "tap": 30,
+        "hold_judgements": 140,
+        "arc_judgements": 258,
+        "arctap": 0,
+        "total": 428
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\crimsonquartz\\0.aff",
+      "title": "Crimson Quartz",
+      "difficulty": "Past",
+      "wiki": {
+        "total": 569,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": 0
+      },
+      "arccreate": {
+        "tap": 79,
+        "hold_judgements": 110,
+        "arc_judgements": 379,
+        "arctap": 0,
+        "total": 568
+      },
+      "arcade_plus": {
+        "tap": 79,
+        "hold_judgements": 110,
+        "arc_judgements": 380,
+        "arctap": 0,
+        "total": 569
+      },
+      "native_3_6_1": {
+        "tap": 79,
+        "hold_judgements": 110,
+        "arc_judgements": 380,
+        "arctap": 0,
+        "total": 569
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\desive\\2.aff",
+      "title": "Désive",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 1273,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": null
+      },
+      "arccreate": {
+        "tap": 243,
+        "hold_judgements": 224,
+        "arc_judgements": 555,
+        "arctap": 250,
+        "total": 1272
+      },
+      "arcade_plus": {
+        "tap": 243,
+        "hold_judgements": 224,
+        "arc_judgements": 556,
+        "arctap": 250,
+        "total": 1273
+      },
+      "native_3_6_1": {
+        "tap": 243,
+        "hold_judgements": 224,
+        "arc_judgements": 556,
+        "arctap": 250,
+        "total": 1273
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\drg\\2.aff",
+      "title": "DRG",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 892,
+        "tap": 392,
+        "hold_judgements": 90,
+        "arc_judgements": 195,
+        "arctap": 195
+      },
+      "arccreate": {
+        "tap": 392,
+        "hold_judgements": 90,
+        "arc_judgements": 195,
+        "arctap": 195,
+        "total": 872
+      },
+      "arcade_plus": {
+        "tap": 392,
+        "hold_judgements": 90,
+        "arc_judgements": 195,
+        "arctap": 195,
+        "total": 872
+      },
+      "native_3_6_1": {
+        "tap": 392,
+        "hold_judgements": 90,
+        "arc_judgements": 195,
+        "arctap": 195,
+        "total": 872
+      },
+      "difference": 0
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\dropdead\\3.aff",
+      "title": "dropdead",
+      "difficulty": "Beyond",
+      "wiki": {
+        "total": 1503,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": null
+      },
+      "arccreate": {
+        "tap": 223,
+        "hold_judgements": 188,
+        "arc_judgements": 832,
+        "arctap": 258,
+        "total": 1501
+      },
+      "arcade_plus": {
+        "tap": 223,
+        "hold_judgements": 188,
+        "arc_judgements": 834,
+        "arctap": 258,
+        "total": 1503
+      },
+      "native_3_6_1": {
+        "tap": 223,
+        "hold_judgements": 188,
+        "arc_judgements": 834,
+        "arctap": 258,
+        "total": 1503
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\edenwacca\\1.aff",
+      "title": "eden",
+      "difficulty": "Present",
+      "wiki": {
+        "total": 1194,
+        "tap": 302,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": 65
+      },
+      "arccreate": {
+        "tap": 302,
+        "hold_judgements": 124,
+        "arc_judgements": 702,
+        "arctap": 65,
+        "total": 1193
+      },
+      "arcade_plus": {
+        "tap": 302,
+        "hold_judgements": 124,
+        "arc_judgements": 703,
+        "arctap": 65,
+        "total": 1194
+      },
+      "native_3_6_1": {
+        "tap": 302,
+        "hold_judgements": 124,
+        "arc_judgements": 703,
+        "arctap": 65,
+        "total": 1194
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\edenwacca\\2.aff",
+      "title": "eden",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 1365,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": null
+      },
+      "arccreate": {
+        "tap": 419,
+        "hold_judgements": 34,
+        "arc_judgements": 656,
+        "arctap": 254,
+        "total": 1363
+      },
+      "arcade_plus": {
+        "tap": 419,
+        "hold_judgements": 34,
+        "arc_judgements": 658,
+        "arctap": 254,
+        "total": 1365
+      },
+      "native_3_6_1": {
+        "tap": 419,
+        "hold_judgements": 34,
+        "arc_judgements": 658,
+        "arctap": 254,
+        "total": 1365
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\epitaxy\\2.aff",
+      "title": "epitaxy",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 1177,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": null
+      },
+      "arccreate": {
+        "tap": 257,
+        "hold_judgements": 210,
+        "arc_judgements": 591,
+        "arctap": 118,
+        "total": 1176
+      },
+      "arcade_plus": {
+        "tap": 257,
+        "hold_judgements": 210,
+        "arc_judgements": 592,
+        "arctap": 118,
+        "total": 1177
+      },
+      "native_3_6_1": {
+        "tap": 257,
+        "hold_judgements": 210,
+        "arc_judgements": 592,
+        "arctap": 118,
+        "total": 1177
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\equilibrium\\0.aff",
+      "title": "Equilibrium",
+      "difficulty": "Past",
+      "wiki": {
+        "total": 587,
+        "tap": 64,
+        "hold_judgements": 248,
+        "arc_judgements": 275,
+        "arctap": 0
+      },
+      "arccreate": {
+        "tap": 64,
+        "hold_judgements": 248,
+        "arc_judgements": 274,
+        "arctap": 0,
+        "total": 586
+      },
+      "arcade_plus": {
+        "tap": 64,
+        "hold_judgements": 248,
+        "arc_judgements": 275,
+        "arctap": 0,
+        "total": 587
+      },
+      "native_3_6_1": {
+        "tap": 64,
+        "hold_judgements": 248,
+        "arc_judgements": 275,
+        "arctap": 0,
+        "total": 587
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\equilibrium\\1.aff",
+      "title": "Equilibrium",
+      "difficulty": "Present",
+      "wiki": {
+        "total": 724,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": null
+      },
+      "arccreate": {
+        "tap": 122,
+        "hold_judgements": 45,
+        "arc_judgements": 464,
+        "arctap": 89,
+        "total": 720
+      },
+      "arcade_plus": {
+        "tap": 122,
+        "hold_judgements": 45,
+        "arc_judgements": 468,
+        "arctap": 89,
+        "total": 724
+      },
+      "native_3_6_1": {
+        "tap": 122,
+        "hold_judgements": 45,
+        "arc_judgements": 468,
+        "arctap": 89,
+        "total": 724
+      },
+      "difference": 4
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\fantasy\\0.aff",
+      "title": "FANTA5Y",
+      "difficulty": "Past",
+      "wiki": {
+        "total": 536,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": 0
+      },
+      "arccreate": {
+        "tap": 52,
+        "hold_judgements": 124,
+        "arc_judgements": 354,
+        "arctap": 0,
+        "total": 530
+      },
+      "arcade_plus": {
+        "tap": 52,
+        "hold_judgements": 124,
+        "arc_judgements": 360,
+        "arctap": 0,
+        "total": 536
+      },
+      "native_3_6_1": {
+        "tap": 52,
+        "hold_judgements": 124,
+        "arc_judgements": 360,
+        "arctap": 0,
+        "total": 536
+      },
+      "difference": 6
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\feelssoright\\2.aff",
+      "title": "Feels So Right feat. Renko",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 947,
+        "tap": 217,
+        "hold_judgements": 56,
+        "arc_judgements": 530,
+        "arctap": 144
+      },
+      "arccreate": {
+        "tap": 217,
+        "hold_judgements": 56,
+        "arc_judgements": 529,
+        "arctap": 144,
+        "total": 946
+      },
+      "arcade_plus": {
+        "tap": 217,
+        "hold_judgements": 56,
+        "arc_judgements": 530,
+        "arctap": 144,
+        "total": 947
+      },
+      "native_3_6_1": {
+        "tap": 217,
+        "hold_judgements": 56,
+        "arc_judgements": 530,
+        "arctap": 144,
+        "total": 947
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\felys\\0.aff",
+      "title": "felys final remix",
+      "difficulty": "Past",
+      "wiki": {
+        "total": 626,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": 0
+      },
+      "arccreate": {
+        "tap": 101,
+        "hold_judgements": 174,
+        "arc_judgements": 349,
+        "arctap": 0,
+        "total": 624
+      },
+      "arcade_plus": {
+        "tap": 101,
+        "hold_judgements": 174,
+        "arc_judgements": 351,
+        "arctap": 0,
+        "total": 626
+      },
+      "native_3_6_1": {
+        "tap": 101,
+        "hold_judgements": 174,
+        "arc_judgements": 351,
+        "arctap": 0,
+        "total": 626
+      },
+      "difference": 2
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\finalstep\\0.aff",
+      "title": "Final Step!",
+      "difficulty": "Past",
+      "wiki": {
+        "total": 625,
+        "tap": 61,
+        "hold_judgements": 154,
+        "arc_judgements": 410,
+        "arctap": 0
+      },
+      "arccreate": {
+        "tap": 61,
+        "hold_judgements": 154,
+        "arc_judgements": 406,
+        "arctap": 0,
+        "total": 621
+      },
+      "arcade_plus": {
+        "tap": 61,
+        "hold_judgements": 154,
+        "arc_judgements": 410,
+        "arctap": 0,
+        "total": 625
+      },
+      "native_3_6_1": {
+        "tap": 61,
+        "hold_judgements": 154,
+        "arc_judgements": 410,
+        "arctap": 0,
+        "total": 625
+      },
+      "difference": 4
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\finalstep\\1.aff",
+      "title": "Final Step!",
+      "difficulty": "Present",
+      "wiki": {
+        "total": 684,
+        "tap": 156,
+        "hold_judgements": 66,
+        "arc_judgements": 420,
+        "arctap": 42
+      },
+      "arccreate": {
+        "tap": 156,
+        "hold_judgements": 66,
+        "arc_judgements": 419,
+        "arctap": 42,
+        "total": 683
+      },
+      "arcade_plus": {
+        "tap": 156,
+        "hold_judgements": 66,
+        "arc_judgements": 420,
+        "arctap": 42,
+        "total": 684
+      },
+      "native_3_6_1": {
+        "tap": 156,
+        "hold_judgements": 66,
+        "arc_judgements": 420,
+        "arctap": 42,
+        "total": 684
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\flashback\\2.aff",
+      "title": "Flashback",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 856,
+        "tap": 388,
+        "hold_judgements": 33,
+        "arc_judgements": 357,
+        "arctap": 78
+      },
+      "arccreate": {
+        "tap": 388,
+        "hold_judgements": 33,
+        "arc_judgements": 359,
+        "arctap": 78,
+        "total": 858
+      },
+      "arcade_plus": {
+        "tap": 388,
+        "hold_judgements": 33,
+        "arc_judgements": 359,
+        "arctap": 78,
+        "total": 858
+      },
+      "native_3_6_1": {
+        "tap": 388,
+        "hold_judgements": 33,
+        "arc_judgements": 357,
+        "arctap": 78,
+        "total": 856
+      },
+      "difference": 0
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\galacticlove\\2.aff",
+      "title": "Galactic Love",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 813,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": null
+      },
+      "arccreate": {
+        "tap": 167,
+        "hold_judgements": 28,
+        "arc_judgements": 510,
+        "arctap": 107,
+        "total": 812
+      },
+      "arcade_plus": {
+        "tap": 167,
+        "hold_judgements": 28,
+        "arc_judgements": 511,
+        "arctap": 107,
+        "total": 813
+      },
+      "native_3_6_1": {
+        "tap": 167,
+        "hold_judgements": 28,
+        "arc_judgements": 511,
+        "arctap": 107,
+        "total": 813
+      },
+      "difference": 1
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\genesischunithm\\0.aff",
+      "title": "Genesis",
+      "difficulty": "Past",
+      "wiki": {
+        "total": 275,
+        "tap": 37,
+        "hold_judgements": 43,
+        "arc_judgements": 195,
+        "arctap": 0
+      },
+      "arccreate": {
+        "tap": 83,
+        "hold_judgements": 267,
+        "arc_judgements": 237,
+        "arctap": 0,
+        "total": 587
+      },
+      "arcade_plus": {
+        "tap": 83,
+        "hold_judgements": 267,
+        "arc_judgements": 237,
+        "arctap": 0,
+        "total": 587
+      },
+      "native_3_6_1": {
+        "tap": 83,
+        "hold_judgements": 267,
+        "arc_judgements": 237,
+        "arctap": 0,
+        "total": 587
+      },
+      "difference": 0
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\genesischunithm\\1.aff",
+      "title": "Genesis",
+      "difficulty": "Present",
+      "wiki": {
+        "total": 399,
+        "tap": 126,
+        "hold_judgements": 20,
+        "arc_judgements": 233,
+        "arctap": 20
+      },
+      "arccreate": {
+        "tap": 97,
+        "hold_judgements": 65,
+        "arc_judgements": 593,
+        "arctap": 83,
+        "total": 838
+      },
+      "arcade_plus": {
+        "tap": 97,
+        "hold_judgements": 65,
+        "arc_judgements": 593,
+        "arctap": 83,
+        "total": 838
+      },
+      "native_3_6_1": {
+        "tap": 97,
+        "hold_judgements": 65,
+        "arc_judgements": 593,
+        "arctap": 83,
+        "total": 838
+      },
+      "difference": 0
+    }
+  ],
+  "native_3_6_1_wiki_mismatches": [
+    {
+      "path": "D:\\work\\arcaea\\songs\\arcanaeden\\0.aff",
+      "title": "Arcana Eden",
+      "difficulty": "Past",
+      "wiki": {
+        "total": 1097,
+        "tap": 236,
+        "hold_judgements": 399,
+        "arc_judgements": 461,
+        "arctap": 1
+      },
+      "native_3_6_1": {
+        "tap": 236,
+        "hold_judgements": 399,
+        "arc_judgements": 462,
+        "arctap": 1,
+        "total": 1098
+      }
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\drg\\2.aff",
+      "title": "DRG",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 892,
+        "tap": 392,
+        "hold_judgements": 90,
+        "arc_judgements": 195,
+        "arctap": 195
+      },
+      "native_3_6_1": {
+        "tap": 392,
+        "hold_judgements": 90,
+        "arc_judgements": 195,
+        "arctap": 195,
+        "total": 872
+      }
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\genesischunithm\\0.aff",
+      "title": "Genesis",
+      "difficulty": "Past",
+      "wiki": {
+        "total": 275,
+        "tap": 37,
+        "hold_judgements": 43,
+        "arc_judgements": 195,
+        "arctap": 0
+      },
+      "native_3_6_1": {
+        "tap": 83,
+        "hold_judgements": 267,
+        "arc_judgements": 237,
+        "arctap": 0,
+        "total": 587
+      }
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\genesischunithm\\1.aff",
+      "title": "Genesis",
+      "difficulty": "Present",
+      "wiki": {
+        "total": 399,
+        "tap": 126,
+        "hold_judgements": 20,
+        "arc_judgements": 233,
+        "arctap": 20
+      },
+      "native_3_6_1": {
+        "tap": 97,
+        "hold_judgements": 65,
+        "arc_judgements": 593,
+        "arctap": 83,
+        "total": 838
+      }
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\genesischunithm\\2.aff",
+      "title": "Genesis",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 713,
+        "tap": 231,
+        "hold_judgements": 14,
+        "arc_judgements": 430,
+        "arctap": 38
+      },
+      "native_3_6_1": {
+        "tap": 478,
+        "hold_judgements": 30,
+        "arc_judgements": 130,
+        "arctap": 229,
+        "total": 867
+      }
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\ichirin\\2.aff",
+      "title": "〇、",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 708,
+        "tap": null,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": null
+      },
+      "native_3_6_1": {
+        "tap": 288,
+        "hold_judgements": 35,
+        "arc_judgements": 295,
+        "arctap": 92,
+        "total": 710
+      }
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\megalovaniarmx\\1.aff",
+      "title": "MEGALOVANIA (Camellia Remix)",
+      "difficulty": "Present",
+      "wiki": {
+        "total": 1151,
+        "tap": 308,
+        "hold_judgements": null,
+        "arc_judgements": null,
+        "arctap": 126
+      },
+      "native_3_6_1": {
+        "tap": 308,
+        "hold_judgements": 234,
+        "arc_judgements": 493,
+        "arctap": 126,
+        "total": 1161
+      }
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\quonwacca\\0.aff",
+      "title": "Quon",
+      "difficulty": "Past",
+      "wiki": {
+        "total": 547,
+        "tap": 142,
+        "hold_judgements": 129,
+        "arc_judgements": 276,
+        "arctap": 0
+      },
+      "native_3_6_1": {
+        "tap": 57,
+        "hold_judgements": 131,
+        "arc_judgements": 237,
+        "arctap": 0,
+        "total": 425
+      }
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\quonwacca\\1.aff",
+      "title": "Quon",
+      "difficulty": "Present",
+      "wiki": {
+        "total": 718,
+        "tap": 293,
+        "hold_judgements": 84,
+        "arc_judgements": 304,
+        "arctap": 37
+      },
+      "native_3_6_1": {
+        "tap": 174,
+        "hold_judgements": 79,
+        "arc_judgements": 217,
+        "arctap": 26,
+        "total": 496
+      }
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\quonwacca\\2.aff",
+      "title": "Quon",
+      "difficulty": "Future",
+      "wiki": {
+        "total": 991,
+        "tap": 380,
+        "hold_judgements": 75,
+        "arc_judgements": 405,
+        "arctap": 131
+      },
+      "native_3_6_1": {
+        "tap": 251,
+        "hold_judgements": 44,
+        "arc_judgements": 351,
+        "arctap": 103,
+        "total": 749
+      }
+    }
+  ],
+  "long_notes_crossing_timing_examples": [
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 142777,
+      "end": 143333,
+      "internal_timings": [
+        143332
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 142777,
+      "end": 143333,
+      "internal_timings": [
+        143332
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 145554,
+      "end": 145601,
+      "internal_timings": [
+        145555
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 145554,
+      "end": 145832,
+      "internal_timings": [
+        145555
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 156295,
+      "end": 156481,
+      "internal_timings": [
+        156480
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 156295,
+      "end": 156481,
+      "internal_timings": [
+        156480
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 156295,
+      "end": 156481,
+      "internal_timings": [
+        156480
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 156295,
+      "end": 156481,
+      "internal_timings": [
+        156480
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 157221,
+      "end": 157407,
+      "internal_timings": [
+        157406
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 157221,
+      "end": 157407,
+      "internal_timings": [
+        157406
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 157221,
+      "end": 157407,
+      "internal_timings": [
+        157406
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 157221,
+      "end": 157407,
+      "internal_timings": [
+        157406
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 157221,
+      "end": 157407,
+      "internal_timings": [
+        157406
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 157407,
+      "end": 157592,
+      "internal_timings": [
+        157591
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 157407,
+      "end": 157592,
+      "internal_timings": [
+        157591
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 157407,
+      "end": 157592,
+      "internal_timings": [
+        157591
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 157407,
+      "end": 157592,
+      "internal_timings": [
+        157591
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 157407,
+      "end": 157592,
+      "internal_timings": [
+        157591
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 158147,
+      "end": 158333,
+      "internal_timings": [
+        158332
+      ]
+    },
+    {
+      "path": "D:\\work\\arcaea\\songs\\abstrusedilemma\\2.aff",
+      "kind": "arc",
+      "start": 158147,
+      "end": 158333,
+      "internal_timings": [
+        158332
+      ]
+    }
+  ]
+}

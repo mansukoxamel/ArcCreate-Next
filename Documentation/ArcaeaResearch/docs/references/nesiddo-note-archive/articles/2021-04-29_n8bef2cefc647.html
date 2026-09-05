@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>.affの読み方について</title>
+  <meta name="source" content="https://note.com/nesiddo/n/n8bef2cefc647">
+  <meta name="published" content="2021-04-29T22:24:16.000+09:00">
+</head>
+<body>
+<h1>.affの読み方について</h1>
+<p>Source: <a href="https://note.com/nesiddo/n/n8bef2cefc647">https://note.com/nesiddo/n/n8bef2cefc647</a></p>
+<p>Published: 2021-04-29T22:24:16.000+09:00</p>
+<hr>
+<p name="oi426"><b>この記事を無理に読む必要はないです。知っていたら得というやつです。</b></p><h2 name="8bHlH"><b>1. .affの開き方</b></h2><p name="dC1dV">.affを読み込むときには、メモ帳や.txtで開くと良いと思います。<br>編集がしやすいです。<br></p><p name="KIdOv"><img alt="スクリーンショット (58)" src="https://assets.st-note.com/production/uploads/images/51134733/picture_pc_2d09ea42fcf0d45e6019f7fbed8c621b.png" width="377" height="212"></p><h2 name="Bruok">2. 中身について<br>
+</h2><p name="ToqQv"><br>まずこの画像は僕が作成したVirtual to LIVEのはじめの部分です。</p><p name="FAnLQ"><img alt="スクリーンショット (59)" src="https://assets.st-note.com/production/uploads/images/51134794/picture_pc_5f786e3e56305ff366b453a456321f18.png" width="620" height="349"></p><p name="f4k7c">これから書くことを読めば多分読めるようになります。多分。</p><h2 name="qJW7j">2-1. オフセット（＋下の線）<br><br>
+</h2><p name="8WYMx">最初に書いてあるこいつはオフセットです。Arcadeの上部分にあったやつです。<br>特に書き換える機会はないので言うことはないです。<br>下の線に関しては、その下にノーツのコマンドが来るようになっているので、<b>その線の上に書かないでください。あともちろんですが線を消すとエラーが出ます。</b></p><p name="fWXwB">例：<br>AudioOffset:200<br>-</p><h2 name="73tB0">2-2. タイミング<br>
+</h2><p name="v2uED">譜面の速さを調節します。構成は、</p><p name="5kzqs"><b>timing(任意のタイミング,BPM,小節線の頻度);</b></p><p name="1Qf5q"><b>・任意のタイミングについて<br></b>これはそのままです。ただし、必ず０以上にし、timing(0,…..のようにタイミングが0のときを必ず作ってください。<br>（Arcadeで自動で作られるのでいじらない限り気にしなくていい）</p><p name="pqgcb"><b>・BPMについて<br></b>早くしすぎたり遅くしすぎるとバグります。また<b>マイナスにすることで逆走ができます。</b></p><p name="CWxFV"><b>・小節線の頻度について<br></b>これは<b>数字を小さくすると小節線の間隔が密になります。</b>4がちょうどいいですが、各々調整してみてください。</p><p name="TLnW7">例：<br>timing(0,100.00,4.00);<br>timing(1000,200.00,2.00);</p><h2 name="5sIH7">2-3. フロアノート<br>
+</h2><p name="4JS2p">構成は、</p><p name="u8gcz"><b>(任意のタイミング,設置レーン);</b></p><p name="6euWF"><b>・設置レーンについて<br></b>左から1，2，3，4と番号が振られています。0以下、5以上はエラーになります。<br><br>例：<br>(100,4);<br>(100,1);</p><p name="bZarp"><img alt="画像3" src="https://assets.st-note.com/production/uploads/images/51135226/picture_pc_8b61da7b85002841af4c141bd14ebf2a.png" width="512" height="136"></p><h2 name="iBnPN">
+<b>2-4. ロングノート</b><br>
+</h2><p name="EWZWT">構成は、</p><p name="2nDBE"><b>hold(任意の始点タイミング,任意の終点タイミング,設置レーン);</b></p><p name="4Hr88"><b>・任意の始点タイミング,任意の終点タイミングについて<br></b>このタイミングからこのタイミングまで、という指示です。<b>始点&lt;終点</b>にしてください。<br>これもArcadeがやってくれるので変に意識しなくていいです。</p><p name="a2c81">例：<br>hold(961,1346,1);<br>hold(1730,2115,4);</p><p name="GNaNS"><img alt="画像4" src="https://assets.st-note.com/production/uploads/images/51135309/picture_pc_c16d42fb73cf2115aeae9297f41c546b.png" width="512" height="284"></p><h2 name="ndx7b">
+<b>2-5.アークノート、トレースノート</b><br><br>
+</h2><p name="0sxrY">構成は、</p><p name="IkL6x"><b>arc(任意の始点タイミング,任意の終点タイミング,始点のx座標,終点のx座標,タイプ,始点のy座標,終点のy座標,色,none,アークかトレースか);</b></p><p name="XLqTM"><b>・始点のx座標,終点のx座標,始点のy座標,終点のy座標について<br></b>　xやyの範囲に制限はありません。あるのはレギュレーションだけです。</p><p name="4Z6b9"><b>・タイプについて<br></b>　b,s,si,so,sisi,siso,sosi,sosoの8種類あります。</p><p name="uoch6"><b>・色について</b><br>　0が青、1が赤、2が緑になります。</p><p name="lazyJ"><b>・アークかトレースかについて</b><br>　falseがアーク、trueがトレースになります。<br>例<br>arc(8392,8571,0.50,0.00,si,1.00,1.00,0,none,false);</p><p name="rWJhz"><img alt="画像5" src="https://assets.st-note.com/production/uploads/images/51135445/picture_pc_d984ee2a165d288499a7ee6d320fe231.png" width="467" height="277"></p><h2 name="3BqBA">
+<b>2-6.スカイノート</b><br>
+</h2><p name="CskC1">構成は</p><p name="DjGDY"><b>arc(0,100,0.00,0.00,b,0.00,0.00,0,none,true)[arctap(任意のタイミング)];</b></p><p name="cQNYc">arcの指示コマンドの後ろにくっつく形になります。<br>アークタップが連なる場合は、<b>[arctap(3928),arctap(4107),arctap(4285)];</b><br>こんな感じになります。</p><p name="4mL3H">例：<br>arc(3928,4464,0.00,1.00,si,1.00,1.00,0,none,true[arctap(3928),arctap(4107),arctap(4285)];<br>arc(4464,5000,1.00,0.00,so,1.00,1.00,0,none,true[arctap(4464),arctap(4642),arctap(4821)];</p><p name="bF4iF"><img alt="画像6" src="https://assets.st-note.com/production/uploads/images/51135508/picture_pc_a5b5315e84517e99d510d7036d58bf31.png" width="467" height="226"></p><h2 name="wUqbr">2-7.その他<br>
+</h2><p name="NMXjK">そのほかにもscenecontrolやcameraやtiminggroup、Arcade用にspecialなんかもあったりしますがそれはまた後程...<br></p><h2 name="ZEhTG">3. 最後に<br>
+</h2><p name="shey2">.affファイルを見ながら作業するときに、Arcadeで新しく作ったら一回.affのメモ帳を閉じないと、<b>上書き保存したときに新しく作った所がなくなってる事故がある</b>ので気を付けてください。わからない人はいずれ経験します......特にcamera打つとき。</p><p name="mBvsp">とりあえず、これで大体は説明しましたが、何度も言っている通り<b>Arcadeが自動でやってくれるので心配する必要も無理に覚える必要もありません。</b><br>覚えていたほうが得って認識でいいと思います。(この記事はおまけみたいな感じ...)</p><p name="V94Lm">記 : nesiddo</p><p name="xH72V"><br>記事一覧↓<br><b>Arcaea Fanmade（創作譜面）の作り方一覧</b><br><a href="https://note.com/nesiddo/n/nd54c0c766c8a" target="_blank" rel="nofollow noopener">https://note.com/nesiddo/n/nd54c0c766c8a</a><br></p>
+</body>
+</html>

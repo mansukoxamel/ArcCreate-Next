@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>cameraの使い方</title>
+  <meta name="source" content="https://note.com/nesiddo/n/n4243888dd8c4">
+  <meta name="published" content="2021-06-13T21:30:09.000+09:00">
+</head>
+<body>
+<h1>cameraの使い方</h1>
+<p>Source: <a href="https://note.com/nesiddo/n/n4243888dd8c4">https://note.com/nesiddo/n/n4243888dd8c4</a></p>
+<p>Published: 2021-06-13T21:30:09.000+09:00</p>
+<hr>
+<p name="agVsI">エイプリルフール譜面に使われるArcaeaがより某筐体音ゲーにちかづk....</p><p name="m7Xln">というわけでcameraの使い方をザックリ解説していきます。<br>おまけもあります。</p><h2 name="R3DYt">cameraについて</h2><p name="6m8eb">まず記述の形式というか構成ですが下のようになっています。</p><p name="eD7SS"><b>camera(タイミング,x軸移動,y軸移動,z軸移動,x軸回転,y軸回転,z軸回転,移動形式,期間);</b><br></p><p name="VbeeC">このようになっています。ゆっくり解説していきますね。</p><p name="lklWu"><br></p><p name="U7ooZ" style="text-align:center;"><b>ここで注意事項</b></p><p name="7wiZm"><b>※cameraを使うと、アークで譜面が傾く仕様がなくなります。修正方法は後述します。（resetにて）</b></p><p name="L60KS"><b>※ここからはお手持ちのArcadeで試してください。例にある文を適当な曲ファイルの.affに貼り付けてください。</b></p><blockquote name="nNVZt">gifを貼ろうと思いましたが10mb以下じゃないといけないそうなので動画の時間的に無理でした。悲しいです。画像で我慢してください。</blockquote><h2 name="pqHKY">x,y,z軸移動</h2><p name="yxFZc"><b><br>・x軸移動</b></p><p name="UbYXP">右左の移動です。<b>+が右。-が左です。</b><br><b>例</b></p><pre class="p-textNoteCode"><code class="p-textNoteCode__main">camera(1000,500.00,0.00,0.00,0.00,0.00,0.00,s,1000);
+camera(2000,-500.00,0.00,0.00,0.00,0.00,0.00,s,1000);
+camera(4000,-500.00,0.00,0.00,0.00,0.00,0.00,s,1000);
+camera(5000,500.00,0.00,0.00,0.00,0.00,0.00,s,1000);</code></pre><p name="UbYXP"><br></p><p name="Uyjbx"><img src="https://assets.st-note.com/production/uploads/images/54525644/picture_pc_62d495cbb3e35494a80c1163bd487a17.png" width="620" height="349" alt="画像1"></p><p name="4sJpI"><b>・y軸移動</b><br></p><p name="01zxk">上下の移動です。<b>+が上。-が下です。</b><br><b>例</b></p><pre class="p-textNoteCode"><code class="p-textNoteCode__main">camera(1000,0.00,500.00,0.00,0.00,0.00,0.00,s,1000);
+camera(2000,0.00,-500.00,0.00,0.00,0.00,0.00,s,1000);
+camera(4000,0.00,-500.00,0.00,0.00,0.00,0.00,s,1000);
+camera(5000,0.00,500.00,0.00,0.00,0.00,0.00,s,1000);</code></pre><p name="01zxk"><br></p><p name="7GIau"><img src="https://assets.st-note.com/production/uploads/images/54525651/picture_pc_0e277a2c23b4427ab34c518d75861603.png" width="620" height="349" alt="画像2"></p><p name="6zv2B"><b>・z軸移動</b><br></p><p name="rZotw">前後の移動です。<b>+が後。-が前です。</b><br><b>例</b></p><pre class="p-textNoteCode"><code class="p-textNoteCode__main">camera(1000,0.00,0.00,500.00,0.00,0.00,0.00,s,1000);
+camera(2000,0.00,0.00,-500.00,0.00,0.00,0.00,s,1000);
+camera(4000,0.00,0.00,-500.00,0.00,0.00,0.00,s,1000);
+camera(5000,0.00,0.00,500.00,0.00,0.00,0.00,s,1000);</code></pre><p name="rZotw"><br></p><p name="mrM0Q"><img src="https://assets.st-note.com/production/uploads/images/54525663/picture_pc_0c3536c0bbb73d6ec604e15ea6b158cf.png" width="620" height="349" alt="画像3"></p><h2 name="8YGFY">x,y,z軸回転<br>
+</h2><p name="As6K4"><b><br>・x軸回転</b></p><p name="obUyK">右左の回転です。<b>+が左向き回転。-が右向き回転です。</b><br><b>例</b></p><pre class="p-textNoteCode"><code class="p-textNoteCode__main">camera(1000,0.00,0.00,0.00,360.00,0.00,0.00,s,1000);
+camera(2000,0.00,0.00,0.00,-360.00,0.00,0.00,s,1000);</code></pre><p name="EAieY"><img src="https://assets.st-note.com/production/uploads/images/54525974/picture_pc_d09cac255936cc614a991ab1a5b3d410.png" width="620" height="349" alt="画像4"></p><p name="pNoYi"><b>・y軸回転</b></p><p name="iw6Z9">上下の回転です。<b>+が上。-が下です。</b><br><b>例</b></p><pre class="p-textNoteCode"><code class="p-textNoteCode__main">camera(1000,0.00,0.00,0.00,0.00,360.00,0.00,s,1000);
+camera(2000,0.00,0.00,0.00,0.00,-360.00,0.00,s,1000);</code></pre><p name="iw6Z9"><br></p><p name="l83yF"><img src="https://assets.st-note.com/production/uploads/images/54526083/picture_pc_23eeeefe4cd460562a95d6a399f45f3c.png" width="620" height="349" alt="画像5"></p><p name="DGsaT"><b>・z軸回転</b></p><p name="BfL9B">上下の回転です。<b>+で譜面が反時計回り。-で譜面が時計回り。</b><br><b>例</b></p><pre class="p-textNoteCode"><code class="p-textNoteCode__main">camera(1000,0.00,0.00,0.00,0.00,0.00,360.00,s,1000);
+camera(2000,0.00,0.00,0.00,0.00,0.00,-360.00,s,1000);</code></pre><p name="BfL9B"><br></p><p name="iqXcX"><img src="https://assets.st-note.com/production/uploads/images/54526362/picture_pc_79ebe54b62cba099a1e1c534846d4876.png" width="620" height="349" alt="画像6"></p><h2 name="eoUcW">移動形式</h2><p name="cC9UD">これに関してはマジでArcadeで試してみないとわからないです。<br>gifとか動画がnoteで使えればなぁ...<br><b>例</b></p><pre class="p-textNoteCode"><code class="p-textNoteCode__main">camera(1000,0.00,0.00,0.00,0.00,0.00,360.00,s,1000);
+camera(2500,0.00,0.00,0.00,0.00,0.00,-360.00,qi,1000);
+camera(4000,0.00,0.00,0.00,0.00,0.00,360.00,qo,1000);</code></pre><p name="cC9UD"><br>実はもう一つあって<b>reset</b>というのがあります。これはどこにいても瞬時に元の場所に戻る地味に便利な道具です。<br>そしてこいつを使うとその後は<b>アークで傾く</b>ようになります。<br><b>例</b></p><pre class="p-textNoteCode"><code class="p-textNoteCode__main">camera(5500,500.00,500.00,500.00,10.00,10.00,360.00,qo,1000);
+camera(7000,0.00,0.00,0.00,0.00,0.00,0.00,reset,0);</code></pre><p name="cC9UD"><br></p><h2 name="s23Pm">おまけ</h2><p name="kf6T6"><b>・正面を向く</b><br>28度で真ん前を向くことができます。<br><b>例</b></p><pre class="p-textNoteCode"><code class="p-textNoteCode__main">camera(1000,0.00,0.00,0.00,0.00,28.00,0.00,s,100);</code></pre><p name="kf6T6"><b>使用例</b></p><p name="S2MZQ"><img src="https://assets.st-note.com/production/uploads/images/54527381/picture_pc_616f80987205375df662a1d91d4d6639.png" width="620" height="349" alt="画像7"></p><p name="xzFSb"><br></p><p name="JY83Y"><b>・タップノーツとガチ恋距離</b></p><p name="zKMpz">下に500前に500でガチ恋距離です（？？？）<br><b>例</b></p><pre class="p-textNoteCode"><code class="p-textNoteCode__main">camera(1000,0.00,-500.00,-500.00,0.00,0.00,0.00,s,100);</code></pre><p name="zKMpz"><b>使用例</b><br></p><p name="j0A4P"><img src="https://assets.st-note.com/production/uploads/images/54527562/picture_pc_80b82feff3cff2ab4aed8cb5e3425aee.png" width="620" height="349" alt="画像8"></p><p name="H44Rk"><br></p><p name="N1YQB"><b>・真反対？</b><br></p><p name="TRggU">逆を向きます。？って方は下の使用例を丸々コピぺしてみてください。<br><b>例</b></p><pre class="p-textNoteCode"><code class="p-textNoteCode__main">camera(1000,0.00,-1800.00,0.00,0.00,0.00,180.00,l,1);</code></pre><p name="TRggU"><br></p><p name="fJ5GO"><b>使用例</b></p><pre class="p-textNoteCode"><code class="p-textNoteCode__main">AudioOffset:514
+-
+timing(0,87.50,4.00);
+camera(0,0.00,-1800.00,0.00,0.00,0.00,180.00,l,1);
+camera(685,0.00,1800.00,0.00,0.00,0.00,180.00,l,1);
+camera(1371,0.00,-1800.00,0.00,0.00,0.00,180.00,l,1);
+camera(2057,0.00,1800.00,0.00,0.00,0.00,180.00,l,1);
+hold(0,514,1);
+(171,4);
+(342,3);
+arc(342,514,0.38,0.38,b,1.00,1.00,0,none,true);
+arc(342,514,0.63,0.63,b,1.00,1.00,1,none,true);
+(514,2);
+hold(685,1200,4);
+(857,1);
+(1028,2);
+arc(1028,1200,0.38,0.38,b,1.00,1.00,0,none,true);
+arc(1028,1200,0.63,0.63,b,1.00,1.00,1,none,true);
+(1200,3);
+hold(1371,1885,1);
+hold(1441,1441,3);
+hold(1472,1472,3);
+(1542,2);
+(1714,3);
+arc(1714,1886,0.63,0.63,b,1.00,1.00,1,none,true);
+arc(1714,1886,0.38,0.38,b,1.00,1.00,0,none,true);
+(1885,2);
+hold(2057,2571,4);
+(2228,3);
+arc(2400,2572,0.38,0.38,b,1.00,1.00,0,none,true);
+arc(2400,2572,0.63,0.63,b,1.00,1.00,1,none,true);
+(2400,2);
+(2571,3);</code></pre><p name="PVfla"><img src="https://assets.st-note.com/production/uploads/images/54529911/picture_pc_c2c0c74d3ef3dc94d014be5e4d82932a.png" width="620" height="349" alt="画像10"></p><p name="idh8Y">上のが一瞬で...</p><p name="ochTa"><img src="https://assets.st-note.com/production/uploads/images/54529946/picture_pc_aed4ec8eec7a03be4e80635032f4b08c.png" width="620" height="349" alt="画像11"></p><p name="kst1Q">分かりやすい動画の例で行くと、<br><b>[NotARCAEA]&nbsp;[line:δ][uksrt:vip]&nbsp;-&nbsp;nitro&nbsp;(Future&nbsp;4a)</b><br><a href="https://www.youtube.com/watch?v=t_qTB1QjCgs&amp;amp;amp;amp;amp;t" target="_blank" rel="nofollow noopener">https://www.youtube.com/watch?v=t_qTB1QjCgs&amp;t</a><br></p><p name="AM6vd">の0:31ぐらいからですかね。</p><p name="WYnKe"><br></p><p name="A7Fhn"><b>・ECHOのいい感じのアングル(応用編)</b></p><p name="LIcKh">ここからは応用編です。</p><pre class="p-textNoteCode"><code class="p-textNoteCode__main">camera(68142,2044.17,0.00,-649.14,54.36,17.03,0.00,qi,567);</code></pre><p name="MUgaY"><br></p><p name="PaJwT"><img src="https://assets.st-note.com/production/uploads/images/54528675/picture_pc_58cd91f452f5eeee5e2a8b6a132328a6.png" width="620" height="349" alt="画像9"></p><p name="wEs9j">このいい感じの画角はけっこう汚い数値で構成されてましたね。</p><p name="7XIa3">まぁ何を隠そうスクリプトを使いましたからね。</p><p name="Ezdlh"><b>Arcaea&nbsp;Advancaed&nbsp;Charting&nbsp;Tutorial:&nbsp;Complex&nbsp;camera&nbsp;movements</b><br><a href="https://www.youtube.com/watch?v=TRAi6cwcpvo" target="_blank" rel="nofollow noopener">https://www.youtube.com/watch?v=TRAi6cwcpvo</a><br></p><p name="v5onJ">Tempestissimanさんのものを使わせていただきました。<br>これはblenderを使用しているのでblenderをインストールしないと使えないのですが使えるようになると便利です。<br>解説しようかと思いましたが面倒なのとそもそも解説動画が出ているのでいいかな...って。</p><p name="WUOkX"><br></p><p name="45eZY"><b>やる気があったらおまけ追加していきます。</b></p><p name="CX5Fj">なにかあったら質問してください！！！</p><p name="t3Dgn"><br></p><p name="MNI89">（雑とか言わないでください。）</p><p name="It2AG">記:nesiddo</p><p name="FZ0eo"><b>記事一覧↓<br>Arcaea&nbsp;Fanmade（創作譜面）の作り方一覧<br></b><a href="https://note.com/nesiddo/n/nd54c0c766c8a" target="_blank" rel="nofollow noopener">https://note.com/nesiddo/n/nd54c0c766c8a</a><br></p>
+</body>
+</html>

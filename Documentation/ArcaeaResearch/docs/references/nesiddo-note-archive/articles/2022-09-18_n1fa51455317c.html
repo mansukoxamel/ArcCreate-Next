@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>ノーツのバウンドギミックについて</title>
+  <meta name="source" content="https://note.com/nesiddo/n/n1fa51455317c">
+  <meta name="published" content="2022-09-18T15:21:11.000+09:00">
+</head>
+<body>
+<h1>ノーツのバウンドギミックについて</h1>
+<p>Source: <a href="https://note.com/nesiddo/n/n1fa51455317c">https://note.com/nesiddo/n/n1fa51455317c</a></p>
+<p>Published: 2022-09-18T15:21:11.000+09:00</p>
+<hr>
+<p name="0c341fa2-3eab-4e2f-a384-ae7211c80d37" id="0c341fa2-3eab-4e2f-a384-ae7211c80d37">（最後の方にツールを用意しています。）<br>Arcaeaの創作譜面であるあるギミックといえばノーツのバウンドですよね。</p><p name="fb90a4b4-daab-495a-98fd-7ef648061265" id="fb90a4b4-daab-495a-98fd-7ef648061265">自分もよく使うのですがわかりやすい例として以下の動画の1分3秒あたりからをご覧ください。</p><figure name="bcfd9495-454b-4cf2-988e-d6b5f796d0ec" id="bcfd9495-454b-4cf2-988e-d6b5f796d0ec" data-src="https://youtu.be/CD3sX3tiMmQ?t=63" data-identifier="null" embedded-service="youtube" embedded-content-key="embf78dfe714815">  </figure><p name="9540a66c-1323-442e-8216-e23f7160e945" id="9540a66c-1323-442e-8216-e23f7160e945">本家譜面でも使われていますよね。(1分6秒あたり)</p><figure name="9f040e35-1851-4aca-91e2-a3e7c0cba7a9" id="9f040e35-1851-4aca-91e2-a3e7c0cba7a9" data-src="https://youtu.be/CUItBLslYzI?t=66" data-identifier="null" embedded-service="youtube" embedded-content-key="emb93d7f1938140">  </figure><p name="43e47366-459f-4817-97f5-197d048dce2c" id="43e47366-459f-4817-97f5-197d048dce2c">創作譜面を何個か作ってる人は仕掛けがわかると思いますが、これはtiminggroupでスカイノーツを逆走させては元のスピードに戻して…という作業の繰り返しになっています。</p><p name="2351cb9b-feb0-441f-80ec-001d31ebb2d3" id="2351cb9b-feb0-441f-80ec-001d31ebb2d3"><strong>しかし！！！！！！！！！！</strong></p><p name="14f6bcb4-d896-400b-9c82-baaa6a22f035" id="14f6bcb4-d896-400b-9c82-baaa6a22f035"><strong>これ普通に作ろうとすると落とし穴があります。</strong>そうです。簡単なギミックに見えてしっかりとtimingの概念が頭に入っていないと難しかったりします。</p><h2 name="3d0df9e7-c0f0-4310-bf7d-d47ada526b3e" id="3d0df9e7-c0f0-4310-bf7d-d47ada526b3e">落とし穴とは？</h2><p name="44933e30-2e76-483b-bd49-489870f445ed" id="44933e30-2e76-483b-bd49-489870f445ed">「逆走させればいいだけだから手前のタイミングで逆走させればいいんじゃね？」<br>そう思ってもらっていいんですが実は工夫がいくつか要ります。</p><h3 name="bcec3dee-0c6c-4e99-b08c-66d5a3035821" id="bcec3dee-0c6c-4e99-b08c-66d5a3035821">1．イージングを使おう</h3><p name="94a9b5ca-1197-40ea-aa30-46991c8cf511" id="94a9b5ca-1197-40ea-aa30-46991c8cf511">シンプルにaffを書いてみましょう。</p><pre name="682cc0db-664e-43ab-8548-8c6a851714f0" id="682cc0db-664e-43ab-8548-8c6a851714f0"><code>timing(0,100.00,4.00);
+(600,2);
+(1200,2);
+timing(600,-100.00,4.00);
+timing(1200,100.00,4.00);</code></pre><p name="c8e32c33-b7a0-44a9-87cf-e9f63d48154f" id="c8e32c33-b7a0-44a9-87cf-e9f63d48154f"><strong>なんてこった。ゴミみたいな譜面じゃないか！</strong></p><figure name="e03a73d1-41f2-4c57-a1c2-09d05160b7f5" id="e03a73d1-41f2-4c57-a1c2-09d05160b7f5"><img src="https://assets.st-note.com/production/uploads/images/87122906/picture_pc_c6e7a15c920d19eb93ab52ae5800de57.gif" alt="" width="320" height="180"><figcaption></figcaption></figure><p name="682999f5-9f15-44b6-a6b8-757340bd68e3" id="682999f5-9f15-44b6-a6b8-757340bd68e3">これでは、反対側からノーツがこんにちはしているだけです。<br>理由は単純で、バウンドというのは<br><strong>マイナスBPM→0→プラスBPM</strong><br>という過程を踏んでいるからです。つまりイージングで考えれば簡単で、<br><strong>マイナスBPMから0に徐々に減速し、<br>0からプラスBPMに加速しているということです。</strong></p><p name="bb3ca623-b126-480d-8fcd-3550f02377bb" id="bb3ca623-b126-480d-8fcd-3550f02377bb">じゃあイージング使おうぜとやっても<strong>また落とし穴があります。</strong></p><h3 name="7005aa5b-e98a-45f1-ae89-f44457f6b6e8" id="7005aa5b-e98a-45f1-ae89-f44457f6b6e8">2．BPMを調整しよう。</h3><p name="25289a9f-7fce-4ec6-b488-86de20e2be12" id="25289a9f-7fce-4ec6-b488-86de20e2be12">先ほどのようにイージングしたものを書いてみました。</p><pre name="d11e5f87-d6b8-4724-8563-a0f3349c5a43" id="d11e5f87-d6b8-4724-8563-a0f3349c5a43"><code>timing(0,100.00,4.00);
+(600,2);
+(1200,2);
+timing(600,-100.00,4.00);
+timing(675,-75.00,4.00);
+timing(750,-50.00,4.00);
+timing(825,-25.00,4.00);
+timing(900,0.00,4.00);
+timing(975,25.00,4.00);
+timing(1050,50.00,4.00);
+timing(1125,75.00,4.00);
+timing(1200,100.00,4.00);</code></pre><p name="f59ab11a-1700-4c30-93ac-3199a59ec706" id="f59ab11a-1700-4c30-93ac-3199a59ec706"><strong>なんてこった。</strong><br>こんな感じでノーツが重なってくれません！</p><figure name="3fa3b537-1a20-43c2-b1bd-9b111576aae2" id="3fa3b537-1a20-43c2-b1bd-9b111576aae2"><img src="https://assets.st-note.com/production/uploads/images/87123818/picture_pc_3ed7d77866ea9df8863dcfeaa6a23389.gif" alt="" width="320" height="180"><figcaption></figcaption></figure><p name="0984802f-a6f5-431a-be4f-75fd45f398d2" id="0984802f-a6f5-431a-be4f-75fd45f398d2"><br></p><p name="1d60efea-f98f-4f5e-90dd-fbdd055418de" id="1d60efea-f98f-4f5e-90dd-fbdd055418de">原因は、<strong>ノーツのタイミングが1200で、BPM100になるのも1200だから</strong>です。<br>つまり、ノーツの速さは<strong>-100BPMで開始しているのに終了時は75BPMである</strong>ということです。</p><p name="85f325ef-5bc7-4dd5-bdd5-6aa71be68f96" id="85f325ef-5bc7-4dd5-bdd5-6aa71be68f96">これを解決するには、timingの概念を理解する必要があります。<br>バウンドするときにノーツが重ならないのは、<br><strong>バウンドしている時間×BPMの総和が0になっていないからです。</strong></p><p name="8e2c2f68-5268-43aa-93df-0cc383073b1a" id="8e2c2f68-5268-43aa-93df-0cc383073b1a">もっとかみ砕いていえば<br><strong>マイナスBPMの期間＝プラスBPMの期間</strong>　になればよい。</p><p name="2bb6f9c0-5c21-49ce-b743-002724e3161a" id="2bb6f9c0-5c21-49ce-b743-002724e3161a">もっとわかりやすく図に表せば、</p><figure name="9ccf275f-a393-41a4-b827-bebbabd1386c" id="9ccf275f-a393-41a4-b827-bebbabd1386c"><img src="https://assets.st-note.com/img/1663479714112-UE01vC3VD4.png" alt="" width="620" height="562"><figcaption>hibachiさんから引用しました。</figcaption></figure><p name="e3f6165f-e024-4252-8acf-9c092422de5e" id="e3f6165f-e024-4252-8acf-9c092422de5e"><strong>この赤の範囲と青の範囲の面積が同じじゃないからノーツが重ならない</strong>ということです。</p><p name="7396632e-18d1-4dc0-92a6-9a821bec6de1" id="7396632e-18d1-4dc0-92a6-9a821bec6de1">何を言ってるかわからないって？作っていればに分かるようになります。</p><p name="19581910-3ccc-407f-ba1d-9af07a2eba6f" id="19581910-3ccc-407f-ba1d-9af07a2eba6f">さて、解決するには上の図の<strong>赤の範囲と青の範囲の面積が同じ</strong>になればよいので</p><figure name="fc0565c7-6671-4de6-8ac3-a811e209e666" id="fc0565c7-6671-4de6-8ac3-a811e209e666"><img src="https://assets.st-note.com/img/1663479911980-tWudpqa86P.png" alt="" width="620" height="516"><figcaption>hibachiさんから引用しました。</figcaption></figure><p name="8c7088eb-fb89-445c-aef6-63af1a0a2f05" id="8c7088eb-fb89-445c-aef6-63af1a0a2f05">このように<strong>BPMを+12.5</strong>すれば同じになりました。</p><pre name="00bfcf25-c614-47c3-ad97-b21b6d583f55" id="00bfcf25-c614-47c3-ad97-b21b6d583f55"><code>timing(0,100.00,4.00);
+(600,2);
+(1200,2);
+timing(600,-87.50,4.00);
+timing(675,-62.50,4.00);
+timing(750,-37.50,4.00);
+timing(825,-12.50,4.00);
+timing(900,12.50,4.00);
+timing(975,37.50,4.00);
+timing(1050,62.50,4.00);
+timing(1125,87.50,4.00);
+timing(1200,100.00,4.00);</code></pre><figure name="53723d28-60b7-4678-b400-0ec05e9814b8" id="53723d28-60b7-4678-b400-0ec05e9814b8"><img src="https://assets.st-note.com/production/uploads/images/87126552/picture_pc_8514c0f8cf1c938de3c2e59c235c7b93.gif" alt="" width="320" height="180"><figcaption></figcaption></figure><p name="5438d2a9-145f-4449-a064-b7c5f2a800cd" id="5438d2a9-145f-4449-a064-b7c5f2a800cd"><strong>やったぜ！うまくいったね！！！！！！</strong></p><p name="d4e22971-61c1-408a-92f1-5a15e229f066" id="d4e22971-61c1-408a-92f1-5a15e229f066">…….でもなんで<strong>12.5</strong>ってなんだろう?</p><p name="994c789f-2c1c-4696-b1ad-f54a13cd219f" id="994c789f-2c1c-4696-b1ad-f54a13cd219f">簡単です。<br><strong>BPM/何回に分けてイージングしたか<br></strong>これだけです。<br>先ほどのイージングでは8回に分けていました。よって<br><strong>100/8＝12.5</strong></p><p name="ace601f0-ed79-4d5f-b9a6-5982410323a4" id="ace601f0-ed79-4d5f-b9a6-5982410323a4">このように導かれます。これをBPMに足すことでノーツを重ねてキレイにバウンドすることができます。</p><p name="40395638-4c13-486d-81f5-b3d3357027a2" id="40395638-4c13-486d-81f5-b3d3357027a2">まぁ<strong>何となくわかればいいのです。何となく。</strong><br>ちゃんと説明するのは面倒なので省きますが使っていれば何となく理由がわかってきます。</p><h2 name="50c65787-0e83-4a53-a933-572fc16f4e0f" id="50c65787-0e83-4a53-a933-572fc16f4e0f">ツール化しました。</h2><p name="3b942f2d-9981-4b7d-9242-a992646d9506" id="3b942f2d-9981-4b7d-9242-a992646d9506">こちらのシートで試すことができます。便利だね。<br>こちらは<a href="https://www.youtube.com/c/Tempestissiman" target="_blank" rel="nofollow noopener">Tempestissiman</a>さんのイージングツールを編集したものになります（許諾済み）</p><figure name="80b7ba9c-7912-4d8a-aaa4-b9652c3534d6" id="80b7ba9c-7912-4d8a-aaa4-b9652c3534d6" data-src="https://docs.google.com/spreadsheets/d/1x2LVg3qWBk7fwRBejoH53AYYjq5iHRbHg1Q1rYB2V7I/edit?usp=sharing" data-identifier="null" embedded-service="external-article" embedded-content-key="embeded77677005">
+<a href="https://docs.google.com/spreadsheets/d/1x2LVg3qWBk7fwRBejoH53AYYjq5iHRbHg1Q1rYB2V7I/edit?usp=sharing" rel="nofollow noopener" target="_blank">
+<strong>
+Timing Easing(公開用)
+</strong>
+<em>
+シート1  Start Time,600,Step Count,8,Start BPM,-122.50 End Time,
+</em>
+<em>
+docs.google.com
+</em>
+</a><a href="https://docs.google.com/spreadsheets/d/1x2LVg3qWBk7fwRBejoH53AYYjq5iHRbHg1Q1rYB2V7I/edit?usp=sharing" rel="nofollow noopener" target="_blank"></a>
+
+
+</figure><p name="214ea6bc-b5bd-48c4-af1d-f203f8cd5e6f" id="214ea6bc-b5bd-48c4-af1d-f203f8cd5e6f">Start BPMに元のBPMのマイナスしたもの（今回なら-100）<br>End BPMに最終的なBPM（今回なら100）<br>を入れます。<br>そうすることで出力されるバウンド（B）とバウンド（S）の値がバウンドするBPMのイージングになります。<br><br><strong>B</strong>は<strong>二次関数のような曲線的なイージング</strong>。<br><strong>S</strong>は<strong>絶対値付きの一次関数のような直線的なイージング</strong>になります。<br><br><strong>注意点として最後のBPM、今回ならtiming(1200,112.50,4.00);は<br>timing(1200,100.00,4.00);に直しておいてください。</strong></p><p name="19ff8d46-5e7d-491a-ad63-8f41e18d42b7" id="19ff8d46-5e7d-491a-ad63-8f41e18d42b7">てなわけで、終わり！！！！！お疲れさまでした！</p><p name="f59604a6-3197-4e96-8286-42da46b071d8" id="f59604a6-3197-4e96-8286-42da46b071d8">記：nesiddo</p><p name="6a7c48d2-3acc-431d-af6c-e2ca04269339" id="6a7c48d2-3acc-431d-af6c-e2ca04269339"><br></p>
+</body>
+</html>
