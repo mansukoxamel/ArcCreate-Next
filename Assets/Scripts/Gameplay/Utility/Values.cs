@@ -71,6 +71,7 @@ namespace ArcCreate.Gameplay
         public const float ArcHitboxX = 1.9f;
         public const float ArcInitialHitboxX = 3.02f;
         public const float ArcHitboxY = 2.5f;
+        public const float ArcInitialHitboxYDown = 3.1f;
         public const int ArcInitialLookahead = 120;
         public const float ArcIntersectionDistance = 2f;
         public const float ArcTapHitboxX = 3.02f;

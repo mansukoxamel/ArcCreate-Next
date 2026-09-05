@@ -33,6 +33,23 @@ namespace Tests.Unit
         }
 
         [Test]
+        public void InitialAcquisition_ExtendsOnlyTheLowerYRange()
+        {
+            Assert.That(
+                ArcFormula.IsWithinArcInputRange(new Vector2(0, -3.099f), Vector2.zero, false, Vector2.one),
+                Is.True);
+            Assert.That(
+                ArcFormula.IsWithinArcInputRange(new Vector2(0, -3.1f), Vector2.zero, false, Vector2.one),
+                Is.False);
+            Assert.That(
+                ArcFormula.IsWithinArcInputRange(new Vector2(0, 2.5f), Vector2.zero, false, Vector2.one),
+                Is.False);
+            Assert.That(
+                ArcFormula.IsWithinArcInputRange(new Vector2(0, -2.501f), Vector2.zero, true, Vector2.one),
+                Is.False);
+        }
+
+        [Test]
         public void OppositeColorProximity_UsesStrictTwoWorldUnitDistance()
         {
             Assert.That(ArcFormula.AreArcsWithinIntersectionDistance(Vector2.zero, new Vector2(1.999f, 0)), Is.True);

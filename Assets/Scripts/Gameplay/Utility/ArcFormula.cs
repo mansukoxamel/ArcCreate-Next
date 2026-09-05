@@ -265,8 +265,11 @@ namespace ArcCreate.Gameplay
             Vector2 judgementSize)
         {
             float hitboxX = retained ? Values.ArcHitboxX : Values.ArcInitialHitboxX;
-            return Mathf.Abs(touchPosition.x - arcPosition.x) < hitboxX * judgementSize.x
-                && Mathf.Abs(touchPosition.y - arcPosition.y) < Values.ArcHitboxY * judgementSize.y;
+            float lowerHitboxY = retained ? Values.ArcHitboxY : Values.ArcInitialHitboxYDown;
+            Vector2 delta = touchPosition - arcPosition;
+            return Mathf.Abs(delta.x) < hitboxX * judgementSize.x
+                && delta.y > -lowerHitboxY * judgementSize.y
+                && delta.y < Values.ArcHitboxY * judgementSize.y;
         }
 
         public static bool AreArcsWithinIntersectionDistance(Vector2 first, Vector2 second)
