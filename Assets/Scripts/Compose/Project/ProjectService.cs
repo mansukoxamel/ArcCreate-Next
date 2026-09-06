@@ -617,7 +617,7 @@ namespace ArcCreate.Compose.Project
                 {
                     Text = selectedDirectory,
                     Callback = () => OpenDirectFile(selectedDirectory),
-                    ButtonColor = ButtonColor.Highlight,
+                    ButtonColor = ButtonColor.Default,
                 });
             }
 
@@ -628,7 +628,7 @@ namespace ArcCreate.Compose.Project
                 ButtonColor = ButtonColor.Default,
             });
 
-            Services.Popups.CreateTextDialog(
+            Services.Popups.CreateTextListDialog(
                 "読み込み履歴",
                 "読み込む曲フォルダを選択してください。",
                 buttons.ToArray());

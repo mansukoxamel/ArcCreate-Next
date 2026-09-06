@@ -22,6 +22,13 @@ namespace ArcCreate.Compose.Popups
             dialog.Setup(title, content, buttonSettings);
         }
 
+        public void CreateTextListDialog(string title, string content, params ButtonSetting[] buttonSettings)
+        {
+            GameObject go = Instantiate(textDialogPrefab, textDialogParent);
+            TextDialog dialog = go.GetComponent<TextDialog>();
+            dialog.SetupVerticalList(title, content, buttonSettings);
+        }
+
         public void Notify(Severity severity, string content)
         {
             notification.SetContent(severity, content);

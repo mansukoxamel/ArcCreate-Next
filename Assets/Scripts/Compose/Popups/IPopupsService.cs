@@ -50,6 +50,15 @@ namespace ArcCreate.Compose.Popups
         void CreateTextDialog(string title, string content, params ButtonSetting[] buttonSettings);
 
         /// <summary>
+        /// Open a text dialog whose buttons are displayed as a vertical, single-line list.
+        /// Intended for long labels such as file-system paths.
+        /// </summary>
+        /// <param name="title">The dialog's title.</param>
+        /// <param name="content">The dialog's content.</param>
+        /// <param name="buttonSettings">List of buttons to display.</param>
+        void CreateTextListDialog(string title, string content, params ButtonSetting[] buttonSettings);
+
+        /// <summary>
         /// Display text on the notification bar.
         /// </summary>
         /// <param name="severity">Severity of the notification. Affects the background color of the bar.</param>

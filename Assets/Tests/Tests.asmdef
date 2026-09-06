@@ -8,6 +8,7 @@
         "ArcCreate.Data",
         "ArcCreate.Gameplay",
         "ArcCreate.Utility",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
         "UniTask",
         "ArcCreate.Remote.Common"
     ],
