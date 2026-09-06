@@ -75,14 +75,18 @@ namespace ArcCreate.Compose.Components
         [SerializeField] private Button openCreditsButton;
         [SerializeField] private Dialog creditsDialog;
 
+        private TMP_InputField timelineNoteSpeedField;
+
         private void Awake()
         {
+            SetupTimelineNoteSpeedField();
             aspectRatioDropdown.onValueChanged.AddListener(OnAspectRatioDropdown);
             reloadHotkeysButton.onClick.AddListener(OnReloadHotkeysButton);
             openHotkeySettingsButton.onClick.AddListener(OnOpenHotkeySettingsButton);
             densityField.onEndEdit.AddListener(OnDensityField);
             openCreditsButton.onClick.AddListener(creditsDialog.Open);
             playbackSpeedField.onEndEdit.AddListener(OnPlaybackSpeedField);
+            timelineNoteSpeedField.onEndEdit.AddListener(OnSpeedField);
             speedField.onEndEdit.AddListener(OnSpeedField);
 
             Settings.ViewportAspectRatioSetting.OnValueChanged.AddListener(OnAspectRatioSetting);
@@ -143,6 +147,7 @@ namespace ArcCreate.Compose.Components
             densityField.onEndEdit.RemoveListener(OnDensityField);
             openCreditsButton.onClick.RemoveListener(creditsDialog.Open);
             playbackSpeedField.onEndEdit.RemoveListener(OnPlaybackSpeedField);
+            timelineNoteSpeedField.onEndEdit.RemoveListener(OnSpeedField);
             speedField.onEndEdit.RemoveListener(OnSpeedField);
 
             Settings.ViewportAspectRatioSetting.OnValueChanged.RemoveListener(OnAspectRatioSetting);
@@ -193,8 +198,11 @@ namespace ArcCreate.Compose.Components
         {
             if (Evaluator.TryFloat(value, out float speed))
             {
-                speed = Mathf.Max(speed, 0.1f);
-                Settings.DropRate.Value = (int)System.Math.Round(speed * Constants.DropRateScalar);
+                float dropRate = Mathf.Clamp(
+                    speed * Constants.DropRateScalar,
+                    Constants.MinDropRate,
+                    Constants.MaxDropRate);
+                Settings.DropRate.Value = (int)System.Math.Round(dropRate);
             }
 
             speedField.SetTextWithoutNotify((Settings.DropRate.Value / Constants.DropRateScalar).ToString());
@@ -202,7 +210,33 @@ namespace ArcCreate.Compose.Components
 
         private void OnDropRateSetting(int value)
         {
-            speedField.SetTextWithoutNotify((value / Constants.DropRateScalar).ToString("F1"));
+            string text = (value / Constants.DropRateScalar).ToString("F1");
+            speedField.SetTextWithoutNotify(text);
+            timelineNoteSpeedField.SetTextWithoutNotify(text);
+        }
+
+        private void SetupTimelineNoteSpeedField()
+        {
+            GameObject noteSpeedObject = Instantiate(playbackSpeedField.gameObject, playbackSpeedField.transform.parent);
+            noteSpeedObject.name = "NoteSpeed";
+            noteSpeedObject.transform.SetSiblingIndex(playbackSpeedField.transform.GetSiblingIndex() + 1);
+            timelineNoteSpeedField = noteSpeedObject.GetComponent<TMP_InputField>();
+            noteSpeedObject.GetComponent<NumberInputField>().SetIncrement(0.1f);
+            I18nText label = noteSpeedObject.GetComponentInChildren<I18nText>(true);
+            label.enabled = false;
+            label.LoadComponent();
+            label.Text.text = I18n.S("Compose.UI.Timeline.Label.NoteSpeed");
+
+            SetTimelineSlot(playbackSpeedField.transform as RectTransform, 0f, 0.25f);
+            SetTimelineSlot(noteSpeedObject.transform as RectTransform, 0.25f, 0.5f);
+            SetTimelineSlot(densityField.transform as RectTransform, 0.5f, 0.75f);
+            SetTimelineSlot(groupField.transform as RectTransform, 0.75f, 1f);
+        }
+
+        private static void SetTimelineSlot(RectTransform rect, float minX, float maxX)
+        {
+            rect.anchorMin = new Vector2(minX, rect.anchorMin.y);
+            rect.anchorMax = new Vector2(maxX, rect.anchorMax.y);
         }
 
         private void OnDensityField(string value)

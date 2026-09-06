@@ -22,6 +22,11 @@ namespace ArcCreate.Compose.Components
         [SerializeField] private int debounceMs = 1000;
         private CancellationTokenSource cts = new CancellationTokenSource();
 
+        public void SetIncrement(float value)
+        {
+            increment = value;
+        }
+
         public void OnPointerEnter(PointerEventData eventData)
         {
             increaseButton.gameObject.SetActive(true);

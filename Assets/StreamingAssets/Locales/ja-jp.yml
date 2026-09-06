@@ -602,10 +602,12 @@ Compose:
         Future: Future
         Beyond: Beyond
     Timeline:
-      Label: # 翻訳しない
+      Label:
         Offset: Offset # (?) 用途不明
         TimingGroup: Group
         Density: Density
+        PlaybackSpeed: 再生速度
+        NoteSpeed: 譜面速度
     # Events editor panel
     EventsEditor:
       Label: # 翻訳しない

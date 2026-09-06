@@ -724,7 +724,8 @@ Compose:
         Offset: Offset
         TimingGroup: Group
         Density: Density
-        PlaybackSpeed: Speed
+        PlaybackSpeed: Playback
+        NoteSpeed: Note Speed
       Timestamp:
         Name: Timestamp
         DefaultMessage: Timestamp {0}
