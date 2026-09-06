@@ -5,6 +5,13 @@ using System.Linq;
 
 namespace ArcCreate.Compose.Project
 {
+    public class RecentFileHistoryEntry
+    {
+        public string DirectoryPath { get; set; }
+
+        public string ChartPath { get; set; }
+    }
+
     public static class DirectFileProjectResolver
     {
         public static string ResolveHistoryDirectory(string path)
@@ -52,6 +59,59 @@ namespace ArcCreate.Compose.Project
                 .Distinct(StringComparer.OrdinalIgnoreCase)
                 .Take(maxCount)
                 .ToArray();
+        }
+
+        public static RecentFileHistoryEntry[] NormalizeHistoryEntries(
+            IEnumerable<RecentFileHistoryEntry> entries,
+            int maxCount)
+        {
+            if (entries == null || maxCount <= 0)
+            {
+                return Array.Empty<RecentFileHistoryEntry>();
+            }
+
+            List<RecentFileHistoryEntry> normalized = new List<RecentFileHistoryEntry>();
+            foreach (RecentFileHistoryEntry entry in entries)
+            {
+                string directory = ResolveHistoryDirectory(entry?.DirectoryPath ?? entry?.ChartPath);
+                if (directory == null
+                 || normalized.Any(item => item.DirectoryPath.Equals(
+                     directory,
+                     StringComparison.OrdinalIgnoreCase)))
+                {
+                    continue;
+                }
+
+                string chartPath = NormalizeHistoryChartPath(entry?.ChartPath, directory);
+                normalized.Add(new RecentFileHistoryEntry
+                {
+                    DirectoryPath = directory,
+                    ChartPath = chartPath,
+                });
+
+                if (normalized.Count >= maxCount)
+                {
+                    break;
+                }
+            }
+
+            return normalized.ToArray();
+        }
+
+        public static string ResolveHistoryOpenPath(RecentFileHistoryEntry entry)
+        {
+            if (entry == null)
+            {
+                return null;
+            }
+
+            string directory = ResolveHistoryDirectory(entry.DirectoryPath ?? entry.ChartPath);
+            if (directory == null)
+            {
+                return null;
+            }
+
+            return NormalizeHistoryChartPath(entry.ChartPath, directory) ?? directory;
         }
 
         public static bool IsSupportedDrop(string path)
@@ -158,6 +218,38 @@ namespace ArcCreate.Compose.Project
             return Path.GetFullPath(firstPath).Equals(
                 Path.GetFullPath(secondPath),
                 StringComparison.OrdinalIgnoreCase);
+        }
+
+        private static string NormalizeHistoryChartPath(string chartPath, string directory)
+        {
+            if (string.IsNullOrWhiteSpace(chartPath))
+            {
+                return null;
+            }
+
+            try
+            {
+                string fullChartPath = Path.IsPathRooted(chartPath)
+                    ? Path.GetFullPath(chartPath)
+                    : Path.GetFullPath(Path.Combine(directory, chartPath));
+                return File.Exists(fullChartPath)
+                    && Path.GetExtension(fullChartPath).Equals(".aff", StringComparison.OrdinalIgnoreCase)
+                    && Path.GetDirectoryName(fullChartPath).Equals(directory, StringComparison.OrdinalIgnoreCase)
+                        ? fullChartPath
+                        : null;
+            }
+            catch (ArgumentException)
+            {
+                return null;
+            }
+            catch (NotSupportedException)
+            {
+                return null;
+            }
+            catch (PathTooLongException)
+            {
+                return null;
+            }
         }
     }
 }

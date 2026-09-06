@@ -163,6 +163,38 @@ namespace Tests.Unit
                 Is.EqualTo(new[] { directory }));
         }
 
+        [Test]
+        public void NormalizeHistoryEntries_PreservesLastOpenedChart()
+        {
+            string chart = CreateFile("2.aff");
+
+            RecentFileHistoryEntry[] result = DirectFileProjectResolver.NormalizeHistoryEntries(
+                new[]
+                {
+                    new RecentFileHistoryEntry { DirectoryPath = directory, ChartPath = chart },
+                },
+                10);
+
+            Assert.That(result, Has.Length.EqualTo(1));
+            Assert.That(result[0].DirectoryPath, Is.EqualTo(directory));
+            Assert.That(result[0].ChartPath, Is.EqualTo(chart));
+            Assert.That(DirectFileProjectResolver.ResolveHistoryOpenPath(result[0]), Is.EqualTo(chart));
+        }
+
+        [Test]
+        public void ResolveHistoryOpenPath_FallsBackToDirectoryWhenRememberedChartWasDeleted()
+        {
+            string chart = CreateFile("2.aff");
+            RecentFileHistoryEntry entry = new RecentFileHistoryEntry
+            {
+                DirectoryPath = directory,
+                ChartPath = chart,
+            };
+            File.Delete(chart);
+
+            Assert.That(DirectFileProjectResolver.ResolveHistoryOpenPath(entry), Is.EqualTo(directory));
+        }
+
         private string CreateFile(string name)
         {
             string path = Path.Combine(directory, name);

@@ -24,7 +24,8 @@ namespace ArcCreate.Compose.Project
     [EditorScope("Project")]
     public class ProjectService : MonoBehaviour, IProjectService
     {
-        private const string RecentDirectoriesPlayerPrefKey = "Startup.RecentProjects";
+        private const string RecentEntriesPlayerPrefKey = "Compose.RecentFiles";
+        private const string LegacyRecentDirectoriesPlayerPrefKey = "Startup.RecentProjects";
         private const int MaxRecentDirectoryCount = 10;
         [SerializeField] private GameplayData gameplayData;
         [SerializeField] private Button newProjectButton;
@@ -153,6 +154,7 @@ namespace ArcCreate.Compose.Project
             currentChartPath.text = CurrentChart.ChartPath;
 
             LoadChart(CurrentChart);
+            RecordCurrentDirectChart();
             Debug.Log(
                 I18n.S("Compose.Notify.Project.CreateChart", new Dictionary<string, object>()
                 {
@@ -188,6 +190,7 @@ namespace ArcCreate.Compose.Project
             }
 
             LoadChart(CurrentChart, usesSameAudio, !usesSameAudio);
+            RecordCurrentDirectChart();
         }
 
         public void RemoveChart(ChartSettings chart)
@@ -296,7 +299,7 @@ namespace ArcCreate.Compose.Project
             currentChartPath.text = CurrentChart.ChartPath;
             LoadChart(CurrentChart);
             OnProjectLoad?.Invoke(CurrentProject);
-            RecordRecentDirectory(path);
+            RecordRecentSelection(path);
             if (rememberPath)
             {
                 PlayerPrefs.SetString("LastProjectPath", path);
@@ -602,21 +605,22 @@ namespace ArcCreate.Compose.Project
 
         private void ShowRecentDirectories()
         {
-            List<string> directories = LoadRecentDirectories();
-            if (directories.Count == 0)
+            List<RecentFileHistoryEntry> entries = LoadRecentEntries();
+            if (entries.Count == 0)
             {
                 Services.Popups.Notify(Popups.Severity.Info, "読み込み履歴はまだありません。");
                 return;
             }
 
             List<ButtonSetting> buttons = new List<ButtonSetting>();
-            foreach (string directory in directories)
+            foreach (RecentFileHistoryEntry entry in entries)
             {
-                string selectedDirectory = directory;
+                string selectedDirectory = entry.DirectoryPath;
+                string selectedPath = DirectFileProjectResolver.ResolveHistoryOpenPath(entry);
                 buttons.Add(new ButtonSetting
                 {
                     Text = selectedDirectory,
-                    Callback = () => OpenDirectFile(selectedDirectory),
+                    Callback = () => OpenDirectFile(selectedPath),
                     ButtonColor = ButtonColor.Default,
                 });
             }
@@ -634,7 +638,15 @@ namespace ArcCreate.Compose.Project
                 buttons.ToArray());
         }
 
-        private void RecordRecentDirectory(string sourcePath)
+        private void RecordCurrentDirectChart()
+        {
+            if (isDirectFileProject && CurrentProject != null)
+            {
+                RecordRecentSelection(CurrentProject.Path);
+            }
+        }
+
+        private void RecordRecentSelection(string sourcePath)
         {
             string directory = DirectFileProjectResolver.ResolveHistoryDirectory(sourcePath);
             if (directory == null)
@@ -642,42 +654,82 @@ namespace ArcCreate.Compose.Project
                 return;
             }
 
-            List<string> directories = LoadRecentDirectories();
-            directories.RemoveAll(path => path.Equals(directory, StringComparison.OrdinalIgnoreCase));
-            directories.Insert(0, directory);
-            SaveRecentDirectories(directories.Take(MaxRecentDirectoryCount));
+            string chartPath = null;
+            if (isDirectFileProject && CurrentChart != null)
+            {
+                string candidate = Path.Combine(directory, CurrentChart.ChartPath);
+                if (File.Exists(candidate))
+                {
+                    chartPath = Path.GetFullPath(candidate);
+                }
+            }
+
+            List<RecentFileHistoryEntry> entries = LoadRecentEntries();
+            entries.RemoveAll(entry => entry.DirectoryPath.Equals(directory, StringComparison.OrdinalIgnoreCase));
+            entries.Insert(0, new RecentFileHistoryEntry
+            {
+                DirectoryPath = directory,
+                ChartPath = chartPath,
+            });
+            SaveRecentEntries(entries.Take(MaxRecentDirectoryCount));
         }
 
-        private List<string> LoadRecentDirectories()
+        private List<RecentFileHistoryEntry> LoadRecentEntries()
         {
-            string serialized = PlayerPrefs.GetString(RecentDirectoriesPlayerPrefKey, string.Empty);
+            string serialized = PlayerPrefs.GetString(RecentEntriesPlayerPrefKey, string.Empty);
             if (string.IsNullOrEmpty(serialized))
             {
-                return new List<string>();
+                return MigrateLegacyRecentDirectories();
+            }
+
+            try
+            {
+                List<RecentFileHistoryEntry> storedEntries =
+                    JsonConvert.DeserializeObject<List<RecentFileHistoryEntry>>(serialized);
+                List<RecentFileHistoryEntry> entries = DirectFileProjectResolver
+                    .NormalizeHistoryEntries(storedEntries, MaxRecentDirectoryCount)
+                    .ToList();
+                SaveRecentEntries(entries);
+                return entries;
+            }
+            catch (JsonException exception)
+            {
+                Debug.LogWarning($"読み込み履歴を復元できなかったため初期化します。\n{exception.Message}");
+                PlayerPrefs.DeleteKey(RecentEntriesPlayerPrefKey);
+                return MigrateLegacyRecentDirectories();
+            }
+        }
+
+        private List<RecentFileHistoryEntry> MigrateLegacyRecentDirectories()
+        {
+            string serialized = PlayerPrefs.GetString(LegacyRecentDirectoriesPlayerPrefKey, string.Empty);
+            if (string.IsNullOrEmpty(serialized))
+            {
+                return new List<RecentFileHistoryEntry>();
             }
 
             try
             {
                 List<string> storedPaths = JsonConvert.DeserializeObject<List<string>>(serialized);
-                List<string> directories = DirectFileProjectResolver
+                List<RecentFileHistoryEntry> entries = DirectFileProjectResolver
                     .NormalizeHistoryDirectories(storedPaths, MaxRecentDirectoryCount)
+                    .Select(directory => new RecentFileHistoryEntry { DirectoryPath = directory })
                     .ToList();
-                SaveRecentDirectories(directories);
-                return directories;
+                SaveRecentEntries(entries);
+                return entries;
             }
             catch (JsonException exception)
             {
-                Debug.LogWarning($"読み込み履歴を復元できなかったため初期化します。\n{exception.Message}");
-                PlayerPrefs.DeleteKey(RecentDirectoriesPlayerPrefKey);
-                return new List<string>();
+                Debug.LogWarning($"従来の読み込み履歴を移行できませんでした。\n{exception.Message}");
+                return new List<RecentFileHistoryEntry>();
             }
         }
 
-        private static void SaveRecentDirectories(IEnumerable<string> directories)
+        private static void SaveRecentEntries(IEnumerable<RecentFileHistoryEntry> entries)
         {
             PlayerPrefs.SetString(
-                RecentDirectoriesPlayerPrefKey,
-                JsonConvert.SerializeObject(directories));
+                RecentEntriesPlayerPrefKey,
+                JsonConvert.SerializeObject(entries));
         }
 
         private void Awake()
