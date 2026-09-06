@@ -29,6 +29,29 @@ ArcCreate is available on Windows, MacOS, Linux, Android and iOS.
 
 This fork is developed and tested with Unity 6000.3.20f1 (Unity 6.3 LTS). You can download the exact version from the [official Download Archive here](https://unity.com/releases/editor/archive).
 
+### 外部スキン（Windows版）
+
+外部スキンの基準フォルダは、`ArcCreateNext.exe`と同じ場所にある`Skin`です。画像は`.jpg`または`.png`を使用でき、両方ある場合は`.jpg`が優先されます。ファイル名は次の名前に合わせ、変更後はアプリを再起動してください。
+
+| 用途 | `Skin`からの相対パス |
+| --- | --- |
+| Light標準背景 | `DefaultBackgrounds/BaseLight.jpg` |
+| Conflict標準背景 | `DefaultBackgrounds/BaseConflict.jpg` |
+| Colorless標準背景 | `DefaultBackgrounds/Epilogue.jpg` |
+| Touchノート | `Note/Touch/TapNoteLight.png`、`HoldNoteLight.png`、`TapNoteConflict.png`、`HoldNoteConflict.png`、`ArcCap.png`、`ArcTapLight.png`、`ArcTapConflict.png` |
+| 通常タップの判定パーティクル | `Particles/TapLight.png`、`TapConflict.png`、`TapColorless.png`、`TapMiraiLight.png`、`TapMiraiConflict.png` |
+| SFXノートの判定パーティクル | `Particles/TapSfx.png` |
+| アークのパーティクル | `Particles/ArcParticle.png` |
+| 判定文字 | `Particles/TextPerfect.png`、`TextGood.png`、`TextMiss.png` |
+
+曲固有の背景は外部スキンではありません。曲フォルダ側の`bg.jpg`などを譜面の背景として指定します。
+
+現在の制限事項：
+
+- `Particles/HoldParticle.png`は既存実装に読み込み呼出しの欠落があるため、配置しても反映されません。
+- `Particles/ClassicArcParticle.png`、`Grid.png`、`GridMask.png`は外部スキン読込へ接続されていないため、配置しても反映されません。
+- `Build/ArcCreateNext/Skin`以下の個人用素材はGit管理外です。Windowsビルド時にはフォルダ全体を退避・検証・復元します。
+
 # Project status
 
 ### Gameplay
