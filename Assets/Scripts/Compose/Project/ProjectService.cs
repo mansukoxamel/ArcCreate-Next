@@ -441,6 +441,16 @@ namespace ArcCreate.Compose.Project
             string droppedJacketPath)
         {
             string directory = Path.GetDirectoryName(selectedChartPath);
+            SonglistLookupResult songlist = SonglistResolver.Lookup(directory);
+            if (songlist.Status == SonglistLookupStatus.DuplicateId)
+            {
+                Services.Popups.Notify(Popups.Severity.Warning, songlist.Error);
+            }
+            else if (songlist.Status == SonglistLookupStatus.Invalid)
+            {
+                Services.Popups.Notify(Popups.Severity.Error, songlist.Error);
+            }
+
             List<string> chartPaths = Directory.GetFiles(directory, "*.aff")
                 .OrderBy(chart => Path.GetFileName(chart), StringComparer.OrdinalIgnoreCase)
                 .ToList();
@@ -474,6 +484,11 @@ namespace ArcCreate.Compose.Project
                     BaseBpm = float.Parse(Values.DefaultBpm),
                 };
                 AutofillChart(chart);
+                if (songlist.Status == SonglistLookupStatus.Found)
+                {
+                    SonglistResolver.ApplyMetadata(chart, songlist.Song);
+                }
+
                 charts.Add(chart);
             }
 
