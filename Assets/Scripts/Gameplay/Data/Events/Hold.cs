@@ -194,7 +194,7 @@ namespace ArcCreate.Gameplay.Data
             }
 
             alpha *= Values.MaxHoldAlpha;
-            Color color = groupProperties.Color;
+            Color color = ApplyMissTint(groupProperties.Color);
             color.a *= alpha;
 
             Services.Render.DrawHold(texture, matrix, color, IsSelected, 0, highlight);

@@ -210,7 +210,7 @@ namespace ArcCreate.Gameplay.Data
                 alpha *= Values.MaxArcAlpha;
             }
 
-            Color color = groupProperties.Color;
+            Color color = ApplyMissTint(groupProperties.Color);
             color.a *= Mathf.Min(alpha, arcGroupAlpha);
             float baseAlpha = color.a;
 

@@ -122,7 +122,7 @@ namespace ArcCreate.Gameplay.Data
             Matrix4x4 matrix = groupProperties.GroupMatrix * Matrix4x4.TRS(pos, rot, scl);
 
             float alpha = ArcFormula.CalculateShortNoteAlpha(z) * Values.MaxArcTapAlpha;
-            Color color = groupProperties.Color;
+            Color color = ApplyMissTint(groupProperties.Color);
             color.a *= alpha;
 
             Services.Render.DrawArcTap(isSfx, texture, matrix, color, IsSelected);

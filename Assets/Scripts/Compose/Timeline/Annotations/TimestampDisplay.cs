@@ -183,6 +183,7 @@ namespace ArcCreate.Compose.Timeline
         private void Awake()
         {
             pool = Pools.New<TimestampMarker>(Values.TimestampPoolName, timestampPrefab, timestampParent, timestampCapacity);
+            MissLog.MissLogOverlay.Attach(timestampParent);
             gameplayData.OnChartFileLoad += OnChartChange;
 
             jumpToNext.onClick.AddListener(JumpToNext);
@@ -226,6 +227,7 @@ namespace ArcCreate.Compose.Timeline
 
         private void OnChartChange()
         {
+            MissLog.MissLogOverlay.Clear();
             Rebuild();
         }
     }

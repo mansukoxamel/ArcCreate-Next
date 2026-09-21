@@ -17,6 +17,9 @@ namespace ArcCreate.Compose.MissLog
         /// </summary>
         public const int LeadMilliseconds = 1000;
 
+        private static readonly Color LostTint = new Color(1f, 0.1f, 0.1f);
+        private static readonly Color FarTint = new Color(1f, 0.85f, 0f);
+        private static readonly System.Collections.Generic.List<Note> markedNotes = new System.Collections.Generic.List<Note>();
         private static readonly string[] DifficultyNames = { "PAST", "PRESENT", "FUTURE", "BEYOND", "ETERNAL" };
 
         /// <summary>
@@ -70,7 +73,9 @@ namespace ArcCreate.Compose.MissLog
 
             File = file;
             Result = result;
+            MarkMissedNotes(result);
             Services.Selection.SetSelection(result.AllNotes);
+            MissLogOverlay.Show(result);
             Debug.Log($"ミス記録: {file.Records.Count}行、ミスしたノーツ{result.Missed.Count}本、譜面に見つからない行{result.Unmatched.Count}件、選択したノーツ{Services.Selection.SelectedNotes.Count}本");
 
             string warning = DescribeMismatch(file);
@@ -123,6 +128,28 @@ namespace ArcCreate.Compose.MissLog
             return $"{minutes:00}:{seconds:00}.{milliseconds % 1000:000}";
         }
 
+        // The missed notes are drawn in a colour of their own on the main screen: red for a note with a LOST,
+        // yellow for a note that was only FAR. The marks of an earlier miss log are removed first.
+        private static void MarkMissedNotes(MissMatchResult result)
+        {
+            foreach (Note note in markedNotes)
+            {
+                note.HasMissTint = false;
+            }
+
+            markedNotes.Clear();
+            foreach (MissedNote missed in result.Missed)
+            {
+                Color tint = missed.Records.Any(r => r.Kind == MissKind.Lost) ? LostTint : FarTint;
+                foreach (Note note in missed.Notes)
+                {
+                    note.MissTint = tint;
+                    note.HasMissTint = true;
+                    markedNotes.Add(note);
+                }
+            }
+        }
+
         private static string Describe(MissedNote missed)
         {
             MissRecord first = missed.Records[0];
@@ -138,7 +165,7 @@ namespace ArcCreate.Compose.MissLog
             string text = $"ミス記録を読み込みました: {file.Title} {file.Difficulty}\n"
                 + $"{file.Date}  速度 {file.Speed}\n"
                 + $"ミス {file.Records.Count}行 → ノーツ {result.AllNotes.Count()}本を選択"
-                + "（次のミス: Alt+N、前のミス: Alt+P）";
+                + "（赤=LOST、黄=FAR。次のミス: Alt+N、前のミス: Alt+P）";
             if (result.Unmatched.Count > 0)
             {
                 text += $"\n譜面に見つからなかった行: {result.Unmatched.Count}件（例: {result.Unmatched[0].LineNumber}行目、{FormatTime(result.Unmatched[0].NoteMs)}）";

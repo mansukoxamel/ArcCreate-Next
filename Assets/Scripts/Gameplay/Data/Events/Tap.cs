@@ -107,7 +107,7 @@ namespace ArcCreate.Gameplay.Data
             Matrix4x4 matrix = groupProperties.GroupMatrix * Matrix4x4.TRS(pos, rot, scl);
 
             float alpha = ArcFormula.CalculateShortNoteAlpha(z);
-            Color color = groupProperties.Color;
+            Color color = ApplyMissTint(groupProperties.Color);
             Color connectionColor = color * connectionLineColor;
             color.a *= alpha;
             connectionColor.a *= alpha;
