@@ -399,6 +399,10 @@ Compose:
       Delete:
         Name: Delete
         Execute: Delete
+      MissLog:
+        Name: Miss log
+        Next: Go to the next miss
+        Previous: Go to the previous miss
       Mirror:
         Name: Mirror
         Horizontal: Mirror horizontally

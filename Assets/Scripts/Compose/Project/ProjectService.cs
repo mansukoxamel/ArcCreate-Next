@@ -269,7 +269,27 @@ namespace ArcCreate.Compose.Project
 
         public void OpenDirectFile(string path)
         {
+            // Xynapseのミス記録（miss_*.txt）は、譜面を開き直さず、開いている譜面に重ねて選択する
+            if (IsMissLogFile(path))
+            {
+                MissLog.MissLogSession.Load(path);
+                return;
+            }
+
             OpenUnsavedChangesDialog(() => OpenDirectFileImmediately(path));
+        }
+
+        private static bool IsMissLogFile(string path)
+        {
+            if (!File.Exists(path) || !Path.GetExtension(path).Equals(".txt", StringComparison.OrdinalIgnoreCase))
+            {
+                return false;
+            }
+
+            using (StreamReader reader = new StreamReader(path, System.Text.Encoding.UTF8, true))
+            {
+                return MissLog.MissLogParser.IsMissLog(reader.ReadLine());
+            }
         }
 
         private void OpenProject(ProjectSettings project, string path, bool rememberPath)
@@ -336,7 +356,7 @@ namespace ArcCreate.Compose.Project
             path = Path.GetFullPath(path);
             if (!DirectFileProjectResolver.IsSupportedDrop(path))
             {
-                Services.Popups.Notify(Popups.Severity.Error, "AFF、OGG、JPG、または曲フォルダをドロップしてください。");
+                Services.Popups.Notify(Popups.Severity.Error, "AFF、OGG、JPG、曲フォルダ、またはXynapseのミス記録（miss_*.txt）をドロップしてください。");
                 return;
             }
 

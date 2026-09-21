@@ -319,6 +319,10 @@ Compose:
       Delete:
         Name: 削除
         Execute: ノーツを削除
+      MissLog:
+        Name: ミス記録
+        Next: 次のミスへ
+        Previous: 前のミスへ
       Mirror:
         Name: ミラー
         Horizontal: 左右を反転
