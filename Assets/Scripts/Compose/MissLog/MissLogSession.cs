@@ -36,6 +36,7 @@ namespace ArcCreate.Compose.MissLog
         /// <param name="path">The path of the dropped miss log file.</param>
         public static void Load(string path)
         {
+            Debug.Log($"ミス記録を読み込みます: \"{path}\"（譜面の読み込み済み: {Services.Gameplay?.IsLoaded ?? false}）");
             if (!(Services.Gameplay?.IsLoaded ?? false))
             {
                 Services.Popups.Notify(
@@ -70,6 +71,7 @@ namespace ArcCreate.Compose.MissLog
             File = file;
             Result = result;
             Services.Selection.SetSelection(result.AllNotes);
+            Debug.Log($"ミス記録: {file.Records.Count}行、ミスしたノーツ{result.Missed.Count}本、譜面に見つからない行{result.Unmatched.Count}件、選択したノーツ{Services.Selection.SelectedNotes.Count}本");
 
             string warning = DescribeMismatch(file);
             Services.Popups.Notify(
