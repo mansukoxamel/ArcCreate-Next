@@ -40,14 +40,6 @@ namespace ArcCreate.Compose.MissLog
         public static void Load(string path)
         {
             Debug.Log($"ミス記録を読み込みます: \"{path}\"（譜面の読み込み済み: {Services.Gameplay?.IsLoaded ?? false}）");
-            if (!(Services.Gameplay?.IsLoaded ?? false))
-            {
-                Services.Popups.Notify(
-                    Popups.Severity.Error,
-                    "先に、ミスした譜面（AFF）を開いてください。\nミス記録は、開いている譜面の上に重ねて表示します。");
-                return;
-            }
-
             MissLogFile file;
             try
             {
@@ -61,6 +53,57 @@ namespace ArcCreate.Compose.MissLog
             catch (IOException error)
             {
                 Services.Popups.Notify(Popups.Severity.Error, $"ミス記録を開けません。\n{path}\n{error.Message}");
+                return;
+            }
+
+            bool loaded = Services.Gameplay?.IsLoaded ?? false;
+            if (loaded && DescribeMismatch(file).Length == 0)
+            {
+                Apply(file);
+                return;
+            }
+
+            // The open chart is not the one of the log: open the chart of the log from the song folder.
+            string chartPath = FindChartOfLog(file);
+            if (chartPath != null)
+            {
+                Services.Project.OpenChartThen(chartPath, () => Apply(file));
+                return;
+            }
+
+            if (!loaded)
+            {
+                Services.Popups.Notify(
+                    Popups.Severity.Error,
+                    $"ミス記録の譜面（{file.SongId} {file.Difficulty}）が見つかりません。\n"
+                    + (string.IsNullOrEmpty(Settings.SongFolderRoot.Value)
+                        ? "曲フォルダの場所が分かりません。曲フォルダの中のAFFを一度開くと、その場所を覚えます。"
+                        : $"曲フォルダ: {Settings.SongFolderRoot.Value}"));
+                return;
+            }
+
+            Apply(file);
+        }
+
+        // <songs root>/<song id>/<difficulty index>.aff, where the root is the folder the last chart was opened from.
+        private static string FindChartOfLog(MissLogFile file)
+        {
+            string root = Settings.SongFolderRoot.Value;
+            int index = Array.IndexOf(DifficultyNames, file.Difficulty.Split(' ')[0]);
+            if (string.IsNullOrEmpty(root) || string.IsNullOrEmpty(file.SongId) || index < 0)
+            {
+                return null;
+            }
+
+            string chartPath = Path.Combine(root, file.SongId, $"{index}.aff");
+            return System.IO.File.Exists(chartPath) ? chartPath : null;
+        }
+
+        private static void Apply(MissLogFile file)
+        {
+            if (!(Services.Gameplay?.IsLoaded ?? false))
+            {
+                Services.Popups.Notify(Popups.Severity.Error, "譜面が読み込まれていないため、ミス記録を重ねられません。");
                 return;
             }
 

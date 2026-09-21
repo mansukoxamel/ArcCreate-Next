@@ -279,6 +279,15 @@ namespace ArcCreate.Compose.Project
             OpenUnsavedChangesDialog(() => OpenDirectFileImmediately(path));
         }
 
+        public void OpenChartThen(string chartPath, Action onOpened)
+        {
+            OpenUnsavedChangesDialog(() =>
+            {
+                OpenDirectFileImmediately(chartPath);
+                onOpened?.Invoke();
+            });
+        }
+
         private static bool IsMissLogFile(string path)
         {
             if (!File.Exists(path) || !Path.GetExtension(path).Equals(".txt", StringComparison.OrdinalIgnoreCase))
@@ -464,6 +473,14 @@ namespace ArcCreate.Compose.Project
             string droppedJacketPath)
         {
             string directory = Path.GetDirectoryName(selectedChartPath);
+
+            // <songs root>/<song id>/<n>.aff: the root is remembered, so that a miss log can find its song later
+            string songsRoot = Path.GetDirectoryName(directory);
+            if (!string.IsNullOrEmpty(songsRoot))
+            {
+                Settings.SongFolderRoot.Value = songsRoot;
+            }
+
             SonglistLookupResult songlist = SonglistResolver.Lookup(directory);
             if (songlist.Status == SonglistLookupStatus.DuplicateId)
             {

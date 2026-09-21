@@ -80,6 +80,7 @@ namespace ArcCreate.Compose.Components
         private void Awake()
         {
             SetupTimelineNoteSpeedField();
+            SetupSongFolderField();
             aspectRatioDropdown.onValueChanged.AddListener(OnAspectRatioDropdown);
             reloadHotkeysButton.onClick.AddListener(OnReloadHotkeysButton);
             openHotkeySettingsButton.onClick.AddListener(OnOpenHotkeySettingsButton);
@@ -213,6 +214,60 @@ namespace ArcCreate.Compose.Components
             string text = (value / Constants.DropRateScalar).ToString("F1");
             speedField.SetTextWithoutNotify(text);
             timelineNoteSpeedField.SetTextWithoutNotify(text);
+        }
+
+        // A text field for the folder that holds the song folders. It is made from the number field of the backup count
+        // (the same way as the note speed field of the timeline), so the scene does not need to change.
+        private void SetupSongFolderField()
+        {
+            GameObject folderObject = Instantiate(backupCountObject.gameObject, backupCountObject.transform.parent);
+            folderObject.name = "SongFolder";
+            folderObject.transform.SetSiblingIndex(backupCountObject.transform.GetSiblingIndex() + 1);
+
+            // The rows of the file section are placed by hand (each row 50 below the last one), so the copy is put under
+            // the backup count, and the section is made taller by the same amount.
+            const float RowPitch = 50f;
+            RectTransform folderRect = folderObject.transform as RectTransform;
+            folderRect.anchoredPosition += new Vector2(0f, -RowPitch);
+            RectTransform section = folderRect.parent as RectTransform;
+            section.sizeDelta += new Vector2(0f, RowPitch);
+
+            foreach (SettingsInputFieldInteger integerField in folderObject.GetComponents<SettingsInputFieldInteger>())
+            {
+                Destroy(integerField);
+            }
+
+            foreach (NumberInputField numberField in folderObject.GetComponents<NumberInputField>())
+            {
+                Destroy(numberField);
+            }
+
+            foreach (Button button in folderObject.GetComponentsInChildren<Button>(true))
+            {
+                button.gameObject.SetActive(false);
+            }
+
+            TMP_InputField input = folderObject.GetComponent<TMP_InputField>();
+            input.contentType = TMP_InputField.ContentType.Standard;
+            input.characterValidation = TMP_InputField.CharacterValidation.None;
+            input.interactable = true;
+            folderObject.AddComponent<SettingsInputFieldString>().Setup(Settings.SongFolderRoot);
+
+            // The row label is the text object "Label" of the copied field. It still says "最大数" (the backup count),
+            // so it is replaced. Nothing else in the copy may keep that text.
+            Transform labelTransform = folderObject.transform.Find("Label");
+            if (labelTransform == null)
+            {
+                throw new InvalidOperationException("設定の行の複製に、Labelがありません。バックアップ数の欄の構造が変わっています。");
+            }
+
+            I18nText labelI18n = labelTransform.GetComponent<I18nText>();
+            if (labelI18n != null)
+            {
+                labelI18n.enabled = false;
+            }
+
+            labelTransform.GetComponent<TMP_Text>().text = I18n.S("Compose.UI.Settings.Label.Files.SongFolder");
         }
 
         private void SetupTimelineNoteSpeedField()

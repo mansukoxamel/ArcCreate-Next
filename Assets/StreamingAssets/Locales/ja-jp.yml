@@ -704,6 +704,7 @@ Compose:
           BackupCount: 最大数
           Autosave: 自動保存
           AutosaveInterval: 間隔(秒)
+          SongFolder: 曲フォルダ
         ScrollSensitivity:
           Name: スクロール感度
           Vertical: 垂直

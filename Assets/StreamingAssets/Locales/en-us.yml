@@ -859,6 +859,7 @@ Compose:
           BackupCount: Backups count
           Autosave: Enable autosaving
           AutosaveInterval: Autosave interval (seconds)
+          SongFolder: Song folder
         ScrollSensitivity:
           Name: Scroll sensitivity
           Vertical: Vertical

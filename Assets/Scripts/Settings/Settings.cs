@@ -83,6 +83,11 @@ namespace ArcCreate
         public static readonly BoolSetting EnableEasterEggs = new BoolSetting("Fun.EasterEggs", Application.isEditor);
         public static readonly BoolSetting UseNativeFileBrowser = new BoolSetting("Editor.UseNativeFileBrowser", false);
 
+        /// <summary>
+        /// The folder that holds the song folders (one folder per song id). It is remembered whenever a chart is opened from such a folder.
+        /// </summary>
+        public static readonly StringSetting SongFolderRoot = new StringSetting("Editor.SongFolderRoot", string.Empty);
+
         public static readonly BoolSetting EnableKeybindHintDisplay = new BoolSetting("Editor.Navigation.KeybindHint", true);
         public static readonly BoolSetting EnableArctapWidthEditing = new BoolSetting("Editor.Secret.ArctapWidth", false);
         public static readonly BoolSetting SnapFloorNoteWithGrid = new BoolSetting("Editor.Secret.SnapFloorNoteWithGrid", false);

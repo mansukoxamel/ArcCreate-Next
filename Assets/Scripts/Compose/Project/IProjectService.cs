@@ -74,5 +74,12 @@ namespace ArcCreate.Compose.Project
         /// </summary>
         /// <param name="path">Path to an AFF chart or OGG audio file.</param>
         void OpenDirectFile(string path);
+
+        /// <summary>
+        /// Open an AFF chart, then run a callback once it is loaded. The callback does not run when the user cancels.
+        /// </summary>
+        /// <param name="chartPath">Path to an AFF chart.</param>
+        /// <param name="onOpened">Called after the chart has been loaded.</param>
+        void OpenChartThen(string chartPath, System.Action onOpened);
     }
 }

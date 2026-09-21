@@ -35,6 +35,8 @@ namespace ArcCreate.Compose.Project
                 throw new InvalidOperationException("ArcCreate Next window was not available for file drop registration.");
             }
 
+            SetWindowTextW(window, $"ArcCreate Next v{UnityEngine.Application.version}");
+
             windowProcedure = ProcessWindowMessage;
             IntPtr windowProcedurePointer = Marshal.GetFunctionPointerForDelegate(windowProcedure);
             previousWindowProcedure = SetWindowLongPtr(window, WindowProcedureIndex, windowProcedurePointer);
@@ -92,6 +94,9 @@ namespace ArcCreate.Compose.Project
 
         [DllImport("user32.dll")]
         private static extern IntPtr GetActiveWindow();
+
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+        private static extern bool SetWindowTextW(IntPtr hwnd, string text);
 
         [DllImport("user32.dll", EntryPoint = "SetWindowLongPtrW", SetLastError = true)]
         private static extern IntPtr SetWindowLongPtr(IntPtr hwnd, int index, IntPtr value);
